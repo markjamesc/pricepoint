@@ -1,0 +1,27 @@
+# Raw M5 source files
+calendar.csv
+sell_prices.csv
+sales_train_validation.csv
+sales_train_evaluation.csv
+sales_train_evaluation_json.tsv
+sample_submission.csv
+
+# Local raw-data folders
+data/raw/
+data/source/
+
+# R session files
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
+
+# Secrets / local environment
+.Renviron
+.env
+*.pem
+*.key
+
+# OS/editor files
+.DS_Store
+Thumbs.db
