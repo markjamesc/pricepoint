@@ -4,7 +4,7 @@
 
 PricePoint is **Dataset 3 of 3** in a portfolio evaluation of the five-stage **AI-Augmented Analyst** methodology.
 
-The project is designed to test the same decision-first workflow on a retail pricing problem with a materially different data shape from FulfillIQ 2.0 and Chicago 311.
+The project tests the same decision-first workflow on a retail pricing problem with a materially different data shape from FulfillIQ 2.0 and Chicago 311.
 
 ## Five-stage method
 
@@ -15,6 +15,8 @@ The project is designed to test the same decision-first workflow on a retail pri
 5. **Interpretation and Recommendation**
 
 The reusable methodology is documented separately in [`ai-augmented-analyst-workflow`](https://github.com/markjamesc/ai-augmented-analyst-workflow).
+
+PricePoint also uses a separate **deterministic R workflow gate**. Stage 4 R-A/R-B validates the analysis; the workflow gate verifies that the prescribed five-stage procedure was actually followed before Stage 5 can begin.
 
 ## Current data layer
 
@@ -55,7 +57,7 @@ independent judged paths
    -----+-----
         |
         v
-EXACT RECONCILIATION
+FIXTURE GATE + EXACT RECONCILIATION
         |
         v
 STRUCTURAL CROSS-REVIEW
@@ -64,10 +66,24 @@ STRUCTURAL CROSS-REVIEW
 VALIDATED DATA FREEZE
         |
         v
-STAGE 5
+R WORKFLOW GATE
+procedural compliance
+        |
+   PASS / FAIL
+        |
+        v
+STAGE 5 only on PASS
 ```
 
-SQL is used for controlled source delivery and verification. Analytical meaning is frozen in Stage 3 and independently implemented in R-A and R-B.
+SQL is used for controlled source delivery and verification. Analytical meaning is frozen in Stage 3 and independently implemented in R-A and R-B. The separate workflow gate then checks stage locks, version continuity, required validation statuses, evidence-file existence, and decision-critical model validation when applicable.
+
+Run the workflow gate from the repository root with:
+
+```bash
+Rscript validation/workflow-gate/workflow_gate.R .
+```
+
+Stage 5 is prohibited unless `validation/workflow-gate/workflow_gate_status.json` reports `PASS` and `stage5_allowed = true`.
 
 ## PricePoint-specific guardrail
 
@@ -92,8 +108,12 @@ pricepoint/
 │   │   ├── master-orchestration-prompt.md
 │   │   └── controlling-framework-manifest.md
 │   ├── stage-01-02-start-framing/
+│   │   ├── stage1_decision.json
+│   │   └── stage2_framing.json
 │   ├── stage-03-measurement-design/
+│   │   └── stage3_locked_design.json
 │   ├── stage-04-execution-validation/
+│   │   └── stage4_validation_status.json
 │   └── stage-05-interpretation/
 ├── sql/source-delivery/
 ├── R/r-a/
@@ -102,9 +122,15 @@ pricepoint/
 ├── validation/fixtures/
 ├── validation/reconciliation/
 ├── validation/cross-review/
+├── validation/workflow-gate/
+│   ├── workflow_gate.R
+│   ├── workflow_gate_status.json
+│   └── README.md
 ├── outputs/
 └── data-documentation/
 ```
+
+The `.example.json` files are templates; actual receipts are created only after the corresponding stage gate truthfully passes.
 
 Raw M5 files are not committed to this repository.
 
@@ -112,7 +138,7 @@ Raw M5 files are not committed to this repository.
 
 **Database setup complete. Analytical stages not yet started.**
 
-The exact pricing/revenue decision and framing question must be established through Stages 1–2 rather than assumed from the dataset alone.
+The exact pricing/revenue decision and framing question must be established through Stages 1–2 rather than assumed from the dataset alone. This means the workflow-enforcement upgrade does not invalidate any completed analytical stage.
 
 ## Copyright
 
