@@ -1,0 +1,23 @@
+{
+  "stage": 3,
+  "status": "LOCKED",
+  "design_version": "stage3-v1",
+  "decision_statement": "Replace with the locked Stage 1 decision.",
+  "analytical_question": "Replace with the locked Stage 2 question.",
+  "grain": "Replace with the locked analytical grain.",
+  "population": "Replace with the locked eligible universe.",
+  "decision_horizon": "Replace with the locked decision horizon.",
+  "historical_lookback": "Replace with the locked historical lookback.",
+  "price_definition": "Replace with the locked price measure.",
+  "unit_sales_definition": "Replace with the locked unit-sales measure.",
+  "revenue_definition": "Replace with the locked revenue measure.",
+  "action_classes": ["Replace with locked action classes"],
+  "uncertainty_rule": "Replace with the locked inconclusive/uncertainty rule.",
+  "claim_strength_ceiling": "Replace with the maximum permitted claim strength.",
+  "source_delivery_contract": "Replace with the locked bounded SQL source-delivery contract.",
+  "fixture_version": "fixtures-v1",
+  "reconciliation_critical_fields": ["Replace with locked critical fields"],
+  "decision_critical_model_required": false,
+  "model_validation_plan": "If a model becomes decision-critical, define its validation requirements here; otherwise state NOT_REQUIRED.",
+  "required_outputs": ["Replace with locked Stage 4 outputs"]
+}

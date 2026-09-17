@@ -1,0 +1,27 @@
+{
+  "stage": 4,
+  "status": "PASS",
+  "design_version_used": "stage3-v1",
+  "fixture_version_used": "fixtures-v1",
+  "sql_source_gate": "PASS",
+  "r_a_fixtures": "PASS",
+  "r_b_fixtures": "PASS",
+  "r_a_status": "PASS",
+  "r_b_status": "PASS",
+  "reconciliation": "PASS",
+  "structural_cross_review": "PASS",
+  "lineage_attestation": "PASS",
+  "validated_data_freeze": "PASS",
+  "validation_gate": "PASS",
+  "unresolved_issues": 0,
+  "decision_critical_model_required": false,
+  "decision_critical_model_validation": "NOT_REQUIRED",
+  "artifact_paths": [
+    "validation/source-gate/source_gate_report.csv",
+    "validation/fixtures/r_a_fixture_results.csv",
+    "validation/fixtures/r_b_fixture_results.csv",
+    "validation/reconciliation/reconciliation.csv",
+    "validation/cross-review/cross_review.md",
+    "docs/stage-04-execution-validation/validated_data_manifest.md"
+  ]
+}
