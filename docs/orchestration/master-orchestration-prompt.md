@@ -40,7 +40,7 @@ The project still requires the owner's explicit authorization to begin and expli
 
 ## 1. Controlling files
 
-Use the current version of each controlling framework.
+Use the adopted immutable framework commit recorded in the controlling-framework manifest. The main-branch links below are navigation aids; changes require explicit adoption.
 
 ### Stages 1–2 — Start and Framing
 

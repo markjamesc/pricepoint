@@ -2,7 +2,7 @@
   "stage": 4,
   "status": "PASS",
   "design_version_used": "stage3-v1",
-  "fixture_version_used": "fixtures-v1",
+  "fixture_version_used": "example-fixtures-v1",
   "sql_source_gate": "PASS",
   "r_a_fixtures": "PASS",
   "r_b_fixtures": "PASS",
@@ -23,5 +23,32 @@
     "validation/reconciliation/reconciliation.csv",
     "validation/cross-review/cross_review.md",
     "docs/stage-04-execution-validation/validated_data_manifest.md"
-  ]
+  ],
+  "evidence_receipts": {
+    "source": {
+      "path": "evidence/source.json",
+      "sha256": "REPLACE_WITH_ACTUAL_SHA256"
+    },
+    "fixtures": {
+      "path": "evidence/fixtures.json",
+      "sha256": "REPLACE_WITH_ACTUAL_SHA256"
+    },
+    "reconciliation": {
+      "path": "evidence/reconciliation.json",
+      "sha256": "REPLACE_WITH_ACTUAL_SHA256"
+    },
+    "structural": {
+      "path": "evidence/structural.json",
+      "sha256": "REPLACE_WITH_ACTUAL_SHA256"
+    },
+    "validation": {
+      "path": "evidence/validation.json",
+      "sha256": "REPLACE_WITH_ACTUAL_SHA256"
+    },
+    "lineage": {
+      "path": "evidence/lineage.json",
+      "sha256": "REPLACE_WITH_ACTUAL_SHA256"
+    }
+  },
+  "_template_note": "Example only; actual owner-approved stage receipts and hashed evidence are required."
 }

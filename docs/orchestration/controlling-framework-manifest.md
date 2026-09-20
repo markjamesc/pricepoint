@@ -2,7 +2,7 @@
 
 This file records the controlling reusable framework documents and the project-local deterministic workflow gate for the PricePoint run.
 
-If conversational memory conflicts with the current framework files, the framework files control.
+If conversational memory conflicts with the adopted framework files, the adopted files control.
 
 | Stage / control | Framework | Repository path | Purpose |
 |---|---|---|---|
@@ -45,3 +45,11 @@ A verbal AI statement that the process was followed is not a substitute for this
 ## Versioning rule
 
 At formal run start, record the commit/blob/retrieval version for every controlling reusable framework and the project-local master prompt/gate. If a controlling component changes materially during the project, document the change and determine whether any previously passed gate must be reopened.
+
+## Prospective adoption — September 20, 2026
+
+Adopted reusable framework commit: `61b739a1a20de5f1332c138d548bd696e40844f0`.
+
+[Immutable framework snapshot](https://github.com/markjamesc/ai-augmented-analyst-workflow/tree/61b739a1a20de5f1332c138d548bd696e40844f0). Use that snapshot for the paths above; the main-branch URLs are navigation links, not permission to change a locked run.
+
+The local prompt, examples and gate implement explicit capacity stance and ML mode plus the [v2 receipt contract](../../validation/workflow-gate/CONTRACT_V2.md). This is setup adoption only: no analytical stage has started or passed. At formal run start, record the exact project commit containing the local prompt and gate alongside this framework commit.

@@ -108,12 +108,12 @@ pricepoint/
 │   │   ├── master-orchestration-prompt.md
 │   │   └── controlling-framework-manifest.md
 │   ├── stage-01-02-start-framing/
-│   │   ├── stage1_decision.json
-│   │   └── stage2_framing.json
+│   │   ├── stage1_decision.example.json
+│   │   └── stage2_framing.example.json
 │   ├── stage-03-measurement-design/
-│   │   └── stage3_locked_design.json
+│   │   └── stage3_locked_design.example.json
 │   ├── stage-04-execution-validation/
-│   │   └── stage4_validation_status.json
+│   │   └── stage4_validation_status.example.json
 │   └── stage-05-interpretation/
 ├── sql/source-delivery/
 ├── R/r-a/
@@ -124,7 +124,6 @@ pricepoint/
 ├── validation/cross-review/
 ├── validation/workflow-gate/
 │   ├── workflow_gate.R
-│   ├── workflow_gate_status.json
 │   └── README.md
 ├── outputs/
 └── data-documentation/
