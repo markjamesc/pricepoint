@@ -26,6 +26,18 @@ A verbal statement by Grok Bot or another AI that the procedure was followed is 
 
 ---
 
+## Prospective adoption — September 20, 2026
+
+These requirements apply before the first analytical run; no stage approval is implied:
+
+1. Before Framing Gate Pass, explicitly lock `capacity_stance = unordered_ok | hard_attention_budget`. A budgeted list requires a locked ranking key, tie-break, capacity unit, membership-first/no-padding and N or explicit owner deferral.
+2. Before Design Gate Pass, explicitly lock `ml_mode = None | A | B`. Missing, blank, inferred or TBD modes fail. Mode A is a judged predictive contract; Mode B is diagnostic and must not change actions or supply an unlocked ranking.
+3. Preserve independent judged R-A/R-B implementations; no shared judged helper, model, recipe, scored table or outcome-deciding parse. Mechanical delivery and an equality comparator may be shared.
+4. Fixtures, Source Gate, exact reconciliation, structural review, Validation Gate and workflow gate are mandatory. A failed tier requires repair and rerun; narration cannot waive it.
+5. Use the executable [prospective receipt schema](../../validation/workflow-gate/CONTRACT_V2.md): actual hashed evidence, lineage and scorecards are required before Stage 5.
+
+The project still requires the owner's explicit authorization to begin and explicit stage approvals. The framework manifest records the adopted version; do not silently follow later changes to main.
+
 ## 1. Controlling files
 
 Use the current version of each controlling framework.

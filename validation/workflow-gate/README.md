@@ -1,5 +1,7 @@
 # PricePoint deterministic workflow gate
 
+**Prospective executable contract v2:** explicit capacity/ML modes, SHA-256 receipt verification, fixture and reconciliation scorecards, and lineage contents are now required. Install both `jsonlite` and `digest`. See [the schema and evidence boundary](CONTRACT_V2.md). Historical frozen project gates retain their original contract.
+
 This directory contains the cross-stage R enforcement layer for the PricePoint five-stage workflow.
 
 The gate is deliberately separate from Stage 4 analytical validation.

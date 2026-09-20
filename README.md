@@ -134,6 +134,10 @@ The `.example.json` files are templates; actual receipts are created only after 
 
 Raw M5 files are not committed to this repository.
 
+## Prospective workflow update
+
+The project prompt, receipt templates and R gate now require explicit capacity and ML-mode declarations plus hashed evidence receipts. See [executable contract v2](validation/workflow-gate/CONTRACT_V2.md). This setup change does not begin the analytical run or approve a stage.
+
 ## Status
 
 **Database setup complete. Analytical stages not yet started.**

@@ -11,13 +11,24 @@
   "price_definition": "Replace with the locked price measure.",
   "unit_sales_definition": "Replace with the locked unit-sales measure.",
   "revenue_definition": "Replace with the locked revenue measure.",
-  "action_classes": ["Replace with locked action classes"],
+  "action_classes": [
+    "Replace with locked action classes"
+  ],
   "uncertainty_rule": "Replace with the locked inconclusive/uncertainty rule.",
   "claim_strength_ceiling": "Replace with the maximum permitted claim strength.",
   "source_delivery_contract": "Replace with the locked bounded SQL source-delivery contract.",
-  "fixture_version": "fixtures-v1",
-  "reconciliation_critical_fields": ["Replace with locked critical fields"],
+  "fixture_version": "example-fixtures-v1",
+  "reconciliation_critical_fields": [
+    "REPLACE_WITH_LOCKED_FIELD"
+  ],
   "decision_critical_model_required": false,
   "model_validation_plan": "If a model becomes decision-critical, define its validation requirements here; otherwise state NOT_REQUIRED.",
-  "required_outputs": ["Replace with locked Stage 4 outputs"]
+  "required_outputs": [
+    "Replace with locked Stage 4 outputs"
+  ],
+  "ml_mode": "None",
+  "fixture_ids": [
+    "REPLACE_WITH_LOCKED_FIXTURE_ID"
+  ],
+  "_template_note": "Example only; owner must explicitly lock mode and replace placeholders before use."
 }
