@@ -48,8 +48,20 @@ At formal run start, record the commit/blob/retrieval version for every controll
 
 ## Prospective adoption — September 20, 2026
 
-Adopted reusable framework commit: `61b739a1a20de5f1332c138d548bd696e40844f0`.
+Previously adopted reusable framework commit: `61b739a1a20de5f1332c138d548bd696e40844f0` (superseded prospectively by the adoption below).
 
-[Immutable framework snapshot](https://github.com/markjamesc/ai-augmented-analyst-workflow/tree/61b739a1a20de5f1332c138d548bd696e40844f0). Use that snapshot for the paths above; the main-branch URLs are navigation links, not permission to change a locked run.
+[Previous immutable framework snapshot](https://github.com/markjamesc/ai-augmented-analyst-workflow/tree/61b739a1a20de5f1332c138d548bd696e40844f0), retained as adoption history. The current adoption below controls the prospective run; main-branch URLs remain navigation links, not permission to change a locked run.
 
 The local prompt, examples and gate implement explicit capacity stance and ML mode plus the [v2 receipt contract](../../validation/workflow-gate/CONTRACT_V2.md). This is setup adoption only: no analytical stage has started or passed. At formal run start, record the exact project commit containing the local prompt and gate alongside this framework commit.
+
+## Current adoption — GrokBot R checkpoint template
+
+Adopted reusable workflow and Master Prompt commit: `c8ed0d91592bf2eeba6b7b0b40d40d5d23a5f40b`.
+
+[Immutable workflow snapshot](https://github.com/markjamesc/ai-augmented-analyst-workflow/tree/c8ed0d91592bf2eeba6b7b0b40d40d5d23a5f40b).
+
+Use this commit for all reusable framework paths above, `docs/MASTER_PROMPT.md`, `procedure-gate/procedure_gate.R`, `procedure-gate/procedure.json`, and `workflow-gate/workflow_gate.R`. The PricePoint-specific prompt is [master-orchestration-prompt.md](master-orchestration-prompt.md), with executable checkpoints in section 17.
+
+The project-local Workflow Gate remains unchanged and mandatory. Execution completion first checks it, then the canonical Procedure Gate invokes the canonical Workflow Gate. Stage 5 requires both releases. Preserve the separate local report at `validation/workflow-gate/workflow_gate_status.json` and canonical report at `artifacts/workflow_gate_status.json`.
+
+Stages 1–4 use byte-identical receipt copies in the existing documented folders and `artifacts/`; section 17 defines the mapping and conflict checks. The canonical templates supplement the local receipt fields. After Finish, the outer gate must write `artifacts/final_certificate.json` with PASS and certified true. Record the PricePoint commit containing this prompt at run start. This setup update does not authorize starting the analysis or certify any stage.

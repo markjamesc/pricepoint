@@ -139,6 +139,10 @@ The project prompt, receipt templates and R gate now require explicit capacity a
 
 ## Status
 
+### GrokBot project prompt
+
+Give GrokBot [the PricePoint Master Orchestration Prompt](docs/orchestration/master-orchestration-prompt.md). Section 17 contains project configuration and executable R checkpoints for every stage, using the pinned workflow version in the [framework manifest](docs/orchestration/controlling-framework-manifest.md). GrokBot must resolve the two local repository paths before execution. The existing local Workflow Gate and the canonical release check both remain required; the run finishes only with the outer Procedure Gate certificate. No business decision, horizon, or guardrail is pre-approved by this prompt.
+
 **Database setup complete. Analytical stages not yet started.**
 
 The exact pricing/revenue decision and framing question must be established through Stages 1–2 rather than assumed from the dataset alone. This means the workflow-enforcement upgrade does not invalidate any completed analytical stage.
