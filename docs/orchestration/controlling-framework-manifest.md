@@ -56,9 +56,9 @@ The local prompt, examples and gate implement explicit capacity stance and ML mo
 
 ## Current adoption — GrokBot R checkpoint template
 
-Adopted reusable workflow and Master Prompt commit: `c8ed0d91592bf2eeba6b7b0b40d40d5d23a5f40b`.
+Adopted reusable workflow and Master Prompt commit: `f388be8c2379ac6a8959516b486af31c99423bb0`.
 
-[Immutable workflow snapshot](https://github.com/markjamesc/ai-augmented-analyst-workflow/tree/c8ed0d91592bf2eeba6b7b0b40d40d5d23a5f40b).
+[Immutable workflow snapshot](https://github.com/markjamesc/ai-augmented-analyst-workflow/tree/f388be8c2379ac6a8959516b486af31c99423bb0).
 
 Use this commit for all reusable framework paths above, `docs/MASTER_PROMPT.md`, `procedure-gate/procedure_gate.R`, `procedure-gate/procedure.json`, and `workflow-gate/workflow_gate.R`. The PricePoint-specific prompt is [master-orchestration-prompt.md](master-orchestration-prompt.md), with executable checkpoints in section 17.
 
