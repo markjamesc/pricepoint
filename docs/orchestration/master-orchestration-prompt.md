@@ -725,7 +725,7 @@ Do not begin Stage 5 until the deterministic R workflow gate returns PASS.
 
 ## 17. GrokBot R checkpoints — PricePoint project instance
 
-This section instantiates the general Master Prompt at workflow commit `c8ed0d91592bf2eeba6b7b0b40d40d5d23a5f40b`. It supplies the executable order for sections 8–12 and 16 above. Read the complete prompt before starting; run each begin checkpoint before performing its corresponding stage. The existing local gate remains mandatory and is invoked by the helper at Execution completion.
+This section instantiates the general Master Prompt at workflow commit `f388be8c2379ac6a8959516b486af31c99423bb0`. It supplies the executable order for sections 8–12 and 16 above. Read the complete prompt before starting; run each begin checkpoint before performing its corresponding stage. The existing local gate remains mandatory and is invoked by the helper at Execution completion.
 
 Use the union of the local receipt requirements above and the canonical templates in the pinned workflow checkout. In particular, Stage 3 also needs the canonical `window_start`, `window_end`, and `decision_rules` fields; Stage 4 also needs its aggregate `fixtures` status. Populate them from approved designs and executed checks, never defaults invented to satisfy validation. The canonical templates also define the required role/review/approval attestations. Existing local example receipts alone are insufficient for the outer gate.
 
@@ -762,7 +762,7 @@ workflow_repo <- normalizePath(workflow_repo, mustWork = TRUE)
 project_root <- normalizePath(project_root, mustWork = TRUE)
 stopifnot(dir.exists(workflow_repo), dir.exists(project_root))
 
-adopted_workflow_commit <- "c8ed0d91592bf2eeba6b7b0b40d40d5d23a5f40b"
+adopted_workflow_commit <- "f388be8c2379ac6a8959516b486af31c99423bb0"
 workflow_commit <- system2("git", c("-C", shQuote(workflow_repo), "rev-parse", "HEAD"), stdout = TRUE)
 stopifnot(identical(trimws(workflow_commit), adopted_workflow_commit))
 workflow_changes <- system2("git", c("-C", shQuote(workflow_repo), "status", "--porcelain"), stdout = TRUE)
