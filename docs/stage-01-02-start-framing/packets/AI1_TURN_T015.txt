@@ -1,0 +1,4 @@
+STAKEHOLDER REPLY (T014, verbatim):
+"Just what's in our own history up to that day: daily unit sales for each product, the weekly shelf prices, and the calendar — holidays, events, and the SNAP benefit days, which really move grocery here. No competitor prices, no inventory, no cost. And to be clear, what I need walking in isn't just a recap of what happened last year — I need a sense of what to expect over the next four weeks at the current price versus at the price I'd be recommending."
+
+Return SECTION 1 (T015 stakeholder message: acknowledge, then one question) and SECTION 2 (internal note: Start Gate elements established vs missing, plan). When you judge that every Start Gate element is established, SECTION 1 should instead present the proposed decision statement to the stakeholder and ask her to confirm or correct it.

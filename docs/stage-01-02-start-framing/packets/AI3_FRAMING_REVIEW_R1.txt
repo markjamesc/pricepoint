@@ -1,0 +1,129 @@
+PRICEPOINT-001, STAGE 2 FRAMING — INDEPENDENT FRAMING REVIEW (framework §13, Phase F)
+
+You are reviewing independently. You have not seen any other reviewer's output, and you will not see it before you answer. Base every judgment only on the attached verbatim dialogue extract and the material below. Do not assume facts the stakeholder never stated.
+
+LOCKED STAGE 1 DECISION STATEMENT (Start Gate PASS; stakeholder-confirmed at T036; owner-approved):
+"""Morgan Lee, Pricing & Revenue Manager, must determine what recommendation to bring to the store general manager for products meeting the review criteria at the California pilot store’s everyday grocery and household aisles: a specific pilot shelf price increase, a specific pilot shelf price cut, leaving the shelf price unchanged, or classifying the product as “hold — not enough evidence” when the available evidence is not solid. The recommendation should identify the specific pilot price expected to produce the strongest trusted product revenue result (units sold × shelf price) over the next 28 days compared with the current price, while rejecting changes expected to reduce units by more than about 10%. The review occurs on a four-week cycle, with the price decision holding until the next review. The recommendation uses only information available at the end of the most recent history period: daily unit sales, weekly shelf prices, and calendar information including holidays, events, and SNAP benefit days. The output is a ranked list: the strongest trusted price-change opportunities, based on the biggest revenue gain that is trusted, form the GM package up to about 25 actual price changes. If fewer qualify, the list is not padded. If more qualify, additional qualifying opportunities remain below the line as next in line and are not included in that cycle’s package. Holds and hold — not enough evidence outcomes remain visible and do not consume the price-change capacity. Approved changes are pilots, and historical patterns should be presented as expectations to test rather than guarantees."""
+
+OWNER PROJECT CONSTRAINT (from the human analyst, not the stakeholder): the analysis is carried out in R, with tidyverse for the data work and a parsnip machine-learning model for the predictive part. The question must not be answerable by a rules-only description. The question itself must not name a model class.
+
+KNOWN DATA CONTEXT (analyst-side facts, not stakeholder statements): M5 retail data, with 10 stores (CA/TX/WI) and 3049 items. Daily unit sales run d_1 to d_1941, and history ends 2016-05-22. Weekly shelf prices are at store × item × week (a missing price is not zero). The calendar has holidays/events and SNAP flags. There is no cost, margin, stockout, inventory, or competitor data. Discounts are inferred from price changes, not labeled. About 748 items are in the candidate CA_1 grocery/household scope, so a Stage 3 eligibility rule is needed.
+
+Framing must NOT lock: KPI formulas, SQL grain, arbitrary thresholds, statistical tests, model classes, or a preferred conclusion (§12.3). Those belong to Stage 3.
+
+REQUIRED FRAMING FIELD capacity_stance (forward rule): exactly one of `unordered_ok` (a complete qualifying set is an acceptable output; ranking/truncation not required) or `hard_attention_budget` (the purpose is a limited focus list; ranking or truncation to a capacity ceiling is required, and the capacity unit or a controlled deferral must be stated). A missing or inferred stance fails the Framing Gate.
+
+AI 1 BUILDER OUTPUT UNDER REVIEW (verbatim; SECTION 1 is the draft stakeholder message, HELD and not yet shown to Morgan):
+=====
+## SECTION 1 — STAKEHOLDER MESSAGE (T041)
+
+Thanks, Morgan. That clarifies what “trusted” means at the business level: trust comes from having enough real price movement and sales activity to support the expectation, and from the forward-looking estimate being evidence-based rather than a guess. The size of the expected revenue gain affects where a trusted recommendation ranks, not whether it is trusted in the first place. 
+
+Here is the analytical question I propose:
+
+**For products meeting the review criteria at the California pilot store, which specific shelf prices should Morgan recommend for the next 28-day pilot to produce the highest trusted expected product revenue relative to the current price, without recommending a change expected to reduce units by more than about 10%, and which products should instead remain unchanged or be classified as “hold — not enough evidence”?**
+
+This question directly supports the GM package by separating sufficiently supported price recommendations from holds and then allowing the trusted price-change opportunities to be ranked by expected revenue gain within the team’s review capacity.
+
+**Does this analytical question accurately capture what you need the analysis to answer, or would you correct anything?**
+
+---
+
+## SECTION 2 — INTERNAL NOTE (not sent)
+
+### Framing status
+
+**Framing elements are established pending Morgan’s confirmation of the proposed analytical question.**
+
+Morgan has now resolved the remaining business-level meaning of “trusted”: evidence quality determines whether a recommendation is trusted, while gain size determines ranking among recommendations that already clear that trust requirement. She explicitly stated that a small gain does not make an expectation untrustworthy and delegated any “big enough to matter” cutoff to the analyst if one is needed. 
+
+### Candidate analytical question — C1
+
+**For products meeting the review criteria at the California pilot store, which specific shelf prices should Morgan recommend for the next 28-day pilot to produce the highest trusted expected product revenue relative to the current price, without recommending a change expected to reduce units by more than about 10%, and which products should instead remain unchanged or be classified as “hold — not enough evidence”?**
+
+### Decision linkage
+
+The question determines the recommendation Morgan brings to the GM:
+
+* identify specific candidate shelf prices for trusted raise/cut opportunities;
+* compare their expected 28-day revenue with the current price;
+* reject price changes that violate the unit-loss guardrail;
+* distinguish evidence-supported unchanged-price decisions from “hold — not enough evidence”;
+* rank trusted price-change opportunities by expected revenue gain for the GM package.
+
+### `capacity_stance`
+
+**`hard_attention_budget`**
+
+**Capacity unit:** actual raise/cut recommendations that Morgan’s team must work up and take through GM review.
+
+**Supporting dialogue:**
+
+* approximately 25 actual price changes can be worked through per cycle;
+* the output is a ranked list;
+* the strongest trusted opportunities, up to about 25, form the current-cycle package;
+* if fewer qualify, do not pad;
+* additional qualifying opportunities stay below the line as next in line;
+* unchanged and insufficient-evidence holds remain visible but do not consume the capacity.
+
+The capacity constraint therefore affects which trusted price-change opportunities reach the current-cycle GM package, not whether other reviewed products remain visible.
+
+### Open Stage 3 design work
+
+Do **not** lock during Framing:
+
+* exact product eligibility cutoffs;
+* exact evidence-sufficiency / “solid” threshold;
+* candidate-price construction;
+* prediction methodology and model class;
+* KPI implementation details;
+* exact treatment of “about 10%”;
+* exact operational treatment of “about 25”;
+* ranking/scoring implementation for trusted expected revenue gain;
+* any minimum material-gain rule, if one is ultimately useful;
+* department mapping within grocery/household;
+* reporting label for candidates rejected by the unit guardrail;
+* analytical grain and transformations;
+* statistical tests or validation procedures.
+
+Morgan has delegated these implementation choices with disclosure rather than specifying them herself. The owner constraint remains that the analysis will be executed in R, with tidyverse for data work and a parsnip predictive component, without locking a model class at Framing.
+
+### Working assumptions
+
+* The analytical decision unit remains product at the California pilot store.
+* The prediction horizon is the next 28 days.
+* The recommendation must include a specific proposed shelf price, not only raise/cut direction.
+* Expected units and expected revenue are evaluated at that proposed price.
+* “Trusted” is an evidence gate, not a revenue-gain threshold.
+* Small but trusted expected gains may remain valid recommendations but rank lower.
+* Products lacking sufficiently solid evidence receive “hold — not enough evidence.”
+* Trusted change candidates are ranked by expected revenue gain.
+* Historical relationships support pilot expectations, not guaranteed causal effects.
+* Only information available at the frozen review date may inform the recommendation.
+
+### Remaining weakness
+
+No unresolved stakeholder-owned framing ambiguity remains at present.
+
+The principal remaining uncertainty is analytical rather than business-level: Stage 3 must operationalize what constitutes sufficiently solid evidence without turning Morgan’s qualitative trust requirement into an arbitrary or undisclosed threshold.
+=====
+
+YOUR ROLE: AI 3, Skeptical Framing Reviewer / Ambiguity Red Team (§13). Test each point:
+1. Is the question leading toward a predetermined recommendation?
+2. Does it assume causality when the project may establish only description, association, or prediction?
+3. Does it combine multiple decisions?
+4. Does it privilege the requested metric before the outcome is defined?
+5. Does it omit a realistic decision option?
+6. Is any clause unsupported by the dialogue?
+7. Could it be answered accurately yet stay useless for action?
+8. Has data convenience distorted the business need?
+9. Has a material stakeholder exception disappeared?
+10. What is the strongest alternative wording?
+Capacity check in BOTH directions (required): (a) a limited-attention purpose was not silently framed as an unbounded census; (b) a census purpose was not silently forced into hard_attention_budget to manufacture a leaderboard.
+
+Return:
+VERDICT: exactly one of Pass / Pass with required revision / Fail
+FINDINGS: numbered, one per test above, citing turn numbers; mark each BLOCKING or NON-BLOCKING.
+CAPACITY CHECK: both directions, with your independent capacity_stance determination.
+REQUIRED REVISIONS (if any): exact wording.
+STRONGEST ALTERNATIVE WORDING: one sentence.

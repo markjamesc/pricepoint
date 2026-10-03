@@ -1,0 +1,75 @@
+{
+  "stage": 4,
+  "status": "PASS",
+  "design_version_used": "08_CONSOLIDATED_CANDIDATE_v5_4 (sha256 3cfc71eb5e10c5f680e1768400d03daf05513a23199740ac9f80f8adff2b80ef)",
+  "fixture_version_used": "fixture_pack_v1",
+  "sql_source_gate": "PASS",
+  "fixtures": "PASS",
+  "r_a_fixtures": "PASS",
+  "r_b_fixtures": "PASS",
+  "r_a_status": "PASS",
+  "r_b_status": "PASS",
+  "reconciliation": "PASS",
+  "structural_cross_review": "PASS",
+  "lineage_attestation": "PASS",
+  "validated_data_freeze": "PASS",
+  "validation_gate": "PASS",
+  "unresolved_issues": 0,
+  "decision_critical_model_required": true,
+  "decision_critical_model_validation": "PASS",
+  "artifact_paths": [
+    "validation/source-gate/source_gate_report.csv",
+    "validation/fixtures/r_a_fixture_results.csv",
+    "validation/fixtures/r_b_fixture_results.csv",
+    "validation/reconciliation/reconciliation.csv",
+    "validation/cross-review/cross_review.md",
+    "docs/stage-04-execution-validation/validated_data_manifest.md"
+  ],
+  "evidence_receipts": {
+    "source": {
+      "path": "docs/stage-04-execution-validation/evidence/source.json",
+      "sha256": "de7ae9c2066d34071009af173b4d7fb834a60f9a6b19a2f79c6d25cc30e22303"
+    },
+    "fixtures": {
+      "path": "docs/stage-04-execution-validation/evidence/fixtures.json",
+      "sha256": "abdde7f6892081b4d997d6e3bb60fdba2a68fd649f396bf1383baf92743eaf22"
+    },
+    "reconciliation": {
+      "path": "docs/stage-04-execution-validation/evidence/reconciliation.json",
+      "sha256": "be03c090f4e06cee0a39beda84da68e90dc725d42d62f388446affa7e3d3ecaa"
+    },
+    "structural": {
+      "path": "docs/stage-04-execution-validation/evidence/structural.json",
+      "sha256": "0a3acb299d413b6d0402da46123fe3e2c02dae2c960e33985f08df4ee5e89747"
+    },
+    "validation": {
+      "path": "docs/stage-04-execution-validation/evidence/validation.json",
+      "sha256": "ce38a8c79fde52ab78ec23e05d4cb61c9f526ebee463e0ed125bf1c4dc8e00d3"
+    },
+    "lineage": {
+      "path": "docs/stage-04-execution-validation/evidence/lineage.json",
+      "sha256": "0791ea459634991d1961442732c99aab4661fba43a26afa0355ecd6eab0482a0"
+    },
+    "model": {
+      "path": "docs/stage-04-execution-validation/evidence/model.json",
+      "sha256": "d27a6c4f6576128d8a2d9d335cbad141f5be020118703f586d5645bf0856277f"
+    }
+  },
+  "stage3_receipt_sha256": "1ee9f4da9cffe3a906182d209c573b61c7451387cfc338009261c79f8620dd16",
+  "change_controls": [
+    "CC-S3-01",
+    "CC-S4-01 (thresh 1e-12; owner 11:43 CT)",
+    "CC-S4-02 (cent_delta_rev sign + $0.05; owner R9 13:21 CT)"
+  ],
+  "role_attestations": {
+    "sql_source_delivery_and_source_gate": "AI 2 (Grok)",
+    "r_a_builder": "AI 1 (ChatGPT), run r2",
+    "r_b_builder": "AI 3 (DeepSeek), run r10",
+    "reconciliation": "coordinator mechanical comparator v4 f7651ca1…",
+    "structural_cross_review": "AI 1 -> R-B + Gate; AI 2 -> R-A + R-B; AI 3 -> R-A + Gate; Gate repair verified by AI 1",
+    "validation_gate_approval": "owner, 2026-10-02 14:35 CT (rulings/OWNER_APPROVAL_VALIDATION_GATE.md)"
+  },
+  "result_summary": "No price changes (backtest A2 0.2697 fails; 2,484/2,484 hold_ne).",
+  "simulation_non_live": true,
+  "ceiling": "PASS unlocks Stage 5 interpretation only; no live release."
+}

@@ -1,0 +1,54 @@
+{
+  "role": "structural",
+  "status": "PASS",
+  "design_version": "08_CONSOLIDATED_CANDIDATE_v5_4 (sha256 3cfc71eb5e10c5f680e1768400d03daf05513a23199740ac9f80f8adff2b80ef)",
+  "fixture_version": "fixture_pack_v1",
+  "checked_at_utc": "2026-10-02T19:36:00Z",
+  "stage3_receipt_sha256": "1ee9f4da9cffe3a906182d209c573b61c7451387cfc338009261c79f8620dd16",
+  "cross_review": {
+    "path": "validation/cross-review/cross_review.md",
+    "sha256": "2a9cec579e179b165cf1d5aac8ded74a6d3d812bc2d795cba9a3a6c12f670727"
+  },
+  "findings_register": {
+    "path": "validation/cross-review/findings_register.csv",
+    "sha256": "90fa70e6c68019edeaac8b3c77b7c1dc878e3cd1c6ce1dca8e116c9e8a723abd"
+  },
+  "reviewers": {
+    "AI1_ChatGPT": "R-B r10 + SQL/Source Gate (reply 87e72fe5… page)",
+    "AI2_Grok": "R-A r2 + R-B r10 (leakage) + item 8 (page b5270332…)",
+    "AI3_DeepSeek": "R-A r2 + SQL/Source Gate (page 2615f7d0…)"
+  },
+  "findings_total": 14,
+  "resolved": [
+    "XR-01",
+    "XR-02",
+    "XR-03"
+  ],
+  "resolution_verified_by": "AI 1 ChatGPT (non-author), frozen 0a6e357a…",
+  "accepted_limitations": [
+    "XR-04",
+    "XR-05",
+    "XR-06",
+    "XR-07",
+    "XR-08",
+    "XR-09",
+    "XR-10",
+    "XR-11",
+    "XR-12",
+    "XR-13",
+    "XR-14"
+  ],
+  "accepted_limitations_authority": "Owner ruling R10, 2026-10-02 14:05 CT, rulings/OWNER_RULING_R10.md 502eb010…",
+  "unresolved_issues": 0,
+  "blocking_unresolved": 0,
+  "material_unresolved": 0,
+  "post_review_tiers": {
+    "source_gate": "PASS (r2 24/24, report 5d087e2d…)",
+    "fixtures": "PASS 26/26 both paths",
+    "reconciliation": "PASS 75/75 (5535102a…)"
+  },
+  "depth_questions": {
+    "FX-WDAY-SNAP": "production recipe verified in both paths (AI1, AI2, AI3)",
+    "FX-TE6-SLICE": "pipeline derivation verified in both paths (AI1, AI2, AI3); fixture depth = accepted limitation XR-08"
+  }
+}

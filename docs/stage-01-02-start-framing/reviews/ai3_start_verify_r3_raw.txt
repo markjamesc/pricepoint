@@ -1,0 +1,25 @@
+A. Issues raised earlier — resolved / not resolved
+
+1. **Authority: Morgan decides vs recommends** — **Resolved.** T029 now says Morgan “must determine what recommendation to bring to the store general manager,” matching T002.
+2. **Missing decision option: positive hold vs insufficient-evidence hold** — **Resolved.** T029 separates “leave the shelf price unchanged” from “hold — not enough evidence.”
+3. **Leading/loaded language** — **Mostly resolved.** “Must decide” is fixed, but “eligible” remains undefined and can sound more settled than the delegated eligibility principle.
+4. **Outcome-action conflict: maximize revenue vs ~25 cap** — **Resolved.** T029 frames the output as a ranked trusted package with top ~25 prepared for GM review, not literal total maximization.
+5. **Hidden secondary decisions** — **Partially resolved.** Eligibility, ranking formula, evidence threshold, and department mapping are acceptable deferrals; **price-change magnitude is not** and appears to be wrongly deferred.
+6. **Capacity / authority / timing** — **Mostly resolved.** Authority and ranked-list capacity are fixed; timing and information boundary are preserved. T029 omits the explicit “no padding” rule and the explicit statement that holds do not count against capacity.
+7. **Guardrail-failure output treatment** — **Not resolved, but acceptable to defer.** T029 says such changes are rejected; the reporting label for rejected candidates is not Start-level.
+8. **Pilot vs guarantee** — **Resolved.** T029 includes pilot language and expectations-not-guarantees language.
+
+B. Clauses in T029 unsupported by, or diverging from, stakeholder’s words
+
+- **“each eligible product”** — Slightly less precise than T008’s “each product at a specific store.” In a single-store pilot this is mostly harmless, but it loses the product-store grain.
+- **“raise the shelf price, take a targeted price cut”** — Omits T014’s “at the price I’d be recommending.” The recommendation should include or point to a proposed new price / price-change magnitude; otherwise the revenue comparison is incomplete.
+- **“top approximately 25 prepared for GM review”** — Omits T018’s “if fewer qualify, don’t pad the list” and T020’s rule that holds do not count against the 25. “Actual raise/cut” implies the latter, but it is not explicit.
+- **“additional qualifying items shown below the line as next in line”** — Omits T024’s clarification that those items do **not** enter the current cycle’s package.
+- **“everyday grocery and household aisles”** — T008 said Morgan was unsure exactly which departments and was open to analyst suggestion. T029 states the aisles as fixed rather than noting the mapping is still open.
+- **“available evidence is not solid”** — Supported by T016.
+- **“calendar information including holidays, events, and SNAP benefit days”** — Supported by T014.
+- **“Approved changes will be piloted”** and **“expectations to test rather than guarantees”** — Supported by T026.
+
+C. Final Start Gate verdict on T029 statement
+
+**Revise.** T029 fixes the major authority, action-set, capacity-ranking, and pilot/guarantee problems. But it still omits a Start-level decision parameter: whether the recommendation includes a proposed new shelf price or price-change magnitude, which T014 and T024 imply is needed to compare current price versus recommended price and rank by revenue gain. It also omits explicit stakeholder rules on no padding, holds not counting against capacity, and below-line items not entering the current cycle’s package. These are framing/capacity clarifications, not Stage 3 metric design. Therefore the statement should be revised before Start lock.

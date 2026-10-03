@@ -1,0 +1,322 @@
+{
+  "contract_version": "prospective-v2",
+  "design_version": "08_CONSOLIDATED_CANDIDATE_v5_4 (sha256 3cfc71eb5e10c5f680e1768400d03daf05513a23199740ac9f80f8adff2b80ef)",
+  "fixture_version": "fixture_pack_v1",
+  "evidence_receipts": {
+    "source": {
+      "path": "docs/stage-04-execution-validation/evidence/source.json",
+      "sha256": "de7ae9c2066d34071009af173b4d7fb834a60f9a6b19a2f79c6d25cc30e22303"
+    },
+    "fixtures": {
+      "path": "docs/stage-04-execution-validation/evidence/fixtures.json",
+      "sha256": "abdde7f6892081b4d997d6e3bb60fdba2a68fd649f396bf1383baf92743eaf22"
+    },
+    "reconciliation": {
+      "path": "docs/stage-04-execution-validation/evidence/reconciliation.json",
+      "sha256": "be03c090f4e06cee0a39beda84da68e90dc725d42d62f388446affa7e3d3ecaa"
+    },
+    "structural": {
+      "path": "docs/stage-04-execution-validation/evidence/structural.json",
+      "sha256": "0a3acb299d413b6d0402da46123fe3e2c02dae2c960e33985f08df4ee5e89747"
+    },
+    "validation": {
+      "path": "docs/stage-04-execution-validation/evidence/validation.json",
+      "sha256": "ce38a8c79fde52ab78ec23e05d4cb61c9f526ebee463e0ed125bf1c4dc8e00d3"
+    },
+    "lineage": {
+      "path": "docs/stage-04-execution-validation/evidence/lineage.json",
+      "sha256": "0791ea459634991d1961442732c99aab4661fba43a26afa0355ecd6eab0482a0"
+    },
+    "model": {
+      "path": "docs/stage-04-execution-validation/evidence/model.json",
+      "sha256": "d27a6c4f6576128d8a2d9d335cbad141f5be020118703f586d5645bf0856277f"
+    }
+  },
+  "gate": "pricepoint_five_stage_workflow_gate",
+  "result": "PASS",
+  "stage5_allowed": true,
+  "checked_at_utc": "2026-10-03 01:28:51 UTC",
+  "project_root": "C:\\Users\\Mark\\Documents\\R Working Directory\\pricepoint",
+  "checks": [
+    {
+      "check": "Stage 1 artifact exists",
+      "result": "PASS",
+      "detail": "C:\\Users\\Mark\\Documents\\R Working Directory\\pricepoint/docs/stage-01-02-start-framing/stage1_decision.json"
+    },
+    {
+      "check": "Stage 1 artifact parses",
+      "result": "PASS",
+      "detail": "Valid JSON"
+    },
+    {
+      "check": "Stage 2 artifact exists",
+      "result": "PASS",
+      "detail": "C:\\Users\\Mark\\Documents\\R Working Directory\\pricepoint/docs/stage-01-02-start-framing/stage2_framing.json"
+    },
+    {
+      "check": "Stage 2 artifact parses",
+      "result": "PASS",
+      "detail": "Valid JSON"
+    },
+    {
+      "check": "Stage 3 artifact exists",
+      "result": "PASS",
+      "detail": "C:\\Users\\Mark\\Documents\\R Working Directory\\pricepoint/docs/stage-03-measurement-design/stage3_locked_design.json"
+    },
+    {
+      "check": "Stage 3 artifact parses",
+      "result": "PASS",
+      "detail": "Valid JSON"
+    },
+    {
+      "check": "Stage 4 artifact exists",
+      "result": "PASS",
+      "detail": "C:\\Users\\Mark\\Documents\\R Working Directory\\pricepoint/docs/stage-04-execution-validation/stage4_validation_status.json"
+    },
+    {
+      "check": "Stage 4 artifact parses",
+      "result": "PASS",
+      "detail": "Valid JSON"
+    },
+    {
+      "check": "Stage 1 required fields",
+      "result": "PASS",
+      "detail": "Required: stage, status, decision_statement, decision_owner"
+    },
+    {
+      "check": "Stage 1 locked",
+      "result": "PASS",
+      "detail": "status must equal LOCKED"
+    },
+    {
+      "check": "Stage 2 required fields",
+      "result": "PASS",
+      "detail": "Required: stage, status, analytical_question"
+    },
+    {
+      "check": "Stage 2 locked",
+      "result": "PASS",
+      "detail": "status must equal LOCKED"
+    },
+    {
+      "check": "Stage 3 required fields",
+      "result": "PASS",
+      "detail": "Required: stage, status, design_version, decision_statement, analytical_question, grain, population, decision_horizon, historical_lookback, price_definition, unit_sales_definition, revenue_definition, action_classes, uncertainty_rule, claim_strength_ceiling, source_delivery_contract, fixture_version, reconciliation_critical_fields, required_outputs"
+    },
+    {
+      "check": "Stage 3 locked",
+      "result": "PASS",
+      "detail": "status must equal LOCKED"
+    },
+    {
+      "check": "Stage 4 required fields",
+      "result": "PASS",
+      "detail": "Required: stage, status, design_version_used, fixture_version_used, sql_source_gate, r_a_fixtures, r_b_fixtures, r_a_status, r_b_status, reconciliation, structural_cross_review, lineage_attestation, validated_data_freeze, validation_gate, unresolved_issues, decision_critical_model_required, decision_critical_model_validation, artifact_paths"
+    },
+    {
+      "check": "Stage 4 used locked Stage 3 version",
+      "result": "PASS",
+      "detail": "Stage 3=08_CONSOLIDATED_CANDIDATE_v5_4 (sha256 3cfc71eb5e10c5f680e1768400d03daf05513a23199740ac9f80f8adff2b80ef); Stage 4=08_CONSOLIDATED_CANDIDATE_v5_4 (sha256 3cfc71eb5e10c5f680e1768400d03daf05513a23199740ac9f80f8adff2b80ef)"
+    },
+    {
+      "check": "Stage 4 used frozen fixture version",
+      "result": "PASS",
+      "detail": "Stage 3=fixture_pack_v1; Stage 4=fixture_pack_v1"
+    },
+    {
+      "check": "Stage 4 sql_source_gate",
+      "result": "PASS",
+      "detail": "sql_source_gate must equal PASS"
+    },
+    {
+      "check": "Stage 4 r_a_fixtures",
+      "result": "PASS",
+      "detail": "r_a_fixtures must equal PASS"
+    },
+    {
+      "check": "Stage 4 r_b_fixtures",
+      "result": "PASS",
+      "detail": "r_b_fixtures must equal PASS"
+    },
+    {
+      "check": "Stage 4 r_a_status",
+      "result": "PASS",
+      "detail": "r_a_status must equal PASS"
+    },
+    {
+      "check": "Stage 4 r_b_status",
+      "result": "PASS",
+      "detail": "r_b_status must equal PASS"
+    },
+    {
+      "check": "Stage 4 reconciliation",
+      "result": "PASS",
+      "detail": "reconciliation must equal PASS"
+    },
+    {
+      "check": "Stage 4 structural_cross_review",
+      "result": "PASS",
+      "detail": "structural_cross_review must equal PASS"
+    },
+    {
+      "check": "Stage 4 lineage_attestation",
+      "result": "PASS",
+      "detail": "lineage_attestation must equal PASS"
+    },
+    {
+      "check": "Stage 4 validated_data_freeze",
+      "result": "PASS",
+      "detail": "validated_data_freeze must equal PASS"
+    },
+    {
+      "check": "Stage 4 validation_gate",
+      "result": "PASS",
+      "detail": "validation_gate must equal PASS"
+    },
+    {
+      "check": "Stage 4 unresolved issues",
+      "result": "PASS",
+      "detail": "unresolved_issues must equal 0"
+    },
+    {
+      "check": "Decision-critical model validation",
+      "result": "PASS",
+      "detail": "decision-critical model requires PASS"
+    },
+    {
+      "check": "Declared Stage 4 evidence files exist",
+      "result": "PASS",
+      "detail": "All declared evidence files exist"
+    },
+    {
+      "check": "Stage 4 overall status",
+      "result": "PASS",
+      "detail": "status must equal PASS"
+    },
+    {
+      "check": "Capacity stance explicit",
+      "result": "PASS",
+      "detail": "Explicit Stage 2 enum required"
+    },
+    {
+      "check": "ML mode explicit",
+      "result": "PASS",
+      "detail": "Explicit Stage 3 enum required"
+    },
+    {
+      "check": "Ranking contract locked",
+      "result": "PASS",
+      "detail": "Budget requires key, tie-break, unit, membership-first, no padding and N or explicit owner deferral"
+    },
+    {
+      "check": "Structural cross-review PASS",
+      "result": "PASS",
+      "detail": "Required lower-tier receipt"
+    },
+    {
+      "check": "Fixture identity",
+      "result": "PASS",
+      "detail": "Frozen fixture version must match"
+    },
+    {
+      "check": "Model requirement matches ML mode",
+      "result": "PASS",
+      "detail": "Mode A requires a decision-critical model; None/B do not"
+    },
+    {
+      "check": "Model validation matches ML mode",
+      "result": "PASS",
+      "detail": "Mode A requires PASS; None/B require NOT_REQUIRED for the judged path"
+    },
+    {
+      "check": "Evidence receipt roles",
+      "result": "PASS",
+      "detail": "All required receipt roles must be declared"
+    },
+    {
+      "check": "Receipt hash source",
+      "result": "PASS",
+      "detail": "Nonempty local receipt and exact SHA-256 required"
+    },
+    {
+      "check": "Receipt metadata source",
+      "result": "PASS",
+      "detail": "PASS, design/fixture identities and timestamp required"
+    },
+    {
+      "check": "Receipt hash fixtures",
+      "result": "PASS",
+      "detail": "Nonempty local receipt and exact SHA-256 required"
+    },
+    {
+      "check": "Receipt metadata fixtures",
+      "result": "PASS",
+      "detail": "PASS, design/fixture identities and timestamp required"
+    },
+    {
+      "check": "Fixture scorecard",
+      "result": "PASS",
+      "detail": "Every frozen fixture must match expected in both paths"
+    },
+    {
+      "check": "Receipt hash reconciliation",
+      "result": "PASS",
+      "detail": "Nonempty local receipt and exact SHA-256 required"
+    },
+    {
+      "check": "Receipt metadata reconciliation",
+      "result": "PASS",
+      "detail": "PASS, design/fixture identities and timestamp required"
+    },
+    {
+      "check": "Reconciliation scorecard",
+      "result": "PASS",
+      "detail": "All locked fields and zero mismatches required"
+    },
+    {
+      "check": "Receipt hash structural",
+      "result": "PASS",
+      "detail": "Nonempty local receipt and exact SHA-256 required"
+    },
+    {
+      "check": "Receipt metadata structural",
+      "result": "PASS",
+      "detail": "PASS, design/fixture identities and timestamp required"
+    },
+    {
+      "check": "Receipt hash validation",
+      "result": "PASS",
+      "detail": "Nonempty local receipt and exact SHA-256 required"
+    },
+    {
+      "check": "Receipt metadata validation",
+      "result": "PASS",
+      "detail": "PASS, design/fixture identities and timestamp required"
+    },
+    {
+      "check": "Receipt hash lineage",
+      "result": "PASS",
+      "detail": "Nonempty local receipt and exact SHA-256 required"
+    },
+    {
+      "check": "Receipt metadata lineage",
+      "result": "PASS",
+      "detail": "PASS, design/fixture identities and timestamp required"
+    },
+    {
+      "check": "Lineage contents",
+      "result": "PASS",
+      "detail": "Source snapshot, extract identity and script versions required"
+    },
+    {
+      "check": "Receipt hash model",
+      "result": "PASS",
+      "detail": "Nonempty local receipt and exact SHA-256 required"
+    },
+    {
+      "check": "Receipt metadata model",
+      "result": "PASS",
+      "detail": "PASS, design/fixture identities and timestamp required"
+    }
+  ]
+}

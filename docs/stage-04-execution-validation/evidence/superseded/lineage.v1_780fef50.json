@@ -1,0 +1,52 @@
+{
+  "role": "lineage",
+  "status": "PASS",
+  "design_version": "08_CONSOLIDATED_CANDIDATE_v5_4 (sha256 3cfc71eb5e10c5f680e1768400d03daf05513a23199740ac9f80f8adff2b80ef)",
+  "fixture_version": "fixture_pack_v1",
+  "checked_at_utc": "2026-10-02T18:25:43Z",
+  "stage3_receipt_sha256": "1ee9f4da9cffe3a906182d209c573b61c7451387cfc338009261c79f8620dd16",
+  "source_snapshot": "121341c12616c808643ca7a6bff48d7346963050dbee81fd4762cd7500666a38",
+  "source_version": "M5 raw tables in MySQL schema pricepoint (server 8.0.46), snapshot record sha256 121341c12616c808643ca7a6bff48d7346963050dbee81fd4762cd7500666a38",
+  "extract_identity": "13d037efc758e5e2913d9ffed0dd5e2b003e1656092b8547d8a97283e03f1b68",
+  "sql_extract_sha256": "13d037efc758e5e2913d9ffed0dd5e2b003e1656092b8547d8a97283e03f1b68",
+  "observation_boundary_d": "1941",
+  "observation_boundary_date": "2016-05-22",
+  "design_id": "PRICEPOINT-001-S3-v1",
+  "ml_mode": "A",
+  "fixture_pack_sha256": "da25c258cc434d169f6f960e6d4d8d8ed08cdabaf7a9004df1dff687c94b95d2",
+  "capacity_stance": "hard_attention_budget",
+  "path_lineage_files": {
+    "r_a": "3f93679cadda13489ca01b29d85727403c546e229686c2040d98d12d694ec218",
+    "r_b": "3f93679cadda13489ca01b29d85727403c546e229686c2040d98d12d694ec218",
+    "identical": true
+  },
+  "script_versions": [
+    "SQL sql/source-delivery/01_calendar.sql sha256 08559ecfdf442cf4527a5b5d31ef0fdb683886df2c700d95bae9f2b167eb2e0e",
+    "SQL sql/source-delivery/02_prices.sql sha256 777ed5932ed8fc2eead1d6a7dd8bd0bcaeca549e83fb862337bd65d2a27072d1",
+    "SQL sql/source-delivery/03_sales_long.sql sha256 9c4899ad5edf44a64e5cdc410e3a64b3bc6aaac7607754df286c51fa1e432cd9",
+    "SQL sql/source-delivery/snapshot_record.sql sha256 b93d19abcc7ec16261887f0f4f24fda6f526b70aad2762dfd88a48c772c29bab",
+    "SourceGate validation/source-gate/01_raw_gate_aggregates.sql sha256 93716fd4e9ce3792348ca4a35f046ea9ed9c22320a6845ffa5e6ae00a7e79449",
+    "SourceGate validation/source-gate/02_raw_item_json.sql sha256 98c1a903cd35695a3bd84b778c061ca1df9980246bcd689119ab4e87aebc6f27",
+    "SourceGate validation/source-gate/03_raw_price_attach_cardinality.sql sha256 bf5f9f0d88acd4cc640f7946bfb68ca259c7ade813315656cb1577e30ff034fc",
+    "SourceGate validation/source-gate/run_source_gate.R sha256 8d95ea1dda022b4b03746fcbbbd77da4a6e2ab64f18e35192093c481be087f74",
+    "R-A r2 R/r-a-r2/R/r-a/00_preflight.R sha256 6948c9277e67cdd778c89c97fdbfb51ab800d08215fecf97e0850e7968cebb85",
+    "R-A r2 R/r-a-r2/R/r-a/10_run_pipeline.R sha256 c3ea51edd2623431c87be507f68c21fee6141938011390008f95be6d8d22f170",
+    "R-A r2 R/r-a-r2/R/r-a/functions.R sha256 d980ff63b439347e08f90d5cf241e838fb1bd12eaf50401024e2e71f91208b45",
+    "R-A r2 R/r-a-r2/R/r-a/fixtures/run_fixtures.R sha256 0735ba1d324aa8f145fee76c0838dc56bd9e95fd99d1b9ce51170e33e81a23f4",
+    "R-A r2 R/r-a-r2/R/r-a/RUN_SHEET.md sha256 97f242b944b00159e416ea4a87492ace38f345e69304eff8e19f72c012cfe473",
+    "R-B r10 R/r-b-r10/00_preflight.R sha256 7b01646ca7c0556c506c39a573fb3ada9aa832e95c089b071f144ec187ab1c38",
+    "R-B r10 R/r-b-r10/10_pipeline.R sha256 5662b6480fc2c758be8bb8c4e5f066dc5ae6b02ee8fefc55995014142d4fb571",
+    "R-B r10 R/r-b-r10/lib/rb_judged.R sha256 4944818eb4716965ed03626a4028ffd74776124dce7f16bd898331c3c846f42e",
+    "R-B r10 R/r-b-r10/fixtures/run_fixtures.R sha256 8733a38856b8adf6469e9750cb890aec5d9fb4b6bf45a98977c6d79863933321",
+    "R-B r10 R/r-b-r10/RUN_SHEET.md sha256 10a2484b2f3047b18ab6dcf4e2f4cf76e1bbcf9e30cd6a227ca80e5e0a16f7aa",
+    "Recon reconcile_75.py v4 sha256 f7651ca1a3e49b48ece958a83db4c4501a62452da540ad59820b8d93d9f63ba2",
+    "Recon fields_75.txt sha256 7fc18a65b8f30aba52ea840d9b8241f3d78bf0a0dd910e210a71a5ef82f35e0e"
+  ],
+  "environment": "R 4.6.1 (2026-06-24 ucrt), Windows PC DESKTOP-RPECRM9; glmnet 5.1, parsnip 1.6.0, recipes 1.4.0 (session_info.txt in each run bundle)",
+  "run_bundles": {
+    "r_a_r2": "925bc3636b2210b81cb33de66969e2f384021a520c7df0daea210f2ad25e44b9",
+    "r_b_r10": "6b6e38fd671964251995e0f4bb2c2a12506a4bb22ce6af69eaaa78df8bb155ea"
+  },
+  "same_inputs_attestation": "Both judged paths read only the frozen extract 13d037ef... (preflight hash checks PASS), the same locked design (v5.4 via receipt v4) and fixture_pack_v1; neither path received the other's code, outputs, IDs or lists (requests R-A r2 3b6ccd4a..., R-B r9 dd722f91... scanned blind).",
+  "blank_or_pending_fields": 0
+}

@@ -1,0 +1,24 @@
+server_version	hostname	db_name	db_charset	db_collation	snapshot_ts
+8.0.46	DESKTOP-RPECRM9	pricepoint	utf8mb4	utf8mb4_0900_ai_ci	2026-09-26 05:16:11
+table_name	engine_table_rows	engine	table_collation	create_time	update_time
+raw_calendar	1969	InnoDB	utf8mb4_0900_ai_ci	2026-09-16 18:44:08	NULL
+raw_sales_evaluation	15272	InnoDB	utf8mb4_0900_ai_ci	2026-09-16 19:01:35	NULL
+raw_sell_prices	6908070	InnoDB	utf8mb4_0900_ai_ci	2026-09-16 18:44:18	NULL
+table_name	n
+raw_calendar	1969
+raw_sales_evaluation	30490
+raw_sell_prices	6841121
+min_json_length	max_json_length	n_jsonlen_ne_1941	n_series	n_distinct_id	n_distinct_store_item
+1941	1941	0	30490	30490	30490
+n_ca1_five_dept_series
+2484
+dept_id	n_series
+FOODS_1	216
+FOODS_2	398
+FOODS_3	823
+HOUSEHOLD_1	532
+HOUSEHOLD_2	515
+Table	Checksum
+pricepoint.raw_calendar	190885392
+pricepoint.raw_sales_evaluation	4111913361
+pricepoint.raw_sell_prices	3227761515

@@ -1,0 +1,95 @@
+## SECTION 1 — STAKEHOLDER MESSAGE (T017)
+
+Thanks, Morgan. That completes the uncertainty preference: you want a smaller set of recommendations supported by stronger evidence, with “hold — not enough evidence” treated as a legitimate outcome rather than forcing a raise, cut, or hold decision when the evidence is insufficient.
+
+Here is my proposed decision statement based on what you’ve told me:
+
+**Morgan Lee, Pricing & Revenue Manager, must decide whether to recommend raising the shelf price, taking a targeted price cut, or leaving the shelf price unchanged for eligible products at the California pilot store’s everyday grocery and household aisles in order to maximize expected product revenue over the following 28 days, subject to avoiding expected unit declines greater than approximately 10% and only recommending changes when the available historical evidence is strong enough to support the decision. Products without sufficient evidence will receive a “hold — not enough evidence” outcome.**
+
+Does this decision statement accurately describe the decision you need to make, or is there anything you would correct?
+
+---
+
+## SECTION 2 — INTERNAL NOTE (not sent)
+
+**Start Gate status:** All required Start Gate elements are established. Ready for stakeholder confirmation of the decision statement.
+
+### Established
+
+**Decision owner:** Established.
+
+* Morgan Lee, Pricing & Revenue Manager, makes the recommendation.
+* Store general manager provides sign-off.
+
+**Action or choice:** Established.
+
+* Raise shelf price.
+* Take a targeted price cut.
+* Leave shelf price unchanged.
+* Insufficient evidence is an accepted outcome, not a forced action.
+
+**Outcome:** Established.
+
+* Maximize expected product revenue.
+* Revenue defined as units sold × shelf price over the 28-day post-change window.
+
+**Material constraint:** Established.
+
+* Reject recommendations expected to reduce units by more than approximately 10%.
+* Prefer missing an uncertain opportunity over presenting a poorly supported price change.
+* Evidence strength is a decision constraint.
+
+**Time scope:** Established.
+
+* Pricing review cadence: every four weeks.
+* Decision window: next 28 days after change.
+* Decision point: end of available history.
+
+**Product/store grain:** Established.
+
+* Product at a specific store.
+* Initial scope: one California pilot store.
+* Everyday grocery and household aisles.
+
+**Eligibility boundary:** Established.
+
+* Products should have meaningful prior shelf-price changes.
+* Products should have sufficient sales activity.
+* Smaller trusted review set preferred over broad unsupported coverage.
+* Exact analytical cutoffs remain implementation choices with rationale documented.
+
+**Information available at decision time:** Established.
+
+* Daily product unit sales.
+* Weekly shelf prices.
+* Calendar information:
+
+  * holidays,
+  * events,
+  * SNAP benefit days.
+
+Unavailable:
+
+* Competitor prices.
+* Inventory.
+* Cost/margin.
+
+**Analytical relevance:** Established.
+
+* Morgan expects the evidence to distinguish expected outcomes under current price versus alternative price actions.
+
+**Uncertainty tolerance:** Established.
+
+* High evidence standard.
+* Avoid forced recommendations.
+* “Hold — not enough evidence” is a valid result.
+
+### Missing
+
+None for the Start Gate.
+
+### Plan
+
+Present the proposed decision statement to Morgan for confirmation or correction.
+
+If Morgan confirms, proceed to Framing with the locked decision statement. If Morgan corrects any element, update only the affected Start Gate component and return the revised statement for confirmation. The decision statement remains provisional until stakeholder confirmation.

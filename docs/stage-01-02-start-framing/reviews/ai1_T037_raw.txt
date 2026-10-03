@@ -1,0 +1,114 @@
+## SECTION 1 — STAKEHOLDER MESSAGE (T037)
+
+Thanks, Morgan. We have the decision statement locked: the goal is to identify product-level price recommendations for the California pilot store that maximize trusted expected revenue over the next 28 days while respecting the unit guardrail, evidence standard, review capacity, and pilot approach.
+
+For the analysis design, what should matter most when deciding which qualifying recommendations deserve attention first: **the largest expected revenue opportunity**, **the highest confidence in the expected outcome**, or **a balance of revenue opportunity and confidence**?
+
+---
+
+## SECTION 2 — INTERNAL NOTE (not sent)
+
+## Framing status
+
+### Established
+
+**Decision linkage**
+
+* The analysis must support Morgan’s GM recommendation package.
+* The decision object is locked from Start:
+
+  * specific pilot shelf price increase,
+  * specific pilot shelf price cut,
+  * leave unchanged,
+  * hold — not enough evidence.
+
+**Outcome**
+
+* Trusted expected product revenue over the next 28 days.
+* Compare recommended pilot price expectation against current price.
+
+**Constraints**
+
+* Unit decline guardrail (~10%).
+* Evidence preference:
+
+  * fewer stronger recommendations,
+  * legitimate hold — not enough evidence outcome.
+* Capacity:
+
+  * approximately 25 actual price changes for GM package,
+  * ranked list,
+  * below-line next-in-line items.
+
+**Information boundary**
+
+* Use information available at review date.
+* No cost, inventory, competitor prices.
+
+**Pilot context**
+
+* Recommendations are expectations to test, not guarantees.
+
+### Open Framing / Stage 3 design work
+
+Do not lock:
+
+* KPI formulas.
+* Eligibility cutoffs.
+* Candidate-price construction.
+* Ranking/scoring formula.
+* Evidence sufficiency threshold.
+* Statistical methods.
+* Model classes.
+* SQL grain.
+* Reporting label for guardrail-rejected candidates.
+* Exact treatment of “about 10%” and “about 25%.”
+
+These were delegated by Morgan and remain analytical design choices. 
+
+### Candidate question draft C1
+
+**Question:**
+“For the recommendations that qualify for the GM package, should priority be driven mainly by the largest expected revenue opportunity, the strongest evidence that the recommendation will work, or a balance of revenue opportunity and confidence?”
+
+**Decision linkage:**
+The answer determines how the ranked recommendation package should reflect Morgan’s “strongest” opportunities while preserving the distinction between revenue opportunity and trust in the expectation.
+
+### Working assumptions
+
+* “Strongest” requires an explicit prioritization philosophy before Stage 3 ranking design.
+* The analysis must not be reduced to a rules-only approach; it must support predictive expectation of future revenue under candidate prices.
+* The owner-required implementation constraint remains:
+
+  * R analysis,
+  * tidyverse data work,
+  * predictive component using a parsnip machine-learning model.
+
+The Framing question avoids naming a model class or locking a method. 
+
+### One remaining weakness
+
+The current ambiguity is not whether ranking exists; Morgan already established a ranked list and defined “strongest” as the biggest trusted revenue gain. The remaining weakness is how Morgan wants the business tradeoff expressed when opportunity and confidence differ.
+
+A large expected revenue gain with weak evidence and a smaller expected gain with strong evidence may produce different GM packages. The prioritization philosophy needs stakeholder input before Stage 3 design.
+
+### Proposed capacity_stance
+
+**capacity_stance: `hard_attention_budget`**
+
+**Supporting turns:**
+
+* Morgan stated the team can work up about 25 price-change recommendations per four-week cycle.
+* Morgan clarified the ranked-list rule:
+
+  * top items go to GM,
+  * additional qualifying items remain below the line,
+  * no padding if fewer qualify. 
+
+**Capacity unit:**
+
+* Actual raise/cut recommendations requiring GM preparation and review.
+
+**Controlled deferral:**
+
+* The exact ranking formula used to select within that attention budget remains Stage 3 work.

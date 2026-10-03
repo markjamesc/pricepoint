@@ -1,0 +1,125 @@
+## SECTION 1 — STAKEHOLDER MESSAGE (T027)
+
+Thanks, Morgan. That completes the remaining decision context: the recommendations are intended to support a pilot, not a guaranteed rollout, and the evidence should be presented as an expectation based on past patterns rather than a promise of what the new price will do. I’ll treat the output as a testable recommendation with uncertainty made explicit.
+
+Here is the proposed decision statement incorporating everything you have provided:
+
+**Morgan Lee, Pricing & Revenue Manager, must decide which eligible product-store combinations at the California pilot store’s everyday grocery and household aisles should receive a recommendation to raise the shelf price, take a targeted price cut, or remain unchanged, with “hold — not enough evidence” used when the evidence is insufficient, in order to maximize expected product revenue (units sold × shelf price) over the following 28 days. The recommendation must avoid expected unit declines greater than approximately 10%, use only information available at the end of the most recent history period (daily unit sales, weekly shelf prices, and calendar information), and acknowledge that historical patterns provide expectations rather than guarantees of future price effects. The analysis should produce a ranked list: the strongest qualifying raise/cut recommendations, defined as the largest trusted expected revenue gains, form the approximately 25-item package the team works through with the GM; additional qualifying products remain visible below the line as next in line and do not enter the current cycle’s package. Products with insufficient evidence remain listed as hold — not enough evidence rather than receiving a forced recommendation.**
+
+Does this decision statement accurately describe the decision you need to make, or is there anything you would correct?
+
+---
+
+## SECTION 2 — INTERNAL NOTE (not sent)
+
+**Start Gate status:** All Start Gate elements established. Ready for stakeholder confirmation.
+
+### Established
+
+**Decision owner**
+
+* Morgan Lee, Pricing & Revenue Manager, makes recommendations.
+* Store general manager signs off.
+
+**Action or choice**
+
+* Raise shelf price.
+* Take a targeted price cut.
+* Leave shelf price unchanged.
+* Hold — not enough evidence.
+
+The action set is supported by the stakeholder dialogue and the requirement that weak evidence should not be forced into a decision. 
+
+**Outcome**
+
+* Maximize expected product revenue over the next 28 days.
+* Revenue defined as units sold × shelf price.
+* Margin is not used because cost information is unavailable.
+
+
+
+**Material constraints**
+
+* Reject expected unit declines greater than approximately 10%.
+* Prefer fewer strong recommendations over many weak ones.
+* No forced recommendation when evidence is insufficient.
+* Approximately 25 actual price-change recommendations enter the GM package.
+
+
+
+**Capacity and prioritization**
+
+* Output is a ranked list.
+* Top approximately 25 raise/cut recommendations are worked through with the GM.
+* Additional qualifying products remain below the line.
+* “Strongest” means largest expected revenue gain that is trusted.
+* Scoring method is delegated to later analytical design with disclosure.
+
+**Product/store grain and scope**
+
+* Product at a specific store.
+* Initial scope:
+
+  * California pilot store.
+  * Everyday grocery and household aisles.
+
+**Eligibility**
+
+* Products require meaningful historical shelf-price movement.
+* Products require sufficient sales activity.
+* Exact cutoffs are delegated to later design with rationale.
+
+**Time scope**
+
+* Four-week pricing cycle.
+* 28-day evaluation horizon.
+* Decision point is the end of the available history.
+* Only information known at that point may be used.
+
+**Information available**
+Available:
+
+* Daily unit sales.
+* Weekly shelf prices.
+* Calendar information:
+
+  * holidays,
+  * events,
+  * SNAP benefit days.
+
+Unavailable:
+
+* Competitor prices.
+* Inventory.
+* Cost/margin.
+
+
+
+**Uncertainty tolerance**
+
+* Prefer fewer, stronger recommendations.
+* Hold — not enough evidence is legitimate.
+* Historical patterns inform expectations but do not guarantee outcomes.
+
+### Missing
+
+None blocking Start.
+
+Deferred to later stages:
+
+* Exact eligibility cutoffs.
+* Exact ranking/scoring method.
+* Exact evidence sufficiency threshold.
+* Whether the recommendation includes exact price magnitude or only direction.
+
+These are analytical design choices delegated by Morgan and should be disclosed when implemented.
+
+### Plan
+
+Present the proposed decision statement for stakeholder confirmation.
+
+If Morgan confirms:
+
+1. Lock the Start decision statement.
+2. Move to Framing.
+3. Preserve delegated analytical choices for later stage design rather than reopening Start.

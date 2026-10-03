@@ -1,0 +1,190 @@
+I reviewed the AI1 cross-review instructions, the frozen cross-review packet, and the governing framework. The task is specifically to act as AI1 (author of Design A), review Design B and the AI3 Data/Risk Dossier, and identify replacements, alternatives, data-risk changes, and lost requirements without changing the locked decision/question/capacity stance.  The packet contains Design A, Design B, AI3’s dossier, and targeted profiling results as frozen inputs. 
+
+# AI1 CROSS REVIEW — PRICEPOINT-001 STAGE 3
+
+## 1. Findings table
+
+| ID | Target (document, section, field)                                                                  | Finding type                   | Severity | Evidence                                                                                                                                                                                                                                                  | Proposed resolution                                                                                                                                                                                                               |
+| -- | -------------------------------------------------------------------------------------------------- | ------------------------------ | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| F1 | Design A §7 Eligibility rule — exact thresholds                                                    | Improvement replacing Design A | Material | Design A left minimum price-history and sales thresholds Open. Design B converts the trust gate into explicit TE rules, including ≥4 distinct prices and ≥3 price changes. The packet also contains profiling results supporting price-density decisions. | Replace Design A’s Open eligibility thresholds with a two-level contract: universe eligibility first, trust eligibility second. Adopt Design B’s trust-gate structure, subject to final owner approval of provisional thresholds. |
+| F2 | Design A §8 Current price definition — "latest valid weekly sell price available at decision date" | Data-risk correction           | Blocking | AI3 identifies that decision date 2016-05-22 falls inside week 11617 and that the final rule must resolve whether current price means week 11617 or prior completed week 11616.                                                                           | Return this field to targeted profiling/owner decision. Do not execute until current-price semantics are frozen.                                                                                                                  |
+| F3 | Design A §17A Model family — "regularized regression or tree-based regression; deferred"           | Improvement replacing Design A | Material | Design B locks an inspectable elastic-net/log-price predictive contract. Mode A requires model class or locked selection rule before builders run.                                                                                                        | Replace the open model-family choice with a locked selection rule. Preferred Design A revision: regularized log-price demand model with explicit calendar/SNAP/event features, pending Design Gate approval.                      |
+| F4 | Design A §17A Candidate-price generation — "Generate candidate prices"                             | Missing decision logic         | Material | Design A does not define how candidate prices are created. Design B specifies using observed historical item prices, avoiding invented prices and limiting candidate noise.                                                                               | Add candidate-price construction contract. Historical observed prices only; no synthetic prices.                                                                                                                                  |
+| F5 | Design A §23 Reconciliation contract — continuous tolerance Open                                   | Improvement replacing Design A | Minor    | Design A correctly identified reconciliation as required but left tolerance unresolved. Framework requires reconciliation-critical fields before builders run.                                                                                            | Set explicit tolerances after profiling/model-output characteristics are reviewed.                                                                                                                                                |
+| F6 | Design A §24 Fixtures — Open                                                                       | Improvement replacing Design A | Material | Framework Mode A requires fixtures including known prediction/action cases. Design B provides concrete fixture expectations.                                                                                                                              | Replace Open fixture status with a required fixture specification before Stage 4.                                                                                                                                                 |
+| F7 | Design B §7 Department mapping                                                                     | Alternative, not replacement   | Minor    | Design B proposes five departments. AI3 confirms mapping is analyst-proposed and notes HOUSEHOLD_2 has fewer items with 4+ distinct prices.                                                                                                               | Keep Design B mapping as universe scope; let trust gate control thin evidence rather than silently removing departments.                                                                                                          |
+| F8 | Design B §17 Decision rule — provisional trust thresholds                                          | Data/design caution            | Minor    | Thresholds are defensible but remain provisional. Framework requires thresholds not be treated as scientific constants.                                                                                                                                   | Preserve provisional status and require disclosure/audit counts.                                                                                                                                                                  |
+
+---
+
+# 2. Changes to my own first-pass design
+
+## Eligibility thresholds
+
+**Old value (Design A §7):**
+
+* Open.
+* Required profiling before locking.
+
+**New value:**
+
+* Separate universe membership from trust eligibility.
+* Add explicit trust gate.
+
+**Reason:**
+Design B improves implementation clarity while preserving the stakeholder requirement that holds remain visible and evidence-limited items do not consume capacity.
+
+---
+
+## Candidate-price algorithm
+
+**Old value (Design A §17A):**
+
+* "Generate candidate prices."
+
+**New value:**
+
+* Candidate prices must come from observed historical item prices only.
+* No synthetic prices.
+* Remove current price from change candidates but preserve it as baseline.
+
+**Reason:**
+The decision is a pilot recommendation based on historical evidence. Invented prices would exceed the evidence contract.
+
+---
+
+## Model family / engine
+
+**Old value (Design A §17A):**
+
+* Regularized regression or tree-based regression.
+* Exact family deferred.
+
+**New value:**
+
+* Lock a regularized predictive demand model selection rule before Stage 4.
+* Preferred implementation: inspectable log-price regularized regression.
+
+**Reason:**
+Mode A requires the predictive contract to be fixed before builders run. An open model family creates uncontrolled analytical degrees of freedom.
+
+---
+
+## Minimum-gain rule
+
+**Old value (Design A §26):**
+
+* Open.
+
+**New value:**
+
+* Remains open pending owner/analyst choice.
+
+**Reason:**
+The packet does not establish an evidence-based minimum revenue uplift. Adding one only to reduce recommendation count would introduce an unsupported policy choice.
+
+---
+
+## Segment minimums
+
+**Old value (Design A §13):**
+
+* Open.
+
+**New value:**
+
+* Remains open.
+
+**Reason:**
+No profiling evidence supplied justifies a segment reporting threshold.
+
+---
+
+## Continuous reconciliation tolerance
+
+**Old value (Design A §23):**
+
+* Open.
+
+**New value:**
+
+* Lock after reviewing prediction/action precision requirements.
+
+**Reason:**
+Need a tolerance that distinguishes implementation drift from harmless numerical precision differences.
+
+---
+
+## Fixtures
+
+**Old value (Design A §24):**
+
+* Open.
+
+**New value:**
+Required fixtures:
+
+1. Candidate price fails unit-loss guardrail.
+2. Multiple candidates exist and higher trusted revenue gain wins.
+3. Trust-gate failure produces hold.
+
+**Reason:**
+Mode A requires known prediction/action cases before execution.
+
+---
+
+# 3. Items requiring further targeted profiling
+
+1. What is the distribution of current-price interpretation under week 11616 versus week 11617, and how many item recommendations would change under each definition?
+
+2. What is the distribution of predicted revenue uplift among trust-eligible items after candidate-price generation?
+
+3. What numerical reconciliation tolerance is required for `.pred` outputs and ranked actions between independent R-A and R-B implementations?
+
+4. What is the distribution of segment sizes after the locked department universe and trust gate are applied?
+
+---
+
+# 4. Items requiring a human (owner) choice between defensible alternatives
+
+## Current price definition
+
+Alternatives:
+
+1. Use week 11617 price because it contains the decision date.
+2. Use prior completed week 11616 price because it avoids partial-week ambiguity.
+
+Recommendation:
+Use the definition most consistent with Morgan's operational pricing review process. This is a business timing choice, not purely a statistical choice.
+
+---
+
+## Minimum revenue-gain threshold
+
+Alternatives:
+
+1. No minimum gain; rank all trusted positive expected gains.
+2. Require a minimum uplift to reduce operational noise.
+
+Recommendation:
+Start without a minimum unless operational capacity or review burden requires one. A minimum threshold is a policy choice, not an analytical truth.
+
+---
+
+## Department scope
+
+Alternatives:
+
+1. Keep all five grocery/household departments and let trust eligibility remove thin items.
+2. Remove sparse departments before modeling.
+
+Recommendation:
+Keep the broader universe and apply item-level trust filtering. This preserves auditability.
+
+---
+
+# Final assessment
+
+Design B contains several improvements that should replace incomplete portions of Design A, particularly around eligibility, candidate-price construction, predictive model specification, and fixtures. However, Design B does not overturn the core Design A structure: predictive ceiling, capacity stance, no-padding rule, SQL/R separation, and current-price comparison remain aligned with the locked business question.
+
+Cross-review complete: 8 findings (1 Blocking, 5 Material, 2 Minor).

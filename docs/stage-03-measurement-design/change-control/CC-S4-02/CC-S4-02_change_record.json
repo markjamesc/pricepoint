@@ -1,0 +1,18 @@
+{
+  "change_id": "CC-S4-02",
+  "step": "design",
+  "reason": "Stage 4 reconciliation R-A r2 vs R-B r10 (comparator v3) was 74/75: cent_delta_rev differed by exactly $0.01 in 84 of 3,654 candidate rows, every one a half-cent rounding straddle of unrounded revenues that agree within $0.0011 (inside the locked $0.05 tolerance); sign mismatches 0; legal_change/guardrail_pass/action differences 0; each path self-consistent with round(x, 2). §23 made exact a value derived by rounding tolerance-band quantities. Design v5.3 (d3af4b594a80c8e458d8c41c4829cf1a8e250e0bbdbaf491811c8c26cbdc9a46) -> v5.4 (3cfc71eb5e10c5f680e1768400d03daf05513a23199740ac9f80f8adff2b80ef): cent_delta_rev reconciles on exact sign and within the $0.05 dollar tolerance; legal_change, guardrail_pass, action, package, below-line and rank stay exact. No rebuild; existing R-A r2 / R-B r10 outputs are re-reconciled. Decided after seeing results; disclosed to the owner in brief v7.",
+  "approval_text": "I approve CC-S4-02: in §23, cent_delta_rev reconciles on exact sign and within the $0.05 dollar tolerance; legal_change, guardrail_pass, action, package, below-line and rank stay exact; re-reconcile the existing R-A r2 / R-B r10 outputs.",
+  "approval_timestamp": "2026-10-02T13:21:00-05:00",
+  "superseded_sha256": "4fb33333bfe1e0310ed433dbe50bc433ba5a05bb7c7eb1fcd64457a1e7eae948",
+  "new_sha256": "1ee9f4da9cffe3a906182d209c573b61c7451387cfc338009261c79f8620dd16",
+  "archive_path": "artifacts/procedure/amendments/CC-S4-02/stage3_locked_design.v3.json",
+  "run_id": "PRICEPOINT-001",
+  "new_receipt_path": "docs/stage-03-measurement-design/change-control/CC-S4-02/stage3_locked_design.v4.json",
+  "bound_document": "Validation Gate brief draft v7 (decision R9 = CC-S4-02, option (a))",
+  "bound_document_sha256": "4dc127c6d6e5ed67d63585a727864c12ca141297c5024dec5cd81e8fb15fba02",
+  "design_text_superseded_sha256": "d3af4b594a80c8e458d8c41c4829cf1a8e250e0bbdbaf491811c8c26cbdc9a46",
+  "design_text_new_path": "docs/stage-03-measurement-design/change-control/CC-S4-02/08_CONSOLIDATED_CANDIDATE_v5_4.md",
+  "design_text_new_sha256": "3cfc71eb5e10c5f680e1768400d03daf05513a23199740ac9f80f8adff2b80ef",
+  "not_validation_gate_approval": true
+}

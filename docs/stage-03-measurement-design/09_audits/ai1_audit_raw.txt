@@ -1,0 +1,400 @@
+## Verdict summary
+
+Provisional disposition: **Pass with required revisions**. The candidate preserves the correct status inventory—1 Open, 4 Owner choice pending, 0 Disputed—but still contains blocking transcription gaps in the §17 decision pipeline, Mode A specification, eligibility/backtest rules, business-decision trace, and Stage 4 contract. 
+
+The blocking gaps are repairable from already-frozen sources; they do not require redesign or a new material choice. That fits the framework’s “Pass with required revisions” path provided the exact corrections are made. 
+
+I confirm RES-01 through RES-16 as genuine source-to-candidate defects, with one amendment to RES-12 for the no-MAE case. RES-17 requires a vocabulary clarification; RES-18 is correctly within the locked Source Gate scope. The OD-1/TE6 judgment is reserved for Part 3.
+
+## T1. RES-01…RES-18 audit
+
+| RES        | Decision    | Rationale                                                                                                                                                                                                                                                                                                                                                      | Exact amended required text, if AMEND                                                                                                                                                                                                                                                                                                                                                                                                                                   | Severity         |
+| ---------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
+| **RES-01** | **CONFIRM** | v4’s §17.R1–R9 are not 06 Appendix A steps 1–9. The omissions include one-row/one-action universe membership, eligibility-window semantics, `P0_twin`, explicit not-trusted → `hold_ne`, `Û(P0)=0 → hold_ne`, unrounded argmax direction, and package/no-capacity treatment of unchanged/hold outcomes. These can change actions, ranks, and fixture results.  | —                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | **BLOCKING**     |
+| **RES-02** | **CONFIRM** | Because v4 renumbered §17 incorrectly, M1/M2 cites that were written for Appendix A numbering currently point to the wrong rules. Correcting §17 requires a complete cite recheck and M4 re-key; otherwise the builder packet is internally inconsistent.                                                                                                      | —                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | **BLOCKING**     |
+| **RES-03** | **CONFIRM** | “Standardization off on recipe side” reverses 06#23. The locked design requires recipe-side centering/scaling and `glmnet` internal standardization off; the current wording can produce different fitted models.                                                                                                                                              | —                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | **BLOCKING**     |
+| **RES-04** | **CONFIRM** | Recipe order, factor reference levels, single interaction, raw-price exclusion, no `item_id` dummies, and prediction flooring are all implementation-defining. v4 does not preserve the locked model specification.                                                                                                                                            | —                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | **BLOCKING**     |
+| **RES-05** | **CONFIRM** | v4 substitutes generic “lagged units/trailing demand features” for the locked feature set and incorrectly anchors all training trailing windows at the origin. Feature membership, windows, item proxy, and NA handling can directly change `.pred` and therefore actions/ranks.                                                                               | —                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | **BLOCKING**     |
+| **RES-06** | **CONFIRM** | Exact training population, fold cut points, held-out RMSE selection, tie rule, full-window refit, and penalty audit fields are already fixed by 06#27. Leaving them generic would force the builders to invent model-selection meaning.                                                                                                                        | —                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | **BLOCKING**     |
+| **RES-07** | **CONFIRM** | v4 omits backtest origin/horizon, `P0_bt`, re-anchored eligibility, full A1/A2/A3 definitions, collapse treatment of model-based unchanged, the stability origin, and the `U=0` exclusion/count. Those rules determine `backtest_accept` and potentially every trust-eligible action.                                                                          | —                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | **BLOCKING**     |
+| **RES-08** | **CONFIRM** | Eligibility windows, `priced_weeks`, candidate-exists behavior, leading-zero treatment, the 274-before-candidate count, and DC-2’s corrected 232 count are all source-fixed. Ambiguity here can change trust eligibility.                                                                                                                                      | —                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | **BLOCKING**     |
+| **RES-09** | **CONFIRM** | The actual 06#8 TE6 recommendation is absent from the body. Because TE6 is a conjunct of `trust_eligible`, builders cannot be left with only the one-line M3 summary. Status remains **Open** pending the Part 3 audit judgment.                                                                                                                               | —                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | **BLOCKING**     |
+| **RES-10** | **CONFIRM** | Stored `wday`, CA-only SNAP, allowable forward calendar fields, same-day SNAP treatment, and the dropped forward-SNAP feature define scoring inputs. Their omission leaves feature semantics under-specified.                                                                                                                                                  | —                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | **BLOCKING**     |
+| **RES-11** | **CONFIRM** | Twins are diagnostic only, so the sentence that none changes a judged action and that each reports package overlap is required governance. T1’s 5-of-2,484 fact should also be restored. It does not itself change the primary decision rule.                                                                                                                  | —                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | **NON-BLOCKING** |
+| **RES-12** | **AMEND**   | The locked diagnostic needs one deterministic definition in both builders. The source gives the MAE and flag definition but leaves the no-computable-department-MAE case as “NA or 0”; choosing 0 would falsely assert the gain is not below half an unavailable MAE.                                                                                          | `dept_backtest_MAE_revenue = mean, by dept, over d_1913-backtest trust-eligible items with constant actual price in weeks 11613–11617, of abs(R̂(P0_bt) − realized revenue over d_1914–d_1941). gain_below_half_mae = 1 when the chosen ΔR̂ is not > 0.5 × dept_backtest_MAE_revenue; otherwise 0. If dept_backtest_MAE_revenue cannot be computed for the item's department, gain_below_half_mae = NA. The field is diagnostic only and never changes action or rank.` | **BLOCKING**     |
+| **RES-13** | **CONFIRM** | The exact OC-1…OC-4 alternatives and counts are the disclosed human choices. v4’s generic alternatives obscure what the owner is actually being asked to approve; OC-2 also omits E_B = 784.                                                                                                                                                                   | —                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | **BLOCKING**     |
+| **RES-14** | **CONFIRM** | §2 does not preserve the locked Stage-1 statement verbatim and drops timing, information-boundary, capacity, and expectation-language clauses. The DIP explicitly locks the complete paragraph and the analytical question derives from it.                                                                                                                    | —                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | **BLOCKING**     |
+| **RES-15** | **CONFIRM** | §25 is materially inaccurate as a reconciliation record: row names/resolutions do not track 06, DC-4 is fabricated, §E is replaced by unrelated summaries, and §F is incomplete. Because §25 is the decision provenance used at final audit/lock, these are not merely cosmetic errors.                                                                        | —                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | **BLOCKING**     |
+| **RES-16** | **CONFIRM** | 06#21 locks Design B’s C1–C12 ledger; v4 substitutes a different set of confounders. The underlying decision logic is largely preserved elsewhere, so the defect is principally trace/interpretation rather than an immediate action-rule change.                                                                                                              | —                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | **NON-BLOCKING** |
+| **RES-17** | **AMEND**   | 07’s values are risk-lifecycle statuses, whereas the candidate also needs framework field status. Replacing the 07 values would destroy provenance; leaving them unlabeled creates vocabulary ambiguity. 07 explicitly defines its lifecycle vocabulary separately.                                                                                            | `Retain every 07 status value unchanged, but rename that column "Risk lifecycle status (07)". Add an adjacent "Field status" column using the Stage 3 field-status vocabulary: Owner choice pending for RR-08, RR-09, RR-13 and RR-18; Open for RR-12; Locked-proposed for all other RR rows, with RR-24 reflecting the §F resolution that the feature is dropped.`                                                                                                     | **NON-BLOCKING** |
+| **RES-18** | **CONFIRM** | The two §21 checks are within 06#31’s locked “Design B §21 plus Dossier §9 additions” Source Gate scope and trace directly to RR-19/RR-20. They should remain; no candidate correction is required on this point.                                                                                                                                              | —                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | **NON-BLOCKING** |
+
+The controlling 06 record explicitly fixes the four owner choices, leaves only OD-1 open for final audit, and defines Appendix A as the nine-step decision pipeline that v4 was supposed to preserve. 
+
+END OF AUDIT PART 1
+# L1. Decision-trace table
+
+The v4 candidate preserves many of the correct source choices, but §7, §8, §16, and especially §17 contain trace gaps where source-fixed meaning was dropped or moved to the wrong clause. The governing Appendix A pipeline is explicit: universe → eligibility integers → current/twin price → candidate construction → trust gate → scoring → legal/action rule → backtest collapse → ranking/capacity. 
+
+## §7 — population and eligibility
+
+| Clause          | Rule as written in v4                                                              | Source            | Trace           | Note                                                                                                                                      |
+| --------------- | ---------------------------------------------------------------------------------- | ----------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| §7.1            | Universe = all 2,484 CA_1 items in grocery/household scope; all remain visible     | 06#4–5; DIP scope | **CONTRADICTS** | Five-department scope is still OC-1. “Approved grocery and household scope” falsely reads as already confirmed. Must say subject to OC-1. |
+| §7.2 X1         | Non-CA_1 audit exclusion                                                           | 06#5              | **TRACE OK**    | Mechanical universe audit.                                                                                                                |
+| §7.2 X2         | Outside approved grocery/household departments                                     | 06#4–5            | **GAP**         | Department set is not yet human-approved; X2 must execute the eventual OC-1 selection.                                                    |
+| §7.2 X3         | No current-price week row                                                          | 06#5/9            | **TRACE OK**    | Auditable universe condition.                                                                                                             |
+| §7.2 X4         | Listing-age rule replaced by priced_weeks; failure → hold_ne                       | 06#5/7            | **TRACE OK**    | Correct disposition, but v4 later conflates E_A with the additional trust conjuncts.                                                      |
+| §7.2 X5         | Invalid series length ≠ 1,941                                                      | 06#5; P01         | **TRACE OK**    | Profile-supported.                                                                                                                        |
+| §7.2 X6         | Negative units or non-numeric price                                                | 06#5/22           | **TRACE OK**    | Prespecified anomaly treatment.                                                                                                           |
+| §7.3            | `n_price_changes ≥ 3`                                                              | 06#6; T010        | **GAP**         | Threshold correct, but lifetime/window definition “weeks ≤ 11617” is missing.                                                             |
+| §7.3            | `units_365 ≥ 180`                                                                  | 06#6              | **GAP**         | Threshold correct; required window d_1577–d_1941 omitted.                                                                                 |
+| §7.3            | `zero_days_365 ≤ 182`                                                              | 06#6              | **GAP**         | Threshold correct; raw 365-day-window/leading-zero semantics omitted.                                                                     |
+| §7.3            | `priced_weeks ≥ 52`                                                                | 06#7              | **GAP**         | Correct threshold, but v4 folds it into “E_A”; 06 treats it as an additional trust conjunct after E_A.                                    |
+| §7.3            | `n_candidates ≥ 1`                                                                 | 06#7              | **GAP**         | Same issue: candidate-exists is additional to E_A; failure must explicitly result in hold_ne.                                             |
+| §7.4            | E_A = 364; final pre-TE6 set = 363                                                 | P04; 06#6–7       | **TRACE OK**    | Counts supported.                                                                                                                         |
+| §7.4            | `E_A ∧ nd ≥ 4 = 274`; then “before candidate-exists: 273 or 274”                   | 06 §C / RES-08    | **CONTRADICTS** | Label is reversed/ambiguous. 274 is before candidate-exists; after is 273 or 274.                                                         |
+| §7.4            | E_C = 177; E_B = 784                                                               | 06#6 / §C         | **TRACE OK**    | Correct profiled alternatives.                                                                                                            |
+| §7.5            | OC-2 alternatives E_A / E_A∧nd≥4 / E_C / E_B                                       | 06 §C             | **GAP**         | Names are present, but counts and the owner-side 200–300 comparison are not carried into the actual choice presentation.                  |
+| §7.6            | 200–300 is owner-side preference, not stakeholder lock                             | DC-3              | **TRACE OK**    | Correct provenance.                                                                                                                       |
+| Missing §7 rule | leading-zero treatment, training starts first priced day, `first_positive_d` audit | 06#7              | **GAP**         | Source-fixed and absent.                                                                                                                  |
+| Missing §7 rule | TE6 exact Open recommendation                                                      | 06#8              | **GAP**         | Decision-changing conjunct absent from body.                                                                                              |
+
+The eligibility gaps are material because 06 distinguishes E_A from `priced_weeks`, candidate-exists, and TE6; v4 compresses those layers and omits their exact windows/dispositions. 
+
+## §8 — time-window and date contract
+
+| Clause          | Rule as written in v4                                                              | Source          | Trace        | Note                                                                           |
+| --------------- | ---------------------------------------------------------------------------------- | --------------- | ------------ | ------------------------------------------------------------------------------ |
+| §8.1            | origin d_1941 = 2016-05-22                                                         | 06#10; DIP T012 | **TRACE OK** | Correct.                                                                       |
+| §8.2            | d_1942–d_1969, daily grain, 28 days, P0/Pc held constant                           | 06#10           | **TRACE OK** | Correct.                                                                       |
+| §8.3            | sales d ≥1942 and prices wk ≥11618 forbidden                                       | 06#10           | **TRACE OK** | Correct leakage boundary.                                                      |
+| §8.4            | d_1913 primary, d_1885 stability                                                   | 06#28           | **TRACE OK** | Origins correct, though §16 omits the associated horizons/baselines.           |
+| §8.5            | week ordinals, not integer subtraction; 11518–11552 + 11601–11617                  | DC-1/06#39      | **TRACE OK** | Correct.                                                                       |
+| Missing §8 rule | `wday` as stored, Saturday=1…Friday=7                                              | 06#10           | **GAP**      | Required scoring semantics absent.                                             |
+| Missing §8 rule | `snap_CA` only                                                                     | 06#10           | **GAP**      | Required state choice absent.                                                  |
+| Missing §8 rule | calendar/event fields allowed forward on horizon rows                              | 06#10           | **GAP**      | Important distinction from forbidden future sales/prices.                      |
+| Missing §8 rule | SNAP only same-day plus scaled `log_sell_price × snap_CA`; no forward-SNAP feature | 06 §F           | **GAP**      | §17A drops the forward feature but §8 does not preserve the full scoring rule. |
+
+06 explicitly locks daily grain because week 11621 has only two days, plus stored `wday`, CA SNAP, forward calendar use, and the sales/price leakage boundary. 
+
+## §§10–13 — KPI, guardrail, baseline, segments
+
+| Clause      | Rule as written in v4                                          | Source                 | Trace                           | Note                                                                                                                        |
+| ----------- | -------------------------------------------------------------- | ---------------------- | ------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| §10.1       | Û(P) = 28-day sum of floored daily predictions                 | 06#12                  | **TRACE OK**                    | Correct.                                                                                                                    |
+| §10.2       | R̂(P)=Û(P)×P                                                   | DIP/T004; 06#12        | **TRACE OK**                    | Correct.                                                                                                                    |
+| §10.3       | ΔR̂=R̂(Pc)−R̂(P0)                                              | 06#12                  | **TRACE OK**                    | Correct.                                                                                                                    |
+| §10.4       | ρ̂=Û(Pc)/Û(P0)                                                 | 06#13                  | **TRACE OK**                    | Correct.                                                                                                                    |
+| §10.5       | Û(P0)=0 → hold_ne                                              | 06#12 / Appendix A-7   | **TRACE OK in §10; GAP in §17** | Critical rule exists, but not in the supposedly self-contained §17 decision pipeline.                                       |
+| §11.1       | reject ρ̂<0.90; twins .85/.95                                  | T006; 06#13; OC-3      | **TRACE OK**                    | Status correctly Owner choice pending.                                                                                      |
+| §11.2 T1–T9 | diagnostic twins                                               | 06#29                  | **GAP**                         | Twin definitions mostly correct; missing “each reports package overlap; none changes judged action,” and T1’s 5/2,484 fact. |
+| §11.3       | no minimum gain; half-MAE diagnostic only                      | T040; 06#18            | **GAP**                         | Governance correct, but exact `gain_below_half_mae` computation absent.                                                     |
+| §11.4       | required audit metrics                                         | 06#22/24/27/28         | **TRACE OK**                    | Named audits trace.                                                                                                         |
+| §12.1       | predicted current-price revenue over same horizon              | T014; 06#12            | **TRACE OK**                    | Correct comparison baseline.                                                                                                |
+| §12.2       | trailing realized revenue diagnostic only                      | 06#12                  | **TRACE OK**                    | Correct.                                                                                                                    |
+| §12.3       | each candidate vs P0                                           | locked question; 06#12 | **TRACE OK**                    | Correct.                                                                                                                    |
+| §12.4       | ΔR̂ subject to guardrail/trust/legal candidate                 | 06#12–19               | **TRACE OK**                    | Correct conceptually.                                                                                                       |
+| §13.1       | segments diagnostic/exploratory, no additional judged actions  | 06#20                  | **TRACE OK**                    | Correct.                                                                                                                    |
+| §13.2       | department rows always published, including n=3                | 06#20; P04             | **TRACE OK**                    | Correct.                                                                                                                    |
+| §13.3       | exploratory tertiles need n≥20                                 | 06#20                  | **TRACE OK**                    | Correct.                                                                                                                    |
+| §13.4       | `cat_id` excluded as judged segmentation                       | 06#20                  | **TRACE OK**                    | Correct.                                                                                                                    |
+| §13.5       | department, price-response tertiles, SNAP-intensity diagnostic | 06#20                  | **TRACE OK**                    | Correct in broad form.                                                                                                      |
+
+The forward KPI/baseline contract is well aligned with T014: expected units and revenue at both current and candidate prices on the same horizon, not trailing realized revenue. 
+
+## §16 — backtest
+
+| Clause   | Rule as written in v4                                                            | Source      | Trace        | Note                                                                                                   |
+| -------- | -------------------------------------------------------------------------------- | ----------- | ------------ | ------------------------------------------------------------------------------------------------------ |
+| §16.1    | backtest calibrates trust in predictions                                         | 06#28; T040 | **TRACE OK** | Correct purpose.                                                                                       |
+| §16.2    | trust-eligible at origin, same price 11613–11617, U>0                            | 06#28       | **GAP**      | Correct subset fragment, but origin/horizon/P0_bt and re-anchored eligibility omitted.                 |
+| §16.3 A1 | median APE ≤0.40                                                                 | 06#28       | **GAP**      | Threshold present; exact APE formula absent.                                                           |
+| §16.3 A2 | mean signed error in [−0.20,+0.20]                                               | 06#28       | **GAP**      | Threshold present; exact `(Û−U)/U` formula absent.                                                     |
+| §16.3 A3 | “Spearman versus calendar-only model”                                            | 06#28       | **GAP**      | Missing ΔR̂ vs realized-revenue-change definition and changed-price subset.                            |
+| §16.3 A4 | package 0–25 valid                                                               | 06#28       | **TRACE OK** | Correct.                                                                                               |
+| §16.4    | A1 or A2 fail → all trust-eligible hold_ne                                       | 06#28       | **GAP**      | Core collapse correct, but must state model-based unchanged also collapses and list is still produced. |
+| §16.5    | no minimum-gain rule                                                             | T040; 06#18 | **TRACE OK** | Correct.                                                                                               |
+| Missing  | primary backtest o=d_1913, horizon d_1914–d_1941, P0_bt=week11613                | 06#28       | **GAP**      | Required.                                                                                              |
+| Missing  | re-anchor candidates/eligibility; units_365 d_1549–d_1913; prices/changes ≤11613 | 06#28       | **GAP**      | Required.                                                                                              |
+| Missing  | stability d_1885 → d_1886–d_1913; P0=week11609                                   | 06#28       | **GAP**      | Required.                                                                                              |
+| Missing  | U=0 excluded from A1/A2 and counted                                              | 06#28       | **GAP**      | Required.                                                                                              |
+
+06#28 supplies all of those definitions and states explicitly that the collapse covers modeled unchanged as well as modeled raise/cut. 
+
+## §17.R1–R9
+
+| Clause | Rule as written in v4                              | Source claimed | Trace           | Note                                                                                                                  |
+| ------ | -------------------------------------------------- | -------------- | --------------- | --------------------------------------------------------------------------------------------------------------------- |
+| §17.R1 | P0 = week11617                                     | Appendix A     | **CONTRADICTS** | Appendix A R1 is universe/one-row/one-action. Current-price rule belongs in corrected R3.                             |
+| §17.R2 | historical candidate prices within 0.75–1.25 band  | Appendix A     | **CONTRADICTS** | Appendix A R2 is eligibility integers/windows. Band belongs in corrected R4.                                          |
+| §17.R3 | single-week four-type event filter                 | Appendix A     | **CONTRADICTS** | Appendix A R3 is current price + P0_twin + straddle_flag. Filter belongs R4.                                          |
+| §17.R4 | rounded abs-log distance; lower-price tie          | Appendix A     | **CONTRADICTS** | Only a fragment of Appendix A R4; source R4 also contains source-week cutoff, >0, ≠P0, band, event filter, and cap 5. |
+| §17.R5 | cap five                                           | Appendix A     | **CONTRADICTS** | Appendix A R5 is trust conjuncts and not-trusted → hold_ne. Cap belongs R4.                                           |
+| §17.R6 | trust_eligible conjuncts                           | Appendix A     | **CONTRADICTS** | Appendix A R6 is fit/score P0 and candidates over the 28-day horizon. Trust gate belongs R5.                          |
+| §17.R7 | legal iff ρ̂≥.90 and cent-rounded revenue gain >0  | Appendix A     | **GAP**         | Legal test is part of R7, but v4 omits Û(P0)=0→hold_ne, none-legal→unchanged, unrounded argmax, and Pc direction.     |
+| §17.R8 | none legal→unchanged; otherwise argmax → raise/cut | Appendix A     | **CONTRADICTS** | This is part of Appendix A R7; v4 does not state Pc>P0→raise/Pc<P0→cut. Correct R8 is backtest collapse.              |
+| §17.R9 | backtest_accept=0→trust-eligible hold_ne           | Appendix A     | **CONTRADICTS** | Correct concept, wrong clause number. Appendix A R9 is ranking/capacity.                                              |
+
+This is the central trace failure identified by RES-01: the source has a single ordered nine-step pipeline, while v4 redistributed fragments under different R numbers. 
+
+## M4-001…M4-014
+
+| M4 line    | v4 test                                      | Correct source                 | Trace                                 | Note                                                                                                                                                    |
+| ---------- | -------------------------------------------- | ------------------------------ | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| M4-001     | week11617 baseline                           | Appendix A-3                   | **TRACE OK rule / wrong R structure** | Should restate corrected R3.                                                                                                                            |
+| M4-002     | 0.75/1.25 integer-cent band                  | Appendix A-4                   | **TRACE OK**                          | Correct test.                                                                                                                                           |
+| M4-003     | four-type single-week event filter           | Appendix A-4                   | **TRACE OK**                          | Correct.                                                                                                                                                |
+| M4-004     | `round(abs(ln(Pc/P0)),10)`, lower price tie  | Appendix A-4                   | **TRACE OK**                          | Correct.                                                                                                                                                |
+| M4-005     | cap 5                                        | Appendix A-4                   | **TRACE OK**                          | Correct.                                                                                                                                                |
+| M4-006     | trust conjuncts                              | Appendix A-5                   | **GAP**                               | Does not test “not trusted → hold_ne.”                                                                                                                  |
+| M4-007     | legal ratio + cent-rounded revenue           | Appendix A-7                   | **GAP**                               | Does not test `Û(P0)=0 → hold_ne`.                                                                                                                      |
+| M4-008     | none legal→unchanged                         | Appendix A-7                   | **TRACE OK**                          | Correct.                                                                                                                                                |
+| M4-009     | argmax ΔR̂                                   | Appendix A-7                   | **GAP**                               | Does not state unrounded argmax or Pc direction→raise/cut.                                                                                              |
+| M4-010     | backtest collapse                            | Appendix A-8                   | **TRACE OK**                          | Correct.                                                                                                                                                |
+| M4-011     | ranking chain                                | Appendix A-9                   | **TRACE OK**                          | Correct.                                                                                                                                                |
+| M4-012     | top min(25,n), below-line, no padding        | Appendix A-9                   | **GAP**                               | Omits holds/unchanged separately listed and non-capacity-consuming.                                                                                     |
+| M4-013     | action vocabulary                            | DIP actions + Appendix A-5/7   | **TRACE OK**                          | Valid synthesis, although not itself one Appendix A numbered step.                                                                                      |
+| M4-014     | N/A alternatives                             | 06 resolutions, not Appendix A | **GAP**                               | Its stated origin “06 Appendix A” is not accurate. Band expansion is resolved in 06#14; the other N/A labels need their actual framework/06 provenance. |
+| Missing M4 | every universe item exactly one row/action   | Appendix A-1                   | **GAP**                               | Required testable line absent.                                                                                                                          |
+| Missing M4 | eligibility integers with exact windows      | Appendix A-2                   | **GAP**                               | Required testable line absent.                                                                                                                          |
+| Missing M4 | P0_twin + straddle_flag                      | Appendix A-3                   | **GAP**                               | Required line absent.                                                                                                                                   |
+| Missing M4 | score P0 and each candidate on d_1942–d_1969 | Appendix A-6                   | **GAP**                               | Required line absent.                                                                                                                                   |
+| Missing M4 | not trusted→hold_ne                          | Appendix A-5                   | **GAP**                               | Explicitly required by RES-02.                                                                                                                          |
+| Missing M4 | Û(P0)=0→hold_ne                              | Appendix A-7                   | **GAP**                               | Explicitly required by RES-02.                                                                                                                          |
+
+# L2. Decision alignment
+
+| Locked-question requirement                                    | v4 coverage                                          | Audit                                                                                         |
+| -------------------------------------------------------------- | ---------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| Four actions `{raise, cut, unchanged, hold_ne}`                | Vocabulary appears in M4-013                         | **PARTIAL** — §17 lacks a complete mapping for untrusted and zero-baseline items.             |
+| Exactly one action per universe item                           | §7 says items stay visible                           | **GAP** — Appendix A’s “every item gets exactly one row and one action” is absent from §17.   |
+| Specific pilot price                                           | Candidate-price machinery exists                     | **PARTIAL** — source/band/event/cap rules are fragmented, and action direction is incomplete. |
+| Expected units and revenue candidate vs current, d_1942–d_1969 | §§8,10,12                                            | **TRACE OK**.                                                                                 |
+| Reject unit loss beyond “about 10%”                            | OC-3 recommendation ρ̂≥0.90; .85/.95 twins           | **TRACE OK subject to OC-3**.                                                                 |
+| Ranked package up to about 25                                  | M4-011/012                                           | **TRACE OK subject to OC-4**, but §17.R9 is wrong.                                            |
+| Below-line overflow                                            | M4-012                                               | **TRACE OK**.                                                                                 |
+| No padding                                                     | M4-012                                               | **TRACE OK**.                                                                                 |
+| Holds/unchanged visible and consume no capacity                | §7 visibility; business statement; Appendix A source | **GAP in §17/M4** — M4-012 does not state the non-capacity rule.                              |
+| Expectations, not guarantees                                   | causal ceiling elsewhere in candidate                | **TRACE OK conceptually**.                                                                    |
+| Locked decision statement reproduced verbatim                  | §2                                                   | **CONTRADICTS** — RES-14 identifies dropped and altered clauses.                              |
+
+The DIP locks the full end-to-end business contract, including one of the four outcomes, 28-day revenue, the “about 10%” unit constraint, no padding, below-line overflow, visible holds, and pilot/expectation framing. 
+
+# L3. Pipeline walk on all 25 active fixtures
+
+The fixture pack itself is source-fixed. 
+
+| Fixture              | v4 §17 result                                                                                                                          | Expected                                        | Audit            | Missing/wrong clause                                                          | §24.1 cite correct?                                                    |
+| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- | ---------------- | ----------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| FX-HOLD-NE-PRICES    | `trust_eligible=0`; final action not deterministically assigned                                                                        | hold_ne                                         | **UNDETERMINED** | Missing “not trusted → hold_ne”                                               | **N** — current logic is R6; restored cite R5                          |
+| FX-GUARD-10          | ρ̂=.89 → candidate illegal → unchanged/non-raise                                                                                       | `guardrail_pass=0; action≠raise`                | **MATCH**        | `guardrail_pass` assignment implicit rather than explicit                     | **Y** for restored R7                                                  |
+| FX-CUT-OK            | legal candidate; v4 says action is raise/cut but gives no Pc-direction rule                                                            | cut                                             | **UNDETERMINED** | Missing “Pc<P0 → cut”                                                         | **Y after restore** — R7                                               |
+| FX-ARGMAX            | selects ΔR̂=10                                                                                                                         | picks 10                                        | **MATCH**        | —                                                                             | **N now** — current argmax is R8; **R7 after restore**                 |
+| FX-NOPAD             | 3 qualifiers → package=3                                                                                                               | same                                            | **MATCH**        | Holds/nonqualifiers not expressly barred from capacity in §17                 | **N now** — M4-012 only; **R9 after restore**                          |
+| FX-CAP25             | 30 qualifiers → 25 package, 5 below line                                                                                               | same                                            | **MATCH**        | —                                                                             | **N now** — M4-011/012; **R9 after restore**                           |
+| FX-MEMBER            | row visibility follows §7, but action for noneligible item not assigned by §17                                                         | row present; hold_ne                            | **UNDETERMINED** | Missing R1 one-row/action + R5 not-trusted→hold_ne                            | **N now**; **R1+R5 after restore**                                     |
+| FX-LEAK-11618        | §8.3 excludes wk11618 price                                                                                                            | price excluded, never feature                   | **MATCH**        | §17 candidate clause itself lacks weeks≤11617                                 | **N now** — §8.3/R2; **R4 after restore**                              |
+| FX-CURRENT-11617     | P0=3.50; twin/straddle outputs not fully specified in §17                                                                              | 3.50, straddle=1, twin=3.00                     | **UNDETERMINED** | Missing P0_twin/straddle in §17                                               | **N now** — R1 + §11; **R3 after restore**                             |
+| FX-HORIZON-28        | §8 fixes daily d_1942–d_1969 =28                                                                                                       | 28 days                                         | **MATCH**        | —                                                                             | **N now** — R6 currently trust; **R6 after restore**                   |
+| FX-TIE               | M4-011 uses predicted current units second                                                                                             | higher units first                              | **MATCH**        | —                                                                             | **N now** — no matching R9 ranking clause; **R9 after restore**        |
+| FX-ELIG-BOUNDARY     | v4 labels E_A as including priced_weeks/candidate-exists, so setup does not fully determine “E_A”                                      | only first passes E_A                           | **UNDETERMINED** | E_A conflated with extra trust conjuncts                                      | **N now**; restored R2 + §7                                            |
+| FX-PW52              | e_pw52=0 follows §7; final action not specified by §17 trust failure                                                                   | e_pw52=0; hold_ne                               | **UNDETERMINED** | Missing not-trusted→hold_ne                                                   | **N now**; **R2+R5 after restore**                                     |
+| FX-BAND25            | 3.00/3.01/4.99/5.00 retained, 5.01 excluded                                                                                            | same                                            | **MATCH**        | —                                                                             | **N now** — band is R2; **R4 after restore**                           |
+| FX-NOCAND            | no legal candidate; v4 R8 can yield unchanged because no prior trust-failure disposition is stated                                     | e_cand=0; hold_ne                               | **NO MATCH**     | Missing precedence “not trusted→hold_ne”                                      | **N now** — current R2/R6/R8; **R4+R5 after restore**                  |
+| FX-EVENT-SINGLE      | event price removed, non-event price retained                                                                                          | same; filtered count=1                          | **MATCH**        | audit-count increment not stated in §17                                       | **N now** — event rule R3; **R4 after restore**                        |
+| FX-CAP5-TIE          | R4 orders tie lower; R5 caps at five                                                                                                   | same                                            | **MATCH**        | rule split across two clauses                                                 | **N** — current needs R4+R5; **R4 after restore**                      |
+| FX-UP0-ZERO          | §17 attempts unit ratio/legal test; zero-baseline disposition absent there                                                             | hold_ne                                         | **UNDETERMINED** | Missing `Û(P0)=0→hold_ne` in §17                                              | **N as implemented** — restored R7                                     |
+| FX-CENT-ROUND        | only ΔR̂=0.004 is supplied; v4 legal rule compares separately rounded revenue levels                                                   | not legal; unchanged                            | **UNDETERMINED** | Fixture predicate does not mathematically determine `round(Rc,2)-round(R0,2)` | **Y** to R7, but fixture setup itself is insufficient                  |
+| FX-MINGAIN-DIAG      | legal candidate proceeds; v4 says half-MAE is diagnostic only, but exact flag computation absent                                       | raise/cut; flag=1; normal rank                  | **UNDETERMINED** | `gain_below_half_mae` formula missing                                         | **N now** — current R7/R8 + §11/M4; restored R7/R9                     |
+| FX-BACKTEST-COLLAPSE | A1=.45 fails → all trust-eligible hold_ne                                                                                              | same                                            | **MATCH**        | —                                                                             | **N now** — collapse is R9; **R8 after restore**                       |
+| FX-TRAIL-ANCHOR      | v4 §17A says all trailing windows anchored at origin, but does not define exact d ranges and incorrectly applies this to training rows | exact d_1914…d_1941 anchor                      | **UNDETERMINED** | RES-05 exact window semantics absent                                          | **N** — needs corrected §17A/06#24; restored R6 is only scoring hook   |
+| FX-WDAY-SNAP         | v4 §8 lacks stored-wday and CA-only SNAP rules                                                                                         | Saturday=1; CA SNAP=0                           | **UNDETERMINED** | RES-10                                                                        | **N** — needs §8/§17A; R6 alone insufficient                           |
+| FX-WEEK-ORDINAL      | §8.5 gives 11518–11552 +11601–11617                                                                                                    | same                                            | **MATCH**        | —                                                                             | **N now** — R2 is band; **R2+§8 after restore**                        |
+| FX-INTERACT          | v4 says `log_sell_price × snap_CA`, but standardization is inverted and does not require the scaled log-price interaction              | exactly one scaled-log-price × SNAP interaction | **NO MATCH**     | RES-03/04                                                                     | **N** — needs corrected §17A; restored R6 only references locked model |
+
+### Repeat using 06 Appendix A
+
+Using Appendix A steps 1–9 verbatim repairs the core action-pipeline failures:
+
+* FX-HOLD-NE-PRICES, FX-MEMBER, FX-PW52 and FX-NOCAND become determinate because R5 explicitly says **not trusted → hold_ne**.
+* FX-UP0-ZERO becomes determinate because R7 explicitly says **Û(P0)=0 → hold_ne**.
+* FX-CUT-OK becomes determinate because R7 explicitly maps Pc<P0 to cut and Pc>P0 to raise.
+* ranking, capacity, no-padding, and non-capacity treatment of holds/unchanged all become explicit in R9.
+* current-price twin/straddle, candidate source/band/event/order/cap, scoring horizon and collapse all regain their intended clause numbers. 
+
+**However, Appendix A alone does not make all 25 fixtures pass.** FX-TRAIL-ANCHOR, FX-WDAY-SNAP and FX-INTERACT also require the missing/restored §8/§17A source text from RES-03/04/05/10. FX-CENT-ROUND remains underdetermined even against 06 because its setup supplies only a revenue difference of 0.004, whereas the locked legal rule compares the difference between the two separately cent-rounded revenue levels. I treat that as a new decision-trace finding for Part 3.
+
+# L4. Clause-cite integrity
+
+## M2 packet — all 20 gates
+
+| Gate                | v4 cite  | Audit against current v4 §17                                                           | Correct cite after restoring Appendix A |
+| ------------------- | -------- | -------------------------------------------------------------------------------------- | --------------------------------------- |
+| E_A conjuncts       | R2, R5   | **Mismatch** — candidate band + cap                                                    | R2, R5                                  |
+| priced_weeks        | R2, R5   | **Mismatch**                                                                           | R2, R5                                  |
+| candidate-exists    | R4, R5   | **Mismatch** — distance + cap                                                          | R4, R5                                  |
+| TE6                 | R5       | **Mismatch** — cap                                                                     | R5                                      |
+| current price       | R3       | **Mismatch** — event filter                                                            | R3                                      |
+| band                | R4       | **Mismatch** — only distance in current v4                                             | R4                                      |
+| event filter        | R4       | **Mismatch**                                                                           | R4                                      |
+| cap/tie             | R4       | **Partial mismatch** — tie yes, cap is current R5                                      | R4                                      |
+| legal test          | R7       | **Partial** — ratio/revenue test yes; zero-baseline/action logic missing               | R7                                      |
+| guardrail           | R7       | **Correct**                                                                            | R7                                      |
+| ΔR̂>0 cent rounding | R7       | **Correct**                                                                            | R7                                      |
+| action map          | R5, R7   | **Mismatch** — current R5 is cap and R7 lacks complete action map                      | R5, R7                                  |
+| backtest collapse   | R8       | **Mismatch** — current R8 is action assignment                                         | R8                                      |
+| ranking/tie-break   | R9       | **Mismatch** — current R9 is collapse                                                  | R9                                      |
+| capacity/no-pad     | R9       | **Mismatch**                                                                           | R9                                      |
+| leakage             | R4; §17A | **Mismatch/partial** — current R4 has no source-week cutoff; §8.3 actually supplies it | R4; §8/§17A                             |
+| horizon-28          | R6       | **Mismatch** — current R6 is trust                                                     | R6                                      |
+| week-ordinal        | R2; §8   | **Partial mismatch** — §8 correct; current R2 unrelated                                | R2; §8                                  |
+| trailing anchoring  | R6; §17A | **Mismatch** — R6 unrelated and current §17A rule is incomplete/wrong                  | R6; corrected §17A                      |
+| recipe              | R6; §17A | **Mismatch** — R6 unrelated and current recipe contradicts 06#23                       | R6; corrected §17A                      |
+
+The packet’s cites were written for the Appendix A numbering, which is why they become coherent once RES-01 restores the actual R1–R9 sequence. Until then, the translation packet is not executable without builder interpretation. This is exactly the RES-02 problem. 
+
+## M4-to-R integrity
+
+| M4                           | Correct R-clause                                     |
+| ---------------------------- | ---------------------------------------------------- |
+| M4-001 baseline              | R3                                                   |
+| M4-002 band                  | R4                                                   |
+| M4-003 event filter          | R4                                                   |
+| M4-004 distance/tie          | R4                                                   |
+| M4-005 cap                   | R4                                                   |
+| M4-006 trust                 | R5 — add explicit not-trusted→hold_ne test           |
+| M4-007 legality              | R7 — add separate Û(P0)=0→hold_ne test               |
+| M4-008 none legal→unchanged  | R7                                                   |
+| M4-009 argmax                | R7 — state unrounded argmax and Pc direction         |
+| M4-010 collapse              | R8                                                   |
+| M4-011 rank chain            | R9                                                   |
+| M4-012 capacity/no-pad       | R9 — add holds/unchanged separate and non-capacity   |
+| M4-013 action vocabulary     | R5/R7 + DIP action set                               |
+| M4-014 excluded alternatives | not Appendix A; cite actual 06/framework resolutions |
+
+Also missing are M4 lines for corrected R1 universe/one-action, R2 eligibility integers/windows, R3 twin/straddle, and R6 scoring.
+
+# L5. Disclosed-judgment register
+
+| Number / rule                             | Source                                         | Disclosed in v4?                         | Audit                                                                                              |
+| ----------------------------------------- | ---------------------------------------------- | ---------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| Candidate band 0.75 / 1.25                | 06#14; Appendix A-4; P04 support               | Yes, §17.R2/M4-002                       | **OK value; wrong clause placement**                                                               |
+| Candidate cap 5                           | 06#16; Appendix A-4                            | Yes, §17.R5/M4-005                       | **OK value; wrong clause placement**                                                               |
+| Distance rounding to 10 decimals          | 06#16 / §E-8                                   | Yes, §17.R4/M4-004                       | **OK**                                                                                             |
+| Distance tie → lower price                | 06#16 / §E-8                                   | Yes                                      | **OK**                                                                                             |
+| Cent rounding `round(x,2)`                | 06#17 / §E-8                                   | Yes, §17.R7                              | **OK rule; FX-CENT-ROUND fixture predicate is insufficient**                                       |
+| Guardrail 0.90                            | T006 translated by 06#13; OC-3                 | Yes                                      | **OK; Owner choice pending**                                                                       |
+| N_CAP=25                                  | T018/T024 translated by 06#19; OC-4            | Yes in M4 and M3                         | **OK value; §17.R9 missing**                                                                       |
+| A1 0.40                                   | 06#28; coordinator-specified pre-execution cap | Yes                                      | **OK threshold; formula/details incomplete**                                                       |
+| A2 −0.20/+0.20                            | 06#28                                          | Yes                                      | **OK threshold; formula/details incomplete**                                                       |
+| Penalty grid `10^seq(−4,1,length.out=50)` | 06#27 / §E-8                                   | Yes, §17A.8                              | **OK disclosed**                                                                                   |
+| Fold rule `ceiling(5·d/D)`                | 06#27 / §E-8                                   | Yes, §17A.7                              | **GAP** — exact live/backtest/stability cut points and leave-one-block-out/refit semantics omitted |
+| Seed 20160522                             | 06#23 / §E-8                                   | Yes, §17A.2                              | **OK disclosed**                                                                                   |
+| TE6 APE cap 0.50                          | 06#8 recommendation                            | Only alluded to in M3; exact rule absent | **GAP / Open** — must be resolved in final audit or become owner choice at lock                    |
+| TE6 dept-median alternative               | 06#8                                           | No full rule                             | **GAP / Open**                                                                                     |
+| TE6 no-usable-slice → hold_ne             | 06#8                                           | M3 summary only                          | **GAP / Open**                                                                                     |
+
+The disclosed-number principle is otherwise sound: 06 itself identifies the grid, fold rule, 10-decimal distance rounding, lower-price tie, cent rounding, and backtest-collapse detail as coordinator-specified values added for deterministic implementation and therefore subject to audit. 
+
+END OF AUDIT PART 2
+# T2. New findings within the AI1 decision-trace lens
+
+ID: AI1-DT-01
+Section: §24.1 — FX-CENT-ROUND
+06/07 row: 06 Appendix B; 06#17
+Severity: BLOCKING
+Issue: **Objection to 06.** The fixture predicate does not actually determine the expected result under the locked legal test. It supplies only `R̂(Pc) − R̂(P0) = 0.004`, while the rule evaluates `round(R̂(Pc), 2) − round(R̂(P0), 2) > 0`. A $0.004 unrounded difference can straddle a cent boundary, so the candidate could still be legal. The expected `unchanged` result therefore does not follow from the fixture setup as written. 
+Exact required text: `FX-CENT-ROUND (new) | Stub R̂(P0) = 100.000 and R̂(Pc) = 100.004, so round(R̂(P0), 2) = 100.00 and round(R̂(Pc), 2) = 100.00 | not legal; action = unchanged | raise/cut assigned`
+
+ID: AI1-DT-02
+Section: §24.5 — M2 Spec-to-builder translation packet
+06/07 row: 06#37; framework §19A
+Severity: BLOCKING
+Issue: v4 includes the 20 decision-rule rows from the extension in 06#37, but it omits several **gate-class rows that 06#37 says are inherited from Design B §24.3 and framework §19A**: persistence N/A, twin-action override N/A, full universe, membership-first/capacity/no-pad, non-enrolling actions, lineage, capacity/simulation labeling, and Mode A. Framework §19A states that omission of a used gate or required lineage mapping means Stage 4 is not ready. 
+Exact required text:
+
+`| Half-window / persistence | N/A | §17 M4-014; framework §19A | N/A | Required | Required |`
+`| Dual-clock / twin action-override | N/A | §17 M4-014; framework §19A | N/A | Required | Required |`
+`| Full analytical-unit universe | Yes | §17.R1 | FX-MEMBER | Required | Required |`
+`| Membership-first + capacity + no-pad | Yes — OC-4 pending lock | §17.R9 | FX-NOPAD, FX-CAP25, FX-MEMBER | Required | Required |`
+`| Non-enrolling actions | Yes | §17.R5, §17.R7 | FX-HOLD-NE-PRICES, FX-NOCAND, FX-UP0-ZERO | Required | Required |`
+`| Lineage field mapping | Yes | §24.4 | N/A | Required | Required |`
+`| Capacity / simulation labels | Capacity used; simulation N/A | §17.R9; §24.4 | FX-CAP25 | Required | Required |`
+`| Mode A | Yes | §17A; §22; §23 | FX-INTERACT, FX-TRAIL-ANCHOR | Required | Required |`
+
+The existing `leakage` row remains and satisfies the corresponding gate-class requirement once its clause cites are repaired under RES-01/RES-02. The framework requires all used gate classes and explicit N/A treatment for unused optional mechanics. 
+
+ID: AI1-DT-03
+Section: §7.3 — Eligibility rule E_A
+06/07 row: 06#6; 06#7; Appendix A-2/5
+Severity: BLOCKING
+Issue: v4 labels all five conjuncts—`n_price_changes`, `units_365`, `zero_days_365`, `priced_weeks`, and candidate-exists—as “E_A.” The reconciliation distinguishes **E_A itself** from the later `e_pw52` and `e_cand` trust conjuncts. That distinction matters to the profiled counts, OC-2 alternatives, TE6 re-anchoring, and fixtures.
+Exact required text: `E_A = (n_price_changes_pre ≥ 3) ∧ (units_365 ≥ 180) ∧ (zero_days_365 ≤ 182). Separately, e_pw52 = (priced_weeks_pre ≥ 52) and e_cand = (n_candidates ≥ 1). trust_eligible additionally requires e_pw52, e_cand and te6. Failure of e_pw52 or e_cand → hold_ne.`
+
+This is consistent with the reconciliation’s explicit separation of the trust conjuncts and its reported E_A-versus-final counts. 
+
+# T3. OD-1 — TE6 final-audit judgment
+
+**Choice: (iii) CANNOT RESOLVE.**
+
+TE6 stays **Open** through this audit and, under 06 §F, becomes an owner choice at lock if the other final audits do not establish a supported resolution. The coordinator’s proposed `APE_i ≤ 0.50` cap has no pre-results empirical or stakeholder basis; 06 itself explicitly says the 0.50 value is a proposal with no evidence behind it. 
+
+The department-median alternative is methodologically interpretable as a relative item-level screen, but it does not establish absolute adequacy: half of a poorly predicted department could satisfy the median rule. Conversely, the absolute 0.50 limb prevents that failure mode, but its exact numeric value is unsupported before results.
+
+The “no usable d_1913 slice → hold_ne” rule is well traced to the stakeholder’s requirement that the forward expectation not be a guess and is conservative; I have no objection to that portion. The model-level 06#28 collapse independently protects against broad miscalibration—A1 or A2 failure makes every trust-eligible action `hold_ne`—but it does not by itself provide a justified **item-level** TE6 threshold. 
+
+Because no model results exist and the audit rules prohibit inventing evidence after the fact, I cannot promote the 0.50 rule to Locked-proposed. The exact 06#8 recommendation should nevertheless remain in the candidate as the documented proposal so the owner can resolve OD-1 knowingly at lock. The reconciliation expressly provides this branch. 
+
+# T4. RES-17 and RES-18 judgments
+
+## RES-17 — §18 lifecycle statuses
+
+**Decision: AMEND.**
+**Severity: NON-BLOCKING.**
+
+I amend my Part 1 treatment: **do not add a second status column to each RR row.** The 07 register defines its own lifecycle vocabulary—Resolved, Accepted, Open, Blocking, Deferred—and those values carry useful Stage 4-control meaning. Replacing them would break the requirement to carry 07 verbatim; duplicating them with a second row-level status column would add unnecessary status semantics. 
+
+Exact required text:
+
+Change the §18 column heading:
+
+`Status`
+
+to:
+
+`Risk lifecycle status (07)`
+
+and add immediately above the table:
+
+`The "Risk lifecycle status (07)" column preserves the lifecycle vocabulary of 07_MEASUREMENT_RISK_REGISTER.md. These values describe risk/control lifecycle and do not alter the candidate's design-element status inventory in M3.`
+
+RR-24 must retain the post-§F corrected lifecycle value:
+
+`Resolved (06 §F: dropped)`
+
+The candidate’s substantive design-status inventory remains OD-1 plus OC-1…OC-4; §18 lifecycle language does not create additional Open or Owner-choice design fields.
+
+## RES-18 — §21 Source Gate items 19–20
+
+**Decision: CONFIRM.**
+**Severity: NON-BLOCKING.**
+
+Both checks are within the scope of 06#31’s “Design B §21 plus Dossier §9 additions” and should remain:
+
+`Position 0 → d_1, and position 1940 → d_1941 = 2016-05-22.`
+
+`There is ≤ 1 price row per item-day after mechanical price attachment.`
+
+They trace directly to the JSON-position/date-alignment and price/cardinality risks in RR-19 and RR-20; they introduce no new analytical choice. 
+
+# Final audit disposition
+
+The candidate should **not** pass the Design Gate in its current text. The blocking defects are real: the §17 pipeline is mistranscribed, the Mode A recipe/features/CV/backtest contract is incomplete, E_A is conflated with later trust conjuncts, several M1/M2 clause maps are invalid under the current §17 numbering, and the full Stage-4 translation packet is incomplete.
+
+Those defects are nevertheless repairable from already-existing frozen material: the DIP, 06, 07, profiles, and framework. They do not require a redesign. The only unresolved analytical choice from this lens is the already-declared OD-1; choosing CANNOT RESOLVE follows the branch already authorized by 06 §F rather than creating a new decision. The additional FX-CENT-ROUND repair clarifies the synthetic fixture so it actually tests the already-locked cent-rounding rule; it does not alter that rule.
+
+Accordingly, the appropriate framework §27 outcome is **Pass with required revisions**: apply the confirmed/amended residual corrections, the three AI1-DT findings above, resolve OC-1…OC-4 at human lock, and handle OD-1 according to the final-audit/owner branch before Stage 4 authorization.
+
+END OF AUDIT PART 3
+AUDIT VERDICT: Pass with required revisions

@@ -1,0 +1,93 @@
+{
+  "step": "design",
+  "phase": "complete",
+  "result": "PASS",
+  "checked_at_utc": "2026-09-25T13:41:33Z",
+  "checks": [
+    {
+      "check": "Step was authorized",
+      "result": "PASS",
+      "detail": "current_step must match completion request"
+    },
+    {
+      "check": "Controlling documents unchanged",
+      "result": "PASS",
+      "detail": "framework hashes must match run start"
+    },
+    {
+      "check": "Previously completed receipts unchanged",
+      "result": "PASS",
+      "detail": "completed artifact hashes must still match"
+    },
+    {
+      "check": "Workflow Gate report unchanged",
+      "result": "PASS",
+      "detail": "recorded workflow report hash must still match"
+    },
+    {
+      "check": "Required receipt exists and parses",
+      "result": "PASS",
+      "detail": "artifacts/stage3_locked_design.json"
+    },
+    {
+      "check": "Stage 3 required fields",
+      "result": "PASS",
+      "detail": "stage, status, design_version, population, grain, window_start, window_end, decision_rules, required_outputs, ml_mode, ai1_independent_design, ai2_independent_design, ai3_independent_risk_dossier, information_barrier, cross_review, design_gates, human_analyst_approval, unresolved_issues"
+    },
+    {
+      "check": "Stage 3 number",
+      "result": "PASS",
+      "detail": "stage must equal 3"
+    },
+    {
+      "check": "Stage 3 locked",
+      "result": "PASS",
+      "detail": "status must equal LOCKED"
+    },
+    {
+      "check": "ML mode explicit",
+      "result": "PASS",
+      "detail": "ml_mode must be None, A, or B"
+    },
+    {
+      "check": "Stage 3 ai1_independent_design",
+      "result": "PASS",
+      "detail": "ai1_independent_design must equal PASS"
+    },
+    {
+      "check": "Stage 3 ai2_independent_design",
+      "result": "PASS",
+      "detail": "ai2_independent_design must equal PASS"
+    },
+    {
+      "check": "Stage 3 ai3_independent_risk_dossier",
+      "result": "PASS",
+      "detail": "ai3_independent_risk_dossier must equal PASS"
+    },
+    {
+      "check": "Stage 3 information_barrier",
+      "result": "PASS",
+      "detail": "information_barrier must equal PASS"
+    },
+    {
+      "check": "Stage 3 cross_review",
+      "result": "PASS",
+      "detail": "cross_review must equal PASS"
+    },
+    {
+      "check": "Stage 3 design_gates",
+      "result": "PASS",
+      "detail": "design_gates must equal PASS"
+    },
+    {
+      "check": "Stage 3 human approval",
+      "result": "PASS",
+      "detail": "human_analyst_approval must equal APPROVED"
+    },
+    {
+      "check": "Stage 3 unresolved issues",
+      "result": "PASS",
+      "detail": "unresolved_issues must equal 0"
+    }
+  ]
+}

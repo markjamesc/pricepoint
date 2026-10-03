@@ -1,0 +1,4 @@
+STAKEHOLDER REPLY (T016, verbatim):
+"Fewer, with stronger evidence. If the evidence on a product isn't solid, I want it to say "hold — not enough evidence" rather than push a change. I'd rather miss an opportunity than walk a bad price change into my GM's office, so I need a clear "can't tell" answer as a legitimate outcome, not a forced call."
+
+Return SECTION 1 (T017 stakeholder message: acknowledge, then one question) and SECTION 2 (internal note: Start Gate elements established vs missing, plan). When you judge that every Start Gate element is established, SECTION 1 should instead present the proposed decision statement to the stakeholder and ask her to confirm or correct it.

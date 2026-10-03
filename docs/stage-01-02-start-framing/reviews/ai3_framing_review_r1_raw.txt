@@ -1,0 +1,22 @@
+VERDICT: Pass
+
+FINDINGS:
+1. Leading toward a predetermined recommendation — NON-BLOCKING. The proposed question includes raise/cut, unchanged, and “hold — not enough evidence,” and the message separates trust from gain (T038, T040). It does not steer only toward price changes.
+2. Assumes causality — NON-BLOCKING. “Produce” has causal flavor, but the question uses “expected” and the internal note correctly says historical relationships support pilot expectations, not guaranteed causal effects (T026, T036, T040). This is consistent with the locked decision statement.
+3. Combines multiple decisions — NON-BLOCKING. The question addresses the single per-product recommendation decision: specific raise, specific cut, unchanged, or insufficient-evidence hold (T002, T016, T034, T036).
+4. Privileges requested metric before outcome defined — NON-BLOCKING. Revenue as units sold × shelf price, 28-day horizon, and unit-loss guardrail are all established in dialogue before the proposed question (T004, T006, T012, T034).
+5. Omits a realistic decision option — NON-BLOCKING. The four stakeholder-supported outcomes are present: specific price increase, specific price cut, unchanged, and “hold — not enough evidence” (T002, T016, T034, T036). Generic “hold” is effectively covered by unchanged plus insufficient-evidence hold (T020).
+6. Unsupported clause — NON-BLOCKING. The trust-gain distinction is directly supported by T038 and T040; the capacity framing is supported by T018, T020, and T024; the specific-price requirement is supported by T034.
+7. Accurate yet useless for action — NON-BLOCKING. The stakeholder-facing question alone does not restate the ranked-list/below-the-line mechanics, but the message paragraph and internal `capacity_stance` preserve them, and T018/T024 establish them. This is not a framing failure because the required capacity stance is present and correct.
+8. Data convenience distorted business need — NON-BLOCKING. The question keeps the business scope as eligible products at the California pilot store, with eligibility left to Stage 3, consistent with T008 and T010.
+9. Material stakeholder exception disappeared — NON-BLOCKING. Exceptions such as no padding when fewer qualify, holds not consuming capacity, and pilots as tests rather than guarantees are preserved in the internal note and locked Stage 1 statement (T018, T020, T024, T026, T036).
+10. Strongest alternative wording — NON-BLOCKING. The current wording is adequate; the alternative below is a clarity strengthening, not a required correction.
+
+CAPACITY CHECK:
+(a) Limited-attention purpose was not silently framed as an unbounded census — PASS. Dialogue explicitly establishes a practical limit of about 25 actual raise/cut recommendations per four-week cycle, a ranked list, and below-the-line next-in-line items (T018, T024). The builder correctly chooses `hard_attention_budget`, not `unordered_ok`.
+(b) Census purpose was not silently forced into `hard_attention_budget` to manufacture a leaderboard — PASS. The dialogue itself supplies the limited-attention purpose and capacity ceiling (T018, T020, T024), so the stance is stakeholder-grounded, not analyst-invented.
+Independent capacity_stance determination: `hard_attention_budget`. Capacity unit: actual raise/cut recommendations prepared for GM review per four-week cycle, about 25. Controlled deferral: additional qualifying opportunities remain below the line as next in line. Holds and unchanged outcomes remain visible and do not consume price-change capacity.
+
+REQUIRED REVISIONS (if any): None.
+
+STRONGEST ALTERNATIVE WORDING: For eligible products at the California pilot store’s everyday grocery and household aisles, which specific pilot shelf price—raise, cut, or current price—or “hold — not enough evidence” outcome should Morgan recommend for the next 28 days, using only history available at the review date, so that trusted expected revenue gain is maximized subject to the about-10% unit-loss guardrail, with trusted raise/cut recommendations ranked up to about 25 for the GM package and additional qualifiers shown below the line?

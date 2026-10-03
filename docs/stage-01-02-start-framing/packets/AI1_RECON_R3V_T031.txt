@@ -1,0 +1,84 @@
+PHASE D — RECONCILIATION OF THE T029 VERIFICATION. T029 has NOT been shown to Morgan. Your next stakeholder message will be numbered T031 and replaces T029 (T029 stays in the record as a superseded draft; no T030 exists).
+
+AI 2 and AI 3 each checked your SECTION 0 and T029 in their own round-3 chats, independently. Verbatim, hash-frozen:
+
+===== AI 2 — verification =====
+**PRICEPOINT-001 — AI 2 Start verify, Round 3 (T029)**  
+Same role. Checked only against the issues I raised in the R3 reconstruction and against Morgan’s verbatim words in T000–T026. Stakeholder has not seen T027 or T029.
+
+---
+
+### A. Issues I raised — resolved or not
+
+1. **T027 framed Morgan as the one who “must decide” rather than the recommender whose GM signs off** — **Resolved.** T029 is “must determine what recommendation to bring to the store general manager.” Matches T002.
+
+2. **Leave-unchanged and “hold — not enough evidence” must stay distinct actions** — **Resolved.** T029 lists raise, targeted cut, leave unchanged, and hold-not-enough-evidence as four separate outcomes. Matches T002 + T016.
+
+3. **T027 kept only the “not a guarantee” half of T026 and dropped pilot-not-rollout** — **Resolved.** T029: “Approved changes will be piloted, and historical patterns should be presented as expectations to test rather than guarantees.”
+
+4. **T027 compressed calendar and dropped SNAP** — **Resolved.** T029 names “holidays, events, and SNAP benefit days,” which is T014’s wording.
+
+5. **Four-week review cadence / price holds until the next review omitted from the statement** — **Not resolved in the statement.** SECTION 0 records the cadence internally; T029 still only states the 28-day outcome window and the ~25 package. T012 is not fully reflected in the sentence Morgan is asked to confirm.
+
+6. **“Eligible” used without restating the two eligibility principles** — **Not resolved in the statement; deferral of cutoffs is correct.** T008/T010 principles (several real price changes; steady enough sales; smaller trustworthy list) are still collapsed into the adjective “eligible.” Exact cutoffs were rightly left to Stage 3. The *principle* is Start-owned and still unspoken in T029.
+
+7. **Decision statement drifted into deliverable spec (ranked-list production language)** — **Mostly resolved.** Ranking and the ~25 / below-the-line rule are now constraints on the recommendation package, which T024 supports. Residual: T029 still does not say holds are listed but do not consume the 25 (T020) or “don’t pad” if fewer qualify (T018).
+
+8. **Price-change magnitude missing from the action set** — **Correctly deferred.** Not a Start blocker. Morgan specified direction only (T002). Asking her again at Start would reopen a Framing/Stage 3 item.
+
+9. **Analyst diction “product-store combinations”** — **Resolved.** T029 uses “each eligible product at the California pilot store’s everyday grocery and household aisles,” which is T008’s grain without the invented compound.
+
+---
+
+### B. Clauses in T029 that are unsupported by, or diverge from, Morgan’s words
+
+No clause invents an outcome, owner, data source, or constraint she did not state. Remaining fidelity issues are omission and light merge, not contradiction:
+
+- **“Eligible product”** is still undefined in the sentence she is asked to confirm. She never used “eligible.” She used the two principles in T008/T010. Calling the set “eligible” before cutoffs are disclosed is analyst shorthand.
+- **Holds-must-be-listed and no-padding** (T020, T018) are not in T029. The ~25 / below-the-line rule is present and correct for raise/cut items only, so this is incomplete packaging language, not a wrong cap.
+- **Four-week cycle and “whatever we set holds until the next review”** (T012) are absent. “Next 28 days” and “approximately 25” are supported; the recurring hold-until-next-review rhythm is not on the page.
+- **“Strongest trusted product revenue outcome”** merges T004’s maximize-revenue test with T024’s ranking key (“biggest revenue gain that you actually trust”). Supported in pieces; slightly tighter than her wording, which separated “right call = most revenue without doing something dumb” from “if more than 25 qualify, strongest first.”
+- **“Compared with the current price”** is supported by T014 and is a good explicit addition, not a divergence.
+- SECTION 0 deferrals of guardrail-failure *label*, eligibility *cutoffs*, evidence *threshold*, magnitude, department mapping, and ranking *formula* do **not** push Start-level framing into a later stage. Morgan stated the constraints and delegated the numbers.
+
+---
+
+### C. Start Gate on T029: **Pass**
+
+T029 fixes the two Start-level wording failures I treated as real (recommender vs approver; pilot + SNAP). The four-way action set, revenue outcome, 28-day window, ~10% unit guardrail, information boundary, ranked ~25 capacity rule, and pilot/expectation context are all in her words.
+
+What is still missing from the confirmation sentence (cadence, eligibility principles, holds-listed / no-pad) is documentation completeness, not a missing decision. Those can sit in the lock-note beside the statement. Magnitude, cutoffs, “solid” threshold, and guardrail-failure labels were correctly left for Framing / Stage 3.
+
+Present T029 for confirmation. If Morgan accepts it, Stage 1 Start can lock. Do not reopen delegated numbers in the next stakeholder turn unless she corrects the statement.
+
+===== AI 3 — verification =====
+A. Issues raised earlier — resolved / not resolved
+
+1. **Authority: Morgan decides vs recommends** — **Resolved.** T029 now says Morgan “must determine what recommendation to bring to the store general manager,” matching T002.
+2. **Missing decision option: positive hold vs insufficient-evidence hold** — **Resolved.** T029 separates “leave the shelf price unchanged” from “hold — not enough evidence.”
+3. **Leading/loaded language** — **Mostly resolved.** “Must decide” is fixed, but “eligible” remains undefined and can sound more settled than the delegated eligibility principle.
+4. **Outcome-action conflict: maximize revenue vs ~25 cap** — **Resolved.** T029 frames the output as a ranked trusted package with top ~25 prepared for GM review, not literal total maximization.
+5. **Hidden secondary decisions** — **Partially resolved.** Eligibility, ranking formula, evidence threshold, and department mapping are acceptable deferrals; **price-change magnitude is not** and appears to be wrongly deferred.
+6. **Capacity / authority / timing** — **Mostly resolved.** Authority and ranked-list capacity are fixed; timing and information boundary are preserved. T029 omits the explicit “no padding” rule and the explicit statement that holds do not count against capacity.
+7. **Guardrail-failure output treatment** — **Not resolved, but acceptable to defer.** T029 says such changes are rejected; the reporting label for rejected candidates is not Start-level.
+8. **Pilot vs guarantee** — **Resolved.** T029 includes pilot language and expectations-not-guarantees language.
+
+B. Clauses in T029 unsupported by, or diverging from, stakeholder’s words
+
+- **“each eligible product”** — Slightly less precise than T008’s “each product at a specific store.” In a single-store pilot this is mostly harmless, but it loses the product-store grain.
+- **“raise the shelf price, take a targeted price cut”** — Omits T014’s “at the price I’d be recommending.” The recommendation should include or point to a proposed new price / price-change magnitude; otherwise the revenue comparison is incomplete.
+- **“top approximately 25 prepared for GM review”** — Omits T018’s “if fewer qualify, don’t pad the list” and T020’s rule that holds do not count against the 25. “Actual raise/cut” implies the latter, but it is not explicit.
+- **“additional qualifying items shown below the line as next in line”** — Omits T024’s clarification that those items do **not** enter the current cycle’s package.
+- **“everyday grocery and household aisles”** — T008 said Morgan was unsure exactly which departments and was open to analyst suggestion. T029 states the aisles as fixed rather than noting the mapping is still open.
+- **“available evidence is not solid”** — Supported by T016.
+- **“calendar information including holidays, events, and SNAP benefit days”** — Supported by T014.
+- **“Approved changes will be piloted”** and **“expectations to test rather than guarantees”** — Supported by T026.
+
+C. Final Start Gate verdict on T029 statement
+
+**Revise.** T029 fixes the major authority, action-set, capacity-ranking, and pilot/guarantee problems. But it still omits a Start-level decision parameter: whether the recommendation includes a proposed new shelf price or price-change magnitude, which T014 and T024 imply is needed to compare current price versus recommended price and rank by revenue gain. It also omits explicit stakeholder rules on no padding, holds not counting against capacity, and below-line items not entering the current cycle’s package. These are framing/capacity clarifications, not Stage 3 metric design. Therefore the statement should be revised before Start lock.
+
+===== YOUR TASK =====
+SECTION 0 — Reconcile each finding against the verbatim transcript (not by vote): accept / reject / defer, one-line reason in the stakeholder's words. In particular decide whether price-change magnitude (a proposed new shelf price versus direction only) is a Start-level decision parameter that only Morgan can settle, or a delegated later-stage choice, citing T014 and T024.
+SECTION 1 — T031 stakeholder message: if a genuine ambiguity only Morgan can resolve remains, acknowledge and ask ONE question. Otherwise present the revised decision statement, staying close to her words, and ask her to confirm or correct it.
+SECTION 2 — Internal note: Start Gate status and plan.

@@ -1,0 +1,1 @@
+I approve CC-S4-01: add glmnet convergence threshold 1e-12 to §17A.2 and rebuild/rerun both paths.

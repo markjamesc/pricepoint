@@ -1,0 +1,62 @@
+{
+  "role": "source",
+  "status": "PASS",
+  "design_version": "08_CONSOLIDATED_CANDIDATE_v5_4 (sha256 3cfc71eb5e10c5f680e1768400d03daf05513a23199740ac9f80f8adff2b80ef)",
+  "fixture_version": "fixture_pack_v1",
+  "checked_at_utc": "2026-10-02T19:22:43Z",
+  "stage3_receipt_sha256": "1ee9f4da9cffe3a906182d209c573b61c7451387cfc338009261c79f8620dd16",
+  "gate": "SQL Source Gate (design v5.4 §21), built by AI 2 (Grok), repair r1 per owner R10, run by coordinator (Gate r2)",
+  "items_scored": 24,
+  "items_pass": 24,
+  "items_fail": 0,
+  "report": {
+    "path": "validation/source-gate/source_gate_report.csv",
+    "sha256": "5d087e2db3d46e370ee1c05d71d8619e2e2743b1bb8466a68e859f056db1150b"
+  },
+  "summary": {
+    "path": "validation/source-gate/source_gate_summary.md",
+    "sha256": "9b50f11f8ae918026df0737301bd73366cceb80cf4bf36cd66e37b293f331a96"
+  },
+  "checker": {
+    "path": "validation/source-gate/run_source_gate.R",
+    "sha256": "72162631ebafeb8606c5452dedc3ed77e525738943365264e5440e4c162d6de6"
+  },
+  "sql_extract_sha256": "13d037efc758e5e2913d9ffed0dd5e2b003e1656092b8547d8a97283e03f1b68",
+  "snapshot_id": "121341c12616c808643ca7a6bff48d7346963050dbee81fd4762cd7500666a38",
+  "source_version": "M5 raw tables in MySQL schema pricepoint (server 8.0.46), snapshot record sha256 121341c12616c808643ca7a6bff48d7346963050dbee81fd4762cd7500666a38",
+  "fixture_pack_sha256": "da25c258cc434d169f6f960e6d4d8d8ed08cdabaf7a9004df1dff687c94b95d2",
+  "extract_files": [
+    {
+      "path": "calendar.tsv",
+      "bytes": 131669,
+      "sha256": "a2807afd5a1dbd35523c9161128bef31a54332f21cf77889fc168a9fa0086858"
+    },
+    {
+      "path": "prices.tsv",
+      "bytes": 17472933,
+      "sha256": "0cbd6c8b0ee4b6ea0b52b58094c94e27a2d9b5c31c0d08d3d0e7661a6eb3ce73"
+    },
+    {
+      "path": "sales_long.tsv",
+      "bytes": 449366357,
+      "sha256": "536eb633a3a27a734e9883001213491ae3ae63b8872d824161e13b16aa5ee8ae"
+    }
+  ],
+  "notes": [
+    "Gate r2 (2026-10-02 14:20–14:23 CT) on the unchanged extract after the AI 2 repair r1 (cross-review XR-01 item 8, XR-02 item 22, XR-03 na.strings; owner ruling R10).",
+    "Item 8 is now an exact keyed row comparison: ext=568783 raw=568783, only_ext=0, only_raw=0, value_mismatch=0 (integer cents). Item 22 checks x==trimws(x) on all delivered varchar categoricals: 0/0/0.",
+    "Raw side: only 04_raw_price_rowkeys.sql was newly run. The D1/D2/D3 raw outputs from r1 were reused because their SQL is unchanged (01 differs only in comments) and CHECKSUM TABLE equals the r1 snapshot.",
+    "Superseded Gate r1 files are kept in validation/source-gate/superseded_r1/. No staging objects; SELECT/CHECKSUM TABLE only."
+  ],
+  "receipt_revision": 3,
+  "supersedes": {
+    "path": "docs/stage-04-execution-validation/evidence/superseded/source.v2_e35eae99.json",
+    "sha256": "e35eae99c6b259da9fec39a494065827e132322e1cdf3131e9e7c5f9e55f7e8c"
+  },
+  "raw_side": {
+    "04_raw_price_rowkeys.sql": "9e69e2c002c290fc9c8ad4f97510027a73287cca8b150b5ed78f235e591445df",
+    "raw_price_rowkeys.tsv": "e3a3ab15ddd91d80c81c9aece8edbe73c4cdc69cfc0ff29b121831f58067b39a",
+    "01_raw_gate_aggregates.sql": "a08b5749b532add886fb5fbde039c156316e667f8adea6736822b6f53c4f7723 (comments only vs r1 93716fd4…)",
+    "checksum_table": "raw_calendar 190885392; raw_sales_evaluation 4111913361; raw_sell_prices 3227761515 (= r1 snapshot)"
+  }
+}

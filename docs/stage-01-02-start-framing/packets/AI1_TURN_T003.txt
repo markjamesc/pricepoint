@@ -1,0 +1,97 @@
+STAKEHOLDER REPLY (T002, verbatim):
+"Honestly, it's all three — that's what a pricing review is. For each product we look at, I have to walk in with a recommendation: raise the shelf price, take a targeted price cut, or leave it where it is. I make the recommendation and the store general manager signs off. What I don't have is a good way to tell which of those three is the right call for a given product."
+
+INDEPENDENT REVIEWER FINDINGS (Phase C). AI 2 and AI 3 reviewed the same packet (request, verbatim T000–T002, coordinator snapshot, context) without seeing each other. Their full reviews follow.
+
+===== AI 2 — Decision reconstruction =====
+**PRICEPOINT-001 — AI 2 Start review (independent reconstruction)**  
+Worked only from the packet. No metrics, SQL, R, models, or thresholds.
+
+### 1. Best reconstruction of the decision
+Morgan Lee, as Pricing & Revenue Manager, must walk into the next pricing review with a **per-product recommendation** among three shelf-price actions: raise the current shelf price, take a targeted price cut, or leave the price unchanged. She originates the recommendation; the store general manager signs off. The request is motivated by a belief that current shelf prices are leaving money on the table, and she wants sales-and-price history used so the three-way call for a given product is supportable rather than ad hoc.
+
+What is **not** reconstructed as decided: which products or stores enter the review; what “right call” or “money on the table” means as a business result; any capacity, policy, or risk constraint on how many or how far prices may move; the review date or the horizon the price is expected to stay in force; downside guardrails; or what information she will actually have in the room when she recommends.
+
+The project class still binds the work to **one product-level retail pricing/revenue decision** using M5 sales, price, and calendar evidence only.
+
+### 2. Decision owner
+**Morgan Lee** (recommender / Pricing & Revenue Manager).  
+Approver named in dialogue: store general manager. Ownership of the recommendation is Morgan’s; final sign-off is not hers alone.
+
+### 3. Available actions or choices
+For each product that is looked at in the review:
+- Raise the shelf price
+- Take a targeted price cut
+- Leave the shelf price where it is
+
+These three were confirmed by the stakeholder as the actual review menu (“it’s all three”). No other action set has been authorized (e.g., category-wide rules, store-specific exceptions, promotion calendars).
+
+### 4. Intended outcome
+**Not established.**  
+T000 implies capturing money left on the table via better shelf prices. T001 offered “revenue opportunities” and “sales outcomes” as examples; T002 did not choose, quantify, or protect a result (revenue, units, mix, review-ready defensibility, etc.). “Right call for a given product” is still undefined as an outcome.
+
+### 5. Material constraint
+**Not established.**  
+No capacity, policy, brand, competitive, implementation, or risk constraint was stated. Data absences (no unit cost, margin, inventory/stockouts, competitor prices, customer data, or labeled promotions) are analysis limits, not stakeholder decision constraints.
+
+### 6. Time scope or deadline
+**Not established beyond a label.**  
+The artifact is “something I can actually use at our next pricing review.” No review date, no decision deadline, and no post-change horizon (how long the recommended shelf price is expected to hold) were given.
+
+### 7. Evidence that would change the action
+**Not specified by the stakeholder.**  
+She asked for a “good way to tell” raise vs. targeted cut vs. hold from sales and price history. She did not say what pattern, comparison, or counter-evidence would flip a product from one of the three actions to another, nor what she will treat as decisive in the room with the GM.
+
+### 8. Strongest remaining ambiguity
+What makes one of the three actions the **right call** for a product — i.e., the intended outcome / decision criterion — together with **which products and stores are in scope**. Without those, “leave money on the table,” “each product we look at,” and “targeted” have no operational boundary. Secondary but still blocking: constraint, time/horizon, GM sign-off standard, and uncertainty tolerance.
+
+### 9. Best next stakeholder question
+For you to treat raise, targeted cut, or hold as the right call on a product, what business result should that recommendation improve or protect?
+
+### 10. Preliminary decision statement
+Morgan Lee must decide which of {raise the shelf price, take a targeted price cut, leave the price unchanged} to recommend for each product under review in order to **[MISSING]**, subject to **[MISSING]**, by/for **[MISSING: next pricing review — date and post-change horizon unspecified]**.
+
+*(Approver named in dialogue but not written into the owner slot: store general manager sign-off.)*
+
+---
+
+### Start Gate readiness: **Cannot yet frame**
+
+A locked Start statement cannot be completed from what the stakeholder has actually said. Actions and recommender/approver roles are the only stable pieces. Outcome, material constraint, time scope, product/store scope, change-the-action evidence, and a confirmed decision sentence are all missing. Further Start dialogue is required before the gate can pass; the reconstruction should not be filled in by inference.
+
+===== AI 3 — Red team =====
+1. **Strongest reason the reconstructed decision may be wrong**  
+The snapshot turns the request into a broad, multi-product “raise / targeted cut / hold” recommendation set, but the owner-locked project class says PricePoint must support **one product-level retail pricing/revenue decision**. T002 says “it’s all three” and “for each product we look at,” which may describe a pricing-review process or portfolio triage, not a single framed decision. The reconstructed decision may therefore be overbroad and may confuse the review process with the actual decision Morgan needs to make.
+
+2. **Any missing decision option**  
+Missing options include: deferring a product pending more evidence; making no recommendation and escalating to the store GM; deciding which products/stores enter the review at all; deciding store-specific versus chain-level price action; and distinguishing temporary targeted cuts from permanent shelf-price changes. “Leave as is” is not the same as “defer” or “exclude from this review.”
+
+3. **Any leading or loaded language**  
+In T001: “It sounds like you want…” is leading confirmation. “where current shelf prices may not be capturing available revenue opportunities” presupposes that revenue opportunities exist and are currently missed. “where the business believes there may be room” is loaded. “could improve sales outcomes” frames cuts positively. “current pricing appears appropriate” frames hold as the default-correct option. In the snapshot, “targeted price cut” is loaded relative to the more neutral “raise shelf price” and “leave as is.”
+
+4. **Any conflict between stated outcome and proposed action**  
+No outcome is actually stated. The original request implies “leaving money on the table,” which could mean revenue, profit, margin, or units, but the proposed actions are raise / cut / hold shelf prices. Without unit cost, margin, inventory, competitor prices, or randomized price tests, a price cut could improve sales yet reduce money captured, while a raise could improve revenue yet lose sales. “Targeted price cut” may also conflict with “shelf price” if it means a temporary promotion rather than a shelf-price change.
+
+5. **Any hidden secondary decision**  
+Hidden secondary decisions include: which products and stores are in scope; whether recommendations are chain-wide or store-specific; whether the outcome is revenue, profit, units, or some mix; whether observational price changes can be treated as causal; how to handle missing margin, inventory, competitor, and customer data; and whether Morgan’s real task is to recommend price changes or to prioritize which products need further evidence.
+
+6. **Any capacity, authority, or timing problem**  
+Capacity: no product count is given, but per-product recommendations across 10 stores, 3 states, and 3 categories may exceed review capacity. Authority: Morgan recommends, but the store GM signs off; it is unclear which GM, whether multiple stores are covered, and whether Morgan has authority across all products/stores. Timing: “next pricing review” has no deadline, horizon, or decision cadence. Data limits are also material: no unit cost, margin, inventory/stockouts, competitor prices, customer-level data, or randomized price tests.
+
+7. **Whether the analysis could actually change the decision**  
+Not as currently framed. The analysis might inform prioritization or confidence, but without a stated outcome, scope, constraints, decision horizon, and uncertainty tolerance, it cannot reliably change a specific raise/cut/hold decision. It could only change the decision if Morgan first confirms a bounded product-store decision and accepts the evidence limitations.
+
+8. **Strongest alternative decision statement**  
+At the next pricing review, Morgan Lee will recommend to the store GM, for a specified product-store scope, whether to raise the shelf price, take a targeted price cut, leave it unchanged, or defer pending additional evidence, in service of a stated revenue/profit objective and within stated constraints.
+
+9. **Best falsifying stakeholder question**  
+If the analysis could only support one product-level pricing decision at the next review, which product-store decision would you need it to support?
+
+10. **Start gate verdict: Pass / Revise / Cannot yet frame**  
+**Cannot yet frame.** The decision type is loosely identified, but the core framing is missing: confirmed decision statement, product/store scope, outcome, constraints, deadline/horizon, downside guardrail, information available at decision time, and uncertainty tolerance. The snapshot also risks conflicting with the owner-locked “one dataset = one decision” requirement. Pass is inappropriate, and Revise is insufficient until Morgan supplies the missing framing elements.
+
+YOUR TASK NOW (Phase D — reconciliation):
+Return three sections:
+SECTION 0 — CONSOLIDATED ISSUE LIST: reconcile both reviews against the verbatim transcript (not by vote). For each issue say whether it is supported by the transcript, what you accept or reject and why, and whether it must be resolved with the stakeholder, recorded as a working assumption, or deferred to Framing/Stage 3. Address specifically AI 3's concern about "one product-level decision" versus a per-product review, and the leading language it flagged in T001.
+SECTION 1 — STAKEHOLDER MESSAGE (T003): acknowledge her answer, then ask the single highest-value question. One question only.
+SECTION 2 — INTERNAL NOTE (not sent): Start Gate elements still missing and your plan for the next turns.

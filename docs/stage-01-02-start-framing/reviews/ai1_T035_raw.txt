@@ -1,0 +1,139 @@
+## SECTION 1 — STAKEHOLDER MESSAGE (T035)
+
+Thanks, Morgan. That clarifies the recommendation format: the GM-facing recommendation needs to include the specific shelf price you would pilot, not only the direction of the change. The expected unit and revenue impact should be tied to that proposed pilot price, while the method for generating candidate prices can be documented separately.
+
+Here is the proposed decision statement incorporating that clarification:
+
+**Morgan Lee, Pricing & Revenue Manager, must determine what recommendation to bring to the store general manager for products meeting the review criteria at the California pilot store’s everyday grocery and household aisles: a specific pilot shelf price increase, a specific pilot shelf price cut, leaving the shelf price unchanged, or classifying the product as “hold — not enough evidence” when the available evidence is not solid. The recommendation should identify the specific pilot price expected to produce the strongest trusted product revenue result (units sold × shelf price) over the next 28 days compared with the current price, while rejecting changes expected to reduce units by more than about 10%. The review occurs on a four-week cycle, with the price decision holding until the next review. The recommendation uses only information available at the end of the most recent history period: daily unit sales, weekly shelf prices, and calendar information including holidays, events, and SNAP benefit days. The output is a ranked list: the strongest trusted price-change opportunities, based on the biggest revenue gain that is trusted, form the GM package up to about 25 actual price changes. If fewer qualify, the list is not padded. If more qualify, additional qualifying opportunities remain below the line as next in line and are not included in that cycle’s package. Holds and hold — not enough evidence outcomes remain visible and do not consume the price-change capacity. Approved changes are pilots, and historical patterns should be presented as expectations to test rather than guarantees.**
+
+Does this decision statement accurately describe the decision you need to make, or is there anything you would correct?
+
+---
+
+## SECTION 2 — INTERNAL NOTE (not sent)
+
+**Start Gate status:** All Start Gate elements established. Ready for stakeholder confirmation.
+
+### Established
+
+**Decision owner**
+
+* Morgan Lee, Pricing & Revenue Manager, determines the recommendation brought to the GM.
+* Store general manager signs off.
+
+**Action / recommendation format**
+Established:
+
+* Specific pilot shelf price increase.
+* Specific pilot shelf price cut.
+* Leave unchanged.
+* Hold — not enough evidence.
+
+The price-change magnitude ambiguity is resolved:
+
+* The GM needs the actual shelf price to pilot.
+* Expected units and revenue should be evaluated at that proposed price.
+* Candidate price-generation method is delegated.
+
+**Outcome**
+Established:
+
+* Expected product revenue.
+* Revenue = units sold × shelf price.
+* Evaluate expected revenue at recommended pilot price versus current price.
+* 28-day horizon.
+
+**Material constraints**
+Established:
+
+* Reject changes expected to reduce units by more than approximately 10%.
+* Prefer fewer stronger recommendations.
+* Weak evidence receives hold — not enough evidence.
+* Historical patterns are expectations for a pilot, not guarantees.
+* Actual price changes limited by GM/team capacity.
+
+**Capacity and ranking**
+Established:
+
+* Ranked list.
+* Top approximately 25 actual price changes enter GM package.
+* Ranking basis:
+
+  * biggest trusted expected revenue gain.
+* Additional qualifying items remain below the line as next in line.
+* Below-line items do not enter the current cycle package.
+* Holds do not consume capacity.
+* Explicit no-padding rule:
+
+  * if fewer qualify, do not fill remaining slots.
+
+**Scope**
+Established:
+
+* Product at a specific store.
+* California pilot store.
+* Everyday grocery and household aisles.
+
+**Eligibility principle**
+Established:
+
+* Products need real historical shelf-price changes.
+* Products need sufficient sales activity.
+
+Deferred:
+
+* Exact eligibility cutoffs.
+
+**Timing**
+Established:
+
+* Four-week pricing review cycle.
+* Price holds until next review.
+* 28-day outcome window.
+* Decision point at end of most recent history.
+* No look-ahead.
+
+**Information boundary**
+Established:
+Use:
+
+* daily unit sales,
+* weekly shelf prices,
+* holidays,
+* events,
+* SNAP benefit days.
+
+Do not use:
+
+* cost,
+* inventory,
+* competitor prices.
+
+**Uncertainty tolerance**
+Established:
+
+* Fewer strong recommendations preferred.
+* Hold — not enough evidence is legitimate.
+
+### Missing
+
+None blocking Start.
+
+### Deferred to Framing / Stage 3
+
+* Candidate price-generation method.
+* Exact ranking formula.
+* Eligibility thresholds.
+* Evidence sufficiency threshold.
+* Department mapping details.
+* Reporting treatment of guardrail-rejected candidates.
+
+### Plan
+
+Present the revised decision statement for stakeholder confirmation.
+
+If Morgan confirms:
+
+1. Lock Stage 1 Start.
+2. Move to Framing.
+3. Carry delegated design choices into later stages without reopening the business decision.

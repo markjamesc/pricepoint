@@ -1,0 +1,96 @@
+## SECTION 1 — STAKEHOLDER MESSAGE (T011)
+
+Thanks, Morgan. That clarifies the review boundary: you want a smaller set of products where there is enough historical price movement and sales activity to make a recommendation defensible, rather than forcing decisions on products where the evidence is too thin. I’ll treat the specific eligibility cutoffs as an analytical design choice and document the rationale for them.
+
+For the timing of this decision, when is the next pricing review, and how long after a price change would you want to judge whether the recommendation worked?
+
+---
+
+## SECTION 2 — INTERNAL NOTE (not sent)
+
+**Start Gate status:** Not yet complete.
+
+### Established
+
+**Decision owner:**
+Established.
+
+* Morgan Lee makes the recommendation.
+* Store general manager signs off.
+
+**Action or choice:**
+Established.
+
+* Raise shelf price.
+* Take a targeted price cut.
+* Leave shelf price unchanged.
+
+**Outcome:**
+Established.
+
+* Maximize expected product revenue.
+* Revenue = units sold × shelf price over the weeks after the change.
+
+**Material constraint:**
+Established.
+
+* Do not recommend a move expected to reduce units by more than approximately 10%.
+* A price cut is acceptable if units increase and revenue holds.
+
+**Product/store grain:**
+Established.
+
+* Product at a specific store.
+* Initial scope: one California pilot store.
+
+**Category scope:**
+Established at a broad level.
+
+* Everyday grocery and household aisles.
+* Specific departments remain open.
+
+**Eligibility principle:**
+Established.
+
+* Products should have:
+
+  * prior shelf-price changes in history,
+  * sufficient sales activity for a change to be observable.
+* Exact thresholds are delegated to analysis, with rationale required.
+* Preference is for a smaller trustworthy list rather than a larger speculative list.
+
+**Analytical relevance:**
+Established.
+
+* Evidence should determine raise/cut/hold recommendations.
+
+### Still missing
+
+**Time scope:**
+Missing.
+
+* Need:
+
+  * next pricing review deadline,
+  * post-change evaluation horizon.
+
+**Information available at decision time:**
+Missing.
+
+* Need to establish what Morgan expects to have available when making recommendations.
+
+**Uncertainty tolerance:**
+Missing.
+
+* Need to establish how much uncertainty is acceptable before making a raise/cut/hold recommendation.
+
+**Stakeholder confirmation of final decision statement:**
+Not ready.
+
+* Time scope and remaining decision conditions must be established before presenting the proposed Start statement.
+
+### Plan
+
+Continue Start dialogue.
+
+The next priority is time scope because the decision requires knowing when recommendations must be made and over what period success will be judged. After time scope, resolve decision-time information availability and uncertainty tolerance. Once all Start Gate elements are established, present the proposed decision statement to Morgan for confirmation or correction.

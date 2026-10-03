@@ -1,0 +1,4 @@
+STAKEHOLDER REPLY (T008, verbatim):
+"Each product at a specific store. Prices and shoppers differ store to store, so I'd rather not pretend one answer fits everywhere. For this first round I'd start with one store — our California pilot store — and the everyday grocery and household aisles. I'm not sure exactly which departments, so I'm open to your suggestion, but I don't want you guessing on products whose price has never moved or that barely sell."
+
+Return SECTION 1 (T009 stakeholder message: acknowledge, then one question) and SECTION 2 (internal note: Start Gate elements established vs missing, plan). When you judge that every Start Gate element is established, SECTION 1 should instead present the proposed decision statement to the stakeholder and ask her to confirm or correct it.

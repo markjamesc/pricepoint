@@ -1,0 +1,246 @@
+# 04_AI3_DATA_AND_RISK_DOSSIER
+
+Independent AI 3 audit for PRICEPOINT-001, Stage 3 Measurement Design.  
+Inputs used: `01_DESIGN_INPUT_PACKAGE.md` (DIP-v1, frozen 2026-09-25) and `three-ai-measurement-design-framework.md` (workflow commit `f388be8c2379ac6a8959516b486af31c99423bb0`).  
+I have not seen Design A or Design B. This dossier works only from verified package facts and marks missing facts as profiling gaps. No production SQL or production R is written.
+
+---
+
+## 1. Source-to-concept map
+
+| Concept required by locked question | Exact source mapping | Status | Notes / limits |
+|---|---|---|---|
+| Product | `raw_sales_evaluation.item_id`; hierarchy via `raw_sales_evaluation.dept_id`, `raw_sales_evaluation.cat_id`; also `raw_sell_prices.item_id` | Verified source field | Product is at item level. No brand/size/package attributes. |
+| Pilot store | `raw_sales_evaluation.store_id`; `raw_sell_prices.store_id`; `raw_sales_evaluation.state_id` | Verified source field | Candidate mapping is `CA_1`, but final store scope must be locked. |
+| Aisle / department | `raw_sales_evaluation.dept_id`; category via `raw_sales_evaluation.cat_id` | Verified source field | Department mapping is open to analyst proposal. `raw_sell_prices` has no `dept_id`; must join through item. |
+| Daily units | `raw_sales_evaluation.sales_history` JSON array, positions 0…1940, mapped to `raw_calendar.d` d_1…d_1941 | Verified source field, requires mechanical unnesting | Array length is 1,941 for every row. Zeros are not stockout diagnoses. Items may have leading zeros before stocked. |
+| Shelf price | `raw_sell_prices.sell_price` at grain `store_id × item_id × wm_yr_wk` | Verified source field | Weekly price. Not balanced. Missing price is never zero. Discounts inferred, not labeled. |
+| Current price | Candidate source: `raw_sell_prices.sell_price` for `store_id + item_id + wm_yr_wk = 11617`, because decision date 2016-05-22 is inside week 11617 | Requires locked definition | Week 11617 straddles the decision date. Final rule must lock whether current price is week 11617 or prior completed week 11616. |
+| Price change | Derived from ordered `raw_sell_prices.sell_price` over `wm_yr_wk` per `store_id + item_id` | Derived, not a source column | No price-change reason, promotion label, or markdown flag. |
+| Event / holiday / SNAP | `raw_calendar.event_name_1`, `raw_calendar.event_type_1`, `raw_calendar.event_name_2`, `raw_calendar.event_type_2`, `raw_calendar.snap_CA` | Verified source fields | Blank event fields are normal. `snap_CA` is 0/1. Horizon SNAP days are known from calendar. |
+| 28-day horizon | `raw_calendar.d`, `raw_calendar.date`, `raw_calendar.wm_yr_wk` for d_1942–d_1969 = 2016-05-23 to 2016-06-19, weeks 11617–11621 | Calendar verified; horizon sales unavailable | Horizon sales are not in `raw_sales_evaluation`, which ends at d_1941. |
+| Expected units | Not a source field; must be model output from R-A / R-B | Unavailable as source | Requires locked prediction unit, target, model, features, training window, and horizon aggregation. |
+| Expected revenue | Not a source field; derived as expected units × shelf price at current or candidate price | Unavailable as source | No cost/margin. Revenue is the only defensible outcome. |
+| Trusted evidence | Not a single source field; composite of price movement, sales volume, and forward expectation not being a guess | Unavailable as source | Must be constructed in R-A / R-B from source fields, derived metrics, and locked trust gate. |
+
+---
+
+## 2. Key and cardinality map for plausible joins
+
+| Join | Left grain / right grain | Join keys | Expected relationship | Multiplicity / risk / control |
+|---|---|---|---|---|
+| Sales series ↔ calendar via JSON position | `raw_sales_evaluation` series row × 1,941 JSON positions → item-day; `raw_calendar` day | Unnested position `i` → `d_{i+1}`; `raw_calendar.d` | One series row → 1,941 item-day rows; each item-day → one calendar day | Many-to-one from item-day to calendar. Risk: wrong position-to-`d` offset. Control: position 0 = d_1; position 1940 = d_1941; JSON_LENGTH = 1,941 verified for all rows. |
+| Calendar ↔ sell_prices via `wm_yr_wk` | Calendar day; sell_price store-item-week | `raw_calendar.wm_yr_wk` = `raw_sell_prices.wm_yr_wk` | Direct join is many-to-many: many days per week × many store-item price rows per week | Risk: huge multiplication if joined directly. Control: aggregate to week or attach weekly price to item-day after mapping day→week. Weeks have 7 days except week 11621 has 2 days. |
+| Sales item-day ↔ sell_prices | Item-day; store-item-week price | `store_id + item_id + wm_yr_wk` | Item-day → at most one sell_price row if price row exists; many-to-one when price exists | Risk: unbalanced price panel; missing price rows cause inner-join loss. Control: left join or deliver price rows separately; missing price is not zero; audit unmatched item-days. At CA_1, no internal gaps between first and last priced week; every CA_1 item has price row in 11616 and 11617. |
+| `raw_sales_evaluation` ↔ `raw_sell_prices` via `store_id + item_id` alone | Series; price week rows | `store_id + item_id` | Many-to-many across weeks | Not a valid direct join. Must include `wm_yr_wk`. |
+| `raw_calendar.date` ↔ `raw_calendar.d` | Day; day key | `date` ↔ `d` | One-to-one | `d` is unique: 1,969 distinct. |
+| `raw_calendar.wm_yr_wk` ↔ week | Day; week | `wm_yr_wk` | Many-to-one | 282 distinct weeks; last week 11621 has 2 days. |
+| `raw_sales_evaluation.id` | Series | `id` | Unique | 30,490 rows, 30,490 unique. |
+| `raw_sales_evaluation.item_id + store_id` | Product-store series | `item_id + store_id` | One per product-store series | Package states one row per product-store series (3,049 items × 10 stores). |
+| `raw_sell_prices` key | Store-item-week | `store_id + item_id + wm_yr_wk` | Unique | 6,841,121 rows = 6,841,121 distinct keys. |
+
+---
+
+## 3. Missingness and anomaly summary
+
+| Issue | Verified facts | Risk / impact | Required treatment / audit |
+|---|---|---|---|
+| Unbalanced price panel | `raw_sell_prices` has price rows only for weeks a product-store was on sale. Missing price is never zero. At CA_1, no internal gap between first and last priced week. Every CA_1 item has price row in 11616 and 11617. | Inner joins can drop item-days. Missing price could be mistaken for zero or for no demand. | Preserve missing price as missing. Audit unmatched item-days by item/week. Do not forward-fill unless locked in R and disclosed. |
+| Leading zero sales before item stocked | `sales_history` can contain leading zeros; items may have leading zeros before stocked. | Eligibility and price-response model can treat pre-stock days as real zero demand. | Detect leading zero runs and align with first priced week. Audit first nonzero sales day and first priced week. |
+| Zero-sales days | Zeros are not stockout diagnoses; no inventory data. | Zero days can be true zero demand, out-of-stock, or not stocked. Model may learn false price response. | Preserve zeros but flag. Profiling gap: per-item zero-day share before decision date. |
+| $0.01 prices | Minimum `sell_price` is $0.01; HOUSEHOLD_1 range includes $0.01. | Could be valid clearance, placeholder, or data anomaly. | Retain and flag until profiled. Audit count of $0.01 prices and sales during those weeks. |
+| Partial week 11621 | Week 11621 has 2 days: 2016-06-18/19. Horizon includes it. | Weekly price may be applied to only 2 days; aggregation must use 28 calendar days, not 4 full weeks. | Use calendar days for horizon. Confirm sell_price rows for 11621. |
+| Week 11617 straddle | Week 11617 = 2016-05-21 to 2016-05-27; decision date = 2016-05-22. | Current price, horizon price, and training window can be confused. Using post-decision prices leaks. | Lock current-price definition. Exclude future observed price changes from features. |
+| Varchar typing | All value columns are stored as varchar unless noted. | Lexical comparisons, bad casts, leading/trailing spaces, wrong numeric ordering. | Cast mechanically in SQL or R to integer/decimal/date. SQL Source Gate must verify domains and casts. |
+| Blank event fields | Event blanks are normal. 162 days have event_name_1; 5 have event_name_2. | Blank may be miscoded as missing/unknown. | Treat blank as no event. Audit blank counts. |
+| JSON array length | `JSON_LENGTH(sales_history)` = 1,941 for every row. | Unnesting errors can shift dates or lose days. | Verify exact length and position mapping. |
+
+---
+
+## 4. Unavailable-field list
+
+| Unavailable concept | Source status | What it prevents |
+|---|---|---|
+| Cost | Not in package | Prevents margin, profit, contribution, and cost-based guardrails. Decision must remain revenue-only. |
+| Inventory | Not in package | Prevents stockout diagnosis, availability correction, and true lost-sales estimation. |
+| Stockout | Not in package | Prevents distinguishing zero sales due to no demand from zero sales due to empty shelf. |
+| Competitor prices | Not in package | Prevents competitive response, relative price positioning, cross-price effects, and market-share explanations. |
+| Promotion labels | Not in package | Prevents separating promotional price cuts from permanent price changes, ads, displays, or coupons. Discounts are inferred only. |
+| Price-change reason | Not in package | Prevents knowing whether a price move was clearance, cost pass-through, promo, or strategic. |
+| Product attributes | Only `item_id`, `dept_id`, `cat_id` | Prevents brand, size, pack, perishability, substitute/complement structure. |
+| Shelf space / facings | Not in package | Prevents shelf-availability and merchandising confounders. |
+| Store traffic / customer counts | Not in package | Prevents traffic normalization and basket-context controls. |
+| Weather | Not in package | Prevents weather confounders for grocery demand. |
+| Local demographics / income | Not in package | Prevents heterogeneity controls beyond store and department. |
+| Supply chain / lead time | Not in package | Prevents supply-driven price and availability explanations. |
+| Actual SNAP redemption | Only `snap_CA` day flag | Prevents measuring actual benefit redemption or household-level SNAP response. |
+| Known price elasticity | Not in package | Prevents validating model extrapolation against established elasticity ranges. |
+
+---
+
+## 5. Leakage and temporal-risk list
+
+| Risk ID | Risk | Mechanism | Detection | Prevention |
+|---|---|---|---|---|
+| L01 | Horizon prices in weeks 11617–11621 | `raw_sell_prices` includes future weeks after decision date. Using 11618–11621 prices as features or targets leaks future price changes. | Check feature extraction window excludes weeks after 11617 except for locked current-price use. | Deliver/use sell_prices only through week 11617 for features/current price. Do not use future observed prices. |
+| L02 | Week 11617 straddles decision date | Week 11617 includes 2016-05-21 to 05-27; decision date is 2016-05-22. It contains both pre-decision and horizon days. | Audit item-days in d_1941 and d_1942 by week. | Lock current-price definition: week 11617 vs 11616. If week 11617 is current, treat as known at decision date. Do not treat its horizon days as observed outcomes. |
+| L03 | Decision date mid-week | Weekly price grain does not align with daily sales. | Check day-of-week and week-key alignment. | Map each item-day to its `wm_yr_wk`. Lock weekly price alignment rule. |
+| L04 | Future calendar features known vs not | Holidays, events, and SNAP days are calendar-known in advance; actual demand is not. | Confirm feature set uses only calendar fields known at decision date. | Use future calendar features only if known in advance. Do not use future sales. |
+| L05 | Target/feature leakage in backtests | Backtest may accidentally use prices or sales after pseudo-decision date. | Audit training/validation boundary at pseudo-decision date. | Use temporal split. Training window ends at pseudo-decision date. Validation horizon begins after. |
+| L06 | Pseudo-decision-date choice | Any backtest must use an earlier pseudo-decision date. Choice can change results. | Check pseudo-date is locked before training. | Lock pseudo-decision date, training window, validation window, and pass/fail criteria before model runs. |
+| L07 | Candidate price construction using future prices | Using horizon prices to set candidate price leaks future information. | Audit candidate-price method against pre-decision price history only. | Build candidate prices only from pre-decision observed prices and locked rules. |
+| L08 | Future price changes as features | Model may use a price change that occurs after decision date. | Audit price-change event dates ≤ decision date. | Compute price changes only up to week 11617. |
+| L09 | Horizon sales | Horizon sales d_1942–d_1969 are not in data. | Confirm no attempt to use them. | Expected units must be model predictions, not observed. |
+| L10 | Partial week 11621 | Horizon ends mid-week in week 11621. | Check aggregation uses 28 calendar days. | Aggregate by day, not by full week. |
+| L11 | SNAP schedule | `snap_CA` future days are known in calendar. | Confirm future SNAP flags come from calendar, not inferred. | Use calendar `snap_CA` for horizon. |
+| L12 | Price endogeneity | Observed price changes may respond to past sales, confounding price response. | Inspect price-change timing vs prior sales. | Disclose as observational/predictive ceiling; use temporal validation; sensitivity tests. |
+
+---
+
+## 6. Measurement-risk register
+
+Framework §18 fields. Statuses: Resolved, Accepted, Open, Blocking, Deferred.
+
+### 6A. SQL delivery risks
+
+| Risk ID | Design component | Failure mode | Likelihood | Decision impact | Detection control | Prevention control | Sensitivity test | Residual risk | Status |
+|---|---|---|---|---|---|---|---|---|---|
+| SQL-01 | Source envelope | Wrong store or department rows delivered | Medium | Wrong product universe | Row counts by store/dept vs source | Lock envelope; Source Gate | Compare alternative dept envelopes | Unlocked dept mapping | Blocking until dept mapping locked |
+| SQL-02 | JSON unnesting | Position-to-date shift or lost days | Medium | Wrong daily units and price joins | JSON_LENGTH=1941; position map; row count = series × 1941 | Mechanical unnest with fixed mapping | Rebuild from raw for sample series | JSON parsing edge cases | Open |
+| SQL-03 | Price join | Duplicate price rows or dropped item-days | Medium | Wrong price response and revenue | Key uniqueness; join multiplicity; unmatched count | Join on `store_id+item_id+wm_yr_wk`; left join | Compare inner vs left join counts | Missing price treatment | Open |
+| SQL-04 | Calendar join | Wrong `wm_yr_wk`, `wday`, SNAP | Medium | Wrong seasonality and horizon features | Date coverage; domain checks | Cast and map `d` exactly | Compare week 11617/11621 day counts | Partial week | Open |
+| SQL-05 | Varchar casts | Lexical ordering or bad numeric values | Medium | Wrong prices and units | Domain checks; min/max; null/blank profile | Cast to numeric/date; reject blanks | Compare string vs numeric sort | Hidden blanks | Open |
+| SQL-06 | Future price rows | Delivered weeks after 11617 | Medium | Look-ahead leakage | Check max `wm_yr_wk` delivered | Bound sell_prices to ≤11617 | Exclude future weeks and rerun | Week 11617 straddle | Open |
+| SQL-07 | Lineage | Extract not tied to source freeze | Medium | Reconciliation cannot be trusted | `snapshot_id`, source version, boundary | Mandatory lineage fields | Re-extract with same metadata | No source lineage columns in package | Blocking until Stage 4 metadata defined |
+
+### 6B. R translation risks
+
+| Risk ID | Design component | Failure mode | Likelihood | Decision impact | Detection control | Prevention control | Sensitivity test | Residual risk | Status |
+|---|---|---|---|---|---|---|---|---|---|
+| R-01 | Eligibility | Different cutoffs for “price moved” or “barely sells” | High | Different product universe | Audit counts of included/excluded | Lock exact cutoffs and stage | Vary cutoffs | Analyst judgment | Blocking until cutoffs locked |
+| R-02 | Trust gate | Untrusted expectations ranked as trusted | High | Bad price change to GM | Audit trust flags | Lock trust definition and thresholds | Loosen/tighten trust gate | No uncertainty field | Blocking until trust gate locked |
+| R-03 | Current price | R-A and R-B choose different current week | High | Wrong revenue baseline | Compare current-price fields | Lock week 11617 vs 11616 | Use alternative current-price definition | Week 11617 straddle | Blocking until locked |
+| R-04 | Candidate price | Different candidate prices constructed | High | Different actions and ranks | Compare candidate-price tables | Lock construction method | Alternative ±% rules | Extrapolation | Blocking until locked |
+| R-05 | KPI aggregation | Units/revenue aggregated over wrong days | Medium | Wrong ranking | Compare 28-day totals | Lock horizon d_1942–d_1969 | Daily vs weekly aggregation | Partial week 11621 | Open |
+| R-06 | Guardrail “about 10%” | Different rejection rule | Medium | Unwanted unit loss | Audit rejected items | Lock exact threshold | Test 5%, 10%, 15% | Stakeholder said “about” | Open |
+| R-07 | Capacity “about 25” | Padding or different selection | Medium | Wrong GM package | Audit membership and selected count | Lock membership-first, no-pad | Vary capacity | Stakeholder said “about” | Open |
+| R-08 | Ranking/tie-break | Different order | Medium | Wrong top 25 | Compare ranks | Lock ranking key and tie-break | Alternative tie-breaks | Ties | Open |
+| R-09 | Minimum-gain rule | Undisclosed threshold | Low | Changes list | Check disclosure | Lock or explicitly state none | None vs small threshold | Analyst option | Open |
+| R-10 | Leakage in R | Future prices used as features | Medium | Overstated performance | Feature-window audit | Use only ≤11617 | Exclude future weeks | Complex lags | Open |
+| R-11 | Backtest | No pseudo-decision date or wrong window | Medium | Invalid validation | Audit split dates | Lock pseudo-date and windows | Multiple pseudo-dates | Historical regime | Open |
+| R-12 | Reconciliation | R-A and R-B differ silently | Medium | Unverified outputs | Exact key/action/rank comparison | Locked output schema and tolerance | Re-run reconciliation | Stochastic model | Open |
+
+### 6C. Model-related risks for parsnip price-response model
+
+| Risk ID | Model risk | Failure mode | Likelihood | Decision impact | Detection control | Prevention control | Sensitivity test | Residual risk | Status |
+|---|---|---|---|---|---|---|---|---|---|
+| M-01 | Extrapolation beyond observed prices | Candidate price outside historical range | High | Unreliable units/revenue | Compare candidate vs observed min/max | Restrict candidate to observed range or flag extrapolation | Limit candidate to historical range | Business may want new price | Blocking until candidate rule locked |
+| M-02 | Few price changes | Model learns little price response | High | Untrusted estimates | Count price changes per item | Eligibility requires “at least a few” changes | Vary minimum changes | Some items excluded | Blocking until cutoff locked |
+| M-03 | Confounded price variation | Price changes correlate with season, promos, events | High | Biased price effect | Include calendar controls; inspect timing | Use pre-decision controls; disclose | Add/remove controls | No promo labels | Open |
+| M-04 | Zero-sales inflation | Many zeros distort model | Medium | Wrong expected units | Zero-day share profile | Model choice or transformation | Zero-inflated vs linear | No stockout data | Open |
+| M-05 | Missing price weeks | Model treats missing as zero or drops rows | Medium | Wrong price series | Join-failure audit | Preserve missing; lock treatment | Drop vs impute | Unbalanced panel | Open |
+| M-06 | Price endogeneity | Past sales influence price changes | Medium | Causal interpretation invalid | Price-change timing audit | Predictive ceiling only | Lagged features | Observational data | Accepted |
+| M-07 | Stochastic model reconciliation | R-A and R-B differ due to randomness | Medium | No exact reconciliation | Compare `.pred` | Use deterministic engine or lock seeds/tolerance | Re-run with same seed | Floating point | Open |
+| M-08 | Horizon feature construction | Wrong `wday` coding (Sat=1) or SNAP | Medium | Wrong expected units | Compare feature tables | Lock calendar mappings | Rebuild from calendar | Coding error | Open |
+
+---
+
+## 7. Targeted profiling gaps
+
+| Gap ID | Missing fact | Exact aggregate needed | Why needed |
+|---|---|---|---|
+| P-01 | Per-item sales-volume distribution | For each `store_id, item_id` at CA_1 in candidate depts: mean, median, p10/p25/p75/p90 daily units before decision date; total units in last 28/52/104 weeks; zero-day share; leading-zero count; first nonzero sales `d` | Eligibility “sells steadily enough”; trust gate; model stability. |
+| P-02 | Price-change distribution | For each `store_id, item_id`: count distinct `sell_price`; count price changes vs prior priced week; first/last priced week; number of priced weeks; distribution of price-change magnitudes (absolute and relative) before decision date | Eligibility “price changed at least a few times”; candidate-price construction; model training. |
+| P-03 | Missing price weeks | For each CA_1 item: first priced `wm_yr_wk`; last priced `wm_yr_wk`; count weeks before first with no price; count weeks after last; confirm no internal gaps between first and last | Join loss and eligibility. |
+| P-04 | $0.01 price anomaly | Count `sell_price = 0.01` rows at CA_1 by dept, item, `wm_yr_wk`; units sold in those item-weeks | Decide retain/flag/exclude. |
+| P-05 | Week 11617 straddle | Count sales item-days in d_1941 and d_1942 by `wm_yr_wk`; confirm price row for 11617 for all CA_1 items | Current-price definition and leakage control. |
+| P-06 | Week 11621 partial | Confirm `raw_sell_prices` rows for `wm_yr_wk = 11621` for CA_1 items; count calendar days = 2 | Horizon aggregation. |
+| P-07 | Department mapping | Distinct `dept_id`, `cat_id` at CA_1 with item counts, price-change counts, 4+ distinct price counts, avg priced weeks | Lock pilot scope: everyday grocery and household. |
+| P-08 | Event/SNAP distribution | Counts of `event_name_1`, `event_type_1`, `event_name_2`, `event_type_2`, `snap_CA` by date and by dept/item sales | Horizon feature construction and confounder control. |
+| P-09 | Candidate pseudo-decision dates | For candidate earlier pseudo-decision dates: count eligible items with sufficient price history and sales; count price rows and sales coverage before and after | Backtest design and validation. |
+| P-10 | Price-change timing vs events | Cross-tab of price changes by week, event, SNAP, and dept before decision date | Confounding and model feature design. |
+| P-11 | Model engine determinism | For proposed parsnip engine: whether fit/predict is deterministic; required seeds; numerical tolerance | R-A/R-B exact reconciliation. |
+
+---
+
+## 8. SQL source-delivery requirements
+
+### 8.1 Smallest faithful source envelope
+
+| Envelope element | Required source | Grain | Notes |
+|---|---|---|---|
+| Sales series | `raw_sales_evaluation` filtered to `store_id = 'CA_1'` and locked department envelope | One row per product-store series | Deliver `id`, `item_id`, `dept_id`, `cat_id`, `store_id`, `state_id`, `sales_history`. |
+| Daily sales | Unnested `sales_history` to item-day | One row per item-day for d_1–d_1941 | Must preserve exact position mapping. |
+| Calendar | `raw_calendar` for d_1–d_1969 | One row per day | Needed for history and horizon. |
+| Weekly price | `raw_sell_prices` filtered to `store_id = 'CA_1'`, items in envelope, `wm_yr_wk <= 11617` | One row per store-item-week | Exclude future weeks 11618–11621 to prevent leakage. Include 11617 for current-price candidate. |
+| Lineage metadata | Assigned by Stage 4 extract, not a source column | Extract-level | `snapshot_id`, `source_version`, extraction boundary. |
+
+### 8.2 Mechanical SQL vs R-A / R-B judged logic
+
+| Transformation | Where it belongs | Reason |
+|---|---|---|
+| Filter `store_id = 'CA_1'` and locked department envelope | SQL | Mechanical envelope restriction. |
+| Unnest `sales_history` JSON to item-day rows | SQL | Mechanical array expansion with fixed position-to-`d` map. |
+| Cast varchar to integer/decimal/date | SQL | Mechanical typing. |
+| Bound calendar to d_1–d_1969 | SQL | Mechanical date bounding. |
+| Join item-day to calendar on `d` | SQL | Mechanical enrichment. |
+| Attach weekly `sell_price` by `store_id + item_id + wm_yr_wk` | SQL | Mechanical join, preserving missing as NULL. Do not impute or forward-fill. |
+| Exclude future `sell_prices` weeks >11617 | SQL | Mechanical leakage envelope. |
+| Eligibility rules | R-A / R-B | Judged analytical rule. |
+| Trust gate | R-A / R-B | Judged evidence gate. |
+| Price-change derivation and features | R-A / R-B | Judged analytical feature construction. |
+| Current-price selection | R-A / R-B | Judged temporal rule. |
+| Candidate-price construction | R-A / R-B | Judged analytical choice. |
+| Model training / scoring | R-A / R-B | Mode A judged predictive contract. |
+| Expected units/revenue KPI | R-A / R-B | Judged metric aggregation. |
+| Actions, ranking, capacity, no-pad | R-A / R-B | Judged decision rule. |
+| Fixtures and reconciliation | R-A / R-B + Stage 4 | Not SQL source logic. |
+
+---
+
+## 9. SQL-versus-R boundary risks and SQL Source Gate evidence required
+
+| Boundary risk | Why it matters | SQL Source Gate evidence required |
+|---|---|---|
+| Envelope coverage | Missing or extra stores/departments change universe | Row counts by `store_id`, `dept_id`; list of distinct dept values; item counts. |
+| JSON unnesting correctness | Wrong position shifts dates and price joins | `JSON_LENGTH = 1941` for every series; unnest row count = series count × 1941; position-to-`d` spot checks and full multiset checksum if possible. |
+| Key uniqueness | Duplicate series or price rows multiply outputs | `raw_sales_evaluation.id` unique; `raw_sell_prices` key unique; `raw_calendar.d` unique. |
+| Join multiplicity | Item-day ↔ price join must not duplicate | Count item-day rows; count matched price rows; assert ≤1 price row per item-day; count unmatched. |
+| Critical-field equality | Delivered values must match source | Compare item_id, dept_id, store_id, sales_history values, sell_price, date, wm_yr_wk, event, snap. |
+| Domains | Bad values break model | Sales nonnegative integers; sell_price >0 and min $0.01; wday coding Sat=1…Fri=7; snap_CA 0/1; event blanks allowed. |
+| Date coverage | Wrong window breaks horizon/backtest | Sales d_1–d_1941; calendar d_1–d_1969; sell_prices ≤11617; week 11621 = 2 days. |
+| Missing price preservation | Missing price is not zero | Count NULL sell_price after left join; no imputation in SQL. |
+| Future price exclusion | Prevents leakage | Max delivered `wm_yr_wk` ≤11617; no 11618–11621 price rows. |
+| Lineage | Reconciliation must tie to same freeze | `snapshot_id`, `source_version`, extraction/observation boundary in both R outputs. |
+| Department mapping | Unlocked mapping can change universe | Gate must record the exact dept list used in extract. |
+| Varchar casts | Lexical errors | Compare cast vs raw for min/max, sample rows, blanks. |
+
+---
+
+## 10. Implementability verdict for each required design component in package §C
+
+| Required Stage 3 component | Verdict | Conditions / blocking gaps |
+|---|---|---|
+| `ml_mode` and Mode A lock fields | Implementable with conditions | Package says Mode A expected. Must lock prediction unit, target, allowed/forbidden features, leakage rules, temporal split, training window, parsnip model class/engine, evaluation metrics, threshold→action mapping, reconciliation-critical fields, fixtures. |
+| Eligibility rule | Implementable with conditions | Must lock “price changed at least a few times” and “sells steadily enough” cutoffs. Needs P-01 and P-02. |
+| Department mapping | Implementable with conditions | Must lock pilot scope. Candidate depts likely FOODS_1, FOODS_2, FOODS_3, HOUSEHOLD_1, HOUSEHOLD_2; HOBBIES exist but are not everyday grocery/household. Needs P-07. |
+| “Trusted” evidence gate | Implementable with conditions | Must lock price-movement test, volume test, and “forward expectation not a guess” test. Needs P-01, P-02, model validation. |
+| Candidate pilot-price construction | Implementable with conditions | Must lock method and candidate range. Extrapolation risk if outside observed prices. Needs P-02. |
+| Parsnip model specification | Implementable with conditions | Must lock model family, engine, formula/recipe, features, hyperparameters, deterministic settings. Needs P-11. |
+| Training window | Implementable with conditions | Must lock window end at decision date or pseudo-decision date. Exclude future prices/sales. Needs P-09. |
+| KPI formulas: expected units and revenue at current vs candidate price over 28 days | Implementable | Must lock horizon d_1942–d_1969, current price, candidate price, aggregation. Data supports calendar; expected units are model output. |
+| Operational treatment of “about 10%” | Implementable with conditions | Must lock exact unit guardrail (e.g., reject if expected units < 90% of current). Stakeholder said “about.” |
+| Operational treatment of “about 25” | Implementable with conditions | Must lock capacity rule: up to about 25 actual changes, no padding, holds excluded. |
+| Ranking key, tie-break, membership-first/no-pad | Implementable with conditions | Must lock full analytical-unit universe, membership-first, rank by trusted expected revenue gain, tie-break. |
+| Minimum-gain rule | Implementable with conditions | Analyst option. Must either lock a disclosed threshold or explicitly state none. |
+| Current-price definition at decision date | Implementable with conditions | Must lock week 11617 vs 11616. Week 11617 straddles decision date. Needs P-05. |
+| Horizon feature construction | Implementable | Calendar, event, SNAP, wday known in advance. Must lock Sat=1 coding and SNAP mapping. |
+| Leakage control | Implementable with conditions | Must exclude future prices and sales; use pre-decision features only. Needs P-05, P-09. |
+| Backtest at earlier pseudo-decision date and validation criteria | Implementable with conditions | Must lock pseudo-date, training/validation windows, metrics, pass/fail. Needs P-09. |
+| Controlled SQL source contract | Implementable with conditions | Must lock envelope, keys, fields, lineage, mechanical transformations, prohibited judged logic. |
+| SQL Source Gate handoff | Implementable with conditions | Must lock row coverage, multiplicity, critical-field equality, domains, date coverage, lineage. |
+| R-A / R-B judged-output contract | Implementable with conditions | Must lock decision grain, keys, eligibility, trust, actions, ranking, audit fields, lineage. |
+| R-A vs R-B exact reconciliation | Implementable with conditions | For stochastic-free parsnip model, exact reconciliation is feasible if engine, formula, preprocessing, hyperparameters, and data are identical. If any stochastic step exists, lock seeds, engine version, deterministic settings, and numeric tolerance. |
+| Known-case fixtures | Implementable with conditions | Must freeze fixtures before R builders run. Must include cases that fail if trust gate, guardrail, capacity, or no-pad are omitted. |
+| Lineage contract | Implementable with conditions | Source tables lack lineage columns; Stage 4 must assign extract metadata and carry it into both R outputs. |
+| Overall Stage 3 design | Implementable with conditions | Not implementable as-is until: department mapping, eligibility cutoffs, trust gate, current-price rule, candidate-price rule, model locks, pseudo-decision date, guardrail/capacity/tie-break, and SQL Source Gate are locked. No component is inherently infeasible from verified data facts; several are blocked on missing locks and targeted profiling. |

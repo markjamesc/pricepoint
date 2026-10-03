@@ -1,0 +1,122 @@
+# PRICEPOINT-001 Stage 3 Phase 3 — AI 2 controlled cross-review
+
+**Reviewer:** AI 2 (author of Design B)  
+**Packet:** `05_CROSS_REVIEW_PACKET.md` (Design A, Design B-v1, AI 3 dossier, Part D profiles 01–02)  
+**Framework phase:** §23  
+**Date:** 2026-09-25  
+**Independence note:** Findings target named fields. Agreement between designs is not treated as correctness. No vote.
+
+Also saved at `artifacts/05_AI2_CROSS_REVIEW_FINDINGS.md`.
+
+---
+
+## 1. Findings table
+
+| ID | Target (document, section, field) | Finding type | Severity | Evidence | Proposed resolution |
+|---|---|---|---|---|---|
+| F01 | Design A §6, primary business / mechanism hypotheses | Invalid or weak hypothesis | Material | Design A’s primary hypothesis is “some products have enough historical price variation and sales evidence to support trusted pilot-price recommendations.” That is an eligibility tautology, not a falsifiable claim about price and 28-day item revenue. Counterevidence (“insufficient history / sparse sales / unstable predictions”) only restates the trust gate. The locked question requires a claim of the form: *among items with usable own-price history, an alternative observed shelf price is predicted to raise 28-day item revenue versus current without a >~10% unit drop.* Framework §8.4: a hypothesis that cannot lose is not controlling. | Replace with an analytical hypothesis that can fail (flat price response after calendar adjustment; backtest APE above a predeclared cap; calendar-only model matches or beats the price model on items that actually moved). Keep eligibility language in §7, not in §6. |
+| F02 | Design A §5, allowed claim “Historical evidence supports this as the expected pilot outcome.” | Claim stronger than the design can support | Material | T026 / locked decision: approved changes are pilots; historical patterns are expectations to test, not guarantees. Design A’s ceiling label (“predictive-associational”) is correct; the allowed-claim sentence is not. “Supports this as the expected outcome” reads as validated expectation, which Design A cannot earn: no locked model, no locked backtest pass/fail, no promo flag (Dossier §4 unavailable-field list). | Rewrite the allowed claim to T026 language: “Under the locked model this is the 28-day expectation to pilot-test; it is not a guarantee and not a causal effect.” Ban Stage 5 wording that the history “supports” the outcome as expected fact. |
+| F03 | Design A §7 Eligibility rule / Exact thresholds (Status: Open); also Design A §16, §26 open “Exact eligibility thresholds” | Unjustified sample threshold; Gate 3/8 incomplete | Blocking | Framework Gate 3 requires exact inclusion/exclusion. Design A leaves cutoffs Open and says “profile distributions before locking.” Part D **now exists** and is sufficient to propose a lock: P1 lifetime change buckets; P2 365-day units and zero-day share; P3 joint cells. Leaving Open after that profile is no longer a data gap; it is an unfinished contract. Stage 4 builders would each invent TE rules. | Lock a joint trust-eligible rule from Part D *before* Design Gate. Candidate consistent with T010 (“smaller list I can trust”) and P3: `n_price_changes ≥ 3` AND `units_365 ≥ 180` AND `zero_days_365 ≤ 182` (364 items in the five depts). Do not treat the coordinator gloss “~200–300 item intent” as a stakeholder requirement (see F15). |
+| F04 | Design A §8, Current price definition = “latest valid weekly sell price available at decision date” | Construct validity / leakage; Gate 9 incomplete | Blocking | Decision date 2016-05-22 sits inside week 11617 (D1 Q4: 2016-05-21–05-27). D1 Q6/Q7: every CA_1 item has *both* 11616 and 11617. “Latest valid weekly price available” does not say which week, and does not forbid using 11618+ if someone reads “available in the table.” Dossier L01–L02 and source-to-concept map already flag the straddle. Two R builders can pick 11616 vs 11617 and flip raise vs cut. | Lock `current_price = sell_price` of `wm_yr_wk = 11617` (price in effect on d_1941). Forbid 11618–11621 as current, candidate, or feature. Require a 11616 sensitivity twin and a `straddle_flag` when the two weeks differ. Part D still does not count how many items differ (see §3 below). |
+| F05 | Design A §10 Primary KPI components; Design A §12 Baseline = “Current price at decision date” | Denominator and baseline risk | Material | Uplift is “expected revenue at candidate minus expected revenue at current,” but Design A never states whether \(\widehat{R}(P^0)\) is (a) model-predicted 28-day units at current price × \(P^0\) on the *forward* calendar, or (b) trailing realized 28-day revenue. Those are different denominators. The horizon calendar is not the last 28 days (D1 Q10: Memorial Day, SNAP 6/1–6/10, NBA Finals, Ramadan start, Father’s Day). A trailing baseline attributes calendar lift to price. Design A also omits the \(\widehat{U}(P^0)=0\) case, so the 10% unit rule has no denominator. | Lock the judged baseline as model-predicted 28-day units at \(P^0\) on d_1942–d_1969, same model and calendar as the candidate. Trailing realized revenue is a diagnostic only. If \(\widehat{U}(P^0)=0\), action = `hold_ne`. Publish both unit totals as audit fields. |
+| F06 | Design A §11 Guardrail “Reject if expected units decline > about 10%.” | Unjustified / unlocked decision threshold | Material | Stakeholder T006 is “about 10 percent.” Framework §17: thresholds must be implementable and not left to the builder. Design A keeps the word “about.” Unit ratio vs percent-of-current vs percent-of-candidate will not reconcile. | Lock: reject candidate if \(\widehat{U}(P^c)/\widehat{U}(P^0) < 0.90\). Label it a policy operationalization, not a natural law. Prespecify 0.85/0.95 twins as diagnostics, not alternate judged actions. |
+| F07 | Design A §17 Decision rules (no candidate-construction field); Design A §26 open “Candidate price generation algorithm”; Design A §17A Threshold→action step “Generate candidate prices” | Construct validity; T034 unmet; Gate 9 incomplete | Blocking | T034 requires a *specific* pilot shelf price and that the construction method be shown. Design A never defines the candidate set (historical prices vs ±X% grid vs rounded ladder). Dossier L07: using horizon prices to set candidates is leakage. Part D P4: 5,465 pre-11617 changes, mean \|pct\| = 16.22%; 461 changes >25%. An unspecified grid will either invent prices the item never bore or leak 11618–11621. | Lock construction in R: distinct pre-decision (`wm_yr_wk ≤ 11617`) own-item prices, drop \(P^0\) from change candidates, optional ±20–25% band with documented expansion if empty, cap N nearest prices, never use 11618+. Do not invent synthetic pennies. |
+| F08 | Design A §17A Model family “regularized regression or tree-based regression. Exact family: deferred pending validation.” | Mode A lock missing; Gate 9 / FORWARD fail-closed | Blocking | Project requirement + FORWARD use test: model values change action and capacity ranking → `ml_mode = A`. Mode A requires family/engine **or** a locked selection rule, hyperparameters or selection rule, split/training window, evaluation metrics, reconciliation-critical `.pred` fields, fixtures — frozen *before* builders run. Design A names two families and defers the choice. Two parsnip families will not recon on actions. Dossier §10 and P-11 already say engine, determinism, and tolerance must be locked. | Lock one contract before Stage 4. Defensible default: `linear_reg` / `glmnet` / mixture 0.5 / penalty by time-blocked CV on daily-unit RMSE (Design B §17A). Alternative: `rand_forest` / `ranger` with locked `trees`, `min_n`, `mtry` rule and a seed. Do not leave “or.” |
+| F09 | Design A §14 Confounder ledger (seasonality, holidays/events, SNAP, product demand changes, price-selection bias Status: Open) | Unhandled confounding | Material | Ledger is a list of feature buckets, not mechanisms. Missing as named threats: (1) unlabeled promotions / event-timed price setting (DIP: discounts inferred, not labeled; Dossier unavailable promo field); (2) SNAP–price co-movement on the horizon (D1 Q10: snap_CA = 1 on 2016-06-01–06-10, overlapping NBA Finals and Ramadan start); (3) zeros-as-stockouts (Dossier §3; P2: 1,434 / 2,484 items have >182 zero days in last 365); (4) aisle substitution (locked KPI is item revenue; no cost); (5) identifying elasticity from *cross-item* price levels rather than within-item moves. “Calendar features” do not treat endogeneity. Price-selection bias left Open is an unhandled competing explanation for every slope. | Expand the ledger to those five mechanisms. Required treatments: calendar + SNAP features; candidates only from own observed prices; no other-item prices in the judged model; disclose substitution and stockouts as residual; add a calendar-only ablation twin; flag candidates whose historical occurrences are mostly event/SNAP weeks. |
+| F10 | Design A §17 Trusted gate (“price moved historically, product sells enough, forward expectation is not a guess”) | Unjustified / untestable decision threshold | Material | Same three sentences as T040, with no cutoff, no “guess” metric, and no mapping from failed trust → `hold_ne`. Builders cannot implement “not a guess.” Part D shows the gate will dominate the list: 683 / 2,484 items have *zero* lifetime price changes (P1 c0 sum 36+35+241+165+206); only 30 items have ≥3 changes in the last 104 weeks. A vague gate will either include never-movers or silently apply different cuts. | Bind trust to TE-style predicates computed only from pre-d_1941 data (see F03). Map fail → `hold_ne`. Do not use last-104-week `≥3` changes as the sole movement rule (n=30 would empty the review). |
+| F11 | Design A §24 Fixtures Status: Open; Design A §17A Fixtures Status: Open | Gate 10 / §19A incomplete | Blocking | Framework: known-case fixtures must be frozen before R-A/R-B run and must fail the build if trust, guardrail, capacity, or no-pad are omitted. Design A lists themes (“known product, expected trust, expected action, expected capacity”) but no fixture IDs, predicates, or fail conditions. | Freeze a pack with at least: hold_ne despite large stub gain; unit-ratio 0.89 blocks a raise; no-pad when <25 qualifiers; cap 25 with below-the-line; 11618 price cannot enter the candidate set; current price uses 11617 not 11616; horizon day count = 28 including week 11621’s two days. |
+| F12 | Design A §23 Continuous tolerance Status: Open | Gate 10 incomplete | Material | Mode A `.pred` will not be bit-identical across independent glmnet/ranger fits (Dossier P-11). Design A requires comparing “predictions” without a numeric rule. “Close” is explicitly forbidden by framework §20.4. | Lock exact equality on keys, eligibility, actions, package flags, ranks. Lock a numeric cap on `.pred_units_*` and `delta_rev` (Design B used 0.05 units and $0.05). If an action flips, recon fails — do not average models. |
+| F13 | Design A §16 / §17A Split “Training: history before pseudo-decision date.” No live-origin train-through; no acceptance caps | Baseline / uncertainty; leakage | Material | Live scoring origin is d_1941. A spec that only mentions a pseudo-decision date leaves the judged live fit unspecified (train through d_1941 vs stop earlier). No MAE/APE cap, no constant-price backtest subset, no statement of what happens if the backtest fails. Dossier L05–L06 require a locked pseudo-date and pass/fail before training. | Lock: (a) live fit trains `d ≤ d_1941`; (b) primary backtest origin end of d_1913 (28 days earlier), horizon d_1914–d_1941; (c) calibration on items whose actual price was constant in that window; (d) provisional APE/bias caps; (e) failed acceptance → collapse modeled *changes* to `hold_ne`. |
+| F14 | Design A §17A Allowed features “historical sales, historical prices, current price, calendar, events, SNAP, product hierarchy” | Leakage / construct validity | Material | “Historical sales” without a lag rule can include day *t* or post-origin days. “Product hierarchy” does not say whether `item_id` is a dummy (cross-sectional price-quality confounding). Forbidden list names future prices and horizon sales but not “candidate prices taken from 11618–11621.” | Allowed-feature table with construction rules: trailing units use days `≤ t-1` and `≤ origin`; `snap_CA` only (not TX/WI); source `wday` Sat=1; no `item_id` dummy if the identification story is within-item; explicit ban of post-11617 prices as features *and* as candidate sources. |
+| F15 | Part D D2 coordinator notes, sentence “lands near the stakeholder’s ~200–300 item intent” | Claim stronger than the record; unjustified threshold pressure | Material | Locked constraints mention “about 25” *price changes* (T018/T020), a preference for a *smaller trusted list* (T010/T016), and analyst-set cutoffs. They do **not** state a 200–300 eligible-item target. Using that gloss to pick F03’s cutoff would invent a business requirement. | Treat 200–300 as coordinator commentary, not as Start/Framing. Choose eligibility from T010/T016 plus P1–P3 counts. If someone wants a 200–300 eligible band, that is a **human owner choice** (§4), not a recovered stakeholder lock. |
+| F16 | Design A §17 Capacity “select top ~25” | Unjustified operationalization | Minor | Stance `hard_attention_budget` is correctly copied. “~25” is not executable. T018 allows analyst operationalization. | Lock `N_CAP = 25`, membership-first, no pad, holds excluded from slots, remainder `below_line`. |
+| F17 | Design A §13 Required segments “grocery department / household department”; minimum sizes Open | Segment multiplicity / underspecification | Minor | The source field is `dept_id` (five values in scope). Collapsing to two buckets hides HOUSEHOLD_2 sparsity (P3 joint cell = 3 items) and FOODS_3 dominance (823 items). Min sizes left Open. | Prespecify `dept_id` as a diagnostic segment with no separate capacity budget. Exploratory SNAP-intensity only after freeze. Publish even small depts; do not suppress HOUSEHOLD_2 from the universe. |
+| F18 | Design A §8 / §17A; Design A generally — `wday` coding and SNAP geography unset | Implementation / construct | Minor | Source `wday` is Sat=1…Fri=7 (DIP; D1 Q10). `snap_CA` is the CA_1 field. Recoding to ISO weekdays or using `snap_TX`/`snap_WI` would silently shift horizon features (SNAP window is 10 days). | Lock source `wday` as-is and `snap_CA` only. |
+| F19 | Dossier §5 L01 Prevention “Deliver/use sell_prices only through week 11617” | SQL-versus-R boundary | Minor | Not delivering 11618–11621 makes it harder for the Source Gate to prove those rows exist and were *not* used. Design B delivers them and forbids their use in R (FX-LEAK-11618). Both are feasible; L01’s “do not deliver” is the weaker control if a builder later joins raw. | Prefer deliver-and-quarantine: prices for the envelope including 11618–11621 present in the extract; judged logic and a fixture forbid their use. Source Gate checks values match raw *and* that candidate sets never contain a price that appears only after 11617. |
+| F20 | Dossier §10 Implementability verdict / Design A taken as a whole | Gate incompleteness (summary) | Blocking | Dossier correctly says the *data* are implementable with conditions and that Stage 3 is “not implementable as-is until department mapping, eligibility cutoffs, trust gate, current-price rule, candidate-price rule, model locks, pseudo-decision date, guardrail/capacity/tie-break, and SQL Source Gate are locked.” Design A still has those items Open or deferred. That is a Design Gate Fail on Gates 3, 5, 9, and 10, not a data infeasibility. | Do not send Design A to Stage 4. Consolidate onto a candidate that actually locks the dossier’s condition list. |
+
+---
+
+## 2. Changes to my own first-pass design
+
+Each row is a field in Design B-v1 that I would now change because of Design A (as contrast), the dossier, or Part D. Old value = B-v1.
+
+| Field | Old value (Design B-v1) | New value | Reason |
+|---|---|---|---|
+| §7 TE1 distinct prices ≥ 4 | Provisional ≥ 4 distinct pre-11617 prices | **Provisional ≥ 3 distinct** pre-11617 prices (conjunct, not the sole gate) | Part D P3 reports `distinct ≥ 3 & units_365 ≥ 180` = 784 items. Original DIP 4+ counts were not re-profiled in D2. “A few” times is closer to 3 than 4 once change-count is also required. |
+| §7 TE2 week-to-week changes ≥ 3 | Lifetime ≥ 3 changes before d_1941 | **Keep lifetime ≥ 3; explicitly reject last-104-week ≥ 3 as a judged gate** | P1 `chg2y_ge3` sums to **30 items**. A recent-movement rule would empty the review. Lifetime ≥ 3 + volume/zero filter is the P3 joint that yields 364. |
+| §7 TE3 ≥ 26 positive weeks in last 52 | Provisional 26/52 weeks with weekly units > 0 | **Replace with the profiled metric:** `zero_days_365 ≤ 182` on d_1577–d_1941 | Part D never computed positive *weeks*. It did compute `zero_days_365`. Avoids inventing a second sample definition. |
+| §7 TE4 `units_52 ≥ L=52` | Open placeholder L = 52 | **`units_365 ≥ 180`** on the P2/P3 window | L=52 sits far below the observed mass. 180 is the tabulated joint-rule floor (364 items with changes≥3 and zeros≤182). Still provisional policy, not an SLA. |
+| §7 stacked trust-eligible definition | TE1∧TE2∧TE3∧TE4∧TE5∧TE6 separately invented | **Primary predicate aligned to P3 joint:** `n_price_changes ≥ 3` AND `units_365 ≥ 180` AND `zero_days_365 ≤ 182`, plus TE5 (candidate previously observed) and TE6 (backtest-error gate) | Ties the smaller trusted list to an actual cell (364). HOUSEHOLD_2 contributes 3 qualifiers — keep the dept in the universe. |
+| §7 U5 first priced week ≥ 364 days before decision | Provisional date-based listing-start | **`priced_weeks ≥ 52` before week 11617** | P3 `priced_weeks < 52` = **9** items. Same control, profiled field. |
+| §17.1 candidate band ±20% | \([0.80 P^0,\ 1.20 P^0]\), expand if empty | **Keep ±20% default.** Note that ±25% covers the P4 10–25% bucket; only 461/5,465 changes exceed 25%. Do not add a synthetic ±X% grid. | P4 mean \|pct\| = 16.22%. Design A’s missing algorithm must not be filled with a wide invented ladder. |
+| §17.3.5 / §16.2 half-MAE minimum-gain *screen* | Legal-change requires \(\Delta\widehat{R} > 0.5 \times\) dept backtest MAE; else `unchanged` | **Remove half-MAE from the judged legal-change rule.** Keep \(\Delta\widehat{R} > 0\) after cent rounding. Report `gain_below_half_mae` as a diagnostic flag that does not change action or rank. | T040: a small gain is still trusted and “just ends up lower on the list.” B-v1 hid those items. Capacity 25 already pushes small gains below the line. |
+| §17.4 action mapping | Screen failure → `unchanged` | Screen no longer binds. Unchanged only when trust-eligible and no legal candidate with \(\Delta\widehat{R}>0\) and unit ratio ≥ 0.90. | Follows the T040 correction. |
+| §17A training determinism | Independent 5-fold time-blocked CV; penalties need not match; recon on `.pred` ±0.05 | **Add:** lock `glmnet` standardization = recipe-side only; lock CV *fold date cuts* (same five d-index blocks in both R paths). Still do not share fitted objects. | Dossier P-11 / §10: path-dependent knobs must be spec or recon fails on actions. Shared fold dates are spec, not a shared model. |
+| §26 Q1–Q5 status | All five unanswered | Q5 practically answered; Q1–Q4 partial / unanswered (see §3) | Part D. |
+| §18 R7 TE thresholds “unknown distributions” | Open (profiling) | Residual risk is now *which joint cell to lock* (364 vs 784 vs 177), not absence of any distribution. | Part D P1–P3. Owner choice in §4. |
+
+No change to: locked decision/question; `ml_mode = A`; department mapping FOODS_1/2/3 + HOUSEHOLD_1/2; daily 28-day grain; current price = week 11617; predicted-current baseline; unit floor 0.90; `N_CAP = 25`; membership-first / no-pad; causal ceiling; observed-price-only candidates; SNAP/event leakage rules.
+
+---
+
+## 3. Items requiring further targeted profiling
+
+Part D vs Design B §26:
+
+| Design B question | Part D result | Still unanswered? |
+|---|---|---|
+| **Q1** distinct-price and change-count distributions (percentiles; counts at 0, 1, 2, 3, 4+ distinct prices) | P1 gives change-count buckets by dept. P3 gives `distinct ≥ 3 & units ≥ 180` = 784, not a distinct-price histogram. No percentiles. | **Yes, remainder.** Need 0/1/2/3/≥4 distinct pre-11617 prices by dept. |
+| **Q2** last-52-complete-week units, zero-day share, positive-week counts | D2 used last **365 days**, unit buckets, and `zero_days_365 > 182`. No positive-week distribution. | **Yes, unless TE3 is redefined onto `zero_days_365` (recommended in §2).** |
+| **Q3** median and p75 \|percent change\|, overall and by dept | P4: n=5,465; **mean** 16.22%; buckets; ups/downs. No median, no p75, no dept split. | **Yes, remainder.** Mean + buckets are enough to bound a ±20–25% band; further work is optional if that band is locked. |
+| **Q4** how many CA_1 five-dept items have week-11616 price ≠ week-11617 | D1 Q6/Q7 only prove both weeks are *present*. | **Yes. This is the only remaining profiling item I still request as targeted work.** |
+| **Q5** items remaining if first priced week ≥364 days before d_1941 | P3 `priced_weeks < 52` = **9** items. D1 Q8: no internal gaps. | **No further request.** |
+
+**Exact further questions (framework §25):**
+
+1. For `store_id = CA_1` and `dept_id ∈ {FOODS_1, FOODS_2, FOODS_3, HOUSEHOLD_1, HOUSEHOLD_2}`, how many items have `sell_price` at `wm_yr_wk = 11616` unequal to `sell_price` at `wm_yr_wk = 11617`? Overall and by `dept_id`.
+2. For the same envelope and `wm_yr_wk ≤ 11617`, counts of items with 0, 1, 2, 3, and ≥4 distinct `sell_price` values, by `dept_id`. Needed only if the consolidated design keeps a distinct-price cutoff separate from `n_price_changes`.
+
+Do not expand P-10 into a production price-change×event model. A count of changes on event weeks vs non-event weeks is enough if the calendar-only ablation twin is locked.
+
+---
+
+## 4. Items requiring a human (owner) choice between defensible alternatives
+
+1. **Trust-eligible tightness.**  
+   - **A:** P3 joint — `n_price_changes ≥ 3` AND `units_365 ≥ 180` AND `zero_days_365 ≤ 182` → **364** items (29/99/172/61/3 by dept).  
+   - **B:** Looser — `n_distinct_prices ≥ 3` AND `units_365 ≥ 180` → **784**.  
+   - **C:** Tighter — `n_price_changes ≥ 5` AND `units_365 ≥ 365` → **177** (HOUSEHOLD_2 = 0).  
+   - **Not on the menu:** last-104-week ≥3 changes (n=30).  
+   - **Recommendation:** **A.** It encodes “moved a few times,” “sells enough,” and “not mostly zeros” without inventing a 200–300 target (F15).
+
+2. **Current-price week.**  
+   - **A:** Week **11617** (in effect on 2016-05-22).  
+   - **B:** Week **11616** (last completed week).  
+   - **Recommendation:** **A**, with B as a required twin. Do not average. Return to stakeholder only if Morgan states the weekly file is week-ending rather than week-starting — that fact is not in the packet.
+
+3. **Candidate-price construction.**  
+   - **A:** Only prices the item-store actually carried at or before week 11617.  
+   - **B:** Synthetic grid around current whether or not observed.  
+   - **Recommendation:** **A.** P4 puts most real moves inside ~5–25%. B prints untested shelf numbers and cannot satisfy T040’s “price has actually moved.”
+
+4. **Minimum-gain rule.**  
+   - **A:** None (T040: small trusted gains rank low).  
+   - **B:** Analyst screen (B-v1 half-MAE or a dollar floor).  
+   - **Recommendation:** **A for the judged rule** (change in §2). B as a diagnostic flag only.
+
+5. **Parsnip family (Mode A lock).**  
+   - **A:** `linear_reg` + `glmnet`.  
+   - **B:** `rand_forest` + `ranger` with locked hyperparameters and seed.  
+   - **Recommendation:** **A**, because F09 (endogeneity) is the live threat and a forest conceals the slope. Analyst-method, not a stakeholder return, unless the owner accepts recon rules for a seeded forest.
+
+6. **Operational “about 10%” and “about 25.”**  
+   - **A:** 0.90 unit-ratio floor and `N_CAP = 25` exact.  
+   - **B:** Leave “about” to Stage 4.  
+   - **Recommendation:** **A.** Return to stakeholder only if Morgan rejects a hard 10.0% / hard 25.
+
+None of 1–6 changes the locked decision, the locked question, or `capacity_stance = hard_attention_budget`. Item 1 most changes *who* appears; item 3 most changes the *printed price*.
+
+---
+
+Cross-review complete: 20 findings (6 Blocking, 10 Material, 4 Minor).

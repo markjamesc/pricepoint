@@ -1,0 +1,68 @@
+{
+  "backtest_primary": {
+    "origin_d": 1913,
+    "A1": 0.1824,
+    "A2": 0.2697,
+    "backtest_accept": 0,
+    "n_usable": 345,
+    "n_U0_excluded": 5
+  },
+  "backtest_stability": {
+    "origin_d": 1885,
+    "A1": 0.1722,
+    "A2": 0.1794,
+    "backtest_accept": 1,
+    "n_usable": 335,
+    "n_U0_excluded": 14
+  },
+  "penalty_selected": 0.0021,
+  "penalty_grid_index": 14,
+  "fold_cuts_live": [1, 388, 776, 1164, 1552, 1941],
+  "fold_cuts_backtest": [1, 382, 765, 1147, 1530, 1913],
+  "fold_cuts_stability": [1, 377, 754, 1131, 1508, 1885],
+  "te6_option": "A (slice-only)",
+  "dept_backtest_MAE_revenue": [
+    {
+      "dept_id": "FOODS_1",
+      "dept_backtest_MAE_revenue": 74.3558
+    },
+    {
+      "dept_id": "FOODS_2",
+      "dept_backtest_MAE_revenue": 62.3338
+    },
+    {
+      "dept_id": "FOODS_3",
+      "dept_backtest_MAE_revenue": 71.313
+    },
+    {
+      "dept_id": "HOUSEHOLD_1",
+      "dept_backtest_MAE_revenue": 45.7697
+    },
+    {
+      "dept_id": "HOUSEHOLD_2",
+      "dept_backtest_MAE_revenue": 62.0567
+    }
+  ],
+  "te6_dept_median_ape": [
+    {
+      "dept_id": "FOODS_1",
+      "te6_dept_median_ape": 0.2672
+    },
+    {
+      "dept_id": "FOODS_2",
+      "te6_dept_median_ape": 0.22
+    },
+    {
+      "dept_id": "FOODS_3",
+      "te6_dept_median_ape": 0.1534
+    },
+    {
+      "dept_id": "HOUSEHOLD_1",
+      "te6_dept_median_ape": 0.1796
+    },
+    {
+      "dept_id": "HOUSEHOLD_2",
+      "te6_dept_median_ape": 0.3098
+    }
+  ]
+}

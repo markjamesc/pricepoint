@@ -1,0 +1,41 @@
+**PRICEPOINT-001 — AI 2 Start verify-3 (T035)**  
+Same role. Checked against the T031 issues I raised and Morgan’s words through T034. She has not seen T035.
+
+---
+
+### A. Issues I raised on T031
+
+1. **Four-week cadence / hold-until-next-review** — **Resolved** (already in T031; retained in T035). Matches T012.
+
+2. **“Eligible” implying a locked set** — **Resolved** (already in T031; T035 keeps “products meeting the review criteria”). Cutoffs stay delegated (T010).
+
+3. **Holds visible and outside the cap; no padding** — **Resolved.** T035 now states both: holds “remain visible and do not consume the price-change capacity” (T020) and “If fewer qualify, the list is not padded” (T018).
+
+4. **Outcome sentence merged T004 maximize-revenue with T024 ranking key** — **Resolved enough.** T035 separates them: outcome is the specific pilot price with the strongest trusted 28-day revenue versus current; ranking is “the biggest revenue gain that is trusted” (T024’s words).
+
+5. **Price-change magnitude treated as Framing-only** — **Resolved at Start by T034.** Morgan required “a specific price,” “the actual shelf price we’d pilot,” and unit/revenue expectations at that price. Candidate-price *method* remains delegated (“how you come up with the candidate price is your call”). T035 writes the specific-price requirement into the action set and the outcome sentence.
+
+6. **T031 compressed T012’s history-end / no-look-ahead rule to “review date”** — **Resolved.** T035: “information available at the end of the most recent history period.”
+
+---
+
+### B. Clauses in T035 unsupported by, or diverging from, T000–T034
+
+No invented owner, constraint, data source, or capacity rule.
+
+Tight wording notes only:
+
+- **“A specific pilot shelf price increase / cut”** is analyst phrasing for T034’s “actual shelf price we’d pilot.” Meaning matches; she did not name the actions that way.
+- **Second sentence** (“identify the specific pilot price expected to produce…”) applies to raise/cut items. Leave-unchanged and hold-NE have no new price. A hostile reading could attach “specific pilot price” to every row. The four-way list in the first sentence prevents a real contradiction.
+- **“Products meeting the review criteria”** remains analyst shorthand for T008/T010. Safer than “eligible.” The two principles are still not quoted in the sentence; they do not need to be for Start.
+- **Department shortlist** is still “everyday grocery and household aisles” (T008). Her “open to your suggestion” is not in the statement and should not be.
+
+Nothing in T035 collapses leave-unchanged into can’t-tell, makes Morgan the final approver, drops SNAP, drops pilot, fills a 25-item quota, or treats historical patterns as proof.
+
+---
+
+### C. Start Gate on T035: **Pass**
+
+Owner, four actions (now including a specific pilot shelf price on raise/cut), revenue outcome at that price versus current over 28 days, ~10% unit guardrail, four-week hold-until-next-review cadence, history-end information boundary with SNAP, ranked ~25 / below-the-line / no-pad / holds-outside-cap packaging, uncertainty rule, and pilot/expectation context are all in her words. Candidate-price construction, eligibility cutoffs, scoring formula, “solid” threshold, aisle mapping, and guardrail-failure *label* remain Framing / Stage 3 with disclosure.
+
+T035 is ready to send for confirmation. If she accepts it, lock Stage 1 Start.

@@ -1,0 +1,15 @@
+{
+  "stage": 2,
+  "status": "LOCKED",
+  "analytical_question": "For products meeting the review criteria in the California pilot store’s everyday grocery and household aisles, which specific pilot shelf prices should Morgan recommend for the next 28-day review cycle to produce the strongest trusted expected product revenue (units sold × shelf price) compared with the current price, without recommending a change expected to reduce units by more than about 10%; which products should instead remain unchanged or be classified as “hold — not enough evidence”; and which trusted price-change opportunities rank into the current-cycle GM package of up to about 25 actual price changes, with any additional qualifying opportunities listed below the line?",
+  "capacity_stance": "hard_attention_budget",
+  "ai1_builder": "PASS",
+  "ai2_decision_fit_review": "PASS",
+  "ai3_framing_red_team": "PASS",
+  "cross_review": "PASS",
+  "framing_gate": "PASS",
+  "stakeholder_approval": "APPROVED",
+  "human_analyst_approval": "APPROVED",
+  "unresolved_issues": 0,
+  "_procedure_note": "PRICEPOINT-001. Capacity unit: actual raise/cut recommendations per four-week cycle, about 25; holds outside capacity; no padding; below-line list. AI 1 builder C2; AI 2 Tighten then Keep; AI 3 Pass then Pass. Stakeholder approval T042 (synthetic). Owner approval 2026-09-25 03:54 CT: 'I approve the Stage 2 analytical question and capacity_stance hard_attention_budget as written.' Evidence: 03_STAGE2_FRAMING_RECORD.md, reviews/SHA256SUMS_framing_r1.txt."
+}

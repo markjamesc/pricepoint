@@ -1,0 +1,95 @@
+## SECTION 1 — STAKEHOLDER MESSAGE (T039)
+
+Thanks, Morgan. That clarifies the prioritization principle: this is not an even tradeoff between opportunity and confidence. Recommendations should first pass a trust standard; opportunities that are not sufficiently trusted should become “hold — not enough evidence” rather than entering the ranked list. Among the recommendations that do pass that standard, the largest trusted revenue gains should come first.
+
+For the analysis design, when you say you need to “trust” an expected outcome, should that trust primarily mean **the evidence supporting the expectation is strong**, **the expected revenue improvement is large enough to matter**, or **some combination of both**?
+
+---
+
+## SECTION 2 — INTERNAL NOTE (not sent)
+
+## Framing status
+
+### Established
+
+**Decision linkage**
+
+* The analysis supports Morgan’s GM recommendation package.
+* The output must identify which product-specific pilot price recommendations should move forward.
+
+**Prioritization principle**
+Established:
+
+* Not an even split between confidence and opportunity.
+* Insufficient trust means the product should receive:
+
+  * “hold — not enough evidence.”
+* Among trusted recommendations:
+
+  * rank by biggest expected revenue gain.
+
+Supported by Morgan’s T038 reply:
+
+> “if you don't really trust what you expect to happen, it shouldn't be on the list at all… Among the ones you do trust, put the biggest revenue gain first.” 
+
+**Capacity stance**
+Established:
+
+* `capacity_stance = hard_attention_budget`
+
+Evidence:
+
+* Morgan previously established an approximately 25 recommendation preparation capacity.
+* The ranked list is constrained by GM review capacity.
+* The top trusted recommendations enter the package; additional items remain below the line.
+
+### Open Framing / Stage 3 design work
+
+Do not lock:
+
+* KPI formulas.
+* Trust thresholds.
+* Eligibility cutoffs.
+* Candidate-price construction.
+* Ranking formula.
+* SQL grain.
+* Statistical tests.
+* Model classes.
+
+The following remain analytical implementation choices:
+
+* How “trusted” is operationalized.
+* How expected revenue gain is calculated.
+* How candidate prices are generated.
+* How uncertainty is represented.
+
+### Updated candidate question draft C1
+
+**Candidate analytical question:**
+
+“Among products meeting the review criteria at the California pilot store, which specific pilot prices should Morgan recommend raising, cutting, or leaving unchanged to produce the strongest trusted expected 28-day revenue outcome, while excluding recommendations where the expected outcome is not sufficiently trusted?”
+
+### Decision linkage
+
+This question determines which recommendations Morgan should bring to the GM:
+
+* trusted price-change opportunities enter the ranked package,
+* insufficiently supported opportunities become hold — not enough evidence,
+* trusted opportunities are ordered by expected revenue gain.
+
+### Remaining weakness
+
+The remaining Framing ambiguity is the meaning of “trusted.”
+
+Morgan has established the decision rule:
+
+1. A recommendation must first meet a trust standard.
+2. Among trusted recommendations, revenue gain determines priority.
+
+The unresolved issue is how Morgan wants “trust” described at the business level before Stage 3 translates it into analytical design.
+
+### Plan
+
+Continue Framing with one question.
+
+If Morgan confirms the business meaning of “trusted,” the Framing elements will be sufficiently established to present the proposed analytical question in plain language with its decision linkage and request confirmation before moving into Stage 3 design.

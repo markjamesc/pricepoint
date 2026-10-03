@@ -1,0 +1,43 @@
+{
+  "step": "execution",
+  "phase": "begin",
+  "result": "PASS",
+  "checked_at_utc": "2026-09-25T13:41:41Z",
+  "checks": [
+    {
+      "check": "Run is active",
+      "result": "PASS",
+      "detail": "status must equal IN_PROGRESS"
+    },
+    {
+      "check": "No other step is active",
+      "result": "PASS",
+      "detail": "current_step must be null"
+    },
+    {
+      "check": "Step is not already complete",
+      "result": "PASS",
+      "detail": "completed steps cannot be reopened"
+    },
+    {
+      "check": "Completed receipts unchanged",
+      "result": "PASS",
+      "detail": "completed artifact hashes must still match"
+    },
+    {
+      "check": "Workflow Gate report unchanged",
+      "result": "PASS",
+      "detail": "recorded workflow report hash must still match"
+    },
+    {
+      "check": "Prerequisites complete",
+      "result": "PASS",
+      "detail": "Required: design"
+    },
+    {
+      "check": "Controlling documents unchanged",
+      "result": "PASS",
+      "detail": "framework hashes must match run start"
+    }
+  ]
+}

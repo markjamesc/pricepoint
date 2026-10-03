@@ -1,0 +1,128 @@
+## SECTION 1 — STAKEHOLDER MESSAGE (T033)
+
+Thanks, Morgan. I’ve incorporated the remaining clarification points around the recommendation package, including the ranked list, the GM review capacity, the distinction between unchanged price and not-enough-evidence outcomes, and the pilot approach.
+
+For a raise or targeted price cut recommendation, does the recommendation you bring to the GM need to include a specific proposed new shelf price or change amount, or is identifying the direction of the change enough?
+
+---
+
+## SECTION 2 — INTERNAL NOTE (not sent)
+
+**Start Gate status:** Pending one stakeholder clarification before final confirmation.
+
+### Established
+
+**Decision owner**
+
+* Morgan Lee recommends.
+* Store general manager signs off.
+
+**Decision actions**
+
+* Raise shelf price.
+* Take a targeted price cut.
+* Leave shelf price unchanged.
+* Hold — not enough evidence.
+
+**Outcome**
+
+* Expected product revenue:
+
+  * units sold × shelf price.
+* Evaluation horizon:
+
+  * following 28 days.
+* Compare expected outcome against current price.
+
+**Material constraints**
+
+* Reject moves expected to reduce units by more than approximately 10%.
+* Prefer fewer recommendations with stronger evidence.
+* Weak evidence receives hold — not enough evidence.
+* Historical patterns are expectations to test, not guarantees.
+* Approved changes are pilots.
+
+**Scope**
+
+* Product at a specific store.
+* California pilot store.
+* Everyday grocery and household aisles.
+
+**Information boundary**
+Use only information available at the review date:
+
+* daily unit sales,
+* weekly shelf prices,
+* holidays,
+* events,
+* SNAP benefit days.
+
+Exclude:
+
+* cost,
+* inventory,
+* competitor prices.
+
+**Timing**
+
+* Four-week pricing review cycle.
+* Price decision holds until next review.
+* 28-day evaluation window.
+* End of most recent history as decision point.
+* No look-ahead.
+
+**Capacity**
+
+* Ranked list.
+* Top approximately 25 trusted raise/cut recommendations enter GM package.
+* Additional qualifying items remain below the line as next in line.
+* Below-line items do not enter the current cycle package.
+* Holds do not consume the price-change capacity.
+* No padding if fewer qualify.
+
+**Eligibility principle**
+Established:
+
+* Real historical shelf-price changes.
+* Sales activity sufficient for evaluation.
+
+Deferred:
+
+* Exact cutoffs.
+
+**Ranking principle**
+Established:
+
+* “Strongest” means biggest revenue gain that is trusted.
+* Scoring implementation deferred.
+
+### Missing
+
+**Recommendation granularity**
+Pending Morgan clarification:
+
+* Does the GM-facing recommendation include:
+
+  * a specific proposed new shelf price/change amount, or
+  * only the direction of change?
+
+This is the remaining Start-level ambiguity because it determines the form of the recommendation Morgan brings to the GM.
+
+### Deferred to Framing / Stage 3
+
+* Exact price-change construction.
+* Eligibility cutoffs.
+* Ranking formula.
+* Evidence sufficiency threshold.
+* Department mapping.
+* Reporting treatment of guardrail-rejected candidates.
+
+### Plan
+
+Ask the single remaining stakeholder clarification question.
+
+After Morgan answers:
+
+1. Incorporate the answer into the decision statement.
+2. Explicitly include the no-padding rule.
+3. Present the final Start decision statement for stakeholder confirmation.

@@ -1,0 +1,206 @@
+## SECTION 0 — RECONCILIATION
+
+### 1. Decision owner
+
+**Finding:** Morgan Lee recommends; GM signs off.
+**Decision:** Accept.
+**Reason:** Morgan stated, “I make the recommendation and the store general manager signs off.” 
+
+---
+
+### 2. Action set
+
+**Finding:** Raise price, targeted cut, leave unchanged, plus “hold — not enough evidence.”
+**Decision:** Accept.
+**Reason:** Morgan confirmed the three pricing actions and later explicitly required a “hold — not enough evidence” outcome when evidence is weak.  
+
+**Additional issue: price-change magnitude**
+**Decision:** Defer to Framing/Stage 3.
+**Reason:** The stakeholder specified direction (“raise,” “targeted price cut,” “leave it where it is”) but did not state whether the recommendation must include the exact new shelf price.
+
+---
+
+### 3. Outcome
+
+**Finding:** Maximize expected product revenue over 28 days.
+**Decision:** Accept.
+**Reason:** Morgan stated revenue is “units sold times the shelf price” and that the right call is the one expected to bring in the most revenue for the product. 
+
+**Finding:** Portfolio-level objective may be needed when capacity applies.
+**Decision:** Defer to Framing/Stage 3.
+**Reason:** Morgan established a per-product revenue objective, but the interaction between that objective and prioritization under capacity was not fully specified.
+
+---
+
+### 4. Unit-sales guardrail
+
+**Finding:** Reject moves expected to reduce units by more than approximately 10%.
+**Decision:** Accept.
+**Reason:** Morgan stated, “If a move is expected to cut the product's units by more than about 10 percent, I don't want it.” 
+
+---
+
+### 5. Capacity constraint interpretation
+
+**Finding:** The 25 recommendation limit may be a throughput constraint rather than a hard recommendation cap.
+**Decision:** Accept as a genuine ambiguity requiring stakeholder resolution.
+**Reason:** Morgan said, “My team can realistically work up about 25 price-change recommendations per four-week cycle,” which establishes operational capacity, but does not explicitly define whether analysis output itself must be limited to 25. 
+
+---
+
+### 6. Ranking key when more than 25 qualify
+
+**Finding:** “Prioritized by importance” is insufficient; ranking rule is missing.
+**Decision:** Accept.
+**Reason:** Morgan said she needs to know “which ones matter most so we take the strongest first,” but did not define whether that means revenue impact, confidence, or another criterion. 
+
+**Resolution:** Requires stakeholder clarification or explicit Stage 3 design choice.
+
+---
+
+### 7. Treatment of products beyond the top 25
+
+**Finding:** Products beyond capacity need a defined treatment.
+**Decision:** Accept as a remaining ambiguity.
+**Reason:** Morgan stated that if more products qualify, she wants the strongest first, but did not state whether lower-ranked products are deferred, held, or simply listed. 
+
+**Resolution:** Requires Framing clarification.
+
+---
+
+### 8. Eligibility criteria
+
+**Finding:** Eligibility is a delegated analytical choice.
+**Decision:** Defer to Stage 3.
+**Reason:** Morgan delegated cutoffs, stating she did not know the right cutoffs but wanted the analyst to explain what was used and why. 
+
+Established Start facts:
+
+* Prior shelf-price movement required.
+* Enough sales activity required.
+
+Exact thresholds remain outside Start.
+
+---
+
+### 9. “Hold — not enough evidence” threshold
+
+**Finding:** Evidence sufficiency threshold is unresolved.
+**Decision:** Defer to Stage 3.
+**Reason:** Morgan established the desired behavior (“if the evidence on a product isn't solid, I want it to say ‘hold — not enough evidence’”), but delegated the operational cutoff. 
+
+---
+
+### 10. Product/store scope
+
+**Finding:** Product at a specific store; California pilot store; grocery and household aisles.
+**Decision:** Accept.
+**Reason:** Morgan stated, “Each product at a specific store,” and specified the California pilot store and everyday grocery and household aisles. 
+
+---
+
+### 11. Decision-time information boundary
+
+**Finding:** Use only internal history available at the decision date.
+**Decision:** Accept.
+**Reason:** Morgan specified daily unit sales, weekly shelf prices, calendar information, and excluded competitor prices, inventory, and cost. 
+
+---
+
+### 12. Leading language issues
+
+**Finding:** Prior stakeholder messages included some analyst-added framing.
+**Decision:** Accept.
+**Reason:** Some prior wording introduced interpretations beyond Morgan’s exact language (for example, converting “leaving money on the table” into an assumed revenue opportunity). Future messages should remain closer to stakeholder wording.
+
+---
+
+## SECTION 1 — STAKEHOLDER MESSAGE (T023)
+
+Thanks, Morgan. Before I finalize the decision statement, I want to clarify one practical point about the 25 recommendation capacity: when more than 25 products appear to qualify for a raise or targeted cut, should the analysis produce only the top recommendations your team can work through with the GM, or should it provide a longer ranked list where your team works through the strongest ones first?
+
+---
+
+## SECTION 2 — INTERNAL NOTE (not sent)
+
+**Start Gate status:** Revise — core decision is established, but one genuine stakeholder ambiguity remains before confirmation.
+
+### Established
+
+**Decision owner**
+
+* Morgan Lee recommends.
+* Store GM signs off.
+
+**Action/choice**
+
+* Raise shelf price.
+* Targeted price cut.
+* Leave unchanged.
+* Hold — not enough evidence.
+
+**Outcome**
+
+* Expected product revenue over 28 days.
+* Revenue = units sold × shelf price.
+
+**Material constraints**
+
+* Reject expected unit declines greater than approximately 10%.
+* Do not force weak evidence into a pricing action.
+* Approximately 25 actual price-change recommendations can be worked through per four-week cycle.
+
+**Product/store grain**
+
+* Product at a specific store.
+* California pilot store.
+* Everyday grocery and household aisles.
+
+**Eligibility principles**
+
+* Prior meaningful shelf-price movement.
+* Sufficient sales activity.
+* Exact thresholds delegated to later analytical design with disclosure.
+
+**Time scope**
+
+* Four-week pricing cycle.
+* 28-day evaluation window.
+* Decision point at end of most recent history.
+* No look-ahead.
+
+**Information available**
+
+* Daily unit sales.
+* Weekly shelf prices.
+* Calendar factors including holidays, events, SNAP benefit days.
+* No competitor prices, inventory, or cost.
+
+**Uncertainty tolerance**
+
+* Prefer fewer stronger recommendations.
+* Hold — not enough evidence is legitimate.
+
+### Missing / unresolved
+
+**Capacity interpretation**
+
+* Need Morgan to clarify whether the 25 limit constrains:
+
+  1. the analysis output itself, or
+  2. only the number of recommendations the team can prepare and review with the GM.
+
+**Ranking rule**
+
+* If more than 25 qualify, “strongest first” needs definition.
+* This can be resolved by Morgan or locked as a Stage 3 design choice.
+
+**Treatment of lower-ranked qualifying products**
+
+* Need clarification whether products beyond capacity are deferred, held, or simply ranked/listed.
+
+### Plan
+
+Ask the single capacity clarification question.
+
+If Morgan confirms the capacity interpretation and ranking can be delegated to Stage 3, proceed to the revised decision statement and stakeholder confirmation. If Morgan defines the ranking/capacity rule, incorporate it into the Start statement before confirmation.

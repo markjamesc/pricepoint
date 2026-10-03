@@ -1,0 +1,831 @@
+Prepared from the locked AI1 prompt, the frozen Design Input Package, and the governing Stage 3 framework. The task is to produce an independent Design A without changing the approved decision/question, and to define the measurement contract before SQL/R execution.  The design below follows the required 27-section structure. 
+
+# 02_AI1_PRIMARY_MEASUREMENT_DESIGN
+
+## 1. Document purpose and version
+
+**Status:** Locked-proposed
+**Origin:** Locked framework requirement; methodological choice
+
+Purpose: Define the Stage 3 measurement contract for PRICEPOINT-001 before Stage 4 SQL delivery and independent R-A/R-B implementation.
+
+This design converts the locked pricing decision into:
+
+* measurable hypotheses,
+* population rules,
+* KPI definitions,
+* predictive contract,
+* decision rules,
+* SQL→R handoff,
+* reconciliation requirements.
+
+No production SQL or production R is included.
+
+---
+
+# 2. Approved decision statement
+
+**Status:** Locked-proposed
+**Origin:** Locked Stage 1 statement
+
+Morgan Lee, Pricing & Revenue Manager, must determine what recommendation to bring to the store general manager for products meeting the review criteria in the California pilot store’s everyday grocery and household aisles:
+
+* specific pilot shelf price increase,
+* specific pilot shelf price cut,
+* leave shelf price unchanged,
+* or hold — not enough evidence.
+
+The recommendation should identify the specific pilot price expected to produce the strongest trusted product revenue result:
+
+Revenue = units sold × shelf price
+
+over the next 28 days compared with current price, while rejecting changes expected to reduce units by more than about 10%.
+
+The output is a ranked list:
+
+* up to about 25 actual raise/cut recommendations enter the GM package;
+* additional qualifying opportunities appear below the line;
+* no padding occurs if fewer qualify.
+
+Approved changes are pilots, not guarantees.
+
+---
+
+# 3. Locked analytical question
+
+**Status:** Locked-proposed
+**Origin:** Locked Framing statement
+
+For products meeting the review criteria in the California pilot store’s everyday grocery and household aisles, which specific pilot shelf prices should Morgan recommend for the next 28-day review cycle to produce the strongest trusted expected product revenue compared with the current price, without recommending a change expected to reduce units by more than about 10%; which products should remain unchanged or be classified as hold — not enough evidence; and which trusted opportunities rank into the current-cycle GM package of up to about 25 actual price changes?
+
+---
+
+# 4. Stakeholder constraints and exceptions
+
+| Element                                  | Status          | Origin                  |
+| ---------------------------------------- | --------------- | ----------------------- |
+| Revenue objective                        | Locked-proposed | Stakeholder requirement |
+| No margin/cost optimization              | Locked-proposed | Stakeholder requirement |
+| Unit loss guardrail                      | Locked-proposed | Stakeholder requirement |
+| Four-week review                         | Locked-proposed | Stakeholder requirement |
+| Pilot interpretation                     | Locked-proposed | Stakeholder requirement |
+| No padding                               | Locked-proposed | Stakeholder requirement |
+| Holds visible but not capacity-consuming | Locked-proposed | Stakeholder requirement |
+
+---
+
+# 5. Intended conclusion type and ceiling
+
+**Status:** Locked-proposed
+**Origin:** Methodological choice + stakeholder constraint
+
+Conclusion type:
+
+**Predictive / expected-value recommendation**
+
+Allowed claim:
+
+* "Historical evidence supports this as the expected pilot outcome."
+
+Not allowed:
+
+* causal claim that price change will definitely create the observed outcome.
+
+Causal ceiling:
+**Predictive-associational.**
+
+---
+
+# 6. Hypothesis hierarchy
+
+## Primary business hypothesis
+
+**Status:** Proposed
+**Origin:** Methodological choice
+
+Some products have enough historical price variation and sales evidence to support trusted pilot-price recommendations.
+
+## Mechanism hypothesis
+
+**Status:** Proposed
+
+Historical responses to price variation contain useful information for estimating future 28-day revenue under candidate prices.
+
+## Observable implication
+
+**Status:** Proposed
+
+Trusted candidates should show:
+
+* historical price movement,
+* sufficient sales activity,
+* stable enough forward expectation,
+* expected revenue improvement.
+
+## Counterevidence
+
+**Status:** Proposed
+
+The hypothesis weakens when:
+
+* insufficient price history exists,
+* sales are too sparse,
+* predictions are unstable,
+* candidate price effects cannot be distinguished from uncertainty.
+
+---
+
+# 7. Population and eligibility contract
+
+## Target population
+
+**Status:** Locked-proposed
+**Origin:** Stakeholder requirement
+
+Products in:
+
+* CA_1,
+* everyday grocery and household aisles.
+
+## Observable population
+
+**Status:** Verified
+**Origin:** Data package
+
+CA_1 products available in M5 source tables.
+
+## Department mapping
+
+**Status:** Proposed
+
+Initial scope:
+
+Include:
+
+* FOODS_1
+* FOODS_2
+* FOODS_3
+* HOUSEHOLD_1
+* HOUSEHOLD_2
+
+Reason:
+These represent grocery/household scope.
+
+Exclude:
+
+* HOBBIES departments.
+
+## Eligibility rule
+
+**Status:** Proposed
+
+A product qualifies for modeling if:
+
+1. Has price history before decision date.
+2. Has at least a minimum number of observed price states.
+3. Has sufficient sales observations.
+
+Exact thresholds:
+
+**Status:** Open
+
+Required Stage 3 validation:
+Profile distributions before locking.
+
+---
+
+# 8. Time-window and date contract
+
+## Decision date
+
+**Status:** Verified
+
+2016-05-22 (d_1941).
+
+## Forecast horizon
+
+**Status:** Locked-proposed
+
+28 days:
+d_1942–d_1969.
+
+## Current price definition
+
+**Status:** Proposed
+
+Current price =
+latest valid weekly sell price available at decision date.
+
+Missing price:
+not zero.
+
+## Leakage rule
+
+**Status:** Locked-proposed
+
+No post-decision prices or sales may enter features.
+
+Known issue:
+raw_sell_prices contains horizon weeks; those are forbidden except current decision-date price.
+
+---
+
+# 9. Grain and join-cardinality contract
+
+## Source grain
+
+**Status:** Verified
+
+Sales:
+product-store series.
+
+Prices:
+store-item-week.
+
+Calendar:
+day.
+
+## SQL delivery grain
+
+**Status:** Proposed
+
+Deliver source evidence without final judgments.
+
+## Eligibility grain
+
+**Status:** Locked-proposed
+
+product × store.
+
+## Decision grain
+
+**Status:** Locked-proposed
+
+one product-store recommendation.
+
+## Join rules
+
+**Status:** Proposed
+
+Expected:
+
+* one-to-one calendar date joins,
+* many-to-one weekly calendar mapping,
+* one-to-one product-store-week price keys.
+
+---
+
+# 10. Primary KPI contract
+
+## Primary KPI
+
+**Expected 28-day revenue uplift**
+
+Status:
+Locked-proposed
+
+Formula:
+
+Expected revenue at candidate price
+minus
+Expected revenue at current price
+
+## Components
+
+Expected units:
+predicted units over 28-day horizon.
+
+Revenue:
+expected units × shelf price.
+
+Precision:
+continuous internal values; display rounding only.
+
+---
+
+# 11. Guardrail, diagnostic, audit, sensitivity metrics
+
+## Guardrail
+
+**Unit change percentage**
+
+Status:
+Locked-proposed
+
+Reject if expected units decline > about 10%.
+
+## Diagnostics
+
+Status:
+Proposed
+
+* predicted units,
+* predicted revenue,
+* price delta,
+* historical price count,
+* sales volume indicators.
+
+## Audit
+
+Status:
+Proposed
+
+* eligible count,
+* excluded count,
+* hold count,
+* below-line count.
+
+## Sensitivity
+
+Status:
+Proposed
+
+Alternative:
+candidate price ranges and model stability checks.
+
+---
+
+# 12. Comparison and baseline contract
+
+## Baseline
+
+**Status:** Locked-proposed
+
+Current price at decision date.
+
+## Candidate comparison
+
+**Status:** Locked-proposed
+
+Each candidate price compared against current price.
+
+No peer baseline required.
+
+---
+
+# 13. Segment contract
+
+## Required segments
+
+Status:
+Proposed
+
+Department:
+
+* grocery department
+* household department
+
+Purpose:
+identify whether recommendation behavior differs.
+
+## Minimum sizes
+
+Status:
+Open
+
+Require profiling.
+
+---
+
+# 14. Confounder and competing-explanation ledger
+
+| Risk                   | Status   | Treatment                 |
+| ---------------------- | -------- | ------------------------- |
+| Seasonality            | Proposed | Calendar features         |
+| Holidays/events        | Proposed | Calendar features         |
+| SNAP effects           | Proposed | SNAP features             |
+| Product demand changes | Proposed | Historical sales features |
+| Price-selection bias   | Open     | Sensitivity/disclosure    |
+
+---
+
+# 15. Missingness, anomaly, and data-quality rules
+
+## Missing prices
+
+Status:
+Locked-proposed
+
+Never treat as zero.
+
+## Missing sales
+
+Status:
+Proposed
+
+Retain zero sales as observed demand, not stockout.
+
+## Duplicate keys
+
+Status:
+Proposed
+
+Fail Source Gate if unexpected.
+
+## Invalid dates
+
+Status:
+Proposed
+
+Reject or investigate.
+
+---
+
+# 16. Sample-size and uncertainty rules
+
+Minimum evidence thresholds:
+
+Status:
+Open
+
+Will be determined from profiling.
+
+Required:
+
+* eligibility stability,
+* prediction stability,
+* ranking stability.
+
+No threshold becomes an SLA.
+
+---
+
+# 17. Decision rules and capacity constraints
+
+## Action categories
+
+Status:
+Locked-proposed
+
+1. Specific price increase.
+2. Specific price cut.
+3. Unchanged.
+4. Hold — not enough evidence.
+
+## Trusted gate
+
+Status:
+Proposed
+
+A product is trusted only if:
+
+* price moved historically,
+* product sells enough,
+* forward expectation is not effectively a guess.
+
+Trust is a gate, not a ranking weight.
+
+## Capacity
+
+Status:
+Locked-proposed
+
+capacity_stance:
+
+`hard_attention_budget`
+
+Capacity unit:
+
+Actual raise/cut recommendations prepared for GM review.
+
+Rules:
+
+* membership first,
+* rank trusted qualifiers,
+* select top ~25,
+* no padding.
+
+---
+
+# 17A. Predictive analytics / ML mode
+
+## ml_mode
+
+**Status:** Locked-proposed
+**Value:** A — Judged predictive contract
+
+Reason:
+Model output changes recommendation actions and ranking.
+
+---
+
+## Mode A lock fields
+
+### Prediction unit
+
+Status:
+Locked-proposed
+
+product-store.
+
+### Target
+
+Status:
+Proposed
+
+Future daily units during 28-day horizon.
+
+### Allowed features
+
+Status:
+Proposed
+
+* historical sales,
+* historical prices,
+* current price,
+* calendar,
+* events,
+* SNAP indicators,
+* product hierarchy.
+
+### Forbidden features
+
+Status:
+Locked-proposed
+
+* future prices,
+* horizon sales,
+* inventory,
+* competitor data,
+* cost data.
+
+### Split
+
+Status:
+Proposed
+
+Temporal split only.
+
+Training:
+history before pseudo-decision date.
+
+### Model family
+
+Status:
+Proposed
+
+Parsnip model specification.
+
+Candidate:
+regularized regression or tree-based regression.
+
+Exact family:
+deferred pending validation.
+
+### Evaluation metrics
+
+Status:
+Proposed
+
+* unit prediction error,
+* revenue error,
+* ranking stability.
+
+### Threshold→action mapping
+
+Status:
+Locked-proposed
+
+1. Generate candidate prices.
+2. Predict units.
+3. Compute revenue.
+4. Apply unit guardrail.
+5. Rank trusted gains.
+
+### Reconciliation fields
+
+Status:
+Proposed
+
+Required:
+
+* .pred units,
+* predicted revenue,
+* action,
+* selected status.
+
+### Fixtures
+
+Status:
+Open
+
+Need frozen known cases.
+
+---
+
+# 18. Measurement-risk register
+
+| Risk                 | Impact             | Control         |
+| -------------------- | ------------------ | --------------- |
+| Look-ahead leakage   | Invalid prediction | temporal cutoff |
+| Sparse products      | False confidence   | trust gate      |
+| Price-selection bias | Misinterpretation  | disclose        |
+| Model instability    | Ranking changes    | validation      |
+| Join errors          | Wrong evidence     | Source Gate     |
+
+---
+
+# 19. Non-executable SQL→R implementation blueprint
+
+SQL delivers:
+
+* raw sales evidence,
+* price evidence,
+* calendar evidence,
+* keys,
+* lineage fields.
+
+SQL may:
+
+* mechanically join source tables.
+
+SQL may not:
+
+* calculate eligibility,
+* generate predictions,
+* rank products,
+* assign actions.
+
+R-A/R-B independently:
+
+* construct analytical dataset,
+* apply eligibility,
+* train model,
+* generate predictions,
+* assign actions.
+
+---
+
+# 20. Controlled SQL source contract
+
+## Tables
+
+Verified:
+
+* raw_sales_evaluation
+* raw_sell_prices
+* raw_calendar
+
+## Required fields
+
+Status:
+Proposed
+
+Need:
+IDs,
+sales history,
+prices,
+calendar variables,
+lineage identifiers.
+
+## Forbidden SQL transformations
+
+Status:
+Locked-proposed
+
+No:
+
+* final action,
+* ranking,
+* prediction,
+* eligibility decision.
+
+---
+
+# 21. SQL Source Gate handoff requirements
+
+Stage 4 must verify:
+
+* row coverage,
+* key uniqueness,
+* price-key integrity,
+* calendar coverage,
+* critical-field preservation,
+* lineage identity,
+* no post-decision leakage.
+
+---
+
+# 22. R-A / R-B judged-output contract
+
+Both outputs must contain:
+
+* product-store key,
+* eligibility status,
+* current price,
+* candidate price,
+* predicted units,
+* predicted revenue,
+* guardrail result,
+* trust status,
+* action,
+* rank,
+* capacity status,
+* lineage fields.
+
+---
+
+# 23. R-A versus R-B exact reconciliation contract
+
+Compare:
+
+* universe coverage,
+* keys,
+* eligibility,
+* predictions,
+* actions,
+* selected package,
+* rank ordering,
+* audit fields.
+
+Continuous tolerance:
+
+Status:
+Open
+
+Must be locked before execution.
+
+---
+
+# 24. Fixture and lineage contract
+
+Fixtures:
+
+Status:
+Open
+
+Required before builders run.
+
+Must include:
+
+* known product,
+* expected trust outcome,
+* expected action,
+* expected capacity behavior.
+
+Lineage:
+
+Required:
+
+* snapshot ID,
+* source version,
+* extraction boundary.
+
+---
+
+# 25. Multi-AI review and resolution record
+
+Status:
+Deferred
+
+AI 1 independent design only.
+
+No AI2/AI3 revisions incorporated.
+
+---
+
+# 26. Assumptions, open questions, accepted limitations
+
+## Assumptions
+
+* Historical patterns can inform pilot expectations.
+* Price changes are not guaranteed causal effects.
+
+## Open questions
+
+* Exact eligibility thresholds.
+* Candidate price generation algorithm.
+* Model family selection.
+* Minimum gain rule.
+* Segment thresholds.
+* Continuous reconciliation tolerance.
+
+## Limitations
+
+No:
+
+* costs,
+* inventory,
+* competitor prices.
+
+---
+
+# 27. Stage 4 handoff and lock approval
+
+## Handoff requirements
+
+Before Stage 4:
+
+1. Freeze this design.
+2. Freeze fixtures.
+3. Freeze Mode A fields.
+4. Freeze SQL source contract.
+5. Freeze reconciliation contract.
+
+Stage 4 workflow:
+
+SQL source delivery → SQL Source Gate → R-A/R-B independent judged implementations → exact reconciliation.
+
+Human analyst approval required before execution.
+
+**Design A status: Proposed measurement contract pending Design Gate review.**

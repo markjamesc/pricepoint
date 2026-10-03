@@ -1,0 +1,27 @@
+A. Issues raised on T029 — resolved / not resolved
+
+1. **Authority: Morgan decides vs recommends** — **Resolved.** T031 says Morgan determines what recommendation to bring to the GM.
+2. **Positive hold vs insufficient-evidence hold** — **Resolved.** T031 keeps “leave unchanged” and “hold — not enough evidence” separate.
+3. **Leading/loaded language** — **Resolved.** “Eligible” is softened to “products meeting the review criteria,” and the authority wording is corrected.
+4. **Outcome-action conflict: maximize revenue vs ~25 cap** — **Resolved.** T031 frames the output as the strongest trusted raise/cut opportunities up to about 25, with below-line items excluded from the cycle package.
+5. **Hidden secondary decisions** — **Not fully resolved.** Eligibility, ranking formula, evidence threshold, and department mapping are acceptable deferrals; **price-change magnitude is not** and remains Start-level.
+6. **Capacity/authority/timing** — **Partially resolved.** Holds not consuming capacity and below-line items not entering the cycle package are now explicit. The “if fewer qualify, don’t pad” rule is still not explicit in T031.
+7. **Guardrail-failure output treatment** — **Not resolved, but acceptable deferral.** T031 states the rejection rule; the reporting label for rejected candidates can wait.
+8. **Pilot vs guarantee** — **Resolved.** T031 includes pilot language and expectations-to-test language.
+
+B. Price-change magnitude — do I accept AI 1’s deferral?
+
+**No, I do not accept deferring price-change magnitude as merely Framing/Stage 3.** The stakeholder would have to answer: **When you say “raise the shelf price” or “take a targeted price cut,” should the recommendation include a specific new shelf price or price-change amount for each product, or only the direction, with the amount chosen later by the pricing team? If only direction, how should “compared with the current price” and “biggest revenue gain” be interpreted?**
+
+This cannot be only a Framing or Stage 3 choice because T014 says Morgan needs to know what to expect “at the current price versus at the price I’d be recommending,” and T024 defines “strongest” as “the biggest revenue gain that you actually trust.” Revenue gain and ranking require a defined counterfactual price. Stage 3 can choose how to estimate or optimize the magnitude, but it cannot decide whether magnitude is part of Morgan’s recommendation in the first place. That changes the decision object: “which products should be raised/cut” versus “what price should be recommended for each product.”
+
+C. Clauses in T031 unsupported by, or diverging from, stakeholder’s words
+
+- **No direct contradiction found.** Most T031 clauses track T000–T026 closely.
+- **Material omission:** T031 says “up to about 25” but does not explicitly repeat T018’s rule: if fewer qualify, do not pad the list. “Up to about 25” is compatible, but weaker than the stakeholder’s words.
+- **Minor scope wording:** “products meeting the review criteria at the California pilot store’s everyday grocery and household aisles” is acceptable, but it does not restate that exact department mapping was left open to analyst suggestion in T008. This is not a contradiction, but it is less explicit.
+- **Price-change magnitude:** T031 says “raise” and “targeted price cut” but still does not state whether a specific recommended price or price-change amount is required, even though T014 refers to “the price I’d be recommending.”
+
+D. Final Start Gate verdict on T031
+
+**Revise.** T031 fixes most prior issues: authority, action-set separation, capacity ranking, below-line treatment, holds not consuming capacity, calendar/SNAP detail, and pilot/guarantee language. But **price-change magnitude remains a Start-level ambiguity**, because the stakeholder’s own outcome comparison and ranking depend on what “recommended price” means. The missing “no padding” rule is a secondary wording correction. T031 should not pass until Morgan clarifies whether the recommendation includes a specific price-change amount or only a direction.

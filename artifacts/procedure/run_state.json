@@ -1,0 +1,228 @@
+{
+  "run_id": "PRICEPOINT-001",
+  "procedure_id": "five-stage-ai-augmented-analyst-workflow",
+  "procedure_version": "1.0",
+  "procedure_sha256": "2717c59b7faea107007e683b808f539cd57dc7157d6f23ac4bf089425263db7a",
+  "status": "CERTIFIED",
+  "completed_steps": {
+    "start": {
+      "completed_at_utc": "2026-09-25T08:01:31Z",
+      "artifact": {
+        "path": "artifacts/stage1_decision.json",
+        "sha256": "1c2a80405be85193379f5cffab214f188041dd07fd907b3549fae1116e0cfbe2"
+      },
+      "check_report": {
+        "path": "C:\\Users\\Mark\\Documents\\R Working Directory\\pricepoint/artifacts/procedure/checks/start-complete.json",
+        "sha256": "aa772dfdc995d84e659bd885024457e3927fdadd296d17246e8d1284f7b70bfc"
+      }
+    },
+    "framing": {
+      "completed_at_utc": "2026-09-25T08:54:17Z",
+      "artifact": {
+        "path": "artifacts/stage2_framing.json",
+        "sha256": "92e132594a9af776a29e9d350fa1fdf826fb206c4fde78661f8105187ff8cf02"
+      },
+      "check_report": {
+        "path": "C:\\Users\\Mark\\Documents\\R Working Directory\\pricepoint/artifacts/procedure/checks/framing-complete.json",
+        "sha256": "0041d68832fa234ed8a58050fe890aed6e124fff4afe79a116a6391b5bb8a353"
+      }
+    },
+    "design": {
+      "completed_at_utc": "2026-09-25T13:41:34Z",
+      "artifact": {
+        "path": "artifacts/stage3_locked_design.json",
+        "sha256": "1ee9f4da9cffe3a906182d209c573b61c7451387cfc338009261c79f8620dd16"
+      },
+      "check_report": {
+        "path": "C:\\Users\\Mark\\Documents\\R Working Directory\\pricepoint/artifacts/procedure/checks/design-complete.json",
+        "sha256": "e8fc82d8d4cc23b80ee9069563c1268f262346f741e2fae5fa03bca4fe2c678b"
+      }
+    },
+    "execution": {
+      "completed_at_utc": "2026-10-03T01:28:53Z",
+      "artifact": {
+        "path": "artifacts/stage4_validation_status.json",
+        "sha256": "9536fe9832310cb9b23f8af60862bf7b47b1a3c0b97939146e2d29543f3a664d"
+      },
+      "check_report": {
+        "path": "C:\\Users\\Mark\\Documents\\R Working Directory\\pricepoint/artifacts/procedure/checks/execution-complete.json",
+        "sha256": "7ecd30c059b21870e093388310deb137814c2c0b3bd01542495547c779c1415c"
+      }
+    },
+    "finish": {
+      "completed_at_utc": "2026-10-03T03:01:40Z",
+      "artifact": {
+        "path": "artifacts/stage5_interpretation_status.json",
+        "sha256": "518856ea7a57fe1de4d5ff3fad181a9ca7c5b57228e4254135a2ca34831a97a8"
+      },
+      "check_report": {
+        "path": "C:\\Users\\Mark\\Documents\\R Working Directory\\pricepoint/artifacts/procedure/checks/finish-complete.json",
+        "sha256": "ea043dd88a6875783d76b393c40616d165f3dbe8f296cfd859c929cd52e37454"
+      },
+      "deliverables": [
+        {
+          "path": "docs/stage-05-interpretation/01_STAGE_05_EVIDENCE_PACKAGE.md",
+          "sha256": "919ec855dbc6f7c415e24741327c49a8e2561965957de55d0708289d98a40920"
+        },
+        {
+          "path": "docs/stage-05-interpretation/02_RESULT_INVENTORY.md",
+          "sha256": "cf516fad0c99240dac924b2a264c9a1e111af30a38b162a1fa490eb24e654a7e"
+        },
+        {
+          "path": "docs/stage-05-interpretation/03_AI1_PRIMARY_INTERPRETATION.md",
+          "sha256": "0516757b84733dedf4963b61731c98ee2046498f9d74b4fd0ca0506dcc1ee81c"
+        },
+        {
+          "path": "docs/stage-05-interpretation/04_AI2_DECISION_AND_INFERENCE_CRITIQUE.md",
+          "sha256": "a940dc92cf7ecfa057458cf09a746843d440e5e5766e0da899986ba27cfbbde3"
+        },
+        {
+          "path": "docs/stage-05-interpretation/05_AI3_CLAIM_TO_EVIDENCE_AUDIT.md",
+          "sha256": "4374f4b75c89080ffe1cc930bae56f674fd93f3e7cb93bea72ef44d1d72912b0"
+        },
+        {
+          "path": "docs/stage-05-interpretation/06_FINDING_AND_ALTERNATIVE_EXPLANATION_LEDGERS.md",
+          "sha256": "0a36bf1af7b58d00a5eb587b816b20cbe56a865ac82c0e63786857711bfaf0be"
+        },
+        {
+          "path": "docs/stage-05-interpretation/07_DECISION_OPTION_MATRIX.md",
+          "sha256": "36b33098eafe948efe96e45d22121b3bf3f4a5ec282cab66ec2d9bfd32c6af86"
+        },
+        {
+          "path": "docs/stage-05-interpretation/08_CROSS_REVIEW_AND_RECONCILIATION.md",
+          "sha256": "5003d8c10edca405317d9bf763104de0c2595a91b472c0491cb79e87acd79aee"
+        },
+        {
+          "path": "docs/stage-05-interpretation/09_CANDIDATE_DECISION_EVALUATION.md",
+          "sha256": "7d1f4249baa538866b0136edae1ceb3611e46e788bb1c918c0863525e05a9179"
+        },
+        {
+          "path": "docs/stage-05-interpretation/10_FINAL_INFERENCE_AND_EVIDENCE_AUDITS.md",
+          "sha256": "1297e8c197a618e791747f6dd45402c10b126732590ac0a0c70e776b5a3b182e"
+        },
+        {
+          "path": "docs/stage-05-interpretation/11_STAGE_05_DECISION_EVALUATION.md",
+          "sha256": "cbf3f562eebcf7656c5ec02274ca2f80b62120df5fd30b157ea86ae004674d6f"
+        },
+        {
+          "path": "docs/stage-05-interpretation/12_MONITORING_AND_NEXT_QUESTION_PLAN.md",
+          "sha256": "19fab85b7e9751eb754459fefce25280511b57c7632695801fb8294367669eb2"
+        }
+      ]
+    }
+  },
+  "framework_hashes": {
+    "docs/MASTER_PROMPT.md": {
+      "path": "docs/MASTER_PROMPT.md",
+      "sha256": "f6fcee1745ce9525890beb8340f4a916e867a4a8673b7f084f68540176a9fcd2"
+    },
+    "docs/three-ai-start-and-framing-dialogue-framework.md": {
+      "path": "docs/three-ai-start-and-framing-dialogue-framework.md",
+      "sha256": "5040bcfb77cac634408d93e2684fce12e80b572ad28eb41a4ad33acba99603ab"
+    },
+    "docs/three-ai-measurement-design-framework.md": {
+      "path": "docs/three-ai-measurement-design-framework.md",
+      "sha256": "584d479a3c62309756bf5da51014fee75b70bf8499486967c2ec2f8db42bd7c8"
+    },
+    "docs/three-ai-validation-and-analysis-framework.md": {
+      "path": "docs/three-ai-validation-and-analysis-framework.md",
+      "sha256": "f195ee2fb0286d3f0dc02b09c73b724be69adc6ac99dc3e4b30498c2cf389f24"
+    },
+    "docs/three-ai-interpretation-and-recommendation-framework.md": {
+      "path": "docs/three-ai-interpretation-and-recommendation-framework.md",
+      "sha256": "77e666b42c338436607787c4f70c22a2d8613ce1b79e4020f44dd93e0aceedc8"
+    },
+    "docs/r-workflow-gate-enforcement.md": {
+      "path": "docs/r-workflow-gate-enforcement.md",
+      "sha256": "7fa6e448b7f38ad566724e453844c2a16b0357a04900934418f1b774821f63d4"
+    },
+    "workflow-gate/workflow_gate.R": {
+      "path": "workflow-gate/workflow_gate.R",
+      "sha256": "1d35168201b2b97d636bbd68209971ba59e8e718ed70978c26a2e0774dbe835c"
+    }
+  },
+  "workflow_gate": {
+    "status": "PASS",
+    "report_path": "artifacts/workflow_gate_status.json",
+    "report_sha256": "5401b40b87f467f4cfce0a55b732a5cc41a4c96dc8d7984c39c896e2a5903a58",
+    "console_path": "artifacts/procedure/checks/execution-workflow-gate-console.txt",
+    "verified_at_utc": "2026-10-03T01:28:53Z"
+  },
+  "final_certificate": {
+    "path": "artifacts/final_certificate.json",
+    "sha256": "223411d0726e04727d0a21505d9565b2463b417b7f01d2ba3ec5bd2efcaf18cf"
+  },
+  "started_at_utc": "2026-09-25T06:25:28Z",
+  "updated_at_utc": "2026-10-03T03:01:47Z",
+  "amendment_history": [
+    {
+      "change_id": "CC-S3-01",
+      "step": "design",
+      "amended_at_utc": "2026-09-26T02:04:00Z",
+      "approval_timestamp": "2026-09-25T12:18:00-05:00",
+      "superseded": {
+        "path": "artifacts/procedure/amendments/CC-S3-01/stage3_locked_design.v1.json",
+        "sha256": "2781221592adcb9d25c3c4611e72e9dc5d13d2f308413caac2b173258562f56b"
+      },
+      "new": {
+        "path": "artifacts/stage3_locked_design.json",
+        "sha256": "a68575d5aa0ac0c431a1d308fe477eac53c90eefaebcbb880c68ffca783ab9e3",
+        "source_path": "docs/stage-03-measurement-design/change-control/CC-S3-01/stage3_locked_design.v2.json"
+      },
+      "change_record": {
+        "path": "docs/stage-03-measurement-design/change-control/CC-S3-01/CC-S3-01_change_record.json",
+        "sha256": "1207a592affd0b6975f65d76d25c5c1e95b0cacfe4770d20b9573ea374507db0"
+      },
+      "check_report": {
+        "path": "C:\\Users\\Mark\\Documents\\R Working Directory\\pricepoint/artifacts/procedure/checks/design-amend-CC-S3-01.json",
+        "sha256": "89921699338532e3e8669bc6b06e1ace11b1ae028133ee557ba39419fbe47ea5"
+      }
+    },
+    {
+      "change_id": "CC-S4-01",
+      "step": "design",
+      "amended_at_utc": "2026-10-02T16:50:21Z",
+      "approval_timestamp": "2026-10-02T11:43:00-05:00",
+      "superseded": {
+        "path": "artifacts/procedure/amendments/CC-S4-01/stage3_locked_design.v2.json",
+        "sha256": "a68575d5aa0ac0c431a1d308fe477eac53c90eefaebcbb880c68ffca783ab9e3"
+      },
+      "new": {
+        "path": "artifacts/stage3_locked_design.json",
+        "sha256": "4fb33333bfe1e0310ed433dbe50bc433ba5a05bb7c7eb1fcd64457a1e7eae948",
+        "source_path": "docs/stage-03-measurement-design/change-control/CC-S4-01/stage3_locked_design.v3.json"
+      },
+      "change_record": {
+        "path": "docs/stage-03-measurement-design/change-control/CC-S4-01/CC-S4-01_change_record.json",
+        "sha256": "fde80f6d1e3fa472bc0ed3e6e271111ce3a36861b50c514304691c1ec2ee32e0"
+      },
+      "check_report": {
+        "path": "C:\\Users\\Mark\\Documents\\R Working Directory\\pricepoint/artifacts/procedure/checks/design-amend-CC-S4-01.json",
+        "sha256": "198012ec7e63ea33e1cff4c916549df229b2e3896b1ff18c4fc03840816b5840"
+      }
+    },
+    {
+      "change_id": "CC-S4-02",
+      "step": "design",
+      "amended_at_utc": "2026-10-02T18:22:48Z",
+      "approval_timestamp": "2026-10-02T13:21:00-05:00",
+      "superseded": {
+        "path": "artifacts/procedure/amendments/CC-S4-02/stage3_locked_design.v3.json",
+        "sha256": "4fb33333bfe1e0310ed433dbe50bc433ba5a05bb7c7eb1fcd64457a1e7eae948"
+      },
+      "new": {
+        "path": "artifacts/stage3_locked_design.json",
+        "sha256": "1ee9f4da9cffe3a906182d209c573b61c7451387cfc338009261c79f8620dd16",
+        "source_path": "docs/stage-03-measurement-design/change-control/CC-S4-02/stage3_locked_design.v4.json"
+      },
+      "change_record": {
+        "path": "docs/stage-03-measurement-design/change-control/CC-S4-02/CC-S4-02_change_record.json",
+        "sha256": "ffb3fa4ff221a95afb542c308234be5d429800093b74d82c80db01bd3461b746"
+      },
+      "check_report": {
+        "path": "C:\\Users\\Mark\\Documents\\R Working Directory\\pricepoint/artifacts/procedure/checks/design-amend-CC-S4-02.json",
+        "sha256": "8866b8190abd84efb1153d58d1a41cd23aafde5e2c31087f8d9a1d52fa360863"
+      }
+    }
+  ]
+}

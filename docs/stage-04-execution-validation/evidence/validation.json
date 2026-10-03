@@ -1,0 +1,44 @@
+{
+  "role": "validation",
+  "status": "PASS",
+  "design_version": "08_CONSOLIDATED_CANDIDATE_v5_4 (sha256 3cfc71eb5e10c5f680e1768400d03daf05513a23199740ac9f80f8adff2b80ef)",
+  "fixture_version": "fixture_pack_v1",
+  "checked_at_utc": "2026-10-03T01:28:24Z",
+  "stage3_receipt_sha256": "1ee9f4da9cffe3a906182d209c573b61c7451387cfc338009261c79f8620dd16",
+  "validation_gate": "PASS",
+  "decided_by": "owner",
+  "approval_received_ct": "2026-10-02 14:35 CT",
+  "approval_record": {
+    "path": "docs/stage-04-execution-validation/rulings/OWNER_APPROVAL_VALIDATION_GATE.md",
+    "sha256": "d7e550107164a24d8382cd7f72d449a0fa9a5288174b47bc8df362f6c6edd960"
+  },
+  "approval_wording_verbatim": "I approve the PRICEPOINT-001 Stage 4 Validation Gate as PASS, bound to design 08_CONSOLIDATED_CANDIDATE_v5_4 (sha256 3cfc71eb5e10c5f680e1768400d03daf05513a23199740ac9f80f8adff2b80ef) and Stage 3 receipt v4 (sha256 1ee9f4da9cffe3a906182d209c573b61c7451387cfc338009261c79f8620dd16), validated-data manifest sha256 3206e412e9d6e182e2e74bae6bf6a790119e90d666cb658c0098ad6b270f58d7 and cross-review sha256 2a9cec579e179b165cf1d5aac8ded74a6d3d812bc2d795cba9a3a6c12f670727. Result: backtest A2 = 0.2697 fails, so all 2,484 items hold_ne and there are no price changes. This is a simulation / non-live result: it unlocks Stage 5 interpretation only and authorises no live price release.",
+  "bound_brief": {
+    "path": "run/VALIDATION_GATE_BRIEF_draft.v9_1437.md (coordinator box)",
+    "sha256": "f44f5dfb7b20c9f6b1b605feb535b959e2395e9dd2b83184f74b496b6c282f7d"
+  },
+  "bound_hashes": {
+    "design_v5_4": "3cfc71eb5e10c5f680e1768400d03daf05513a23199740ac9f80f8adff2b80ef",
+    "stage3_receipt_v4": "1ee9f4da9cffe3a906182d209c573b61c7451387cfc338009261c79f8620dd16",
+    "validated_data_manifest": "3206e412e9d6e182e2e74bae6bf6a790119e90d666cb658c0098ad6b270f58d7",
+    "cross_review": "2a9cec579e179b165cf1d5aac8ded74a6d3d812bc2d795cba9a3a6c12f670727"
+  },
+  "spine": {
+    "source": "PASS (Gate r2 24/24)",
+    "fixtures": "PASS 26/26 both paths",
+    "reconciliation": "PASS 75/75",
+    "structural": "PASS (0 unresolved; 11 accepted limitations, R10)",
+    "lineage": "PASS",
+    "model": "PASS (locked validation executed; model failed acceptance A2 0.2697 -> collapse)",
+    "validated_data_freeze": "PASS"
+  },
+  "result_summary": "No price changes: backtest A2 = 0.2697 > 0.20, backtest_accept = 0, all 2,484 items hold_ne; package 0.",
+  "ceiling": "SIMULATION / NON-LIVE: PASS unlocks Stage 5 interpretation only; no live price release is authorised.",
+  "other_rulings_not_gate_approval": [
+    "R1-R6",
+    "R7",
+    "R8 (CC-S4-01)",
+    "R9 (CC-S4-02)",
+    "R10 (step 11 limitations)"
+  ]
+}

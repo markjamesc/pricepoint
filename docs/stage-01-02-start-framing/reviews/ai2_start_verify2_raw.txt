@@ -1,0 +1,53 @@
+**PRICEPOINT-001 — AI 2 Start verify-2 (T031)**  
+Same role. Checked against the T029 issues I raised, T000–T026 verbatim, and SECTION 0. Stakeholder has not seen T027, T029, or T031.
+
+---
+
+### A. Issues I raised on T029
+
+1. **Four-week cadence / hold-until-next-review missing from the confirmation sentence** — **Resolved.** T031: “The review occurs on a four-week cycle, with the price decision holding until the next review.” Matches T012.
+
+2. **“Eligible” implied a locked set; T008/T010 principles unspoken** — **Resolved as a Start risk.** T031 uses “products meeting the review criteria,” which does not pretend cutoffs are already fixed. The two principles (several real price changes; steady enough sales) remain in the lock-note rather than in the sentence. That is acceptable at Start.
+
+3. **Holds listed but outside the cap, and no padding if fewer than 25** — **Resolved on holds; close enough on padding.** T031: holds and hold-not-enough-evidence “remain visible and do not consume the price-change capacity” (T020). “Up to about 25” plus “not included in that cycle’s package” covers T018’s no-pad rule without quoting it.
+
+4. **Light merge of maximize-revenue (T004) with ranking key (T024)** — **Not harmful.** Still present as “strongest trusted product revenue result,” but both source sentences are Morgan’s. Not a fidelity break.
+
+5. **Price-change magnitude left out of the action set** — **Unresolved in the statement, correctly deferred.** See B.
+
+---
+
+### B. Price-change magnitude — accept the deferral
+
+**Yes. Accept AI 1’s deferral to Framing / Stage 3.** It is not a Start blocker.
+
+Morgan’s action vocabulary is directional: raise, targeted cut, leave unchanged, hold-not-enough-evidence (T002, T016). She never said the Start object is a chosen new shelf price. What she did say is that she needs expected next-28-day revenue **at the current price versus at the price she would be recommending** (T014), and that “strongest” is the biggest revenue gain she can trust, with scoring delegated (T024).
+
+That comparison requires *some* counterfactual price in later design. It does not require Morgan to lock, at Start, whether the GM package carries a dollar amount, a percent step, or only a direction. How the candidate price is constructed is the same class of delegated choice as eligibility cutoffs and the ranking formula: analyst designs it, discloses it, and she uses it.
+
+If this were still Start-level, she would have to answer: *Does the package the GM signs take a specific proposed new shelf price (or change amount), or only the direction?* She has not answered that. She also has not made the decision unframeable without it. Owner, four actions, revenue outcome, 10% unit guardrail, 28-day / four-week timing, information boundary, capacity, and pilot context are already in her words. Magnitude is the content of a raise/cut, not the existence of the decision.
+
+Do not ask her this on the confirmation turn. Carry it into Framing.
+
+---
+
+### C. Clauses in T031 unsupported by, or diverging from, her words
+
+No invented owner, action, outcome, constraint, or data source.
+
+Residual compressions, none of which contradict the transcript:
+
+- **“Products meeting the review criteria”** is analyst phrasing. She never said it. It is a safer stand-in than “eligible” and does not lock cutoffs.
+- **“At the review date”** slightly compresses T012’s “end of the most recent history you have, and only use what we’d actually know as of that day.” The no-look-ahead rule is implied, not restated as the exercise’s history-end convention.
+- **“Don’t pad”** is implied by “up to about 25,” not quoted.
+- **Department list still “open to your suggestion”** (T008) is not in the sentence; scope remains “everyday grocery and household aisles,” which she did say.
+
+Nothing in T031 assigns her final approval, collapses leave-unchanged into can’t-tell, drops SNAP, drops pilot, or turns ~25 into a quota that must be filled.
+
+---
+
+### D. Start Gate on T031: **Pass**
+
+The five template clauses are in her words. T031 repairs the T029 holes I treated as real (cadence, recommender framing already fixed, SNAP, pilot, hold-vs-can’t-tell, capacity packaging). Remaining items — cutoffs, scoring formula, “solid” threshold, magnitude, aisle mapping, guardrail-failure label — are delegated or unspecified reporting choices. They belong in Framing / Stage 3.
+
+Send T031 for confirmation. If she accepts it, lock Stage 1 Start and do not reopen the business decision to chase magnitude on this turn.

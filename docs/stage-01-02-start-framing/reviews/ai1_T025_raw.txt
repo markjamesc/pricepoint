@@ -1,0 +1,113 @@
+## SECTION 1 — STAKEHOLDER MESSAGE (T025)
+
+Thanks, Morgan. That clarifies how the capacity constraint works: the analysis should provide a ranked list, with the top recommendations — up to about 25 actual price changes — forming the package your team takes to the GM. Additional qualifying products should remain visible below the line as next in line, without entering the current cycle’s package. You also clarified that “strongest” means the largest expected revenue gain among recommendations you trust, with the scoring approach documented.
+
+With that clarification, is there anything else about the decision itself that would make you change or reject a recommendation before it reaches the GM?
+
+---
+
+## SECTION 2 — INTERNAL NOTE (not sent)
+
+**Start Gate status:** All Start Gate elements are now established. Moving toward final stakeholder confirmation of the decision statement.
+
+### Established
+
+**Decision owner**
+
+* Morgan Lee, Pricing & Revenue Manager, makes the recommendation.
+* Store general manager signs off.
+
+**Action or choice**
+
+* Raise shelf price.
+* Take a targeted price cut.
+* Leave shelf price unchanged.
+* Hold — not enough evidence.
+
+**Outcome**
+
+* Maximize expected product revenue over the following 28 days.
+* Revenue = units sold × shelf price.
+* Margin is not used because cost data is unavailable.
+
+**Material constraints**
+
+* Reject recommendations expected to reduce units by more than approximately 10%.
+* Do not force weak evidence into a price-change recommendation.
+* Prefer fewer stronger recommendations.
+* Actual price-change package capacity is approximately 25 per four-week cycle.
+
+**Capacity and prioritization**
+
+* The analysis produces a ranked list.
+* Top ~25 raise/cut recommendations go into the GM package.
+* Additional qualifying products appear below the line as next in line.
+* No padding if fewer than 25 qualify.
+* Ranking objective established:
+
+  * strongest = biggest expected revenue gain that is trusted.
+* Exact scoring method delegated to analysis with disclosure.
+
+**Product/store grain**
+
+* Product at a specific store.
+* First round:
+
+  * California pilot store.
+  * Everyday grocery and household aisles.
+
+**Eligibility principle**
+
+* Products require:
+
+  * actual historical shelf-price movement,
+  * sufficient sales activity.
+* Exact cutoffs delegated to later analytical design with rationale.
+
+**Time scope**
+
+* Four-week pricing cycle.
+* Evaluation horizon: 28 days after change.
+* Decision point: end of most recent available history.
+* No look-ahead beyond information available at that time.
+
+**Information available at decision time**
+Available:
+
+* Daily unit sales.
+* Weekly shelf prices.
+* Calendar information:
+
+  * holidays,
+  * events,
+  * SNAP benefit days.
+
+Unavailable:
+
+* Competitor prices.
+* Inventory.
+* Cost/margin.
+
+**Uncertainty tolerance**
+
+* Fewer recommendations with stronger evidence.
+* Hold — not enough evidence is legitimate.
+
+### Missing
+
+None that block Start.
+
+Potential items to defer:
+
+* Exact eligibility cutoffs.
+* Exact scoring formula for ranking trusted revenue gain.
+* Exact definition of “not enough evidence.”
+* Whether a recommendation includes price-change magnitude.
+
+These are analytical design choices for later stages because Morgan explicitly delegated how to score and define cutoffs while requiring disclosure.
+
+### Plan
+
+The next step is to confirm whether there are any remaining business conditions that would cause Morgan to reject a recommendation before GM review.
+
+If no further conditions exist, present the final proposed Start decision statement for stakeholder confirmation. After confirmation, move to Framing.

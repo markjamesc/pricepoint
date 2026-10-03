@@ -1,0 +1,148 @@
+{
+  "role": "reconciliation",
+  "status": "PASS",
+  "design_version": "08_CONSOLIDATED_CANDIDATE_v5_4 (sha256 3cfc71eb5e10c5f680e1768400d03daf05513a23199740ac9f80f8adff2b80ef)",
+  "fixture_version": "fixture_pack_v1",
+  "checked_at_utc": "2026-10-02T18:25:43Z",
+  "stage3_receipt_sha256": "1ee9f4da9cffe3a906182d209c573b61c7451387cfc338009261c79f8620dd16",
+  "fields": [
+    "item_id",
+    "store_id",
+    "n_price_changes_pre",
+    "n_distinct_prices_pre",
+    "priced_weeks_pre",
+    "units_365",
+    "zero_days_365",
+    "e_chg3",
+    "e_u180",
+    "e_z182",
+    "e_pw52",
+    "e_cand",
+    "te6",
+    "trust_eligible",
+    "current_price",
+    "candidate_price",
+    "n_candidates",
+    "straddle_flag",
+    "backtest_accept",
+    "n_items_CA_1_total",
+    "n_after_dept_map",
+    "n_universe",
+    "n_dropped_by_X1",
+    "n_dropped_by_X2",
+    "n_dropped_by_X3",
+    "n_dropped_by_X4",
+    "n_dropped_by_X5",
+    "n_dropped_by_X6",
+    "n_e_chg3",
+    "n_e_u180",
+    "n_e_z182",
+    "n_e_pw52",
+    "n_e_cand",
+    "n_te6_usable_slice",
+    "n_te6",
+    "n_trust_eligible",
+    "n_candidates_pre_event_filter",
+    "n_candidates_event_filtered",
+    "n_candidates_post_cap",
+    "n_price_0_01_weeks",
+    "n_feature_na_rows",
+    "n_training_rows",
+    "n_floored_days_total",
+    "n_horizon_days_scored_total",
+    "backtest_n_usable_items",
+    "backtest_n_U0_excluded",
+    "n_legal_changes",
+    "n_raise",
+    "n_cut",
+    "n_unchanged",
+    "n_hold_ne",
+    "n_package",
+    "n_below_line",
+    "te6_usable_slice",
+    "guardrail_pass",
+    "legal_change",
+    "cent_delta_rev",
+    "action",
+    "package_flag",
+    "below_line_flag",
+    "rank_among_qualifiers",
+    "snapshot_id",
+    "source_version",
+    "observation_boundary_d",
+    "observation_boundary_date",
+    "design_id",
+    "ml_mode",
+    "fixture_pack_sha256",
+    "sql_extract_sha256",
+    "capacity_stance",
+    ".pred_units_current",
+    ".pred_units_candidate",
+    ".pred_rev_current",
+    ".pred_rev_candidate",
+    "delta_rev"
+  ],
+  "mismatch_count": 0,
+  "row_count": 2484,
+  "row_counts": {
+    "universe": 2484,
+    "candidates": 3654,
+    "audit": 1
+  },
+  "fields_matching": 75,
+  "result": "PASS",
+  "comparator": {
+    "path": "run/reconcile/reconcile_75.py (coordinator box; v4 under CC-S4-02)",
+    "sha256": "f7651ca1a3e49b48ece958a83db4c4501a62452da540ad59820b8d93d9f63ba2",
+    "fields_list_sha256": "7fc18a65b8f30aba52ea840d9b8241f3d78bf0a0dd910e210a71a5ef82f35e0e"
+  },
+  "report": {
+    "path": "validation/reconciliation/reconciliation.csv",
+    "sha256": "5535102a779de7aac3d05c8aa1b7f3d8e2ab9b9617d776ea77795d184bd5caeb"
+  },
+  "inputs": {
+    "r_a": {
+      "run": "R-A r2",
+      "universe": "e1d7545ea99aef2f4d2eb6815c4cdfd426d6cf2c7c8295ba09c764227c34f4d7",
+      "candidates": "772450cda9d3c84d91823b8e166db6fc7b2bee29e8408b78595d0da7de70255a",
+      "audit": "e76ab0128bf196014bf2db4a84801c7d87747c77c6a5a0f3c617ecc8b586b6a8"
+    },
+    "r_b": {
+      "run": "R-B r10",
+      "universe": "521660b215c243bd216bfa0204f61f6be5503b882a0d0f7c2b2ee10b8d107b0a",
+      "candidates": "962ba3497e01cb42657d912de83d81c2caa260d3876a78382877d208859e3d4f",
+      "audit": "4eac3998e4492c147c072d43394cd1106ffd83a2b1ae6be7537f4a493f2b22ad"
+    }
+  },
+  "extra_noncanonical_copies_non_failing": [
+    [
+      "universe.csv",
+      "n_candidates_pre_event_filter",
+      "EXTRA_NONCANONICAL_RA"
+    ],
+    [
+      "candidates.csv",
+      "store_id",
+      "EXTRA_NONCANONICAL_RA"
+    ],
+    [
+      "candidates.csv",
+      "current_price",
+      "EXTRA_NONCANONICAL_RB"
+    ],
+    [
+      "audit.csv",
+      "item_id",
+      "EXTRA_NONCANONICAL_RB"
+    ]
+  ],
+  "max_abs_diff": {
+    ".pred_units_current": 0.000199681,
+    ".pred_units_candidate": 0.000222349,
+    ".pred_rev_current": 0.00144628,
+    ".pred_rev_candidate": 0.00109889,
+    "delta_rev": 0.000302224,
+    "cent_delta_rev": 0.01
+  },
+  "history": "Failed reports preserved: recon_ra_r1_vs_rb_r5..r9 (FAIL), recon_ra_r2_vs_rb_r10.csv (v2, 70/75), recon_ra_r2_vs_rb_r10_cmpv3.csv (v3, 74/75 FAIL: cent_delta_rev); PASS only after owner change controls CC-S4-01 (11:43 CT) and CC-S4-02 (13:21 CT)"
+}

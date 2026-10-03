@@ -1,0 +1,100 @@
+PHASE F RECONCILIATION (Framing, round 1). Your T041 builder output was reviewed independently in fresh chats. Both reviews were frozen and hashed before you saw them. There is no majority vote: accept or reject each point on its merits, and give a reason for each. Your T041 SECTION 1 was HELD and not shown to Morgan.
+
+AI 2 (Decision-fit review), verbatim:
+=====
+VERDICT: Tighten
+
+REASONS:
+1. Answering the draft question would yield specific pilot prices, unchanged-price calls, and “hold — not enough evidence” outcomes, which supports the locked decision Morgan confirmed (T036; also T002, T016, T034). It does not, however, require the ranked current-cycle package the decision actually uses, so it supports the decision only incompletely.
+2. Different recommended prices, a different split among change / unchanged / insufficient-evidence, or a different rank order among trusted changes would change which items Morgan works up and walks into the GM this cycle (T018, T020, T024). Because ranking is left outside the question, two packages that would produce different actions could be treated as the same answer.
+3. Owner and action are visible: Morgan recommends a specific shelf price (or an explicit hold) to the store general manager (T002, T033–T034, T036).
+4. The outcome is Morgan’s, not an AI-preferred metric: product revenue as units × shelf price, the ~10% unit guardrail, and trust as an evidence standard (T004, T006, T016, T038, T040). Margin is correctly out of scope because cost is unavailable (T004, T014).
+5. Unit and horizon are appropriate — product at the California pilot store, next 28 days, four-week hold, information frozen at the end of history (T008, T012, T014). The draft question drops the locked aisle scope (“everyday grocery and household aisles”) that Morgan set and later confirmed (T008, T036).
+6. Capacity is a hard attention budget, not an unordered complete set. AI 1’s `hard_attention_budget` stance is supported; the question text itself does not yet represent that constraint (T018, T020, T024).
+7. The question is almost narrow enough to govern Stage 3: it does not lock eligibility cutoffs, the evidence gate, model class, or KPI algebra (T010, T034, T038, T040). Omitting ranking and aisle scope leaves output shape and population under-specified.
+8. It is broad enough not to pre-exclude leave-unchanged, “hold — not enough evidence,” a specific candidate price, or a small-but-trusted gain (T016, T034, T040). It does not name a model class and cannot be answered by a rules-only recap, because it requires a forward 28-day expectation at the current price versus candidate prices given calendar factors (T014, T026).
+
+REQUIRED CHANGES:
+Replace candidate analytical question C1, and the matching question in Section 1, with:
+
+**For products meeting the review criteria in the California pilot store’s everyday grocery and household aisles, which specific pilot shelf prices should Morgan recommend for the next 28-day review cycle to produce the strongest trusted expected product revenue (units sold × shelf price) compared with the current price, without recommending a change expected to reduce units by more than about 10%; which products should instead remain unchanged or be classified as “hold — not enough evidence”; and which trusted price-change opportunities rank into the current-cycle GM package of up to about 25 actual price changes, with any additional qualifying opportunities listed below the line?**
+
+In Section 1, keep the preceding clarification that trust is an evidence gate and gain size only ranks items that already clear that gate (T038, T040). Do not add a “big enough to matter” cutoff to the question.
+
+CAPACITY_STANCE: `hard_attention_budget`
+
+Capacity unit: actual raise or cut recommendations the team must work up and take through GM review this cycle.
+
+Supporting dialogue: T018 (about 25 price-change recommendations per four-week cycle; if more qualify, take the ones that matter most; if fewer, do not pad); T020 (the 25 applies only to actual raises/cuts; hold and hold—not enough evidence stay visible and do not consume capacity); T024 (give a ranked list; the top ones, up to about 25, form this cycle’s package; additional qualifiers stay below the line as next in line; “strongest” means the biggest revenue gain that is actually trusted).
+
+STAGE 3 OPEN ITEMS:
+Keep AI 1’s open list (eligibility cutoffs, evidence-sufficiency rule, candidate-price construction, prediction method without naming a model class, KPI implementation, treatment of “about 10%” and “about 25,” ranking score, optional material-gain rule if disclosed, department mapping, guardrail-reject label, grain/transformations, validation).
+
+Add:
+- definition of the current shelf price at the frozen review date (weekly price; a missing price is not zero);
+- construction of the forward 28-day window against calendar features (holidays, events, SNAP);
+- disclosure of the evidence-sufficiency / “solid” gate so it is not an undisclosed threshold;
+- scoring of trusted expected revenue gain versus the current price for package ranking.
+
+Do not lock model class, exact numeric cutoffs, statistical tests, or a preferred conclusion. The owner constraint still requires predictive work in R (tidyverse + a parsnip component) that cannot be replaced by a rules-only description.
+=====
+
+AI 3 (Framing red team), verbatim:
+=====
+VERDICT: Pass
+
+FINDINGS:
+1. Leading toward a predetermined recommendation — NON-BLOCKING. The proposed question includes raise/cut, unchanged, and “hold — not enough evidence,” and the message separates trust from gain (T038, T040). It does not steer only toward price changes.
+2. Assumes causality — NON-BLOCKING. “Produce” has causal flavor, but the question uses “expected” and the internal note correctly says historical relationships support pilot expectations, not guaranteed causal effects (T026, T036, T040). This is consistent with the locked decision statement.
+3. Combines multiple decisions — NON-BLOCKING. The question addresses the single per-product recommendation decision: specific raise, specific cut, unchanged, or insufficient-evidence hold (T002, T016, T034, T036).
+4. Privileges requested metric before outcome defined — NON-BLOCKING. Revenue as units sold × shelf price, 28-day horizon, and unit-loss guardrail are all established in dialogue before the proposed question (T004, T006, T012, T034).
+5. Omits a realistic decision option — NON-BLOCKING. The four stakeholder-supported outcomes are present: specific price increase, specific price cut, unchanged, and “hold — not enough evidence” (T002, T016, T034, T036). Generic “hold” is effectively covered by unchanged plus insufficient-evidence hold (T020).
+6. Unsupported clause — NON-BLOCKING. The trust-gain distinction is directly supported by T038 and T040; the capacity framing is supported by T018, T020, and T024; the specific-price requirement is supported by T034.
+7. Accurate yet useless for action — NON-BLOCKING. The stakeholder-facing question alone does not restate the ranked-list/below-the-line mechanics, but the message paragraph and internal `capacity_stance` preserve them, and T018/T024 establish them. This is not a framing failure because the required capacity stance is present and correct.
+8. Data convenience distorted business need — NON-BLOCKING. The question keeps the business scope as eligible products at the California pilot store, with eligibility left to Stage 3, consistent with T008 and T010.
+9. Material stakeholder exception disappeared — NON-BLOCKING. Exceptions such as no padding when fewer qualify, holds not consuming capacity, and pilots as tests rather than guarantees are preserved in the internal note and locked Stage 1 statement (T018, T020, T024, T026, T036).
+10. Strongest alternative wording — NON-BLOCKING. The current wording is adequate; the alternative below is a clarity strengthening, not a required correction.
+
+CAPACITY CHECK:
+(a) Limited-attention purpose was not silently framed as an unbounded census — PASS. Dialogue explicitly establishes a practical limit of about 25 actual raise/cut recommendations per four-week cycle, a ranked list, and below-the-line next-in-line items (T018, T024). The builder correctly chooses `hard_attention_budget`, not `unordered_ok`.
+(b) Census purpose was not silently forced into `hard_attention_budget` to manufacture a leaderboard — PASS. The dialogue itself supplies the limited-attention purpose and capacity ceiling (T018, T020, T024), so the stance is stakeholder-grounded, not analyst-invented.
+Independent capacity_stance determination: `hard_attention_budget`. Capacity unit: actual raise/cut recommendations prepared for GM review per four-week cycle, about 25. Controlled deferral: additional qualifying opportunities remain below the line as next in line. Holds and unchanged outcomes remain visible and do not consume price-change capacity.
+
+REQUIRED REVISIONS (if any): None.
+
+STRONGEST ALTERNATIVE WORDING: For eligible products at the California pilot store’s everyday grocery and household aisles, which specific pilot shelf price—raise, cut, or current price—or “hold — not enough evidence” outcome should Morgan recommend for the next 28 days, using only history available at the review date, so that trusted expected revenue gain is maximized subject to the about-10% unit-loss guardrail, with trusted raise/cut recommendations ranked up to about 25 for the GM package and additional qualifiers shown below the line?
+=====
+
+COORDINATOR FEASIBILITY NOTE (analyst-side, read-only aggregate query; not a stakeholder statement):
+=====
+# Stage 2 Framing: feasibility and bounded-extract answer (PRICEPOINT-001)
+
+Method: one read-only aggregate query against `pricepoint` (mysql CLI, --login-path=chicago311), with no writes and no staging objects. The query and output are saved on the PC at `artifacts/framing/feasibility_probe_01.sql` and `feasibility_probe_01_output.txt` (run 2026-09-25 ~03:40 CT).
+
+Findings at store CA_1 (the candidate pilot store):
+
+| Dept | Items | Any price change | 4+ distinct prices | Avg priced weeks |
+|---|---:|---:|---:|---:|
+| FOODS_1 | 216 | 180 | 69 | 241.5 |
+| FOODS_2 | 398 | 363 | 202 | 228.0 |
+| FOODS_3 | 823 | 583 | 209 | 226.9 |
+| HOUSEHOLD_1 | 532 | 367 | 63 | 220.1 |
+| HOUSEHOLD_2 | 515 | 310 | 38 | 237.0 |
+
+- All CA_1 grocery/household items have price rows. Price weeks run 11101 to 11621.
+- The history cut is d_1941 = 2016-05-22 (wm_yr_wk 11617). The 28-day horizon is d_1942–d_1969 (2016-05-23 to 2016-06-19, weeks 11617–11621).
+
+Answer: the data can support the question at the product × pilot-store grain. There is real price variation across many items (for example, FOODS_1 + HOUSEHOLD_1 has 748 items, of which 547 had at least one price change and 132 had four or more distinct prices), which is what Morgan's eligibility principle needs. A bounded extract is feasible. For one store and the chosen departments, that is roughly 1.5M item-day sales rows after pivot and under 200k price rows, well within R memory.
+
+Stage 3 must address:
+1. The eligibility cutoffs and department mapping. Candidate counts differ a lot by department.
+2. `raw_sell_prices` contains prices for horizon weeks 11617–11621, which is AFTER the decision date. Using them would be look-ahead. The extract or design must bound price history at the decision date, apart from the current price in effect at the decision date.
+3. Horizon sales (d_1942–d_1969) are not in the evaluation file used for training. Any backtest must use an earlier pseudo-decision date.
+
+No KPI, threshold, or model is locked here.
+=====
+
+Return:
+SECTION 0: point-by-point reconciliation (accept or reject, with a reason).
+SECTION 1 (T041R stakeholder message): acknowledge Morgan's T040 answer, present the revised proposed analytical question in plain language with a one-sentence statement of the decision it supports, and ask ONE request to confirm or correct it.
+SECTION 2 (full builder output, framework §13): the final candidate question C2; a one-sentence decision linkage; the stakeholder statement(s), with turn numbers, supporting EACH clause; capacity_stance with capacity unit; working assumptions; open Stage 3 design work (including the feasibility items); and the one remaining weakness, if any.

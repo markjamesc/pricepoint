@@ -1,0 +1,111 @@
+## SECTION 1 — STAKEHOLDER MESSAGE (T015)
+
+Thanks, Morgan. That establishes the decision-time information boundary: the recommendation should use only the internal history available at the review date — daily unit sales, weekly shelf prices, and calendar factors such as holidays, events, and SNAP benefit days. It should not rely on competitor prices, inventory, cost data, or other information that would not be available.
+
+To complete the decision framing, how much uncertainty are you willing to accept before making a raise, targeted cut, or hold recommendation — for example, would you prefer fewer recommendations with stronger evidence, or more recommendations with lower confidence?
+
+---
+
+## SECTION 2 — INTERNAL NOTE (not sent)
+
+**Start Gate status:** Not yet complete.
+
+### Established
+
+**Decision owner:**
+Established.
+
+* Morgan Lee makes the recommendation.
+* Store general manager signs off.
+
+**Action or choice:**
+Established.
+
+* Raise shelf price.
+* Take a targeted price cut.
+* Leave shelf price unchanged.
+
+**Outcome:**
+Established.
+
+* Maximize expected product revenue over the 28 days after the change.
+* Revenue = units sold × shelf price.
+
+**Material constraint:**
+Established.
+
+* Do not recommend changes expected to reduce units by more than approximately 10%.
+* Price cuts are acceptable if units increase and revenue holds.
+
+**Product/store grain:**
+Established.
+
+* Decision unit: product at a specific store.
+* Initial scope: one California pilot store.
+
+**Category scope:**
+Established.
+
+* Everyday grocery and household aisles.
+* Specific departments remain an analytical scope decision.
+
+**Eligibility principle:**
+Established.
+
+* Products should have meaningful historical shelf-price changes.
+* Products should sell steadily enough for a price change to be evaluated.
+* Analytical cutoffs can be selected later with rationale documented.
+* Prefer smaller defensible recommendation set over unsupported coverage.
+
+**Time scope:**
+Established.
+
+* Pricing review occurs every four weeks.
+* Evaluation horizon: following 28 days.
+* Decision point: end of available history.
+* No future information beyond that point.
+
+**Information available at decision time:**
+Established.
+Available:
+
+* Daily unit sales by product.
+* Weekly shelf prices.
+* Calendar information:
+
+  * holidays,
+  * events,
+  * SNAP benefit days.
+
+Unavailable:
+
+* Competitor prices.
+* Inventory.
+* Cost.
+* Margin.
+
+Morgan also clarified that the goal is prospective decision support, not historical description: she needs expected outcomes under current price versus recommended price.
+
+**Analytical relevance:**
+Established.
+
+* Evidence should influence which action is recommended.
+
+### Still missing
+
+**Uncertainty tolerance:**
+Missing.
+
+* Need Morgan’s preference regarding evidence strength versus recommendation coverage.
+* This is the final unresolved Start Gate element.
+
+**Stakeholder confirmation of final decision statement:**
+Not ready.
+
+* Once uncertainty tolerance is established, draft the complete decision statement and request confirmation/correction.
+
+### Plan
+
+Continue Start dialogue with one question.
+
+The next and final discovery item is uncertainty tolerance. After Morgan answers, all Start Gate elements should be established, so SECTION 1 should switch from discovery mode to presenting the proposed decision statement for stakeholder confirmation.

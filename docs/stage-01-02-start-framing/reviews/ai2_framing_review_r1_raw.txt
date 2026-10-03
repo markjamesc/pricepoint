@@ -1,0 +1,35 @@
+VERDICT: Tighten
+
+REASONS:
+1. Answering the draft question would yield specific pilot prices, unchanged-price calls, and “hold — not enough evidence” outcomes, which supports the locked decision Morgan confirmed (T036; also T002, T016, T034). It does not, however, require the ranked current-cycle package the decision actually uses, so it supports the decision only incompletely.
+2. Different recommended prices, a different split among change / unchanged / insufficient-evidence, or a different rank order among trusted changes would change which items Morgan works up and walks into the GM this cycle (T018, T020, T024). Because ranking is left outside the question, two packages that would produce different actions could be treated as the same answer.
+3. Owner and action are visible: Morgan recommends a specific shelf price (or an explicit hold) to the store general manager (T002, T033–T034, T036).
+4. The outcome is Morgan’s, not an AI-preferred metric: product revenue as units × shelf price, the ~10% unit guardrail, and trust as an evidence standard (T004, T006, T016, T038, T040). Margin is correctly out of scope because cost is unavailable (T004, T014).
+5. Unit and horizon are appropriate — product at the California pilot store, next 28 days, four-week hold, information frozen at the end of history (T008, T012, T014). The draft question drops the locked aisle scope (“everyday grocery and household aisles”) that Morgan set and later confirmed (T008, T036).
+6. Capacity is a hard attention budget, not an unordered complete set. AI 1’s `hard_attention_budget` stance is supported; the question text itself does not yet represent that constraint (T018, T020, T024).
+7. The question is almost narrow enough to govern Stage 3: it does not lock eligibility cutoffs, the evidence gate, model class, or KPI algebra (T010, T034, T038, T040). Omitting ranking and aisle scope leaves output shape and population under-specified.
+8. It is broad enough not to pre-exclude leave-unchanged, “hold — not enough evidence,” a specific candidate price, or a small-but-trusted gain (T016, T034, T040). It does not name a model class and cannot be answered by a rules-only recap, because it requires a forward 28-day expectation at the current price versus candidate prices given calendar factors (T014, T026).
+
+REQUIRED CHANGES:
+Replace candidate analytical question C1, and the matching question in Section 1, with:
+
+**For products meeting the review criteria in the California pilot store’s everyday grocery and household aisles, which specific pilot shelf prices should Morgan recommend for the next 28-day review cycle to produce the strongest trusted expected product revenue (units sold × shelf price) compared with the current price, without recommending a change expected to reduce units by more than about 10%; which products should instead remain unchanged or be classified as “hold — not enough evidence”; and which trusted price-change opportunities rank into the current-cycle GM package of up to about 25 actual price changes, with any additional qualifying opportunities listed below the line?**
+
+In Section 1, keep the preceding clarification that trust is an evidence gate and gain size only ranks items that already clear that gate (T038, T040). Do not add a “big enough to matter” cutoff to the question.
+
+CAPACITY_STANCE: `hard_attention_budget`
+
+Capacity unit: actual raise or cut recommendations the team must work up and take through GM review this cycle.
+
+Supporting dialogue: T018 (about 25 price-change recommendations per four-week cycle; if more qualify, take the ones that matter most; if fewer, do not pad); T020 (the 25 applies only to actual raises/cuts; hold and hold—not enough evidence stay visible and do not consume capacity); T024 (give a ranked list; the top ones, up to about 25, form this cycle’s package; additional qualifiers stay below the line as next in line; “strongest” means the biggest revenue gain that is actually trusted).
+
+STAGE 3 OPEN ITEMS:
+Keep AI 1’s open list (eligibility cutoffs, evidence-sufficiency rule, candidate-price construction, prediction method without naming a model class, KPI implementation, treatment of “about 10%” and “about 25,” ranking score, optional material-gain rule if disclosed, department mapping, guardrail-reject label, grain/transformations, validation).
+
+Add:
+- definition of the current shelf price at the frozen review date (weekly price; a missing price is not zero);
+- construction of the forward 28-day window against calendar features (holidays, events, SNAP);
+- disclosure of the evidence-sufficiency / “solid” gate so it is not an undisclosed threshold;
+- scoring of trusted expected revenue gain versus the current price for package ranking.
+
+Do not lock model class, exact numeric cutoffs, statistical tests, or a preferred conclusion. The owner constraint still requires predictive work in R (tidyverse + a parsnip component) that cannot be replaced by a rules-only description.

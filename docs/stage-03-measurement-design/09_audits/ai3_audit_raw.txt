@@ -1,0 +1,336 @@
+# Part 1 — Verdict Summary and RES Table
+
+From the SQL→R implementation-contract lens, v4 carries 12 blocking transcription gaps (RES-01–RES-10, RES-12, RES-14) and 6 non-blocking record/presentation gaps (RES-11, RES-13, RES-15–RES-18). Every blocking item is closable by an exact copy/restore from 06, 07, Design B, or DIP; none requires redesign or information that does not exist. The single most consequential gap is RES-01: v4 §17.R1–R9 is AI1's own clause order and omits 06 Appendix A steps 1, 2, 3, 5 (not-trusted → hold_ne), 7 (Û(P0) = 0 → hold_ne), and 9 (holds and unchanged listed separately and do not consume slots), so R-A and R-B cannot implement the locked pipeline from v4 alone. RES-17 and RES-18 are judgment items; both resolve as confirmations. Verdict: Pass with required revisions.
+
+| RES | Decision | One-line rationale | Severity |
+|---|---|---|---|
+| RES-01 | CONFIRM | v4 §17.R1–R9 is AI1's own order; omits 06 Appendix A steps 1, 2, 3, 5 (not-trusted → hold_ne), 7 (Û(P0) = 0 → hold_ne), 9 (holds/unchanged separate, no slot consumption). R-A/R-B cannot implement the locked pipeline from v4 alone. | BLOCKING |
+| RES-02 | CONFIRM | After RES-01, every M1 (§24.1) and M2 (§24.5) clause cite must resolve to the corrected §17.R-clause; framework §19A requires exact clause cites in the Spec→builder packet. | BLOCKING |
+| RES-03 | CONFIRM | §17A.2 "Standardization: off on recipe side" inverts 06#23; recipe-side center/scale on training-window moments with glmnet `standardize = FALSE` must be identical in R-A and R-B or `.pred` diverges. | BLOCKING |
+| RES-04 | CONFIRM | §17A.3 recipe order and dummy references are invented; 06#23 and Design B §17A fix the exact order and references (`wday = 1`, `month = 1`, `dept_id = FOODS_3`, `event_type_1 = none`), and ban raw `sell_price` and `item_id` dummies. | BLOCKING |
+| RES-05 | CONFIRM | §17A.5–17A.6 feature list, horizon/backtest trailing-window anchoring at origin, `item_mean_log1p_units` definition, and NA-row drop rule are missing or generic; features are the model input and must be identical across R paths. | BLOCKING |
+| RES-06 | CONFIRM | §17A.7 fold cuts (`ceiling(5·d/D)`; live 1–388/389–776/777–1164/1165–1552/1553–1941; backtest D=1913 and stability D=1885 cuts), training rows = all 2,484 items' priced item-days with d ≤ origin, and refit-at-selected-penalty rule are missing from v4. | BLOCKING |
+| RES-07 | CONFIRM | §16 backtest detail is lost from v4: o = d_1913, horizon d_1914–d_1941, P0_bt = week 11613, candidates and eligibility re-anchored at o, A1 = median APE ≤ 0.40, A2 = mean signed error ∈ [−0.20, +0.20], collapse applies to modeled raise/cut and model-based unchanged alike, U = 0 excluded and counted. | BLOCKING |
+| RES-08 | CONFIRM | §7 eligibility detail is missing: windows (n_chg ≥ 3 lifetime weeks ≤ 11617; units_365 ≥ 180 over d_1577–d_1941; zero_days_365 ≤ 182; priced_weeks ≥ 52; n_candidates ≥ 1), leading-zero rule (eligibility on raw 365-day window; training rows start at first priced day; first positive `d` is an audit field), corrected §7.4 label (274 before candidate-exists, 273 or 274 after), and the DC-2 statement (true last-104-week count = 232). | BLOCKING |
+| RES-09 | CONFIRM | TE6 recommendation text (06#8) must appear in the body (§7 and/or §26.1), not just a one-line M3 summary; `te6` is a reconciled flag; without the exact text R-A/R-B each invent a test. | BLOCKING |
+| RES-10 | CONFIRM | §8 calendar rules are lost from v4: `wday` as stored Sat = 1…Fri = 7, `snap_CA` only, SNAP same-day only with the scaled `log_sell_price × snap_CA` interaction, `n_snap_next_28_known` dropped from the judged model and every twin. | BLOCKING |
+| RES-11 | CONFIRM | §11.2 twin-governance sentence ("Each twin reports package-membership overlap with the judged package. None changes a judged action.") is needed for the twin output contract; T1: 5 of 2,484 items differ between weeks 11616 and 11617 (P03). | NON-BLOCKING |
+| RES-12 | CONFIRM | `gain_below_half_mae` definition (AI3-M-09): `dept_backtest_MAE_revenue` = mean over d_1913-backtest trust-eligible items with constant actual price in weeks 11613–11617 of `abs(R̂(P0_bt) − realized revenue d_1914–d_1941)`, by dept; flag = 1 when the chosen ΔR̂ is not > 0.5 × that MAE; never changes action or rank. Required so R-A/R-B compute the output field identically. | BLOCKING |
+| RES-13 | CONFIRM | §26.2 and M3 must copy 06 §C owner-choice rows verbatim, including E_B in OC-2 and the exact profiled counts (E_A = 363; E_A ∧ nd ≥ 4 = 274 before candidate-exists, 273 or 274 after; E_C = 177; E_B = 784); owner-choice presentation, not SQL→R. | NON-BLOCKING |
+| RES-14 | CONFIRM | §2 must be DIP §A verbatim; v4 paraphrases and drops sentences ("The review occurs on a four-week cycle…", "The recommendation uses only information available…", "…form the GM package up to about 25 actual price changes.", "…historical patterns should be presented as expectations to test rather than guarantees."); framework §28 Gate 1 requires the approved decision statement preserved. | BLOCKING |
+| RES-15 | CONFIRM | §25 resolution record must match 06: §25.1 component names as in 06 column 2 and the 06 resolution in the resolution column; §25.2 DC-3 cites 06 §A DC-3 and DC-4 records the FX-HUNG citation error; §25.3 replaced with 06 §E items 1–8 verbatim; §25.4 06 §F's three bullets; §25.5 removes the unbacked AI1-objection line. | NON-BLOCKING |
+| RES-16 | CONFIRM | §14 confounder ledger must be Design B C1–C12 in order with 06#21 treatments, keeping the P04 Q3 disclosure (40.22% vs 47.23%) under C1; substantive treatments already exist in 07 and §17A, so this is ledger completeness. | NON-BLOCKING |
+| RES-17 | CONFIRM | Keep 07's lifecycle statuses in §18; the register's `Status` field is its own per framework §18. Add a one-line mapping footnote to the framework status vocabulary (Open until Stage 4 / Open until Gate → Open; Resolved (design) → Resolved). No framework field-status column is required in §18; field statuses live in M3 and the body. | NON-BLOCKING |
+| RES-18 | CONFIRM | §21 items 19–20 (position 0 → d_1 and position 1940 → d_1941 = 2016-05-22; ≤ 1 price row per item-day after mechanical price attachment) are within 06#31's "Design B §21 plus Dossier §9 additions" scope, and each is a testable numeric condition. They must stay. | NON-BLOCKING |
+
+END OF AUDIT PART 1Part 2 — Lens-Specific Tasks (S1–S8)
+S1. Envelope and casts (§19, §20; 06#30).
+
+Check	v4 text	Verified against PROFILE_BUNDLE_01_04	Verdict
+SALES_LONG row count	4,821,444 = 2,484 × 1,941	P01 Q2: JSON_LENGTH = 1,941 for every row; P04 Q1: 2,484 items in five depts. Arithmetic 2,484 × 1,941 = 4,821,444.	Consistent.
+CALENDAR row count	1,969 rows, 282 weeks	P01 Q3: 1,969 distinct d, 282 distinct wm_yr_wk, dates 2011-01-29 to 2016-06-19.	Consistent.
+PRICES row count	568,783 total; 558,847 ≤ 11617; 9,936 in 11618–11621	P01 Q5: 52,156 + 90,747 + 186,763 + 117,067 + 122,050 = 568,783 for the five depts. P04 Q3: item_weeks = 558,847 at weeks ≤ 11617. 2,484 × 4 = 9,936 at 11618–11621 (P04 Q4 shows no internal gaps and every item priced in 11617, so 2,484 price rows per each of the four post-origin weeks).	Consistent.
+Casts	units → integer; sell_price → DECIMAL(10,2); wm_yr_wk → integer; d → integer	P01 Q5 min/max in DECIMAL(10,2); P04 Q1 chk_min_days/chk_max_days = 365 (JSON ordinality works). wm_yr_wk in source is varchar (DIP §B) but P01 Q1 and P04 use CAST.	Casts are correct and complete.
+Permitted list (only envelope / unnest / casts / calendar attach)	§20.2 lists envelope, unnest, casts, calendar attach; §19 item 6 same.	—	Complete for the mechanical layer.
+Prohibited list	§20.4: eligibility, TE flags, candidates, trailing features keyed to origin, .pred, actions, ranks, flags, distinct-price counts.	—	Add: prohibited also includes n_price_changes_pre, n_distinct_prices_pre, priced_weeks_pre, units_365, zero_days_365, n_candidates, n_candidates_event_filtered, te6, trust_eligible, backtest_accept, guardrail_pass, legal_change, rank_among_qualifiers, package_flag, below_line_flag, gain_below_half_mae, straddle_flag, action_twin_11616. v4's list is directionally correct but incomplete for the actual output contract. NON-BLOCKING completeness gap.
+Deliver-and-quarantine rule (wk ≥ 11618)	§20.5: post-origin price rows delivered, identifiable by week, forbidden to R judged logic; FX-LEAK-11618.	P01 Q1: all keys unique, so weeks ≥ 11618 are cleanly separable.	Consistent. The 9,936-row count is verifiable against P01 Q5 + P04 Q4 no-gap property.
+S2. Source Gate (§21; 06#31; RES-18).
+
+For each of the 20 conditions: testable with a numeric pass condition, and consistent with profiles.
+
+#	Condition	Testable?	Profile-consistent?
+1	SALES_LONG = 4,821,444 rows	Yes	Yes (arithmetic above)
+2	SALES_LONG item count = 2,484	Yes	Yes (P04 Q1)
+3	Each SALES_LONG item has d 1…1941	Yes	Yes (P01 Q2 minlen = maxlen = 1,941)
+4	Per-item unit sums equal JSON sums for all 2,484 (not a sample)	Yes	Yes (P04 Q1 chk_min_days = chk_max_days = 365 per item; per-item sum equality is a mechanical comparison)
+5	PRICES = 568,783 rows	Yes	Yes (P01 Q5 sum)
+6	PRICES ≤ 11617 = 558,847 rows	Yes	Yes (P04 Q3 item_weeks)
+7	PRICES 11618–11621 = 9,936 rows	Yes	Yes (2,484 × 4; P04 Q4 no-gap)
+8	PRICES value equality vs raw, every row	Yes	Yes (P01 Q1 uniqueness; no blanks in P01 Q5)
+9	Calendar = 1,969 rows	Yes	Yes (P01 Q3)
+10	Calendar week count = 282	Yes	Yes (P01 Q3)
+11	Week 11621 = 2 days	Yes	Yes (P01 Q4)
+12	wday(2016-05-21) = 1	Yes	Yes (P01 Q4: Saturday, wday = 1; DIP §B wday coding)
+13	units integer ≥ 0	Yes	Yes (P04 Q1 zero_days_365 computed; P01 Q2 JSON ints)
+14	sell_price > 0	Yes	Yes (P01 Q5 min ≥ 0.01; DIP §B min $0.01)
+15	wday ∈ 1…7	Yes	Yes (DIP §B, P01 Q4)
+16	snap_CA ∈ {0, 1}	Yes	Yes (P01 Q9; DIP §B)
+17	Recorded department list = five approved depts	Yes	Yes (P01 Q5/Q6/Q7 show exactly five FOODS/HOUSEHOLD depts plus HOBBIES)
+18	Lineage equality	Yes	Assigned by Stage 4 extract; source tables lack lineage columns but the Gate compares the extract's lineage fields (06#36).
+19	Position 0 → d_1 and position 1940 → d_1941 = 2016-05-22	Yes	Yes (P01 Q3 dates; DIP §B position mapping)
+20	≤ 1 price row per item-day after mechanical price attachment	Yes	Yes (P01 Q1 uniqueness on store_id × item_id × wm_yr_wk)
+Missing conditions that should be added to §21 (all from Dossier §9 and 06#31): key uniqueness per P01 Q1–Q3 as a Source Gate item (currently implied but not stated as a check on the delivered SALES_LONG and PRICES keys, only on raw); no-internal-gap check per P04 Q4 (chk_gap_items = 0 per dept); dept list domain check (item 17 already covers); null/blank profile on delivered units and sell_price; per-item SALES_LONG date alignment to calendar (position 0 → d_1 is item 19; also confirm d_1941 = 2016-05-22 across all 2,484 items); missingness rule — delivered PRICES must include the NULL/missing-price pattern exactly as raw (no fill at SQL). Adding these is NON-BLOCKING; none changes a rule, only strengthens the Gate.
+
+RES-18: both items are within scope and testable; confirm. Item 19 is the JSON-position map (Dossier SQL-02) and item 20 is the join-multiplicity guard (Dossier SQL-03). Neither is fabricated; both are required for the Gate to be executable by Stage 4. NON-BLOCKING.
+
+S3. Blueprint and grain (§9, §19 items 1–16; 06#11).
+
+Grain transitions. v4 §9.3 shows "item-store-day → price assignment → forecast horizon aggregation → item-store recommendation". This is directionally correct but the intermediate grain is not stated: item × candidate scoring rows (item_id × candidate_price) before the argmax collapses to one row per item. RES-01 (06 Appendix A steps 6 and 7) supplies this. Also missing: the candidate table grain (item_id × candidate_price, §22.2) is stated separately. Add to §9.3 the explicit intermediate grain. NON-BLOCKING because §22.2 supplies it.
+
+Join cardinality. v4 §9.4 states "many item-days may map to one priced week; no more than one price row per item-day." The direct calendar × price join is not prohibited in v4 §9 (a minor gap from the previous cross-review m-04). Add to §9.4: no direct join of calendar to prices on wm_yr_wk without first attaching wm_yr_wk to SALES_LONG on d. NON-BLOCKING.
+
+Date logic. v4 §8 covers week ordinal rule (DC-1), wday Sat = 1, week 11621 = 2 days, horizon d_1942–d_1969. Consistent with P01 Q3/Q4/Q10 and 06#39. The DC-1 fixture (FX-WEEK-ORDINAL) exists. OK.
+
+Missingness and anomaly rules. v4 §15 retains $0.01, price ≤ 0 excludes week (hold_ne if current week), no LOCF, no d > 1941 sales. The training-target winsorization quantile type 7 is present. The n_price_0_01_weeks audit flag is present. OK. One gap: v4 §15 does not state the R-A/R-B treatment of a missing price inside what P04 Q4 shows is a contiguous span (there are no internal gaps, so this is academic), nor the handling of a week ≥ 11618 accidentally present in the candidate source list (covered by FX-LEAK-11618). OK.
+
+S4. Judged-output contract (§22; 06#32).
+
+v4 §22.1 universe-table field list is present and largely complete. Cross-checking against the required judged steps and against 06#32:
+
+Fields present and correctly named: dept_id, cat_id, in_universe, list_start_d, n_price_changes_pre, n_distinct_prices_pre, priced_weeks_pre, units_365, zero_days_365, first_priced_wk, first_positive_d, e_chg3, e_u180, e_z182, e_pw52, e_cand, te6, trust_eligible, current_price, current_price_11616, straddle_flag, n_candidates, n_candidates_event_filtered, action, candidate_price, .pred_units_current, .pred_units_candidate, .pred_rev_current, .pred_rev_candidate, delta_rev, unit_ratio, guardrail_pass, legal_change, gain_below_half_mae, rank_among_qualifiers, package_flag, below_line_flag, expectation_not_guarantee, backtest_accept, action_twin_11616, penalty_selected, penalty_grid_index, n_horizon_days_scored, n_floored_days, lineage, capacity_stance, run_role.
+
+Missing fields that R-A/R-B must be able to expose for reconciliation and for §22.3 independence and §23 tolerance checks:
+
+n_dropped_by_X1 … n_dropped_by_X6 (audit-count table; 06#32 and Dossier §8 require exclusion counts; v4 §7.2 lists them but §22.1 does not carry them into the judged output).
+
+n_price_0_01_weeks (required audit metric per §11.4 and 06#22; not in §22.1).
+
+n_feature_na_rows (per §11.4 / RES-05; training NA-row drop count).
+
+n_training_rows per item (supporting penalty_selected audit; used by R-A/R-B to demonstrate identical training rows under identical folds).
+
+backtest_A1_median_ape, backtest_A2_mean_signed_error, backtest_N (needed for backtest_accept; also for the dept-level dept_backtest_MAE_revenue used in gain_below_half_mae). These are the components of the collapse rule in §16, and §23 makes backtest_accept an exact-equality field; R-A/R-B must be able to compare the inputs too.
+
+first_priced_wk_wks_back (weeks-back ordinal, required by FX-WEEK-ORDINAL and by the DC-1 rule; not in §22.1).
+
+For §22.2 candidate table: unit_ratio and .pred_units_candidate are present; missing guardrail_pass_at_candidate (per-candidate) and cent_rounded_delta_rev (per candidate), both needed for FX-CENT-ROUND and to make the legal-change condition on each candidate reproducible from the candidate table alone.
+
+min_gain_waived (referenced in earlier text for the diagnostic; if 06#18 keeps the diagnostic-only role, this becomes NA when no dept MAE; either way it belongs in the audit table).
+
+n_candidates_event_filtered is present in §22.1 at item level; per-candidate event_week_only_flag (whether a candidate price level was excluded by the event filter) is not needed for the output but is needed by FX-EVENT-SINGLE; a fixture-only sidecar is acceptable.
+
+None of the missing fields is decision-changing on its own, but each is required for the §23 reconciliation contract to be executable without ambiguity. Classify all of the above as NON-BLOCKING completeness findings because they can be added by exact text without redesign.
+
+S5. Independence (§22.3; 06#33; framework §19A).
+
+v4 §22.3 states: "No shared judged code, model/recipe/workflow objects, scored tables, candidate or eligibility lists, selected set or action table before first-pass freeze. Shared: locked design, frozen fixture pack, verified SQL package, lineage, output schema, fold cuts and penalty grid (spec)."
+
+Assessment:
+
+The "not shared" list is correct in class. It should be extended to explicitly include: shared engine parsnip workflow object, shared recipes::recipe object, shared glmnet fit object, shared tune_grid object, shared fitted penalty value propagated across paths, and any shared .pred scored table for horizon rows.
+
+The "shared" list is correct. The locked fold cuts and the 50-value penalty grid are spec, not a model; both paths must independently select. Reconfirm in the text that the selected penalty is not shared as a build input — only the search grid and fold cuts are.
+
+The v4 text does not require R-A and R-B attestations. Framework §19A requires R-A and R-B attestations with clause cites. Add the attestation requirement to §22.3 by pointer to §24.5 (which already says "Required").
+
+The v4 text does not state the repair-time never-copy rule. Add: on recon fail, each path repairs toward the spec independently; neither path copies from the other's outputs.
+
+Classify the omissions as NON-BLOCKING because they can be closed by exact text, but note the recon contract is meaningful only if they are closed.
+
+S6. Reconciliation (§23; 06#34).
+
+v4 §23 lists: exact equality on keys, row counts, eligibility integers (n_price_changes_pre, n_distinct_prices_pre, priced_weeks_pre, units_365, zero_days_365), conjunct flags, te6, trust_eligible, current and candidate prices, full candidate-table keys (item_id × candidate_price), n_candidates, straddle_flag, backtest_accept, all audit counts, actions, package_flag, below_line_flag, rank_among_qualifiers, lineage. Tolerance: |Δ| ≤ 0.05 units on .pred_units_current/.pred_units_candidate; |Δ| ≤ $0.05 on .pred_rev_current/.pred_rev_candidate/delta_rev. penalty_grid_index mismatch = diagnostic trigger only. Any action/package/below-line/rank mismatch = FAIL. Repair toward spec, never average. Outcome PASS/FAIL only.
+
+Assessment:
+
+The exact list is complete enough for the fields it names. It should also include the audit fields from §22.1 that are new: n_dropped_by_X1…X6, n_price_0_01_weeks, n_feature_na_rows, backtest_A1_median_ape, backtest_A2_mean_signed_error, backtest_N, n_training_rows. These are "all audit counts" in spirit, but "all audit counts" is not specific enough to prevent divergence on a field R-A/R-B choose differently. Enumerate them explicitly. NON-BLOCKING (expand "all audit counts" to the explicit list).
+
+Tolerances feasibility for two independent glmnet fits. With identical folds (ceiling(5·d/D); live/backtest/stability cut points as in RES-06), identical 50-value grid 10^seq(−4, 1, length.out = 50), identical tie rule (larger penalty), identical recipe (with recipe-side standardization and glmnet standardize = FALSE), identical feature construction (RES-05), identical target winsorization (RES-05/§15), and identical seed 20160522, glmnet's fit is deterministic given the input matrix and the fold assignments. The remaining difference between R-A and R-B is floating-point order of operations and the resulting CV RMSE comparison, which can produce different penalties only when two grid values are nearly tied. When the CV-RMSE gap between the top two penalties is very small, R-A and R-B may select adjacent grid indices. |Δ| ≤ 0.05 units on 28-day sums and $0.05 on revenue are loose enough that adjacent grid indices with near-tied CV error should still fall inside tolerance for daily-unit predictions in the item ranges seen at CA_1 (P02 P4: mean |pct change| 16.22%; sums of 28 days in the range of tens to thousands of units). If the two paths select penalties whose difference exceeds a factor of 10, actions can flip. Non-determinism is not a tolerance problem, it is a rule-completeness problem; RES-06's tie rule (larger penalty) removes most of it. Keep penalty_grid_index as diagnostic (already in v4) and require that any recon FAIL caused by adjacent-index selection be repaired toward the spec, not averaged. This is already in v4.
+
+Gap where predictions within tolerance flip an action at a cent-rounding or 0.90 boundary. Yes: R-A and R-B can both satisfy |Δ .pred_units_current| ≤ 0.05 and |Δ delta_rev| ≤ $0.05 and still produce different actions if the R-A value sits just above a boundary and the R-B value sits just below, in one of these places:
+
+ρ̂ = 0.90 boundary (guardrail).
+
+round(R̂(Pc),2) − round(R̂(P0),2) = 0.00 boundary (cent-rounding of the legal test, per 06 Appendix A step 7).
+
+argmax ΔR̂ boundary when two candidate ΔR̂ values differ by ≤ $0.10 (twice the revenue tolerance).
+
+rank boundary when adjacent qualifiers' delta_rev differ by ≤ $0.10, and the tie-break fields pred_units_current / n_price_changes_pre are equal, so ordering falls to item_id ascending (deterministic and equal across paths, so this case is safe).
+
+package_flag boundary at rank 25 when delta_rev of ranks 25 and 26 differs by ≤ $0.10.
+
+Exact required rule to add to §23 (new sentence): "When a continuous-tolerance check passes but any action, package, below-line or rank field disagrees, reconciliation FAILS and both paths repair toward the spec independently; tolerance is never used to reconcile a discrete field. Where a candidate is within the revenue tolerance of a rule boundary (ρ̂ within ±0.001 of 0.90; round(R̂(Pc),2) − round(R̂(P0),2) within ±$0.01 of 0.00; two candidate `delta_rev` values within $0.10 of each other at the argmax; delta_rev of ranks 24–26 within $0.10), R-A and R-B must emit a boundary_flag on the affected item, but the judged action remains the one produced by the locked rule." NON-BLOCKING but required for a well-formed recon.
+
+S7. Fixtures and lineage (§24; 06#35–37; RES-02).
+
+For each of the 25 fixtures (24 in Appendix B plus the conditional FX-SNAP-FWD): are they executable on a synthetic panel with stub predictions? Is the expected output determinate from the locked text? Is the clause cite correct?
+
+FX-HOLD-NE-PRICES, FX-GUARD-10, FX-CUT-OK, FX-ARGMAX, FX-NOPAD, FX-CAP25, FX-MEMBER, FX-LEAK-11618, FX-CURRENT-11617, FX-HORIZON-28, FX-TIE, FX-ELIG-BOUNDARY, FX-PW52, FX-BAND25, FX-NOCAND, FX-EVENT-SINGLE, FX-CAP5-TIE, FX-UP0-ZERO, FX-CENT-ROUND, FX-MINGAIN-DIAG, FX-BACKTEST-COLLAPSE, FX-TRAIL-ANCHOR, FX-WDAY-SNAP, FX-WEEK-ORDINAL, FX-INTERACT: all are executable on a small synthetic panel with stub .pred values. Expected outputs are determinate from §17.R clauses after RES-01, §8 (dates), §15 (missingness), §17A (features), and §23 (recon). With v4's current §17.R ordering, the clause cites in §24.1 and §24.5 land on the wrong clause; RES-01 + RES-02 fix that. The fixtures themselves are well-posed.
+
+FX-SNAP-FWD is conditional and retired by §F; remove it from the active pack (already in v4 §24.2). OK.
+
+FX-UNCHANGED-SMALLGAIN is retired by §F and RR-15; the surviving FX-MINGAIN-DIAG replaces it. OK.
+
+Freeze by path + SHA-256 and no-rewrite rule: v4 §24.3 states both. OK.
+
+Lineage fields: v4 §24.4 lists snapshot_id, source_version, observation_boundary_d = 1941, observation_boundary_date = 2016-05-22, design_id = PRICEPOINT-001-S3-v1, ml_mode = A, fixture_pack_sha256, sql_extract_sha256, capacity_stance = hard_attention_budget. All required lineage fields are present. OK.
+
+M2 packet (v4 §24.5) covers all 20 decision-changing gates with clause cite, fixture IDs and R-A/R-B attestations. After RES-01 corrects §17 numbering, the cites resolve. The TE6 row already says "Yes — Open OD-1"; keep that tag. The guardrail row already says "Yes — OC-3 pending lock"; keep. OK.
+
+One gap in §24.5: the packet does not have a row for the dept_backtest_MAE_revenue / gain_below_half_mae diagnostic (needed by RES-12). Add a row: gate "half-MAE diagnostic"; clause cite §11.3 / §22.1; fixtures FX-MINGAIN-DIAG; R-A/R-B attestation Required. NON-BLOCKING.
+
+S8. Stage 4 executability.
+
+Points where a Stage 4 builder would still have to invent meaning:
+
+The full item-level pipeline (universe row, eligibility integers, current price, candidate set, trust, scoring, legality, action, ranking, capacity) — RES-01.
+
+The clause cites used by the fixture pack and the M2 packet — RES-02.
+
+Standardization side of glmnet — RES-03.
+
+Recipe order and dummy references — RES-04.
+
+Feature list, trailing-window anchoring at origin on horizon and backtest rows, item proxy definition, NA-row drop rule — RES-05.
+
+Fold cuts, training-row universe, refit at selected penalty — RES-06.
+
+Backtest origin, horizon, P0_bt, acceptance metrics and caps, collapse-to-hold_ne coverage — RES-07.
+
+Eligibility windows, leading-zero rule, corrected §7.4 label, DC-2 statement — RES-08.
+
+TE6 numeric test — RES-09.
+
+Calendar rules (wday, snap only, same-day SNAP, dropped forward SNAP) — RES-10.
+
+Twin-governance sentence, T1 counts — RES-11.
+
+gain_below_half_mae definition — RES-12.
+
+Owner-choice alternatives presentation in §26.2 and M3 — RES-13 (non-blocking for R-A/R-B, but needed for the audit record).
+
+Decision statement verbatim — RES-14 (non-blocking for R-A/R-B, blocking at Design Gate 1).
+
+§25 resolution record alignment — RES-15 (non-blocking at R-A/R-B, needed for the audit trail).
+
+§14 ledger completeness — RES-16 (non-blocking at R-A/R-B).
+
+§22.1 field list missing audit fields (n_dropped_by_X1…X6, n_price_0_01_weeks, n_feature_na_rows, n_training_rows, backtest_A1_median_ape, backtest_A2_mean_signed_error, backtest_N, first_priced_wk_wks_back, min_gain_waived) — new finding below.
+
+§22.2 candidate table missing guardrail_pass_at_candidate and cent_rounded_delta_rev — new finding below.
+
+§23 boundary rule for tolerance-flip — new finding below.
+
+§20.4 prohibited list incomplete — new finding below.
+
+§9.3 missing intermediate candidate-scoring grain and §9.4 missing explicit no-direct-calendar×price-join prohibition — minor new finding below.
+
+§24.5 missing M2 row for the half-MAE diagnostic — minor new finding below.
+
+RES-17 from the Stage 4 perspective: keep 07's lifecycle statuses in §18. Stage 4 does not consume §18 to build R-A/R-B outputs; §18 is an audit artifact. The framework §18 status field applies to the register's role as a per-risk register, not as a field-status registry. Adding a framework field-status column to §18 would duplicate M3 and the body. Verdict: confirm the 07 lifecycle statuses; add a one-line mapping footnote (Open until Stage 4 / Open until Gate → Open; Resolved (design) → Resolved). NON-BLOCKING.
+
+END OF AUDIT PART 2# Part 3 — T2 new findings, T3 (OD-1), T4 (RES-17 / RES-18)
+
+## T2 — New findings (AI 3, SQL→R implementation-contract lens)
+
+ID: AI3-IC-01
+Section: §22 (R-A / R-B judged-output contract) — missing audit-output table
+06/07 row: 06#32; RR-19, RR-20, RR-21; framework §19 item 15, §20.3
+Severity: BLOCKING
+Issue: §22 lists only §22.1 universe table, §22.2 candidate table, §22.3 independence. There is no §22.x audit output. §19 item 15 and §23 ("all audit counts") reference audit counts, but neither the universe table nor the candidate table holds the global counts required by the design (X1–X6 exclusions, A1/A2 sample sizes, U = 0 exclusions, dept MAE, `n_price_0_01_weeks`, `n_feature_na_rows`, per-origin backtest accepts, per-dept TE6 median). Without a locked audit-output schema, R-A and R-B emit different audit sets and §23 cannot be tested.
+Exact required text: Add a new §22.4 "Audit output table (both R paths, exact reconciliation)". Both R paths must emit, as a single table keyed by `run_role` and (where applicable) `dept_id` or `origin_d`, these fields with the stated values or provenance: `n_universe` (= 2,484), `n_after_dept_map` (= `n_universe`), `n_dropped_by_X1` … `n_dropped_by_X6` (per §7.2; X4 replaced by priced_weeks failure counted under §22.1), `n_e_chg3`, `n_e_u180`, `n_e_z182`, `n_e_pw52`, `n_e_cand`, `n_te6`, `n_trust_eligible`, `n_candidates_pre_event_filter`, `n_candidates_event_filtered`, `n_candidates_post_cap`, `n_price_0_01_weeks`, `n_feature_na_rows`, `n_floored_days_total`, `n_horizon_days_scored_total` (= 28 × 2,484), `backtest_accept_d1913`, `backtest_accept_d1885`, `backtest_A1_median_ape`, `backtest_A2_mean_signed_error`, `backtest_n_usable_items`, `backtest_n_U0_excluded`, `dept_backtest_MAE_revenue` (per dept), `n_legal_changes`, `n_raise`, `n_cut`, `n_unchanged`, `n_hold_ne`, `n_package`, `n_below_line`, and (if OD-1 is adopted per T3) `te6_dept_median_ape` (per dept) and `te6_rule_fired_counts` (`{absolute, dept_median, both, neither}`). Add to §23: "Reconciliation requires exact equality on every field of §22.4."
+
+ID: AI3-IC-02
+Section: §17.R7 (legal-change test) and §23 (reconciliation contract) — cent-rounding boundary
+06/07 row: 06 Appendix A step 7; RR-22; framework §20.4
+Severity: BLOCKING
+Issue: §17.R7 tests `round(R̂(Pc),2) − round(R̂(P0),2) > 0`. §23 gives continuous tolerances on `.pred_units_*`, `.pred_rev_*`, `delta_rev` (≤ 0.05 units, ≤ $0.05) but does not require equality on the cent-rounded values themselves. Two R paths can therefore produce unrounded predictions within tolerance and still differ on the sign of `round(R̂(Pc),2) − round(R̂(P0),2)`, flipping `legal_change` and, in turn, `action`. §23 makes such flips a FAIL with no repair rule. The spec is silent on which rounding is correct at the boundary.
+Exact required text: Add to §17.R7 (immediately after the inequality): "The cent-rounded deltas `round(R̂(Pc),2)` and `round(R̂(P0),2)` are exact-equality fields. Their difference `cent_delta_rev_i(Pc) = round(R̂(Pc),2) − round(R̂(P0),2)` is a reconciliation-exact field with tolerance 0.00." Add to §23's exact-equality list: "`cent_delta_rev_i(Pc)` at each candidate price." Add to §23's FAIL list: "A sign mismatch on `cent_delta_rev_i(Pc)` = FAIL; repair toward the locked `round(x, 2)` on each side, not toward averaging the unrounded values." The rounding function is base R `round()` on the unrounded double-precision value (framework §32 date/precision rule).
+
+ID: AI3-IC-03
+Section: §24.5 (M2 Spec→builder packet) — used gate classes with no packet row
+06/07 row: 06#37; framework §19A packet-completeness rule; framework §19A Design Gate addition item 6
+Severity: BLOCKING
+Issue: §24.5's table lists 20 gate rows and does not include three gate classes that the design uses: "Full analytical-unit universe" (the design requires every in-scope item visible with exactly one action per item — §7.1, §17.R1); "Non-enrolling actions" (hold_ne and unchanged are never promoted to raise/cut or into the package — §17.R9); "Lineage field mapping" (§24.4 requires snapshot/source/boundary/design_id/ml_mode/fixture_pack_sha256/sql_extract_sha256/capacity_stance on every judged export); and "Capacity/simulation labels" (`package_flag`, `below_line_flag`, `capacity_stance`; simulation N/A). Framework §19A fails Stage-4-ready if any used gate class lacks a packet row.
+Exact required text: Add these four rows to §24.5's table:
+- Gate: "Full analytical-unit universe" | Used: Yes | Clause cite: §7.1, §17.R1 | Fixture IDs: FX-MEMBER | R-A attestation: Required | R-B attestation: Required.
+- Gate: "Non-enrolling actions" | Used: Yes | Clause cite: §17.R9, §7.1 | Fixture IDs: FX-NOPAD, FX-HOLD-NE-PRICES, FX-UP0-ZERO | R-A attestation: Required | R-B attestation: Required.
+- Gate: "Lineage field mapping" | Used: Yes | Clause cite: §24.4 | Fixture IDs: N/A (not fixture-testable) | R-A attestation: Required (attest that all nine lineage fields in §24.4 are populated and equal to the frozen extract identity) | R-B attestation: Required.
+- Gate: "Capacity/simulation labels" | Used: Yes (capacity); Simulation N/A (06 Appendix A "Excluded alternatives") | Clause cite: §17.R9, §22.1, §22.4 | Fixture IDs: FX-NOPAD, FX-CAP25 | R-A attestation: Required | R-B attestation: Required.
+
+ID: AI3-IC-04
+Section: §20.1 / §20.5 / §22.1 / §24.4 — `sql_extract_sha256` computation undefined
+06/07 row: 06#36; RR-21; framework §20.5
+Severity: BLOCKING
+Issue: `sql_extract_sha256` is a required lineage field on the judged export (§22.1, §24.4) and §23 requires exact lineage equality. The extract is three logical tables (SALES_LONG, CALENDAR, PRICES). §20.5 does not define which bytes are hashed, in what order, with what normalization (line endings, column order, delimiters, UTF-8). Two R paths can compute different hashes on the same extract and fail lineage equality for a non-substantive reason.
+Exact required text: Add to §20.5: "`sql_extract_sha256` is the SHA-256 (hex, lowercase, no separators) of the concatenated bytes of the extract manifest file. The manifest lists each delivered file as one line, in lexicographic ascending order of the file path, with `path | byte_length | file_sha256` (pipe-separated, LF line endings, UTF-8, no trailing whitespace). `fixture_pack_sha256` is computed on the fixture-pack manifest by the identical rule. Both R outputs must carry equal values for both hashes; a mismatch is a FAIL on the §23 lineage-equality check." Also add to §21 as item 21: "Extract manifest exists at the path recorded in §24.4, with the byte layout above."
+
+ID: AI3-IC-05
+Section: §21 item 19 — position 0 → d_1 check is a 2-point spot check
+06/07 row: none – framework §20.2 ("mechanical-envelope completeness"); Dossier §9 ("position-to-`d` spot checks and full multiset checksum if possible")
+Severity: BLOCKING
+Issue: §21 item 4 (per-item unit sums equal JSON sums) is position-invariant: a cyclic rotation, reversal, or index shift of the JSON array passes item 4 and item 19. Item 19 checks only position 0 and position 1940 of a 1,941-element array. A middle-array mis-mapping (e.g., an off-by-one on the ordinality column) is not caught by the current 20 conditions and would silently shift units onto adjacent calendar days, mis-aligning SNAP and event features for every item.
+Exact required text: Replace §21 item 19 with: "19. Position mapping full check. For each of the 2,484 envelope items, the multiset of (JSON position index, unit value) pairs equals the multiset of (d-index, delivered units) pairs. The Gate may implement this as a per-item SHA-256 of the canonical serialization `pos=<int>;u=<int>\n` for pos ascending, compared against the same hash of the delivered SALES_LONG rows sorted by `d` for that item, or an equivalent full-row comparison. Position 0 → d_1 and position 1940 → d_1941 = 2016-05-22 remain as required spot checks of the same condition."
+
+ID: AI3-IC-06
+Section: §20.3 — required casts list incomplete
+06/07 row: Dossier §3 (varchar typing); framework §20.1
+Severity: NON-BLOCKING
+Issue: §20.3 casts `units → integer`, `sell_price → DECIMAL(10,2)`, `wm_yr_wk → integer`, `d → integer`. §21 items 15 and 16 assert `wday ∈ 1…7` and `snap_CA ∈ {0,1}`; §13.3/§17A.5 also use `month` (factor) and `event_type_1` (factor). `raw_calendar.wday`, `snap_CA`, `month`, `year`, and `event_type_1` are stored as varchar and must be cast. Without a stated cast, a builder may compare a varchar `wday` against `1..7` lexically (e.g., '1' < '2' < '3' < '4' < '5' < '6' < '7' happens to be consistent, but `snap_CA = '1'` vs `snap_CA = 1` is not), or `event_type_1 = 'National'` may fail on trailing whitespace.
+Exact required text: Replace §20.3 with: "Required casts in SQL: `units → SIGNED INTEGER`; `sell_price → DECIMAL(10,2)`; `wm_yr_wk → UNSIGNED INTEGER`; `d index → UNSIGNED INTEGER`; `raw_calendar.wday → UNSIGNED INTEGER`; `raw_calendar.month → UNSIGNED INTEGER`; `raw_calendar.year → UNSIGNED INTEGER`; `raw_calendar.snap_CA → UNSIGNED INTEGER` (domain {0,1}); `raw_calendar.event_type_1` and `event_name_1` trimmed of leading and trailing whitespace, empty string normalized to NULL at delivery; `raw_calendar.event_type_2` and `event_name_2` treated the same. TRIM applies to all varchar columns." Add to §21: "22. TRIM applied on all varchar-delivered categorical fields; event_type_1 and event_name_1 blank → NULL; domain wday ∈ 1..7 and snap_CA ∈ {0,1} verified across all rows."
+
+ID: AI3-IC-07
+Section: §23 exact-equality list — `gain_below_half_mae` not compared
+06/07 row: 06#18; RES-12
+Severity: NON-BLOCKING
+Issue: §22.1 requires `gain_below_half_mae` on the universe table. §23 does not list it in either the exact-equality set or the fail set. Because it is a boolean derived from `delta_rev` and `dept_backtest_MAE_revenue`, near-threshold items can legitimately disagree while every other recon field matches.
+Exact required text: Add `gain_below_half_mae` to §23's exact-equality list, with the note: "Because `delta_rev` carries a 0.05 tolerance, `gain_below_half_mae` is compared after both R paths round `delta_rev` to 4 decimal places; the flag is exact equality on that rounded value." Alternatively, define `gain_below_half_mae` as a diagnostic-only field that is not reconciled, and record that choice in §23 in place of the ambiguity.
+
+ID: AI3-IC-08
+Section: §21 item 20 — post-attachment row count not asserted
+06/07 row: Dossier §9 (join multiplicity)
+Severity: NON-BLOCKING
+Issue: §21 item 20 asserts "≤ 1 price row per item-day" but does not assert that the price attachment preserved the SALES_LONG row count. A multiplicity bug (e.g., a join on `wm_yr_wk` without the item and store keys) that creates one row per item-day × all priced items in the same week would pass item 20's "≤ 1 per item-day" interpretation only if the test is per (store, item, d); if the test is looser, the fan-out is not caught.
+Exact required text: Add to §21 item 20: "After mechanical price attachment, SALES_LONG has exactly 4,821,444 rows, and every (store_id, item_id, d) key appears exactly once."
+
+ID: AI3-IC-09
+Section: §20.4 — prohibited list should enumerate eligibility integers
+06/07 row: 06#30; Dossier §8.2
+Severity: NON-BLOCKING
+Issue: §20.4 prohibits "eligibility" as a class. A Stage 4 SQL author could still compute derived per-item fields that are not labeled "eligibility" but function as it (e.g., `priced_weeks`, `n_distinct_prices_pre`, `n_price_changes_pre`, `units_365`, `zero_days_365`, `first_priced_wk`, `first_positive_d`). The design's principle is that these judged integers are computed in R (Dossier §8.2).
+Exact required text: Expand §20.4 to: "Prohibited precomputes in SQL: eligibility; TE flags; any of `n_price_changes_pre`, `n_distinct_prices_pre`, `priced_weeks_pre`, `units_365`, `zero_days_365`, `first_priced_wk`, `first_positive_d`; candidates; trailing features keyed to origin; `item_mean_log1p_units`; `.pred`; actions; ranks; flags; distinct-price counts. SQL may deliver only the source fields listed in §20.1."
+
+ID: AI3-IC-10
+Section: §24.1 fixture FX-CENT-ROUND — stub wording ambiguous
+06/07 row: 06 Appendix A step 7; §17.R7
+Severity: NON-BLOCKING
+Issue: The fixture states "Stub R̂(Pc) − R̂(P0) = 0.004 (rounds to 0.00)". §17.R7 tests `round(R̂(Pc), 2) − round(R̂(P0), 2)`, not `round(R̂(Pc) − R̂(P0), 2)`. These differ at half-cent boundaries (e.g., R̂(Pc) = 1.005, R̂(P0) = 1.001 gives a stub of 0.004 but round-then-subtract depends on the rounding rule applied to each side). A builder implementing §17.R7 exactly will pass the fixture; a builder who stubs the difference and rounds it will pass the fixture by accident and fail the real test at half-cent boundaries.
+Exact required text: Replace the setup in FX-CENT-ROUND: "Stub R̂(Pc) = 1.004, R̂(P0) = 1.000 (so `round(R̂(Pc),2) − round(R̂(P0),2) = 0.00`). Expected: legal_change = 0; action = unchanged." And add FX-CENT-ROUND-HALF: "Stub R̂(Pc) = 1.005, R̂(P0) = 1.000 (so `round(R̂(Pc),2) − round(R̂(P0),2)` = 0.00 or 0.01 depending on rounding convention). Expected: the fixture states the intended convention explicitly (the design uses base R `round()` per §17.R7); both R paths must produce the same cent_delta_rev per AI3-IC-02."
+
+ID: AI3-IC-11
+Section: §20.2 — permitted join list not stated explicitly
+06/07 row: 06#30; Dossier §8.2
+Severity: NON-BLOCKING
+Issue: §20.2 lists permitted mechanical transformations (envelope, unnest, casts, calendar attach) but does not enumerate the permitted joins. §19 item 4 relies on a calendar-to-SALES_LONG join on `d`. Framework §20.1 requires "permitted mechanical joins" as a distinct field.
+Exact required text: Add to §20.2: "Permitted mechanical joins: CALENDAR ↔ SALES_LONG on `d` (one-to-many; attaches `wm_yr_wk`, `date`, `wday`, `month`, `year`, `event_name_1`, `event_type_1`, `event_name_2`, `event_type_2`, `snap_CA`). No other joins are permitted in SQL. In particular, joining CALENDAR to PRICES directly on `wm_yr_wk`, or SALES_LONG to PRICES without `wm_yr_wk`, is prohibited."
+
+ID: AI3-IC-12
+Section: §24.1 FX-LEAK-11618 — clause cite
+06/07 row: §8.3, §20.4
+Severity: NON-BLOCKING
+Issue: FX-LEAK-11618's clause cite is currently §17.R4 (candidate construction). The lock against using 11618+ prices is §8.3 (leakage boundary), §17A (allowed/forbidden features), and §20.4 (prohibited precomputes), not §17.R4 alone. The fixture is correct; the clause cite is incomplete.
+Exact required text: Change FX-LEAK-11618's clause cite to "§8.3, §17A.5–17A.6, §20.4."
+
+## T3 — OD-1 (TE6, "the forward four-week expectation is not a guess")
+
+Decision: **(ii) ADOPT WITH AMENDMENT.** The coordinator's 06#8 rule is the correct construct; the amendment is confined to closing the determinism gaps that R-A and R-B would otherwise have to invent.
+
+Rationale from the SQL→R lens (3–8 lines):
+No evidence at Stage 3 could ground any specific APE cap: no model fits exist, and framework §25 bars production analysis before lock. The 0.50 cap is therefore a disclosed coordinator proposal, and the honest choice is to keep it as a proposal — locked because reconciliation requires one, not because evidence supports it. The model-level collapse (06#28) remains the population-level control: if median APE > 0.40 or bias exits [−0.20, +0.20], every trust-eligible item is hold_ne, so the 0.50 item-level cap only binds when the model as a whole has already been accepted; it is a per-item tail, not a substitute. The dept-median branch is defensible but fragile: with few usable items the median is unstable, and adding one item can flip an existing item's TE6; a floor of 5 usable items before the branch is applied keeps it deterministic. "No usable slice" must be defined or Stage 4 invents one; 06#8 currently does not. Finally, three emitted fields (`te6_ape_i`, `te6_dept_median_ape`, `te6_rule_fired`) are needed for §23 to test TE6 exactly, and none appears in the current v4.
+
+Exact amended rule (replaces the RES-09 body text):
+
+> TE6 passes iff the item has a usable d_1913 backtest slice AND (APE_i ≤ 0.50 OR APE_i ≤ the median APE over usable items in its department), where:
+> - A usable slice means: E_A true when re-anchored at d_1913 (n_price_changes ≥ 3 at weeks ≤ 11613; units_365 over d_1549–d_1913 ≥ 180; zero_days_365 over the same window ≤ 182; priced_weeks ≥ 52 at weeks ≤ 11613); the price is the same in weeks 11613, 11614, 11615, 11616, 11617; and realized units d_1914–d_1941 > 0.
+> - APE_i = abs(Û_i(P0_bt) − U_i) / U_i, where P0_bt = week-11613 price, Û_i is the 28-day summed prediction over d_1914–d_1941, U_i is realized units d_1914–d_1941.
+> - If fewer than 5 usable items exist in the item's department, the dept-median branch is not applied; only the absolute 0.50 cap decides that item's TE6.
+> - Items without a usable d_1913 slice fail TE6 → action = hold_ne.
+> Emit `te6_ape_i`, `te6_dept_median_ape`, `te6_usable_slice ∈ {0,1}` and `te6_rule_fired ∈ {absolute_only, dept_median_only, both, neither}` on the universe row; these four fields are reconciliation-exact per §23. If the audits converge on this amendment, OD-1 becomes Locked-proposed at lock; otherwise OD-1 becomes an owner choice at lock per 06 §F.
+
+Note on the interaction with 06#28: TE6 is evaluated at d_1913 for all universe items in the R pipeline regardless of whether the model collapses. If `backtest_accept = 0`, every trust-eligible item becomes hold_ne by §17.R8 (Appendix A step 8); TE6's value in that state is only a diagnostic. The design must state this ordering so R-A and R-B do not differ on whether TE6 is computed for items whose trust collapses: §17.R6 must be extended with "te6 is computed before the §17.R8 collapse test; the collapse rule then overrides actions and does not delete the te6 field."
+
+## T4 — RES-17 and RES-18
+
+**RES-17 (§18 statuses vs framework §7 status vocabulary):** CONFIRM as written; keep 07's lifecycle statuses in the §18 register and add a one-line mapping footnote. Framework §18 gives the register its own Status column with the values Resolved / Accepted / Open / Blocking / Deferred; framework §7's vocabulary governs field statuses in the body and M3, not the register. The two vocabularies should coexist rather than one replacing the other. Exact added text (single line, at the top of §18):
+
+> "Status vocabulary in §18 is the framework §18 register vocabulary (Resolved, Accepted, Open, Blocking, Deferred). Mapping from framework §7 field statuses: Locked-proposed field → Resolved (design) or Accepted per that row's own control; Owner choice pending field → Open (owner); Open field → Open (design); Disputed field → Open (disputed). The field statuses themselves live in M3 and the body, not in this register."
+
+Severity: NON-BLOCKING.
+
+**RES-18 (§21 items 19–20):** CONFIRM. Both items are within the 06#31 scope "Design B §21 plus Dossier §9 additions": item 19 is the positional-mapping check (Dossier SQL-02) and item 20 is the per-item-day price-uniqueness check (Dossier SQL-03). Both have numeric pass conditions and are consistent with profiles P01 Q1–Q3 and P04 Q4. The two items stay. My AI3-IC-05 and AI3-IC-08 strengthen items 19 and 20 respectively; those strengthenings are new findings, not replacements of the items themselves.
+
+Severity: NON-BLOCKING.
+
+END OF AUDIT PART 3
+
+AUDIT VERDICT: Pass with required revisions

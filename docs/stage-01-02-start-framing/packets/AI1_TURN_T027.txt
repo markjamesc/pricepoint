@@ -1,0 +1,4 @@
+STAKEHOLDER REPLY (T026, verbatim):
+"Nothing new that would make me throw one out beyond what I've told you. One thing to keep in mind, though: whatever the GM signs off gets piloted, not rolled out blind. I know past price and sales patterns aren't proof of what a new price will actually do, so don't dress them up as a guarantee. Give me your honest expectation and I'll treat it as something to test."
+
+Return SECTION 1 (T027 stakeholder message: acknowledge, then one question) and SECTION 2 (internal note: Start Gate elements established vs missing, plan). When you judge that every Start Gate element is established, SECTION 1 should instead present the proposed decision statement to the stakeholder and ask her to confirm or correct it.

@@ -1,0 +1,14 @@
+{
+  "change_id": "CC-S3-01",
+  "step": "design",
+  "reason": "The Stage 3 lock receipt (sha256 2781221592adcb9d25c3c4611e72e9dc5d13d2f308413caac2b173258562f56b) omits fields the Workflow Gates require at Stage 4 completion: decision_statement, analytical_question, decision_horizon, historical_lookback, price_definition, unit_sales_definition, revenue_definition, action_classes, uncertainty_rule, claim_strength_ceiling, source_delivery_contract, ranking_contract (required by capacity_stance hard_attention_budget), and a flat reconciliation_critical_fields list. Receipt v2 adds them from the Stage 1/2 receipts and design v5.2 (sha256 2065773c3224dd6eb083ef6b8f57deb88786ee1742d7da5f66f7fdf825278957); no design change; design_version unchanged.",
+  "approval_text": "I approve Stage 3 receipt v2 (sha256 a68575d5aa0ac0c431a1d308fe477eac53c90eefaebcbb880c68ffca783ab9e3) under CC-S3-01, including the proposed historical_lookback, price_definition and 75-field reconciliation list",
+  "approval_timestamp": "2026-09-25T12:18:00-05:00",
+  "superseded_sha256": "2781221592adcb9d25c3c4611e72e9dc5d13d2f308413caac2b173258562f56b",
+  "new_sha256": "a68575d5aa0ac0c431a1d308fe477eac53c90eefaebcbb880c68ffca783ab9e3",
+  "archive_path": "artifacts/procedure/amendments/CC-S3-01/stage3_locked_design.v1.json",
+  "run_id": "PRICEPOINT-001",
+  "new_receipt_path": "docs/stage-03-measurement-design/change-control/CC-S3-01/stage3_locked_design.v2.json",
+  "route_approval_text": "I approve change control CC-S3-01: route A (add an owner-approved receipt-amendment step to the workflow procedure gate, then record Stage 3 receipt v2 in PRICEPOINT-001), and Stage 4 work may proceed meanwhile.",
+  "route_approval_timestamp": "2026-09-25T11:47:00-05:00"
+}

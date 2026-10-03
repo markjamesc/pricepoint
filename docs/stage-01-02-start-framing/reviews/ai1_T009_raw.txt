@@ -1,0 +1,90 @@
+## SECTION 1 — STAKEHOLDER MESSAGE (T009)
+
+Thanks, Morgan. That helps define the decision scope: you want recommendations at the product-by-store level rather than assuming one price decision applies everywhere. For this first round, you want to focus on one California pilot store and the everyday grocery and household aisles, while avoiding recommendations based on products with little sales activity or no meaningful price history.
+
+To define the remaining scope, what should determine whether a product is eligible for this first pricing review — for example, should we focus on products with a minimum sales volume, prior shelf-price changes, or another business rule?
+
+---
+
+## SECTION 2 — INTERNAL NOTE (not sent)
+
+**Start Gate status:** Not yet complete.
+
+### Established
+
+**Decision owner:**
+Established.
+
+* Morgan Lee makes the recommendation.
+* Store general manager signs off.
+
+**Action or choice:**
+Established.
+
+* Raise shelf price.
+* Take a targeted price cut.
+* Leave shelf price unchanged.
+
+**Outcome:**
+Established.
+
+* Maximize expected product revenue after the change.
+* Revenue = units sold × shelf price over the weeks after the change.
+
+**Material constraint:**
+Established.
+
+* Reject recommendations expected to reduce units by more than approximately 10%.
+* Price cuts are acceptable if they increase units while maintaining acceptable revenue.
+
+**Product/store grain:**
+Established.
+
+* Decision unit is each product at a specific store.
+* Initial scope is one California pilot store.
+
+**Initial category scope:**
+Partially established.
+
+* Everyday grocery and household aisles are in scope.
+* Exact departments not yet selected.
+
+**Analytical relevance:**
+Established.
+
+* Sales and price history are intended to support the raise/cut/hold recommendation.
+
+### Still missing
+
+**Product eligibility boundary:**
+Missing.
+
+* Morgan does not want guesses on products with no meaningful price movement or low sales.
+* Need a stakeholder-defined eligibility principle or rule before finalizing scope.
+
+**Time scope:**
+Partially missing.
+
+* Post-change evaluation is “weeks after the change.”
+* Need exact review deadline and evaluation horizon.
+
+**Information available at decision time:**
+Missing.
+
+* Need to establish what evidence Morgan expects to have available during the pricing review.
+
+**Uncertainty tolerance:**
+Missing.
+
+* Need to establish how much uncertainty is acceptable before recommending a price action.
+
+**Stakeholder confirmation of final decision statement:**
+Not yet ready.
+
+* Remaining scope and timing details are still required before presenting the final Start statement.
+
+### Plan
+
+Continue resolving the remaining Start Gate elements.
+
+The next priority is defining product eligibility because Morgan has explicitly constrained the review to avoid unsupported recommendations. After eligibility, resolve time horizon, available decision information, and uncertainty tolerance. Once all Start Gate elements are established, present the proposed decision statement for Morgan’s confirmation or correction.

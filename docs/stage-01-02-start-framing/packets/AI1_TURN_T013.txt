@@ -1,0 +1,4 @@
+STAKEHOLDER REPLY (T012, verbatim):
+"We review prices every four weeks, and whatever we set holds until the next review, so the next four weeks — 28 days — is the window I care about. For this exercise, treat the review as happening right at the end of the most recent history you have, and only use what we'd actually know as of that day."
+
+Return SECTION 1 (T013 stakeholder message: acknowledge, then one question) and SECTION 2 (internal note: Start Gate elements established vs missing, plan). When you judge that every Start Gate element is established, SECTION 1 should instead present the proposed decision statement to the stakeholder and ask her to confirm or correct it.

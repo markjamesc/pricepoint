@@ -1,0 +1,57 @@
+
+Five-Stage Workflow Gate
+========================
+Stage 1 artifact exists                        PASS
+Stage 1 artifact parses                        PASS
+Stage 2 artifact exists                        PASS
+Stage 2 artifact parses                        PASS
+Stage 3 artifact exists                        PASS
+Stage 3 artifact parses                        PASS
+Stage 4 artifact exists                        PASS
+Stage 4 artifact parses                        PASS
+Stage 1 required fields                        PASS
+Stage 1 locked                                 PASS
+Stage 2 required fields                        PASS
+Stage 2 locked                                 PASS
+Stage 3 required fields                        PASS
+Stage 3 locked                                 PASS
+Stage 4 required fields                        PASS
+Stage 4 used locked Stage 3 version            PASS
+Stage 4 sql_source_gate                        PASS
+Stage 4 fixtures                               PASS
+Stage 4 r_a_status                             PASS
+Stage 4 r_b_status                             PASS
+Stage 4 reconciliation                         PASS
+Stage 4 validation_gate                        PASS
+Stage 4 unresolved issues                      PASS
+Stage 4 overall status                         PASS
+Capacity stance explicit                       PASS
+ML mode explicit                               PASS
+Ranking contract locked                        PASS
+Structural cross-review PASS                   PASS
+Fixture identity                               PASS
+Model requirement matches ML mode              PASS
+Model validation matches ML mode               PASS
+Evidence receipt roles                         PASS
+Receipt hash source                            PASS
+Receipt metadata source                        PASS
+Receipt hash fixtures                          PASS
+Receipt metadata fixtures                      PASS
+Fixture scorecard                              PASS
+Receipt hash reconciliation                    PASS
+Receipt metadata reconciliation                PASS
+Reconciliation scorecard                       PASS
+Receipt hash structural                        PASS
+Receipt metadata structural                    PASS
+Receipt hash validation                        PASS
+Receipt metadata validation                    PASS
+Receipt hash lineage                           PASS
+Receipt metadata lineage                       PASS
+Lineage contents                               PASS
+Receipt hash model                             PASS
+Receipt metadata model                         PASS
+------------------------
+OVERALL: PASS 
+STAGE 5 ALLOWED: YES 
+REPORT: C:\Users\Mark\Documents\R Working Directory\pricepoint/artifacts/workflow_gate_status.json 
+

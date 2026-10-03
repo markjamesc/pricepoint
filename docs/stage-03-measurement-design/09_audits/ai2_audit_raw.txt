@@ -1,0 +1,208 @@
+PRICEPOINT-001 Stage 3 Phase 7 — AI 2 methodological audit, Part 1
+
+Verdict: Pass with required revisions. The locked 06 contract is methodologically adequate on hypothesis, KPI/baseline, guardrail construct, candidate construction, leakage, causal ceiling, and Mode A use-test. Candidate v4 is not auditable as written: Appendix A decision pipeline, Mode A recipe/folds/features, backtest A1–A2, eligibility windows, and the DIP decision paragraph are missing or inverted. Those defects are transcription gaps against 06; each closes by the exact 06/Design B text cited in RES-01…RES-16 plus the OD-1 amendment in Part 3. No redesign and no new owner decision beyond OC-1…OC-4 / OD-1. Human approval and Design Gate remain unpassed.
+
+### T1 — RES-01…RES-18
+
+| RES | Decision | Severity | Rationale / amended text |
+|---|---|---|---|
+| RES-01 | CONFIRM | BLOCKING | §17.R1–R9 as written is a different pipeline than 06 Appendix A. Builders would invent action, Û(P0)=0, unrounded argmax, and no-pad listing. Required: copy 06 Appendix A steps 1–9 verbatim as §17.R1…§17.R9. |
+| RES-02 | CONFIRM | BLOCKING | After RES-01, every M1/M2 clause cite and M4-001…M4-014 must be re-keyed to Appendix A numbering. Fixtures themselves stay. Add testable M4 lines for “not trusted → hold_ne” and “Û(P0)=0 → hold_ne”. |
+| RES-03 | CONFIRM | BLOCKING | v4 “Standardization: off on recipe side” inverts 06#23 and changes glmnet coefficients. Required: “glmnet internal standardization off (`standardize = FALSE`); center/scale numeric predictors on the recipe using training-window moments only.” |
+| RES-04 | CONFIRM | BLOCKING | Invented recipe order and missing dummy reference levels change the design matrix. Required (06#23 + Design B §17A): `log_sell_price = ln(sell_price)` → dummy-encode with fixed references wday=1 (Saturday), month=1, dept_id=FOODS_3, event_type_1=none → center/scale numerics on training-window moments → exactly one interaction = (scaled log_sell_price) × snap_CA. Raw sell_price is not a predictor. No item_id dummies. û = max(0, û_raw), no integer rounding. |
+| RES-05 | CONFIRM | BLOCKING | Generic “lagged units” / “all trailing anchored at origin” is not 06#24 and would leak or disagree across builders. Required feature list, windows, item_mean_log1p_units (with CV-fold leak disclosed), and NA-drop rule exactly as RES-05 states. n_snap_next_28_known stays dropped (§F). |
+| RES-06 | CONFIRM | BLOCKING | Training universe, fold cuts, penalty grid, tie→larger penalty, and refit are Mode A lock fields (framework §17A / FORWARD). Required text as RES-06 (06#27). |
+| RES-07 | CONFIRM | BLOCKING | Lost P0_bt=week 11613, re-anchored windows, A1/A2 formulas, U=0 exclusion, collapse scope, and d_1885-as-stability-only. Required text as RES-07 (06#28). Caps remain provisional policy, disclosed before execution. |
+| RES-08 | CONFIRM | BLOCKING | Eligibility integers without windows are not reproducible. Required: lifetime n_price_changes weeks ≤ 11617; units_365 and zero_days_365 on d_1577–d_1941; priced_weeks = price-row count ≤ 11617; leading-zero rule as 06#7; §7.4 label correction (274 before candidate-exists); DC-2 statement that true last-104-calendar-week ≥3 changes = 232, lifetime rule kept on T010. |
+| RES-09 | AMEND | BLOCKING | Body must contain an operational TE6 rule; v4’s one-line M3 summary is not implementable. Do not copy the 0.50 cap as if evidenced. Exact amended rule is T3 (Part 3). Status stays Open until lock adopts that text as Locked-proposed. |
+| RES-10 | CONFIRM | BLOCKING | Lost wday/SNAP/forward-calendar rules let builders recode weekdays or use snap_TX/WI (AI2-F18). Required text as RES-10 (06#10 + §F). |
+| RES-11 | CONFIRM | NON-BLOCKING as wording, BLOCKING if twins can mutate actions | Required sentence: “Each twin reports package-membership overlap with the judged package. None changes a judged action.” T1: 5 of 2,484 items differ between weeks 11616 and 11617 (P03). |
+| RES-12 | AMEND | BLOCKING for the field definition; no-MAE sub-point NON-BLOCKING | Required MAE definition as RES-12 / 06#18 / AI3-M-09. Added no-MAE sentence: “If a department has no d_1913 trust-eligible constant-price item, `dept_backtest_MAE_revenue` is undefined and `gain_below_half_mae` = NA (not 0). The flag never changes action or rank.” |
+| RES-13 | CONFIRM | BLOCKING | M3/§26.2 omit 06 §C alternatives and counts (363 / 274 / 177 / 784; OC-1 three scopes). Required: copy 06 §C OC-1…OC-4 verbatim. §7.1 must state the five-dept universe is subject to OC-1. |
+| RES-14 | CONFIRM | BLOCKING | §2 is a paraphrase that drops cycle/hold-28-days, information set, “about 25”, and “expectations to test rather than guarantees,” and collapses hold vs hold_ne. Required: the single DIP §A approved-decision paragraph quoted in the audit prompt, no bullets. |
+| RES-15 | CONFIRM | BLOCKING | §25 invents DC-4 and substitutes non-06 §E items. Gate 11 relies on this record. Required restorations as RES-15 (06 rows 1–39 names, DC-3 cite, DC-4 = FX-HUNG citation error, §E 1–8 verbatim, §F three bullets). |
+| RES-16 | CONFIRM | NON-BLOCKING | Treatments already live in 07 and §17A; 06#21 still locks Design B C1–C12 order plus P04 40.22% vs 47.23% under C1. Restore that ledger. Not a new methodological choice. |
+| RES-17 | AMEND | NON-BLOCKING | Keep 07 lifecycle statuses in §18 (they describe residual Stage-4 risk, which framework §7 Locked/Open cannot express). Add a parallel framework field-status column: Locked-proposed / Owner choice pending / Open, matching M3. Do not relabel “Accepted” or “Open until Stage 4” as Locked. |
+| RES-18 | CONFIRM | NON-BLOCKING | §21 items “position 0 → d_1, 1940 → d_1941 = 2016-05-22” and “≤ 1 price row per item-day” are inside 06#31 (“Design B §21 plus Dossier §9 additions”). Keep both. |
+
+END OF AUDIT PART 1PRICEPOINT-001 Stage 3 Phase 7 — AI 2 methodological audit, Part 2 (lens M1–M7)
+
+## M1. Model contract §17A (06#23–27; RES-03…06, RES-12)
+
+Mode A is correctly declared. FORWARD use-test is met: `.pred` changes action and capacity rank before Validation freeze. Mode B cannot rank the package; Mode None is out of scope.
+
+Two independent builders can fit the *same* model only after RES-03…06 are transcribed. Assessed against 06, not against v4’s inverted/generic text:
+
+- Family / engine / mixture / seed. 06#23 lock `linear_reg` + `glmnet`, `mixture = 0.5`, regression. Seed is a recon aid (RR-22), not a substitute for locked folds and grid. Proportionate: inspectable log-price slope is the right class given C1 endogeneity. A forest would hide the slope the hypothesis claims to test.
+- Standardization. RES-03 is correct as written. glmnet-internal `standardize = FALSE`; center/scale on the recipe from training-window moments. v4’s “off on recipe side” would double-scale or not scale and will not recon.
+- Recipe order and dummy references. RES-04 is correct as written. Order: `log_sell_price = ln(sell_price)` → dummies with wday=1, month=1, dept_id=FOODS_3, event_type_1=none → center/scale numerics → one interaction `(scaled log_sell_price) × snap_CA`. Raw `sell_price` is not a predictor. No `item_id` dummies (C10). Floor `û = max(0, û_raw)`, no integer rounding.
+- One interaction. Locked and fixture-bound (FX-INTERACT). Adding SNAP×month or price×event after seeing results would be a new material choice.
+- Feature list. RES-05 is correct as written. Allowed: log_sell_price, wday, month, snap_CA, event_type_1, event_any, is_memorial_day_window, is_nba_finals, trailing_28d_units, trailing_84d_units, trailing_28d_mean_price, dept_id, item_mean_log1p_units. Dropped: `n_snap_next_28_known` (§F; calendar ends d_1969) and raw sell_price. “Lagged units” is not a 06 feature.
+- Training-row vs horizon-row trailing windows. RES-05 windows are correct and are the leakage control. Training: t−28…t−1 and t−84…t−1. Horizon/backtest rows freeze at origin o (live: Σ d_1914…d_1941 and Σ d_1858…d_1941). FX-TRAIL-ANCHOR tests this. Rolling the window across d_1942–d_1969 would use unknown sales.
+- NA rule. Drop incomplete training rows and count them (06#24 c). Do not impute.
+- Target and aggregation. Observed daily units d ≤ origin, winsorized at item p99 with R quantile type 7; horizon = sum of 28 floored daily predictions (06#26). Not “future horizon units.” Construct-valid for a 28-day sum; flooring bias is accepted and audited (`n_floored_days`, RR-26).
+- Training rows. All 2,484 universe items’ priced complete item-days with d ≤ origin, not only trust-eligible items. Correct: the slope is pooled; eligibility is a decision gate, not a training filter. Filtering train to E_A would bake the trust rule into the estimator.
+- Fold cuts / penalty grid / ties / refit. RES-06 is correct as written. Live 1–388 / 389–776 / 777–1164 / 1165–1552 / 1553–1941; backtest D=1913 and stability D=1885 cuts as listed. Select minimum mean held-out daily-unit RMSE; ties → larger penalty; refit on the full window. Shared fold dates and grid are spec, not a shared model object.
+
+item_mean_log1p_units CV leak (06#24 b): disclosed limitation, not hidden leakage of *horizon* outcomes. It uses held-out CV days inside the training window. Residual: the proxy is slightly optimistic on CV RMSE. Do not compute the proxy on the full live window and then pretend CV is clean. Acceptable for a level control; not a substitute for item FE.
+
+RES-03, RES-04, RES-05, RES-06: each is correct as written.
+
+## M2. Backtest §16 (06#28; RES-07)
+
+- Origin d_1913 and P0_bt = week 11613. Correct analogue of live d_1941 / week 11617 (P01 Q4: 11613 = 2016-04-23…04-29; d_1913 = 2016-04-24 falls in that week). Horizon d_1914–d_1941 is fully observed. No post-origin sales or prices enter.
+- Re-anchored eligibility: units_365 on d_1549–d_1913; changes and prices at weeks ≤ 11613. Required so TE is not scored with post-pseudo-origin information.
+- Acceptance set = trust-eligible at the pseudo-origin with constant actual price in weeks 11613–11617 for A1/A2 calibration (constant-price subset avoids mixing a changing realized price into a constant-price predictor). RES-07’s U=0 exclusion from A1/A2 is required (APE undefined).
+- A1 median APE ≤ 0.40 and A2 mean signed error in [−0.20, +0.20]. These are provisional policy caps, pre-registered, not SLAs, not empirically tuned on this panel (no fits exist; R7). Proportionate as a *model-level* kill-switch: if the 28-day unit sum is typically off by more than 40% or biased by more than 20%, T040’s “not a guess” fails for the scoring system. They are not item-level elasticity tests.
+- A3 Spearman vs calendar-only on items that actually changed price: identification diagnostic, non-binding. Correct. Making A3 binding would smuggle a causal test into a predictive gate.
+- A4 / collapse: failure of A1 or A2 → every trust-eligible item → hold_ne, including model-based unchanged. List still produced. Scope is proportionate: if the instrument is unaccepted, “leave unchanged” is also a model claim. Collapse does not pad or invent raises.
+- d_1885 is stability only (P0 = week 11609). Must not retune A1/A2 after seeing d_1885.
+- Leakage: none if windows and P0_bt stay pre-origin. Risk is using live 11617 prices or d>1913 sales in the backtest fit.
+
+RES-07 is correct as written.
+
+## M3. Eligibility and trust (§7; 06#5–8; OC-2; RES-08, RES-13)
+
+Population alignment: universe = 2,484 CA_1 grocery/household items, one visible action each (T020). Thin HOUSEHOLD_2 (3 E_A items) stays in the universe. Correct. Silent dept drop would be a new scope choice (OC-1).
+
+E_A conjuncts and windows (after RES-08):
+
+- n_price_changes ≥ 3, lifetime, weeks ≤ 11617 — T010 “at least a few times in the history.”
+- units_365 ≥ 180 on d_1577–d_1941 — sells enough to see a change.
+- zero_days_365 ≤ 182 — “steadily,” not a majority-zero series (P02: 1,434/2,484 items fail this).
+- priced_weeks ≥ 52 — listing-age guard; P04: non-binding on E_A (removes 0); binds 9 universe items.
+- n_candidates ≥ 1 — T034/T040 “price has actually moved” into a printable alternative.
+
+Leading-zero rule: eligibility uses the raw 365-day window exactly as profiled; training starts at first priced day; first positive sale d is audit-only. Correct (AI3-M-02). Adjusting the 365-day window for list date would break P04 reproducibility.
+
+OC-2 counts (RES-13): E_A + pw52 + candidate-exists = 363 (29/99/172/60/3); E_A ∧ nd ≥ 4 = 274 before candidate-exists (273 or 274 after); E_C = 177; E_B = 784. These match P04. Coordinator recommendation E_A (363) is defensible on T010. It sits above the owner-side ~200–300 preference (DC-3), which is *not* a stakeholder lock (AI2-F15). Owner must pick A vs A∧nd≥4 at lock. Not a methodological defect.
+
+Construct vs T040 trust definition:
+
+- “Price has actually moved” → n_price_changes ≥ 3 + candidate-exists (observed own prices).
+- “Sells enough to see what happened” → units_365 and zero_days_365.
+- “Forward four-week expectation is not a guess” → TE6 (OD-1) plus model-level A1/A2 collapse.
+
+Lifetime ≥3 rather than last-104-week ≥3 is still right after DC-2 (true recent count = 232, not 30). T010 says “in the history.”
+
+TE6: see T3. Without an operational TE6, the third T040 prong is an empty sentence and builders will invent one (RR-12).
+
+## M4. Guardrail and legality (§11.1, §17.R7; 06#13, 06#17; OC-3)
+
+- ρ̂ = Û(Pc)/Û(P0) ≥ 0.90 is a valid operationalization of T006 “more than about 10 percent.” It is a policy lock, not a natural boundary. Denominator is predicted current-price units on the same 28 days — the only denominator that does not dump Memorial Day / SNAP 6/1–6/10 into the price effect (06#12).
+- Û(P0)=0 → hold_ne. Required. Otherwise ρ̂ is undefined and a builder will treat 0/0 as pass or inf.
+- 0.85 / 0.95 twins are diagnostics only (RES-11 sentence required). They must not emit a second package.
+- ΔR̂ > 0 after cent rounding (`round(x, 2)` in R) implements “revenue holds” for cuts and blocks 0.004 noise from becoming a raise (FX-CENT-ROUND). Ranking/argmax uses unrounded ΔR̂. That split is consistent: legality is display-stable; ranking is not scrambled by penny ties.
+- OC-3 pending is appropriate; recommendation 0.90 hard is proportionate.
+
+No minimum-gain screen in the judged rule (06#18, T040). Correct.
+
+## M5. Candidate generation (§17.R2–R5; 06#14–16)
+
+- Observed own prices, weeks ≤ 11617, > 0, ≠ P0. No look-ahead (FX-LEAK-11618). No other-store prices. No synthetic ±X% ladder — that would recommend untested shelf numbers and fail T040 “has actually moved.”
+- ±25% inclusive in integer cents. P04: ±25% leaves 1 of 364 E_A items without a candidate; ±20% leaves 7. Mean historical |pct| = 16.22%; 461/5,465 changes exceed 25%. Band is slightly wide vs the mass and slightly tight vs the tail. Proportionate. No band expansion (would put that 1 item outside observed range).
+- Four-type single-week event filter: disclose 40.22% vs 47.23% baseline (P04 Q3). The filter is *not* supported as a strong confounder control (RR-02); it removes 9 of 1,114 capped E_A candidates. Keeping it as a low-impact precaution with that disclosure is acceptable. Presenting it as proof that promo-endogeneity is handled would overclaim.
+- Cap 5 by `round(abs(ln(Pc/P0)), 10)`, tie → lower price. Deterministic, fixture-bound (FX-CAP5-TIE). Cap binds for 20 items at ±25%. Proportionate attention limit, not an elasticity claim.
+
+## M6. Leakage and time (§8; 06#10, 06#24, 06#30, DC-1)
+
+- Origin end of d_1941; horizon d_1942–d_1969; price held constant 28 days. Matches T012 and the 2-day week 11621 (daily grain required).
+- Sales d ≥ 1942 and prices wk ≥ 11618 forbidden in judged logic; deliver-and-quarantine (06#30). Correct control; Source Gate can still prove the 9,936 post-origin price rows exist.
+- Calendar allowed forward; snap_CA same-day only; source wday Sat=1…Fri=7. Forward SNAP count dropped (§F) for train/score mismatch. Correct.
+- Week-ordinal windows 11518–11552 + 11601–11617 for “last 52 weeks ending 11617.” Integer subtraction is banned (DC-1/DC-2). FX-WEEK-ORDINAL is required.
+- Horizon trailing features anchored at origin (M1). No post-origin units in lags.
+
+No leakage in the locked 06 rules. v4 is incomplete until RES-05 and RES-10 are restored.
+
+## M7. Statistical soundness and interpretation
+
+- Causal ceiling (06#2): predictive expectation. Allowed claim: “Under the locked model this is the 28-day expectation to pilot-test; it is not a guarantee and not a causal effect.” `expectation_not_guarantee = 1`. Matches T026. v4 §26.3 shortens the sentence; restore 06#2 (Part C leftover). No objection to 06.
+- Confounder ledger: 06#21 locks Design B C1–C12. v4’s C1–C10 collapse is not equivalent (RES-16). Material treatments exist (observed-price candidates, SNAP/event features, calendar-only twin, priced_weeks, zero-day gate, item proxy, deliver-and-quarantine, daily 28-day sum). Residual C1 (unlabeled promos) and C8 (substitution) and C7 (stockouts) remain high and must stay disclosed. Adjustment ≠ causality.
+- Segment multiplicity (06#20): one judged list; dept rows published even at n=3; tertiles exploratory with n≥20; cat_id excluded. Adequate. Naming should be price-band tertiles, not “price-response tertiles” (editorial).
+- Zero-inflation / stockouts (RR-17): E_A zero-day conjunct plus no imputation is the available control. 1,434/2,484 items are majority-zero; they are out of trust, not imputed to demand. Residual bias among trusted intermittents is accepted.
+- Flooring bias (RR-26): linear daily model + max(0,·) overstates thin series. Audit `n_floored_days`. Not grounds to switch family at this audit (that would be a new Mode A choice).
+- item_mean_log1p_units CV leak: disclosed (M1). Do not treat CV RMSE as an unbiased live error.
+- gain_below_half_mae: diagnostic only, T040-compliant. Definition must include the no-MAE department case (RES-12 AMEND). T9 lists flagged items; it does not rerank.
+- Twins T1–T9 (06#29): diagnostic only if RES-11’s sentence is in the body. T6 (calendar-only) is the identification falsifier for §6. T7/T8 are OC-2 sensitivities, not second packages.
+
+Nothing in M1–M7 requires redesign of 06. Defects are candidate transcription and OD-1’s unevidenced 0.50 cap (Part 3).
+
+END OF AUDIT PART 2PRICEPOINT-001 Stage 3 Phase 7 — AI 2 methodological audit, Part 3
+
+## T2. New findings (methodology lens)
+
+ID: AI2-MA-01  
+Section: §6.3 Falsifiers  
+06/07 row: 06#1  
+Severity: NON-BLOCKING  
+Issue: 06#1 locks Design B’s falsifiers *and* their mapping to tests (A1/A2, T6 calendar-only, event-week diagnostic). v4 lists the four falsifiers but does not name the test that would defeat each one, so Stage 5 can treat a failed backtest as a narrative caveat instead of counterevidence.  
+Exact required text: Add under §6.3: “Flat price response → T6 (calendar-only) matches or beats the price+calendar model on A3’s changed-price subset. Backtest miss → A1 or A2 fail at d_1913. Calendar-only model matches → same T6/A3 comparison. Candidates cluster in event/SNAP weeks → candidate event-week share diagnostic vs P04 baseline 47.23%. Exploratory department / SNAP-intensity / price-band cuts are not falsifiers and are not decision rules.”
+
+ID: AI2-MA-02  
+Section: §24.5 M2 row “TE6”; §24.1 fixture pack  
+06/07 row: 06#8; 06#35; 06#37  
+Severity: BLOCKING  
+Issue: M2 maps TE6 to FX-HOLD-NE-PRICES. That fixture tests “one distinct pre-origin price → hold_ne,” which is e_chg3 / candidate-exists, not T040’s third prong. If TE6 is an item-level gate, two builders can implement different usable-slice rules and still pass the current pack.  
+Exact required text: Replace the TE6 fixture cite with a new fixture. FX-TE6-SLICE: item that fails E_A when re-anchored at d_1913, or has realized units d_1914–d_1941 = 0, or whose price is not constant in weeks 11613–11617 → `te6 = 0`, `action = hold_ne`, even if a stub live gain is large. Build fails if that item is raise/cut/unchanged. Keep FX-HOLD-NE-PRICES on the E_A / distinct-price row only. Add FX-TE6-SLICE to §24.1 and to the M2 TE6 line.
+
+ID: AI2-MA-03  
+Section: §26.3 last allowed-claim sentence; §5 Allowed claim  
+06/07 row: 06#2  
+Severity: NON-BLOCKING  
+Issue: §5 carries the locked 06#2 sentence; §26.3 shortens it to “Under the locked model this is the expected pilot outcome,” which is the overclaim AI2-F02 already rejected.  
+Exact required text: In §26.3 replace the shortened sentence with 06#2 verbatim: “Under the locked model this is the 28-day expectation to pilot-test; it is not a guarantee and not a causal effect.” Forbidden Stage 5 sentence remains: “The price change will cause this result.”
+
+ID: AI2-MA-04  
+Section: §4 Unit protection row  
+06/07 row: 06#13; DIP T006  
+Severity: NON-BLOCKING  
+Issue: Row reads “Reject changes expected to reduce units by more than 10%,” dropping “about” and citing the constraint as if 10.0% were a stakeholder constant. OC-3 is still pending.  
+Exact required text: “Reject changes expected to reduce units by more than about 10%. Operational recommendation (OC-3): reject if ρ̂ < 0.90. 0.85 and 0.95 are diagnostic twins only.”
+
+ID: AI2-MA-05  
+Section: none — Objection to 06#24 b (item_mean_log1p_units)  
+06/07 row: 06#24 b; RR-23  
+Severity: NON-BLOCKING  
+Issue: The proxy is computed on all training rows of the fit, including held-out CV folds. That is a disclosed in-sample leak of the *level*, not of horizon outcomes. It slightly flatters CV RMSE and can shrink apparent price slopes if the proxy absorbs price-correlated volume. 06 already discloses it. No substitution.  
+Exact required text: In §17A item-proxy clause add: “item_mean_log1p_units is a level control, not an identification strategy. Report the price-model vs calendar-only comparison (T6/A3) as the slope check. Do not interpret a small log-price coefficient as ‘no demand response’ without T6.”
+
+No other objection to 06. Appendix A legality, predicted-current baseline, observed-price candidates, 0.90 guardrail construct, no judged min-gain, deliver-and-quarantine, and ml_mode A stand.
+
+---
+
+## T3. OD-1 (TE6)
+
+Choice: (ii) ADOPT WITH AMENDMENT.
+
+Rationale. T040’s third prong needs an operational predicate or builders will invent one (RR-12). The only part of 06#8 that can be implemented *before results* and that actually means “this item’s forward 28 days is not a free guess” is the usable d_1913 slice: the item was trust-shaped at a recent origin, paid a constant price across that window, and sold at least one unit, so Û(P0_bt) can be compared to a real 28-day total. The 0.50 APE cap has no profile, no backtest, and no T0xx number; locking it would pretend evidence exists (R7). A dept-median cap is not a guess test; it fails half of usable items in every department by construction and would dominate E_A. Model-level A1/A2 (median APE ≤ 0.40, bias in [−0.20, +0.20], U=0 excluded) already kill every modeled action if the instrument is uncalibrated; stacking an unevidenced item cap on top is not proportionate. Items with no usable slice fail TE6 → hold_ne. APE_i remains an audit field.
+
+Complete exact rule text (status becomes Locked-proposed at lock if the owner accepts this audit):
+
+TE6 — “forward four-week expectation is not a guess.”
+
+TE6 passes if and only if the item has a usable d_1913 backtest slice. A usable slice means all of:
+1. E_A conjuncts true when re-anchored at origin d_1913: n_price_changes counted on weeks ≤ 11613; units_365 summed on d_1549–d_1913; zero_days_365 counted on d_1549–d_1913; priced_weeks counted on weeks ≤ 11613; n_candidates ≥ 1 built from prices at weeks ≤ 11613 under the locked band/event/cap rules with P0_bt = week-11613 price.
+2. Actual sell_price is the same number in each of weeks 11613, 11614, 11615, 11616, and 11617.
+3. Realized units summed over d_1914–d_1941 > 0.
+
+Items without a usable slice: `te6 = 0` → `trust_eligible = 0` → action = hold_ne.
+
+No item-level APE threshold is applied. In particular, APE_i ≤ 0.50 and APE_i ≤ department-median APE are not TE6 conjuncts. APE_i = abs(Û_i(P0_bt) − U_i) / U_i is computed on the usable set, written to the audit table, and summarized by department as a diagnostic.
+
+Interaction with 06#28: if `backtest_accept = 0` (A1 or A2 fails on the locked acceptance set), every item that would otherwise be trust-eligible is assigned hold_ne. Collapse overrides TE6, raise, cut, and model-based unchanged. d_1885 does not enter TE6.
+
+Label: provisional policy operationalization of T040 prong 3, disclosed before execution, not an SLA.
+
+---
+
+## T4. RES-17 and RES-18
+
+RES-17. Required change: two-column status on every §18 row. Column A keeps 07 lifecycle language (Accepted / Resolved (design) / Open until Stage 4 / Open until Gate / Open (OD-1) / Open (owner choice)). Column B uses framework §7 only: Locked-proposed, Owner choice pending, or Open. Mapping: design-resolved rows → Locked-proposed; RR-08/09/13/18 owner items → Owner choice pending; RR-12 → Open (OD-1); Stage-4-control rows stay Locked-proposed in column B and “Open until Stage 4” in column A. Do not force “Accepted” into §7 vocabulary.
+
+RES-18. No change. Keep §21 items “JSON position 0 maps to d_1 and position 1940 maps to d_1941 = 2016-05-22” and “≤ 1 price row per item-day.” Both are inside 06#31 (Design B §21 + Dossier §9). They are construct-valid date and cardinality rules, not extra judged logic.
+
+---
+
+Required-revision set this audit will accept as closing the methodology gate: confirmed RES-01…08, 10, 11, 13–16, 18; amended RES-09 (T3 text), RES-12 (no-MAE = NA), RES-17 (two status columns); new AI2-MA-01…04 (and AI2-MA-02 fixture). OC-1…OC-4 remain owner confirmations at lock. After those copies and the TE6 amendment, Stage 4 would not have to invent eligibility, candidates, legality, Mode A scoring, or the “not a guess” test.
+
+AUDIT VERDICT: Pass with required revisions

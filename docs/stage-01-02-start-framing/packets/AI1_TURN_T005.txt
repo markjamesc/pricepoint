@@ -1,0 +1,4 @@
+STAKEHOLDER REPLY (T004, verbatim):
+"Revenue for the product — units sold times the shelf price — over the weeks after the change. I'd love to judge it on margin, but we don't have cost in this data, so revenue is the number I can actually defend with my GM. The right call is the one that's expected to bring in the most revenue for that product without doing something dumb to the customer."
+
+Return SECTION 1 (T005 stakeholder message: acknowledge, then one question) and SECTION 2 (internal note: Start Gate elements established vs missing, plan).

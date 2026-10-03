@@ -1,0 +1,12 @@
+﻿cat_id	dept_id	items	items_with_any_price_change	items_with_4plus_distinct_prices	items_no_price_rows	avg_priced_weeks
+FOODS	FOODS_1	216	180	69	0	241.5
+FOODS	FOODS_2	398	363	202	0	228.0
+FOODS	FOODS_3	823	583	209	0	226.9
+HOUSEHOLD	HOUSEHOLD_1	532	367	63	0	220.1
+HOUSEHOLD	HOUSEHOLD_2	515	310	38	0	237.0
+max_price_week	min_price_week
+11621	11101
+d	date	wm_yr_wk
+d_1941	2016-05-22	11617
+d_1942	2016-05-23	11617
+d_1969	2016-06-19	11621

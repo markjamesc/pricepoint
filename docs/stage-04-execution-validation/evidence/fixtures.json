@@ -1,0 +1,181 @@
+{
+  "role": "fixtures",
+  "status": "PASS",
+  "design_version": "08_CONSOLIDATED_CANDIDATE_v5_4 (sha256 3cfc71eb5e10c5f680e1768400d03daf05513a23199740ac9f80f8adff2b80ef)",
+  "fixture_version": "fixture_pack_v1",
+  "checked_at_utc": "2026-10-02T18:25:43Z",
+  "stage3_receipt_sha256": "1ee9f4da9cffe3a906182d209c573b61c7451387cfc338009261c79f8620dd16",
+  "fixture_pack_sha256_file": "1390575a2ee1a6488d0ef53e0cf93396ddbb299455a1b47571626a9d6ecf976f",
+  "fixture_pack_sha256_lineage": "da25c258cc434d169f6f960e6d4d8d8ed08cdabaf7a9004df1dff687c94b95d2",
+  "r_a_results": {
+    "path": "validation/fixtures/r_a_fixture_results.csv",
+    "sha256": "8e94123bbe32d795c3a52eecf09410845956622d961dffe5e5e0073f71d1876d",
+    "run": "R-A r2 (R/r-a-r2), 2026-10-02 12:25 CT"
+  },
+  "r_b_results": {
+    "path": "validation/fixtures/r_b_fixture_results.csv",
+    "sha256": "f8b62d66364a3186d61c6b123145714bff976fe62b6ee1f19545e9f19f511915",
+    "run": "R-B r10 (R/r-b-r10), 2026-10-02 12:21 CT"
+  },
+  "n_cases": 26,
+  "n_pass_a": 26,
+  "n_pass_b": 26,
+  "cases": [
+    {
+      "id": "FX-HOLD-NE-PRICES",
+      "expected": "PASS",
+      "observed_a": "PASS",
+      "observed_b": "PASS"
+    },
+    {
+      "id": "FX-GUARD-10",
+      "expected": "PASS",
+      "observed_a": "PASS",
+      "observed_b": "PASS"
+    },
+    {
+      "id": "FX-CUT-OK",
+      "expected": "PASS",
+      "observed_a": "PASS",
+      "observed_b": "PASS"
+    },
+    {
+      "id": "FX-ARGMAX",
+      "expected": "PASS",
+      "observed_a": "PASS",
+      "observed_b": "PASS"
+    },
+    {
+      "id": "FX-NOPAD",
+      "expected": "PASS",
+      "observed_a": "PASS",
+      "observed_b": "PASS"
+    },
+    {
+      "id": "FX-CAP25",
+      "expected": "PASS",
+      "observed_a": "PASS",
+      "observed_b": "PASS"
+    },
+    {
+      "id": "FX-MEMBER",
+      "expected": "PASS",
+      "observed_a": "PASS",
+      "observed_b": "PASS"
+    },
+    {
+      "id": "FX-LEAK-11618",
+      "expected": "PASS",
+      "observed_a": "PASS",
+      "observed_b": "PASS"
+    },
+    {
+      "id": "FX-CURRENT-11617",
+      "expected": "PASS",
+      "observed_a": "PASS",
+      "observed_b": "PASS"
+    },
+    {
+      "id": "FX-HORIZON-28",
+      "expected": "PASS",
+      "observed_a": "PASS",
+      "observed_b": "PASS"
+    },
+    {
+      "id": "FX-TIE",
+      "expected": "PASS",
+      "observed_a": "PASS",
+      "observed_b": "PASS"
+    },
+    {
+      "id": "FX-ELIG-BOUNDARY",
+      "expected": "PASS",
+      "observed_a": "PASS",
+      "observed_b": "PASS"
+    },
+    {
+      "id": "FX-PW52",
+      "expected": "PASS",
+      "observed_a": "PASS",
+      "observed_b": "PASS"
+    },
+    {
+      "id": "FX-BAND25",
+      "expected": "PASS",
+      "observed_a": "PASS",
+      "observed_b": "PASS"
+    },
+    {
+      "id": "FX-NOCAND",
+      "expected": "PASS",
+      "observed_a": "PASS",
+      "observed_b": "PASS"
+    },
+    {
+      "id": "FX-EVENT-SINGLE",
+      "expected": "PASS",
+      "observed_a": "PASS",
+      "observed_b": "PASS"
+    },
+    {
+      "id": "FX-CAP5-TIE",
+      "expected": "PASS",
+      "observed_a": "PASS",
+      "observed_b": "PASS"
+    },
+    {
+      "id": "FX-UP0-ZERO",
+      "expected": "PASS",
+      "observed_a": "PASS",
+      "observed_b": "PASS"
+    },
+    {
+      "id": "FX-CENT-ROUND",
+      "expected": "PASS",
+      "observed_a": "PASS",
+      "observed_b": "PASS"
+    },
+    {
+      "id": "FX-MINGAIN-DIAG",
+      "expected": "PASS",
+      "observed_a": "PASS",
+      "observed_b": "PASS"
+    },
+    {
+      "id": "FX-BACKTEST-COLLAPSE",
+      "expected": "PASS",
+      "observed_a": "PASS",
+      "observed_b": "PASS"
+    },
+    {
+      "id": "FX-TRAIL-ANCHOR",
+      "expected": "PASS",
+      "observed_a": "PASS",
+      "observed_b": "PASS"
+    },
+    {
+      "id": "FX-WDAY-SNAP",
+      "expected": "PASS",
+      "observed_a": "PASS",
+      "observed_b": "PASS"
+    },
+    {
+      "id": "FX-WEEK-ORDINAL",
+      "expected": "PASS",
+      "observed_a": "PASS",
+      "observed_b": "PASS"
+    },
+    {
+      "id": "FX-INTERACT",
+      "expected": "PASS",
+      "observed_a": "PASS",
+      "observed_b": "PASS"
+    },
+    {
+      "id": "FX-TE6-SLICE",
+      "expected": "PASS",
+      "observed_a": "PASS",
+      "observed_b": "PASS"
+    }
+  ]
+}

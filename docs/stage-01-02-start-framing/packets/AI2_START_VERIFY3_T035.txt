@@ -1,0 +1,42 @@
+THIRD FOLLOW-UP (same run PRICEPOINT-001, same role). After your last verification, the coordinator had AI 1 ask Morgan the price-magnitude question. The new verbatim turns T033–T035 follow (T035 is the final proposed statement; Morgan has not yet seen it).
+
+## Turn T033 — Analyst message (Start)
+- Speaker: Human analyst channel; drafted by AI 1 (ChatGPT), relayed unedited
+- Source: reviews/ai1_T033_raw.txt
+- Exact wording:
+> Thanks, Morgan. I’ve incorporated the remaining clarification points around the recommendation package, including the ranked list, the GM review capacity, the distinction between unchanged price and not-enough-evidence outcomes, and the pilot approach.
+>
+> For a raise or targeted price cut recommendation, does the recommendation you bring to the GM need to include a specific proposed new shelf price or change amount, or is identifying the direction of the change enough?
+
+- Analytical effect: Asked whether a raise/cut recommendation must carry a specific proposed new shelf price or change amount, or only the direction.
+
+---
+
+## Turn T034 — Stakeholder reply (Start)
+- Speaker: Morgan Lee (stakeholder, synthetic)
+- Exact wording:
+> A specific price. My GM isn't going to sign off on "raise it a bit"; he needs the actual shelf price we'd pilot, and the expectation you give me for units and revenue should be at that price. How you come up with the candidate price is your call, just show me how you got there.
+
+- Analytical effect: Recommendation granularity resolved: each raise/cut recommendation carries a specific proposed shelf price to pilot; 28-day unit and revenue expectations are stated at that price versus current; candidate-price construction delegated to analyst with disclosure (Stage 3).
+
+---
+
+## Turn T035 — Analyst message (Start)
+- Speaker: Human analyst channel; drafted by AI 1 (ChatGPT), relayed unedited
+- Source: reviews/ai1_T035_raw.txt
+- Exact wording:
+> Thanks, Morgan. That clarifies the recommendation format: the GM-facing recommendation needs to include the specific shelf price you would pilot, not only the direction of the change. The expected unit and revenue impact should be tied to that proposed pilot price, while the method for generating candidate prices can be documented separately.
+>
+> Here is the proposed decision statement incorporating that clarification:
+>
+> **Morgan Lee, Pricing & Revenue Manager, must determine what recommendation to bring to the store general manager for products meeting the review criteria at the California pilot store’s everyday grocery and household aisles: a specific pilot shelf price increase, a specific pilot shelf price cut, leaving the shelf price unchanged, or classifying the product as “hold — not enough evidence” when the available evidence is not solid. The recommendation should identify the specific pilot price expected to produce the strongest trusted product revenue result (units sold × shelf price) over the next 28 days compared with the current price, while rejecting changes expected to reduce units by more than about 10%. The review occurs on a four-week cycle, with the price decision holding until the next review. The recommendation uses only information available at the end of the most recent history period: daily unit sales, weekly shelf prices, and calendar information including holidays, events, and SNAP benefit days. The output is a ranked list: the strongest trusted price-change opportunities, based on the biggest revenue gain that is trusted, form the GM package up to about 25 actual price changes. If fewer qualify, the list is not padded. If more qualify, additional qualifying opportunities remain below the line as next in line and are not included in that cycle’s package. Holds and hold — not enough evidence outcomes remain visible and do not consume the price-change capacity. Approved changes are pilots, and historical patterns should be presented as expectations to test rather than guarantees.**
+>
+> Does this decision statement accurately describe the decision you need to make, or is there anything you would correct?
+
+- Analytical effect: Final proposed decision statement incorporating the specific-pilot-price requirement (T034) and explicit no-padding rule. Held for final reviewer verification before stakeholder confirmation.
+
+
+YOUR TASK: Return:
+A. For each issue you raised on T031: resolved / not resolved, one line each.
+B. Any clause in T035 unsupported by, or diverging from, the stakeholder's words (T000–T034).
+C. Final Start Gate verdict on T035: Pass / Revise / Cannot yet frame, with brief reasons.

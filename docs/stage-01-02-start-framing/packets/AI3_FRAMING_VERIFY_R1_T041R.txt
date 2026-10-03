@@ -1,0 +1,316 @@
+FRAMING VERIFICATION (round 1). AI 1 reconciled both independent reviews, and its output is below. It revised the candidate question from C1 to C2, which is a material revision, so you are asked to review it (framework §14). Review C2 against the same dialogue extract and the same criteria you used before. Say whether your earlier concerns are resolved, and whether C2 introduces any new problem (for example an unsupported clause, a leading or causal wording, a lost stakeholder exception, a locked Stage 3 item, or a capacity misrepresentation).
+
+AI 1 RECONCILIATION AND BUILDER OUTPUT (verbatim):
+=====
+## SECTION 0 — POINT-BY-POINT RECONCILIATION
+
+### 1. T041 question supports the locked decision incompletely because it lacks ranking/package mechanics
+
+**Decision:** Accept.
+**Reason:** The decision is not only selecting product actions; Morgan needs the ranked current-cycle package because different rank orders change what reaches the GM. The question must preserve the package constraint. 
+
+**Resolution:** Include ranking, up-to-25 package, and below-line treatment in C2.
+
+---
+
+### 2. Owner and action visibility
+
+**Decision:** Accept.
+**Reason:** Morgan’s role is to recommend a specific shelf price or hold outcome to the GM. The action set is established. 
+
+**Resolution:** Preserve recommendation language, not final approval language.
+
+---
+
+### 3. Outcome, guardrail, and trust standard
+
+**Decision:** Accept.
+**Reason:** Revenue as units × shelf price, approximately 10% unit guardrail, and evidence trust are stakeholder-defined constraints. Margin remains excluded because cost is unavailable. 
+
+**Resolution:** Keep revenue, unit guardrail, and trust gate in the analytical question.
+
+---
+
+### 4. Product/store scope and aisle scope
+
+**Decision:** Accept.
+**Reason:** The locked scope includes product at the California pilot store and everyday grocery and household aisles. 
+
+**Resolution:** Restore aisle scope explicitly.
+
+---
+
+### 5. Capacity interpretation
+
+**Decision:** Accept AI 2 and AI 3.
+**Reason:** Capacity is a hard attention budget for actual raise/cut recommendations, not an unordered census. Morgan established approximately 25 recommendations, ranking, and below-line next-in-line items.  
+
+**Resolution:** Set:
+
+* `capacity_stance = hard_attention_budget`
+* capacity unit = actual raise/cut recommendations prepared for GM review.
+
+---
+
+### 6. Missing aisle scope in prior question
+
+**Decision:** Accept.
+**Reason:** The question should not silently drop Morgan’s confirmed aisle scope. 
+
+**Resolution:** Include everyday grocery and household aisles.
+
+---
+
+### 7. Eligibility, evidence gate, and model details
+
+**Decision:** Accept deferral.
+**Reason:** The question should not lock eligibility cutoffs, evidence threshold, model class, or KPI implementation. These are Stage 3 design items. 
+
+**Resolution:** Leave them open and document later.
+
+---
+
+### 8. Trust versus gain ranking distinction
+
+**Decision:** Accept.
+**Reason:** Trust is a gate; among trusted opportunities, expected revenue gain determines ranking. Do not add an unsupported “big enough to matter” cutoff. 
+
+**Resolution:** State this distinction in the stakeholder message and builder output.
+
+---
+
+### 9. Capacity stance determination
+
+**Decision:** Accept.
+**Reason:** Morgan’s stated purpose is limited GM review capacity, not a complete census. 
+
+**Resolution:** Use hard attention budget.
+
+---
+
+### 10. Price-change magnitude
+
+**Decision:** Accept deferral to Stage 3.
+**Reason:** The GM needs a specific pilot price, but Morgan delegated how candidate prices are constructed: “How you come up with the candidate price is your call, just show me how you got there.” The recommendation object includes a price, but the construction method remains analytical design. 
+
+**Resolution:** C2 asks which specific pilot shelf prices should be recommended; Stage 3 determines construction method.
+
+---
+
+### 11. Feasibility findings
+
+**Decision:** Accept as Stage 3 design constraints, not Start changes.
+**Reason:** The feasibility note identifies extract and look-ahead issues, but no KPI, threshold, or model is locked. 
+
+**Resolution:** Carry into Stage 3 open work.
+
+---
+
+# SECTION 1 — T041R STAKEHOLDER MESSAGE
+
+Thanks, Morgan. I’ve incorporated your clarification that the GM recommendation needs a specific pilot shelf price, while the method used to construct candidate prices will be documented rather than assumed. I’m also keeping the distinction that evidence strength determines whether an opportunity is trusted, and revenue gain ranks the trusted opportunities for the GM package.
+
+The analytical question I propose is:
+
+**For products meeting the review criteria in the California pilot store’s everyday grocery and household aisles, which specific pilot shelf prices should Morgan recommend for the next 28-day review cycle to produce the strongest trusted expected product revenue (units sold × shelf price) compared with the current price, without recommending a change expected to reduce units by more than about 10%; which products should instead remain unchanged or be classified as “hold — not enough evidence”; and which trusted price-change opportunities rank into the current-cycle GM package of up to about 25 actual price changes, with any additional qualifying opportunities listed below the line?**
+
+This supports the decision of what specific pilot price recommendation (or non-change outcome) Morgan should bring to the GM for the next pricing cycle.
+
+Does this analytical question accurately capture the decision you need supported, or would you correct anything before we move into design?
+
+---
+
+# SECTION 2 — FULL BUILDER OUTPUT (Framework §13)
+
+## Candidate analytical question C2
+
+**For products meeting the review criteria in the California pilot store’s everyday grocery and household aisles, which specific pilot shelf prices should Morgan recommend for the next 28-day review cycle to produce the strongest trusted expected product revenue (units sold × shelf price) compared with the current price, without recommending a change expected to reduce units by more than about 10%; which products should instead remain unchanged or be classified as “hold — not enough evidence”; and which trusted price-change opportunities rank into the current-cycle GM package of up to about 25 actual price changes, with any additional qualifying opportunities listed below the line?**
+
+---
+
+## Decision linkage
+
+This question supports Morgan’s decision of which specific pilot shelf price recommendation, unchanged-price decision, or hold-not-enough-evidence outcome to bring to the GM for the next four-week pricing cycle.
+
+---
+
+# Stakeholder statements supporting each clause
+
+## 1. Specific pilot shelf prices
+
+**Clause supported:**
+“which specific pilot shelf prices should Morgan recommend”
+
+**Evidence:**
+
+* T034: Morgan stated the GM needs “the actual shelf price we’d pilot” and expectations should be tied to that price. 
+
+---
+
+## 2. Product/store/aisle scope
+
+**Clause supported:**
+“products meeting the review criteria in the California pilot store’s everyday grocery and household aisles”
+
+**Evidence:**
+
+* T008 established product at a specific store, California pilot store, and everyday grocery and household aisles. 
+* Eligibility principles:
+
+  * meaningful historical price changes,
+  * sufficient sales activity. 
+
+---
+
+## 3. Revenue objective
+
+**Clause supported:**
+“strongest trusted expected product revenue (units sold × shelf price)”
+
+**Evidence:**
+
+* Morgan defined revenue as units sold × shelf price. 
+* Morgan defined strongest as biggest revenue gain that is trusted. 
+
+---
+
+## 4. 28-day comparison against current price
+
+**Clause supported:**
+“next 28-day review cycle” and comparison with current price
+
+**Evidence:**
+
+* Morgan defined the four-week review cycle and 28-day window. 
+* Morgan stated she needs expectations “at the current price versus at the price I’d be recommending.” 
+
+---
+
+## 5. Unit guardrail
+
+**Clause supported:**
+“without recommending a change expected to reduce units by more than about 10%”
+
+**Evidence:**
+
+* Morgan stated she would not accept a move expected to cut units by more than about 10%. 
+
+---
+
+## 6. Unchanged and hold-not-enough-evidence outcomes
+
+**Clause supported:**
+“remain unchanged or be classified as hold — not enough evidence”
+
+**Evidence:**
+
+* Morgan distinguished leaving the price unchanged from insufficient evidence. 
+
+---
+
+## 7. Ranked GM package
+
+**Clause supported:**
+“rank into the current-cycle GM package of up to about 25 actual price changes”
+
+**Evidence:**
+
+* Morgan established approximately 25 price-change recommendations per cycle and requested prioritization. 
+* Strongest means biggest revenue gain that is trusted. 
+
+---
+
+## 8. Below-line opportunities
+
+**Clause supported:**
+“additional qualifying opportunities listed below the line”
+
+**Evidence:**
+
+* Morgan stated that additional qualifiers should remain below the line as next in line and not enter the current cycle package. 
+
+---
+
+# Capacity stance
+
+**capacity_stance:** `hard_attention_budget`
+
+**Capacity unit:**
+Actual raise or cut recommendations the team must work up and take through GM review in the current four-week cycle.
+
+**Reason:**
+Morgan’s constraint is limited decision-maker attention and GM review capacity, not a requirement to rank every possible item into one complete leaderboard. 
+
+---
+
+# Working assumptions
+
+1. Historical relationships are used to form pilot expectations, not guarantees.
+2. Trust is an evidence gate; revenue gain ranks opportunities only after trust is established.
+3. Holds and hold-not-enough-evidence outcomes remain visible but do not consume raise/cut capacity.
+4. Exact eligibility thresholds remain open.
+5. Candidate-price construction method remains open and must be disclosed.
+
+---
+
+# Open Stage 3 design work
+
+## Eligibility
+
+* Define review criteria thresholds.
+* Determine department mapping.
+* Validate sufficient price variation and sales activity.
+
+## Evidence sufficiency
+
+* Define transparent “solid enough” evidence gate.
+* Ensure threshold is disclosed.
+
+## Candidate price construction
+
+* Define how proposed pilot shelf prices are generated.
+* Explain rationale.
+
+## Prediction method
+
+* Determine modeling approach without prematurely locking model class.
+* Owner constraint requires predictive work using R/tidyverse plus a parsnip component. 
+
+## KPI implementation
+
+* Operationalize expected revenue.
+* Define comparison against current price.
+
+## Guardrails
+
+* Operationalize approximately 10% unit-loss rule.
+* Define treatment/reporting label for rejected candidates.
+
+## Capacity/ranking
+
+* Define ranking score for trusted expected revenue gain.
+* Define treatment of “about 25.”
+
+## Time construction
+
+* Define current shelf price at frozen review date.
+* Missing prices are not treated as zero.
+* Construct forward 28-day window using calendar features. 
+
+## Validation
+
+* Backtesting design must avoid using future horizon sales as training information.
+* Raw sell prices after the decision date create look-ahead risk. 
+
+---
+
+# Remaining weakness
+
+**Weakness:**
+The exact operational definition of “products meeting the review criteria” is intentionally unresolved.
+
+**Assessment:**
+This is acceptable at Framing because Morgan delegated the cutoffs while requiring transparency. The next stage must define and disclose those criteria before recommendations are produced.
+=====
+
+Return: VERDICT: exactly one of Pass / Pass with required revision / Fail, then FINDINGS (mark each BLOCKING or NON-BLOCKING, with turn citations), CAPACITY CHECK in both directions, and REQUIRED REVISIONS with exact wording, if any.

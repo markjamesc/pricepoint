@@ -1,0 +1,79 @@
+## SECTION 1 — STAKEHOLDER MESSAGE (T007)
+
+Thanks, Morgan. That clarifies the constraint: you are not looking only for the highest expected revenue outcome; a recommendation also has to avoid an expected unit decline greater than about 10%, because that level of volume loss is not a trade-off you would take to your GM.
+
+Before I write the decision statement back for confirmation, is the pricing recommendation intended to apply to each product at a specific store, or should it be a product-level recommendation that applies across stores?
+
+---
+
+## SECTION 2 — INTERNAL NOTE (not sent)
+
+**Start Gate status:** Not yet complete.
+
+### Established
+
+**Decision owner:**
+Established.
+
+* Morgan Lee makes the recommendation.
+* Store general manager signs off.
+
+**Action or choice:**
+Established.
+
+* Raise shelf price.
+* Take a targeted price cut.
+* Leave shelf price unchanged.
+
+**Outcome:**
+Established.
+
+* Maximize expected product revenue after the change.
+* Revenue defined as units sold × shelf price over the weeks after the change.
+* Margin is not used because cost data is unavailable.
+
+**Material constraint:**
+Established.
+
+* Expected unit decline greater than approximately 10% is unacceptable.
+* A price cut is acceptable if units increase and revenue remains acceptable.
+
+**Analytical relevance:**
+Established.
+
+* Evidence from sales and price history is intended to change or support the recommendation.
+
+### Still missing
+
+**Product/store grain:**
+Missing.
+
+* Need to determine whether the decision is product-level across stores or product-store level.
+* This remains a required Start Gate element.
+
+**Time scope:**
+Partially missing.
+
+* “Weeks after the change” is established conceptually.
+* Exact decision deadline and evaluation horizon remain unspecified.
+
+**Information available at decision time:**
+Missing.
+
+* Need to know what Morgan will have available during the pricing review.
+
+**Uncertainty tolerance:**
+Missing.
+
+* Need to know how much uncertainty is acceptable before recommending raise/cut/hold.
+
+**Stakeholder confirmation of decision statement:**
+Not yet ready.
+
+* The statement cannot be finalized until grain and remaining scope/time elements are established.
+
+### Plan
+
+Continue resolving remaining Start Gate elements with one question per turn.
+
+The next priority is product/store grain because the decision statement requires defining what unit of decision Morgan owns. Once grain, time scope, information availability, and uncertainty tolerance are established, present the proposed decision statement to Morgan for confirmation rather than asking another discovery question.

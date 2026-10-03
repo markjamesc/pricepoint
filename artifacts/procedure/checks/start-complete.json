@@ -1,0 +1,78 @@
+{
+  "step": "start",
+  "phase": "complete",
+  "result": "PASS",
+  "checked_at_utc": "2026-09-25T08:01:31Z",
+  "checks": [
+    {
+      "check": "Step was authorized",
+      "result": "PASS",
+      "detail": "current_step must match completion request"
+    },
+    {
+      "check": "Controlling documents unchanged",
+      "result": "PASS",
+      "detail": "framework hashes must match run start"
+    },
+    {
+      "check": "Previously completed receipts unchanged",
+      "result": "PASS",
+      "detail": "completed artifact hashes must still match"
+    },
+    {
+      "check": "Workflow Gate report unchanged",
+      "result": "PASS",
+      "detail": "recorded workflow report hash must still match"
+    },
+    {
+      "check": "Required receipt exists and parses",
+      "result": "PASS",
+      "detail": "artifacts/stage1_decision.json"
+    },
+    {
+      "check": "Stage 1 required fields",
+      "result": "PASS",
+      "detail": "stage, status, decision_statement, decision_owner, ai2_independent_reconstruction, ai3_independent_red_team, start_gate, stakeholder_confirmation, human_analyst_approval, unresolved_issues"
+    },
+    {
+      "check": "Stage 1 number",
+      "result": "PASS",
+      "detail": "stage must equal 1"
+    },
+    {
+      "check": "Stage 1 locked",
+      "result": "PASS",
+      "detail": "status must equal LOCKED"
+    },
+    {
+      "check": "Stage 1 ai2_independent_reconstruction",
+      "result": "PASS",
+      "detail": "ai2_independent_reconstruction must equal PASS"
+    },
+    {
+      "check": "Stage 1 ai3_independent_red_team",
+      "result": "PASS",
+      "detail": "ai3_independent_red_team must equal PASS"
+    },
+    {
+      "check": "Stage 1 start_gate",
+      "result": "PASS",
+      "detail": "start_gate must equal PASS"
+    },
+    {
+      "check": "Stakeholder confirmation",
+      "result": "PASS",
+      "detail": "stakeholder_confirmation must equal CONFIRMED"
+    },
+    {
+      "check": "Stage 1 human approval",
+      "result": "PASS",
+      "detail": "human_analyst_approval must equal APPROVED"
+    },
+    {
+      "check": "Stage 1 unresolved issues",
+      "result": "PASS",
+      "detail": "unresolved_issues must equal 0"
+    }
+  ]
+}

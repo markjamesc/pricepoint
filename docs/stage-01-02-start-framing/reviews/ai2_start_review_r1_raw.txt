@@ -1,0 +1,54 @@
+**PRICEPOINT-001 — AI 2 Start review (independent reconstruction)**  
+Worked only from the packet. No metrics, SQL, R, models, or thresholds.
+
+### 1. Best reconstruction of the decision
+Morgan Lee, as Pricing & Revenue Manager, must walk into the next pricing review with a **per-product recommendation** among three shelf-price actions: raise the current shelf price, take a targeted price cut, or leave the price unchanged. She originates the recommendation; the store general manager signs off. The request is motivated by a belief that current shelf prices are leaving money on the table, and she wants sales-and-price history used so the three-way call for a given product is supportable rather than ad hoc.
+
+What is **not** reconstructed as decided: which products or stores enter the review; what “right call” or “money on the table” means as a business result; any capacity, policy, or risk constraint on how many or how far prices may move; the review date or the horizon the price is expected to stay in force; downside guardrails; or what information she will actually have in the room when she recommends.
+
+The project class still binds the work to **one product-level retail pricing/revenue decision** using M5 sales, price, and calendar evidence only.
+
+### 2. Decision owner
+**Morgan Lee** (recommender / Pricing & Revenue Manager).  
+Approver named in dialogue: store general manager. Ownership of the recommendation is Morgan’s; final sign-off is not hers alone.
+
+### 3. Available actions or choices
+For each product that is looked at in the review:
+- Raise the shelf price
+- Take a targeted price cut
+- Leave the shelf price where it is
+
+These three were confirmed by the stakeholder as the actual review menu (“it’s all three”). No other action set has been authorized (e.g., category-wide rules, store-specific exceptions, promotion calendars).
+
+### 4. Intended outcome
+**Not established.**  
+T000 implies capturing money left on the table via better shelf prices. T001 offered “revenue opportunities” and “sales outcomes” as examples; T002 did not choose, quantify, or protect a result (revenue, units, mix, review-ready defensibility, etc.). “Right call for a given product” is still undefined as an outcome.
+
+### 5. Material constraint
+**Not established.**  
+No capacity, policy, brand, competitive, implementation, or risk constraint was stated. Data absences (no unit cost, margin, inventory/stockouts, competitor prices, customer data, or labeled promotions) are analysis limits, not stakeholder decision constraints.
+
+### 6. Time scope or deadline
+**Not established beyond a label.**  
+The artifact is “something I can actually use at our next pricing review.” No review date, no decision deadline, and no post-change horizon (how long the recommended shelf price is expected to hold) were given.
+
+### 7. Evidence that would change the action
+**Not specified by the stakeholder.**  
+She asked for a “good way to tell” raise vs. targeted cut vs. hold from sales and price history. She did not say what pattern, comparison, or counter-evidence would flip a product from one of the three actions to another, nor what she will treat as decisive in the room with the GM.
+
+### 8. Strongest remaining ambiguity
+What makes one of the three actions the **right call** for a product — i.e., the intended outcome / decision criterion — together with **which products and stores are in scope**. Without those, “leave money on the table,” “each product we look at,” and “targeted” have no operational boundary. Secondary but still blocking: constraint, time/horizon, GM sign-off standard, and uncertainty tolerance.
+
+### 9. Best next stakeholder question
+For you to treat raise, targeted cut, or hold as the right call on a product, what business result should that recommendation improve or protect?
+
+### 10. Preliminary decision statement
+Morgan Lee must decide which of {raise the shelf price, take a targeted price cut, leave the price unchanged} to recommend for each product under review in order to **[MISSING]**, subject to **[MISSING]**, by/for **[MISSING: next pricing review — date and post-change horizon unspecified]**.
+
+*(Approver named in dialogue but not written into the owner slot: store general manager sign-off.)*
+
+---
+
+### Start Gate readiness: **Cannot yet frame**
+
+A locked Start statement cannot be completed from what the stakeholder has actually said. Actions and recommender/approver roles are the only stable pieces. Outcome, material constraint, time scope, product/store scope, change-the-action evidence, and a confirmed decision sentence are all missing. Further Start dialogue is required before the gate can pass; the reconstruction should not be filled in by inference.

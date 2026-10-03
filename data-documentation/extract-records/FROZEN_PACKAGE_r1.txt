@@ -1,0 +1,8 @@
+PRICEPOINT-001 frozen source package r1 (Source Gate PASS 24/24, 2026-10-02 02:04 CT)
+extract_root=C:\Users\Mark\Documents\R Working Directory\pricepoint-stage4-work\extract
+sql_extract_sha256=13d037efc758e5e2913d9ffed0dd5e2b003e1656092b8547d8a97283e03f1b68
+calendar.tsv | 131669 | a2807afd5a1dbd35523c9161128bef31a54332f21cf77889fc168a9fa0086858 | readonly=True
+prices.tsv | 17472933 | 0cbd6c8b0ee4b6ea0b52b58094c94e27a2d9b5c31c0d08d3d0e7661a6eb3ce73 | readonly=True
+sales_long.tsv | 449366357 | 536eb633a3a27a734e9883001213491ae3ae63b8872d824161e13b16aa5ee8ae | readonly=True
+extract_manifest.txt | 272 | 13d037efc758e5e2913d9ffed0dd5e2b003e1656092b8547d8a97283e03f1b68 | readonly=True
+extract_freeze_record.txt | 551 | 51db6b850c222731929b9fb7402fb3c4c7bf536c7b01229a63fd0493cebc7954 | readonly=True

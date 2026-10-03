@@ -1,0 +1,4 @@
+STAKEHOLDER REPLY (T010, verbatim):
+"Both, really. A product should have actually had its shelf price change at least a few times in the history, so there's something real to learn from, and it should sell steadily enough that a change would show up. I don't know what the right cutoffs are — that's your side of the table, as long as you tell me what you used and why. I'd rather have a smaller list I can trust than a big one full of guesses."
+
+Return SECTION 1 (T011 stakeholder message: acknowledge, then one question) and SECTION 2 (internal note: Start Gate elements established vs missing, plan). When you judge that every Start Gate element is established, SECTION 1 should instead present the proposed decision statement to the stakeholder and ask her to confirm or correct it.

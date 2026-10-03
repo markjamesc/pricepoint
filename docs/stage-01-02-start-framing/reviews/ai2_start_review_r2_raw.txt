@@ -1,0 +1,54 @@
+**1. Best reconstruction of the decision**  
+Morgan Lee must walk into each four-week pricing review with a per-product recommendation at one store: raise the shelf price, take a targeted price cut, leave the price unchanged, or classify the item as “hold — not enough evidence.” The first-round set is products in the California pilot store’s everyday grocery and household aisles that have real past shelf-price movement and steady enough sales. Actual raise/cut recommendations are capped at about 25 per cycle (holds are listed but do not consume the cap). If more than 25 products qualify for a change, she takes those that matter most / are strongest first; if fewer qualify, the list is not padded. The right call for a product is the action expected to produce the most product revenue (units × shelf price) over the next 28 days, provided the move is not expected to cut that product’s units by more than about 10%. Only information known as of the review date (end of the most recent history) may be used: own daily unit sales, weekly shelf prices, and calendar (events/holidays and SNAP days). Weak evidence must not be forced into a raise or cut.
+
+**2. Decision owner**  
+Morgan Lee (Pricing & Revenue Manager) makes the recommendation. The store general manager signs off.
+
+**3. Available actions or choices**  
+For each eligible product at the specified store:  
+- raise the shelf price  
+- take a targeted price cut  
+- leave the shelf price unchanged  
+- “hold — not enough evidence” (explicit legitimate outcome when evidence is not solid)  
+
+Only raise and targeted cut count toward the ~25 capacity. Holds and hold-not-enough-evidence must still appear on the reviewed list.
+
+**4. Intended outcome**  
+The action expected to bring in the most revenue for that product over the 28 days after the review, where revenue is units sold × shelf price. Margin is desired but unavailable; revenue is what Morgan can defend with the GM. A cut that raises units is acceptable if revenue holds.
+
+**5. Material constraint**  
+Do not recommend a move expected to cut the product’s units by more than about 10%, even if revenue would rise. Additional binding constraints already stated by the stakeholder: ~25 actual price-change recommendations per four-week cycle (no padding; prioritize if more qualify); use only information known as of the decision date; do not force a change when evidence is weak; first-round grain and scope are product-at-the-California-pilot-store in everyday grocery and household aisles, excluding items with no meaningful price history or that barely sell.
+
+**6. Time scope or deadline**  
+Reviews occur every four weeks; whatever is set holds until the next review. The judgment window is the following 28 days. For this exercise the review is treated as occurring at the end of the most recent available history, and only information that would have been known that day may be used (no look-ahead).
+
+**7. Evidence that would change the action**  
+- An expectation that a candidate raise or cut would reduce that product’s units by more than about 10% → reject the change.  
+- Insufficient price-movement history or sales activity, or otherwise weak evidence → “hold — not enough evidence” instead of raise/cut/hold-on-the-merits.  
+- A comparison of expected 28-day revenue at the current shelf price versus at the price being recommended → flip raise vs cut vs hold.  
+- More than ~25 products qualifying for a change → ranking changes which items receive a raise/cut.  
+- Calendar/SNAP (and event) patterns that change expected units over the next 28 days at current vs recommended price.
+
+**8. Strongest remaining ambiguity**  
+What “matter most” / “strongest first” means when more than ~25 products qualify for a raise or cut (largest expected revenue lift, strongest evidence, some mix, or another GM-facing rule). Secondary gaps that do not block a draft statement but are still open: stakeholder confirmation of T021; whether the recommendation must include a specific new shelf price or only the direction; exact department/aisle mapping inside “everyday grocery and household”; and the still-approximate “about 10 percent” and eligibility cutoffs (explicitly delegated).
+
+**9. Best next stakeholder question**  
+If more than about 25 products qualify for a raise or targeted cut, should “take the strongest first” mean the largest expected 28-day revenue improvement, the most reliable evidence, or another rule you would use with the GM?
+
+**10. Preliminary decision statement**  
+Morgan Lee must decide which of raise the shelf price, take a targeted price cut, leave the shelf price unchanged, or “hold — not enough evidence” to recommend for eligible products at the California pilot store’s everyday grocery and household aisles in order to maximize expected product revenue over the following 28 days, subject to rejecting any move expected to cut that product’s units by more than about 10 percent and limiting actual price-change recommendations to about 25 per four-week cycle (if more qualify, take those that matter most / are strongest first; if fewer, do not pad; holds and hold-not-enough-evidence do not count against the 25 but must be listed as reviewed), by/for the four-week pricing review treated as occurring at the end of the most recent available history and using only information known as of that day.
+
+No template clause is marked MISSING; every clause above is taken from the stakeholder’s own words (T002, T004, T006, T008, T010, T012, T014, T016, T018, T020). Exact eligibility cutoffs, the ranking key, and the exact 10% lock remain design choices for later stages, as the stakeholder delegated them.
+
+**Comparison with AI 1’s T021 statement**  
+T021 is close and usable as a draft, but these clauses are unsupported by or diverge from the stakeholder’s wording:
+
+- **“prioritized by importance”** — Morgan said she needs to know “which ones matter most so we take the strongest first” (T018). “Importance” is AI 1’s paraphrase, not her term, and it leaves the ranking key undefined.  
+- **“eligible product-store combinations”** — she said “each product at a specific store” and, for this first round, one California pilot store (T008). “Product-store combinations” is constructed language; with one store specified it is harmless in substance but not her words.  
+- T021’s three-way list (“raise … targeted price cut, or remain unchanged”) then tacks “hold — not enough evidence” on in a following sentence. That is consistent, but it slightly underplays that she treated “can’t tell” as a first-class outcome, not a footnote (T016).  
+- T021 omits a requirement she did state: hold and hold-not-enough-evidence items “don’t count against [the 25]; I just need to see them listed so I know they were looked at” (T020). That is an omission of her words, not an invented clause.
+
+Everything else in T021 (owner, three change-or-hold actions, 28-day product revenue, ~10% unit guardrail, end-of-history information boundary, ~25 raise/cut cap, no padding) is supported by the verbatim dialogue.
+
+**Start Gate: Revise**  
+Owner, action set (including can’t-tell), outcome, volume guardrail, capacity rule, grain/first-round scope, 28-day horizon, decision-time information boundary, and no-look-ahead rule are all stated by the stakeholder and can be written without inventing clauses. The gate is not Pass because T021 has not been confirmed, “prioritized by importance” is not her language, listing of holds is missing from T021, and “strongest / matter most” is still undefined. It is not Cannot yet frame: the decision is reconstructible and the remaining gaps are confirmation plus Stage-3 locks the stakeholder already delegated (cutoffs, ranking key, exact 10%).

@@ -1,0 +1,153 @@
+{
+  "step": "design",
+  "phase": "amend-CC-S4-02",
+  "result": "PASS",
+  "checked_at_utc": "2026-10-02T18:22:48Z",
+  "checks": [
+    {
+      "check": "Run is active",
+      "result": "PASS",
+      "detail": "status must equal IN_PROGRESS"
+    },
+    {
+      "check": "Step is complete",
+      "result": "PASS",
+      "detail": "only a completed step can be amended; completed steps are never reopened"
+    },
+    {
+      "check": "No later step is complete",
+      "result": "PASS",
+      "detail": "Later steps: execution, finish"
+    },
+    {
+      "check": "Step has no nested completion gate",
+      "result": "PASS",
+      "detail": "a step completed by a nested gate cannot be amended; its gate result would go stale"
+    },
+    {
+      "check": "Controlling documents unchanged",
+      "result": "PASS",
+      "detail": "framework hashes must match run start"
+    },
+    {
+      "check": "Completed receipts unchanged",
+      "result": "PASS",
+      "detail": "completed artifact hashes must still match"
+    },
+    {
+      "check": "Workflow Gate report unchanged",
+      "result": "PASS",
+      "detail": "recorded workflow report hash must still match"
+    },
+    {
+      "check": "Change record exists and parses",
+      "result": "PASS",
+      "detail": "docs/stage-03-measurement-design/change-control/CC-S4-02/CC-S4-02_change_record.json"
+    },
+    {
+      "check": "Change record required fields",
+      "result": "PASS",
+      "detail": "change_id, step, reason, approval_text, approval_timestamp, superseded_sha256, new_sha256, archive_path"
+    },
+    {
+      "check": "Change identifier valid and unused",
+      "result": "PASS",
+      "detail": "change_id uses letters, digits, '.', '_' or '-' and is not already in amendment_history"
+    },
+    {
+      "check": "Change record names this step",
+      "result": "PASS",
+      "detail": "step must equal the amended step"
+    },
+    {
+      "check": "Owner approval recorded",
+      "result": "PASS",
+      "detail": "approval_text must be explicit (not PENDING/TBD/TODO); approval_timestamp must be ISO 8601 with Z or a UTC offset"
+    },
+    {
+      "check": "Superseded hash matches recorded receipt",
+      "result": "PASS",
+      "detail": "superseded_sha256 must equal the completed step's recorded artifact sha256"
+    },
+    {
+      "check": "New receipt exists and parses",
+      "result": "PASS",
+      "detail": "docs/stage-03-measurement-design/change-control/CC-S4-02/stage3_locked_design.v4.json"
+    },
+    {
+      "check": "New hash matches new receipt",
+      "result": "PASS",
+      "detail": "new_sha256 must equal the new receipt's sha256 and differ from the superseded receipt"
+    },
+    {
+      "check": "New receipt names what it supersedes",
+      "result": "PASS",
+      "detail": "supersedes_sha256 must equal the superseded sha256"
+    },
+    {
+      "check": "Archive path is safe",
+      "result": "PASS",
+      "detail": "archive_path must be a new project-relative file (or already hold the superseded bytes), distinct from live receipts"
+    },
+    {
+      "check": "Stage 3 required fields",
+      "result": "PASS",
+      "detail": "stage, status, design_version, population, grain, window_start, window_end, decision_rules, required_outputs, ml_mode, ai1_independent_design, ai2_independent_design, ai3_independent_risk_dossier, information_barrier, cross_review, design_gates, human_analyst_approval, unresolved_issues"
+    },
+    {
+      "check": "Stage 3 number",
+      "result": "PASS",
+      "detail": "stage must equal 3"
+    },
+    {
+      "check": "Stage 3 locked",
+      "result": "PASS",
+      "detail": "status must equal LOCKED"
+    },
+    {
+      "check": "ML mode explicit",
+      "result": "PASS",
+      "detail": "ml_mode must be None, A, or B"
+    },
+    {
+      "check": "Stage 3 ai1_independent_design",
+      "result": "PASS",
+      "detail": "ai1_independent_design must equal PASS"
+    },
+    {
+      "check": "Stage 3 ai2_independent_design",
+      "result": "PASS",
+      "detail": "ai2_independent_design must equal PASS"
+    },
+    {
+      "check": "Stage 3 ai3_independent_risk_dossier",
+      "result": "PASS",
+      "detail": "ai3_independent_risk_dossier must equal PASS"
+    },
+    {
+      "check": "Stage 3 information_barrier",
+      "result": "PASS",
+      "detail": "information_barrier must equal PASS"
+    },
+    {
+      "check": "Stage 3 cross_review",
+      "result": "PASS",
+      "detail": "cross_review must equal PASS"
+    },
+    {
+      "check": "Stage 3 design_gates",
+      "result": "PASS",
+      "detail": "design_gates must equal PASS"
+    },
+    {
+      "check": "Stage 3 human approval",
+      "result": "PASS",
+      "detail": "human_analyst_approval must equal APPROVED"
+    },
+    {
+      "check": "Stage 3 unresolved issues",
+      "result": "PASS",
+      "detail": "unresolved_issues must equal 0"
+    }
+  ]
+}

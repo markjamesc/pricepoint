@@ -1,0 +1,320 @@
+PHASE D — ROUND-2 RECONCILIATION. Your T021 proposed statement has NOT yet been shown to Morgan; it is held pending this reconciliation. Your next stakeholder message will be numbered T023 and replaces T021 as the message Morgan receives (T021 stays in the record as a superseded draft).
+
+INDEPENDENT REVIEWER FINDINGS (Phase C, round 2). AI 2 and AI 3 each reviewed the same packet (request, full verbatim dialogue T000–T021 including your T021 proposed statement, coordinator snapshot, context) without seeing each other. Their full reviews follow, verbatim and hash-frozen.
+
+===== AI 2 — Decision reconstruction (round 2) =====
+**1. Best reconstruction of the decision**  
+Morgan Lee must walk into each four-week pricing review with a per-product recommendation at one store: raise the shelf price, take a targeted price cut, leave the price unchanged, or classify the item as “hold — not enough evidence.” The first-round set is products in the California pilot store’s everyday grocery and household aisles that have real past shelf-price movement and steady enough sales. Actual raise/cut recommendations are capped at about 25 per cycle (holds are listed but do not consume the cap). If more than 25 products qualify for a change, she takes those that matter most / are strongest first; if fewer qualify, the list is not padded. The right call for a product is the action expected to produce the most product revenue (units × shelf price) over the next 28 days, provided the move is not expected to cut that product’s units by more than about 10%. Only information known as of the review date (end of the most recent history) may be used: own daily unit sales, weekly shelf prices, and calendar (events/holidays and SNAP days). Weak evidence must not be forced into a raise or cut.
+
+**2. Decision owner**  
+Morgan Lee (Pricing & Revenue Manager) makes the recommendation. The store general manager signs off.
+
+**3. Available actions or choices**  
+For each eligible product at the specified store:  
+- raise the shelf price  
+- take a targeted price cut  
+- leave the shelf price unchanged  
+- “hold — not enough evidence” (explicit legitimate outcome when evidence is not solid)  
+
+Only raise and targeted cut count toward the ~25 capacity. Holds and hold-not-enough-evidence must still appear on the reviewed list.
+
+**4. Intended outcome**  
+The action expected to bring in the most revenue for that product over the 28 days after the review, where revenue is units sold × shelf price. Margin is desired but unavailable; revenue is what Morgan can defend with the GM. A cut that raises units is acceptable if revenue holds.
+
+**5. Material constraint**  
+Do not recommend a move expected to cut the product’s units by more than about 10%, even if revenue would rise. Additional binding constraints already stated by the stakeholder: ~25 actual price-change recommendations per four-week cycle (no padding; prioritize if more qualify); use only information known as of the decision date; do not force a change when evidence is weak; first-round grain and scope are product-at-the-California-pilot-store in everyday grocery and household aisles, excluding items with no meaningful price history or that barely sell.
+
+**6. Time scope or deadline**  
+Reviews occur every four weeks; whatever is set holds until the next review. The judgment window is the following 28 days. For this exercise the review is treated as occurring at the end of the most recent available history, and only information that would have been known that day may be used (no look-ahead).
+
+**7. Evidence that would change the action**  
+- An expectation that a candidate raise or cut would reduce that product’s units by more than about 10% → reject the change.  
+- Insufficient price-movement history or sales activity, or otherwise weak evidence → “hold — not enough evidence” instead of raise/cut/hold-on-the-merits.  
+- A comparison of expected 28-day revenue at the current shelf price versus at the price being recommended → flip raise vs cut vs hold.  
+- More than ~25 products qualifying for a change → ranking changes which items receive a raise/cut.  
+- Calendar/SNAP (and event) patterns that change expected units over the next 28 days at current vs recommended price.
+
+**8. Strongest remaining ambiguity**  
+What “matter most” / “strongest first” means when more than ~25 products qualify for a raise or cut (largest expected revenue lift, strongest evidence, some mix, or another GM-facing rule). Secondary gaps that do not block a draft statement but are still open: stakeholder confirmation of T021; whether the recommendation must include a specific new shelf price or only the direction; exact department/aisle mapping inside “everyday grocery and household”; and the still-approximate “about 10 percent” and eligibility cutoffs (explicitly delegated).
+
+**9. Best next stakeholder question**  
+If more than about 25 products qualify for a raise or targeted cut, should “take the strongest first” mean the largest expected 28-day revenue improvement, the most reliable evidence, or another rule you would use with the GM?
+
+**10. Preliminary decision statement**  
+Morgan Lee must decide which of raise the shelf price, take a targeted price cut, leave the shelf price unchanged, or “hold — not enough evidence” to recommend for eligible products at the California pilot store’s everyday grocery and household aisles in order to maximize expected product revenue over the following 28 days, subject to rejecting any move expected to cut that product’s units by more than about 10 percent and limiting actual price-change recommendations to about 25 per four-week cycle (if more qualify, take those that matter most / are strongest first; if fewer, do not pad; holds and hold-not-enough-evidence do not count against the 25 but must be listed as reviewed), by/for the four-week pricing review treated as occurring at the end of the most recent available history and using only information known as of that day.
+
+No template clause is marked MISSING; every clause above is taken from the stakeholder’s own words (T002, T004, T006, T008, T010, T012, T014, T016, T018, T020). Exact eligibility cutoffs, the ranking key, and the exact 10% lock remain design choices for later stages, as the stakeholder delegated them.
+
+**Comparison with AI 1’s T021 statement**  
+T021 is close and usable as a draft, but these clauses are unsupported by or diverge from the stakeholder’s wording:
+
+- **“prioritized by importance”** — Morgan said she needs to know “which ones matter most so we take the strongest first” (T018). “Importance” is AI 1’s paraphrase, not her term, and it leaves the ranking key undefined.  
+- **“eligible product-store combinations”** — she said “each product at a specific store” and, for this first round, one California pilot store (T008). “Product-store combinations” is constructed language; with one store specified it is harmless in substance but not her words.  
+- T021’s three-way list (“raise … targeted price cut, or remain unchanged”) then tacks “hold — not enough evidence” on in a following sentence. That is consistent, but it slightly underplays that she treated “can’t tell” as a first-class outcome, not a footnote (T016).  
+- T021 omits a requirement she did state: hold and hold-not-enough-evidence items “don’t count against [the 25]; I just need to see them listed so I know they were looked at” (T020). That is an omission of her words, not an invented clause.
+
+Everything else in T021 (owner, three change-or-hold actions, 28-day product revenue, ~10% unit guardrail, end-of-history information boundary, ~25 raise/cut cap, no padding) is supported by the verbatim dialogue.
+
+**Start Gate: Revise**  
+Owner, action set (including can’t-tell), outcome, volume guardrail, capacity rule, grain/first-round scope, 28-day horizon, decision-time information boundary, and no-look-ahead rule are all stated by the stakeholder and can be written without inventing clauses. The gate is not Pass because T021 has not been confirmed, “prioritized by importance” is not her language, listing of holds is missing from T021, and “strongest / matter most” is still undefined. It is not Cannot yet frame: the decision is reconstructible and the remaining gaps are confirmation plus Stage-3 locks the stakeholder already delegated (cutoffs, ranking key, exact 10%).
+
+===== AI 3 — Red team (round 2) =====
+# AI 3 — Skeptical Framing Reviewer and Ambiguity Red Team
+## Stage 1 Start Review, ROUND 2 — PRICEPOINT-001
+
+---
+
+## 1. Strongest reason the reconstructed decision may be wrong
+
+**The decision may be mischaracterized as a "recommendation" decision when it is actually a decision under a hard attention/throughput constraint that changes the decision object itself.**
+
+The stakeholder's T018 correction ("My team can realistically work up about 25 price-change recommendations per four-week cycle — that's what we can get through with the GM") was treated in T019–T021 as an added constraint on a per-product classification decision. But the stakeholder's wording suggests the real decision may be a *selection and sequencing* decision: *which ~25 (or fewer) products to work up first*, not merely *which products qualify for a raise/cut/hold label*. The T021 statement resolves this by saying "limiting actual price-change recommendations to approximately 25" and "prioritized by importance," but it does not establish:
+
+- Whether Morgan's decision is (a) classify every eligible product into raise/cut/hold/insufficient-evidence and then rank the changes, or (b) directly choose a slate of ~25 changes from a larger candidate pool, treating the rest as "not this cycle" rather than "hold."
+- Whether the ~25 is a *hard cap on recommendations produced* or a *soft planning constraint* on what the team can physically prepare. T018 says "what we can get through with the GM" — that is a throughput constraint on the review meeting, not necessarily a constraint on the analyst's output. If Morgan can bring 25 changes but wants to know about 40, the decision is different from one where only 25 may be recommended at all.
+
+The difference matters because it changes the outcome variable: if the decision is "which 25 to work up," then the objective may be to maximize expected revenue *subject to the capacity constraint across the portfolio*, not per-product. The T021 statement preserves per-product framing and bolts on a cap, which may underrepresent the portfolio-level prioritization the stakeholder actually described.
+
+**Evidence from verbatim dialogue:** T018 — "If more products than that qualify, I need to know which ones matter most so we take the strongest first." T020 — "The 25 is about actual price changes, raises or cuts, because those are what my team has to work up and walk through with the GM." T021 — analyst converts this into "limiting actual price-change recommendations to approximately 25 per four-week review cycle" and "prioritized by importance." The analyst's rendering is plausible but not the only reading; "strongest first" could imply a ranked list longer than 25, with the top 25 worked up and the rest deferred, not suppressed.
+
+**Why this is the strongest challenge:** It goes to the decision object itself. Every other issue below is secondary to whether the decision is per-product classification, portfolio selection under capacity, or both.
+
+---
+
+## 2. Any missing decision option
+
+**Missing option: "defer / not this cycle" as distinct from "hold" and "hold — not enough evidence."**
+
+The dialogue establishes three action outcomes (raise, targeted cut, leave unchanged) plus one evidence outcome ("hold — not enough evidence"). T020 adds that holds do not count against the 25-cap but "must be listed so I know they were looked at." What is not established is whether a product that *would* qualify for a price change but does not make the top-25 cut is:
+
+- (a) assigned "hold" for this cycle (i.e., no change now),
+- (b) assigned some separate "deferred / ranked below capacity" status, or
+- (c) simply omitted from the recommendation list.
+
+T021 says "if more than 25 products qualify for price changes, recommendations should be prioritized by importance." That implies a ranked list, but it does not say what happens to products ranked 26+. Are they "hold" outcomes? Are they "not reviewed"? Are they "reviewed but not actioned this cycle"? The stakeholder has not been asked, and the T021 statement does not resolve it.
+
+**Missing option: "investigate further before deciding" as a legitimate outcome distinct from "hold — not enough evidence."** T016 says weak evidence should yield "hold — not enough evidence" rather than a forced call. But there is a difference between "the historical data cannot support a recommendation" and "the historical data are suggestive but not sufficient; gather more information (e.g., wait one cycle, or run a small test)." The stakeholder's uncertainty tolerance ("fewer, with stronger evidence"; "I'd rather miss an opportunity than walk a bad price change into my GM's office") may imply a third category: "cannot decide yet — needs more evidence before a future cycle." T021 collapses this into "hold — not enough evidence," which may be acceptable, but it is not the only option and has not been explicitly confirmed.
+
+**Missing option: "raise/cut at a different magnitude" is not in the action set.** The action set is raise / targeted cut / leave unchanged, with no magnitude dimension. T002 says "raise the shelf price, take a targeted price cut, or leave it where it is." T004 says "the right call is the one that's expected to bring in the most revenue." A raise or cut could be small or large; the decision statement does not specify whether Morgan must also decide *how much* to change the price, or whether the recommendation is directional only. If the GM signs off on a specific price, the decision likely includes magnitude. This is a potentially material omission from the action set, though it may be deferred to Stage 3 as a method question. At Start, it should at least be flagged as a scope ambiguity: is the decision "which direction" or "which direction and how much"?
+
+---
+
+## 3. Any leading or loaded language (in the analyst's messages or the snapshot)
+
+**A. T001 — "where current shelf prices may not be capturing available revenue opportunities."**
+This is a leading characterization. The stakeholder said "I keep hearing we're leaving money on the table." The analyst's restatement converts hearsay into an analytical premise ("may not be capturing available revenue opportunities"). It presumes the direction of the problem (under-pricing) before the data have been examined. It also subtly narrows the decision to revenue *capture* (i.e., raising prices) even though the analyst then lists three options. The phrase "available revenue opportunities" is loaded: it implies opportunities exist and are available, which is the question to be answered, not a given.
+
+**B. T003 — "To make sure we define the decision correctly, what business result should determine whether one of those three actions is the right call for a product?"**
+Mostly neutral, but "define the decision correctly" implies there is one correct definition and the analyst is seeking it, rather than co-constructing it. Minor.
+
+**C. T005 — "while avoiding a change that creates an unacceptable customer impact."**
+The analyst introduces "unacceptable customer impact" before the stakeholder has defined it. T004 said "without doing something dumb to the customer." The analyst's paraphrase is stronger and more evaluative than the stakeholder's colloquial phrasing. It also frames the guardrail as "customer impact" when the stakeholder later defines it as *unit decline* (T006: "Volume. If a move is expected to cut the product's units by more than about 10 percent..."). The analyst's earlier framing may have subtly steered toward a customer-welfare interpretation rather than a volume interpretation.
+
+**D. T007 — "you are not looking only for the highest expected revenue outcome; a recommendation also has to avoid an expected unit decline greater than about 10%."**
+This is a fair restatement, but "not looking only for the highest expected revenue outcome" is a soft way of saying the objective is constrained maximization. It is not loaded per se, but it does frame the guardrail as a secondary constraint rather than possibly a primary objective (the stakeholder said "I don't want it, even if the revenue math says it comes out ahead" — that is a rejection criterion, not a tie-breaker).
+
+**E. T009 — "while avoiding recommendations based on products with little sales activity or no meaningful price history."**
+The stakeholder said "I don't want you guessing on products whose price has never moved or that barely sell." The analyst's restatement is close, but "no meaningful price history" is slightly broader than "price has never moved" — it could exclude products with some movement that the stakeholder would consider acceptable. "Little sales activity" vs. "barely sell" is also a paraphrase. These are not severely loaded, but they are analyst-side interpretations presented as restatements.
+
+**F. T011 — "you want a smaller set of products where there is enough historical price movement and sales activity to make a recommendation defensible."**
+"Defensible" is the analyst's word, not the stakeholder's. T010 said "I'd rather have a smaller list I can trust than a big one full of guesses." "Trust" and "defensible" are related but not identical. "Defensible" carries a burden-of-proof connotation that may be stronger than the stakeholder intended.
+
+**G. T013 — "I'll also treat the review point as the end of the available history and avoid using information that would not have been available at that decision date."**
+This is a reasonable restatement of T012, but "avoid using information that would not have been available" is the analyst's no-look-ahead rule. The stakeholder said "only use what we'd actually know as of that day." The analyst's phrasing is equivalent but more technical. Not loaded, but worth noting that the analyst is supplying the formalization.
+
+**H. T015 — "how much uncertainty are you willing to accept before making a raise, targeted cut, or hold recommendation — for example, would you prefer fewer recommendations with stronger evidence, or more recommendations with lower confidence?"**
+The example is a leading binary. It presents two options (fewer/stronger vs. more/weaker) when the stakeholder might have a different preference (e.g., "it depends on the product" or "I want a confidence measure for each"). The stakeholder answered "fewer, with stronger evidence," which is consistent with the first option, but the question may have channeled her response.
+
+**I. T017 — "in order to maximize expected product revenue over the following 28 days, subject to avoiding expected unit declines greater than approximately 10%."**
+This is the analyst's formalization of the objective. It is a reasonable synthesis, but it converts the stakeholder's "revenue is the number I can actually defend" and "without doing something dumb to the customer" into a constrained maximization statement. The word "maximize" is the analyst's, not the stakeholder's. Morgan said "the right call is the one that's expected to bring in the most revenue" (T004), which is close to maximize, but the formalization is still an analyst-side interpretation.
+
+**J. T019 — "the recommendations need to be prioritized by importance rather than expanding the list."**
+"Rather than expanding the list" is the analyst's inference. The stakeholder said "I need to know which ones matter most so we take the strongest first" (T018). That implies prioritization, but it does not necessarily prohibit a longer list that includes lower-priority items for visibility. The analyst's phrasing forecloses that option before the stakeholder has confirmed it.
+
+**K. T021 — "limiting actual price-change recommendations to approximately 25 per four-week review cycle."**
+As noted in item 1, this converts a throughput constraint into a cap on recommendations. "Limiting" is stronger than "what we can get through." The stakeholder said the team can work up about 25; she did not say the analyst must not recommend more than 25. The distinction is between "we can only action ~25" and "you may only recommend ~25."
+
+**L. Snapshot — "AI 1's proposed decision statement (T021) is awaiting stakeholder confirmation."**
+Neutral. No issue.
+
+**M. Snapshot — "eligible products need several real past price changes and steady sales (exact cutoffs delegated to the analyst with disclosure)."**
+"Real past price changes" is the stakeholder's concept (T010: "actually had its shelf price change at least a few times in the history, so there's something real to learn from"). "Steady sales" is close to "sell steadily enough that a change would show up." Fair.
+
+**N. Snapshot — "Capacity: about 25 actual price-change recommendations (raise or cut) per cycle; if more qualify, strongest first; if fewer, no padding; holds do not count but must be listed as reviewed."**
+This is a fair summary of T018–T020. The only concern is the same as item K: "about 25 actual price-change recommendations" could be read as a cap rather than a throughput constraint.
+
+---
+
+## 4. Any conflict between stated outcome and proposed action
+
+**A. Outcome = expected product revenue over 28 days; action = raise / targeted cut / hold.**
+The outcome is defined at the product level, but the capacity constraint (T018) introduces a portfolio-level consideration: if more than 25 products qualify, the team must choose which ones to work up. The stated outcome (maximize expected product revenue) is per-product, but the proposed action (prioritize strongest first) is portfolio-level. There is no stated portfolio-level outcome (e.g., maximize total expected revenue across the 25 selected changes, or maximize expected revenue subject to capacity). This is a conflict between the per-product objective and the portfolio-level selection problem. It is not necessarily fatal — one could maximize expected revenue per product and then rank by expected revenue lift — but the decision statement does not resolve whether the ranking key is expected revenue lift, expected revenue level, probability of success, or something else. T018 says "which ones matter most," which is vague. The analyst's T021 says "prioritized by importance," which is equally vague.
+
+**B. Guardrail = reject unit declines > ~10%; action = targeted price cut.**
+A targeted price cut is presumably intended to increase units. If a cut is expected to *decrease* units (which would be unusual but possible if the price cut signals lower quality or if the product is Veblen-like), the guardrail would reject it. More importantly, the guardrail is asymmetric: it only constrains unit *declines*. A raise that increases units (again unusual but possible) would not be constrained. The stated outcome (maximize revenue) and the guardrail (avoid >10% unit decline) are not in direct conflict, but the guardrail is a one-sided constraint that may not capture all customer-impact concerns. The stakeholder said "without doing something dumb to the customer" (T004) and then operationalized it as volume (T006). The proposed action set does not include a customer-impact dimension beyond unit decline. This is a potential conflict if "doing something dumb to the customer" includes things other than volume loss (e.g., perceived unfairness, competitive response, long-term brand damage). The stakeholder explicitly chose volume as the guardrail, so this is resolved for now, but it is worth noting that the guardrail is a proxy for a broader concern.
+
+**C. Outcome = expected product revenue; information = no cost/margin.**
+The stakeholder acknowledges margin is unavailable and accepts revenue (T004: "I'd love to judge it on margin, but we don't have cost in this data, so revenue is the number I can actually defend"). This is a stated conflict between the ideal outcome (margin) and the feasible outcome (revenue). The proposed action uses revenue, which is consistent with the constraint. No conflict between stated outcome and proposed action, but the conflict between ideal and feasible is worth recording as a limitation.
+
+**D. Timing: decision at end of history; outcome window = 28 days after decision.**
+The decision point is the end of the most recent history (T012). The outcome window is the following 28 days. The analysis must use only information available at the decision point (T014). This is internally consistent. However, the stakeholder also says "I need a sense of what to expect over the next four weeks at the current price versus at the price I'd be recommending" (T014). This is a forward-looking expectation, which is consistent with using historical data to predict. No conflict.
+
+**E. Capacity = ~25 actual price changes; outcome = maximize expected revenue.**
+If the team can only work up 25 changes, and more than 25 products qualify, the decision is not "which products should be changed" but "which ~25 products should be changed first." The stated outcome (maximize expected product revenue) is silent on whether to maximize total expected revenue across the selected set or to maximize per-product expected revenue and then rank. This is a conflict between the stated outcome and the proposed action (prioritize by importance) because "importance" is not defined in terms of the stated outcome. The analyst should have asked: "When more than 25 products qualify, what does 'matter most' mean — highest expected revenue lift, highest expected revenue, highest confidence, or something else?" This is a missing link between outcome and action.
+
+---
+
+## 5. Any hidden secondary decision
+
+**A. The eligibility rule is a hidden secondary decision.**
+T008–T010 establish that products must have "actually had its shelf price change at least a few times in the history" and "sell steadily enough that a change would show up." The exact cutoffs are delegated to the analyst (T010: "I don't know what the right cutoffs are — that's your side of the table, as long as you tell me what you used and why"). This is a secondary decision about which products enter the decision set. It is not the primary decision (raise/cut/hold), but it determines the universe of products to which the primary decision applies. The T021 statement says "eligible product-store combinations" but does not spell out the eligibility rule. The snapshot says "eligible products need several real past price changes and steady sales (exact cutoffs delegated to the analyst with disclosure)." This is a hidden secondary decision because it is a judgment call that will materially affect the recommendation list, and the stakeholder has explicitly delegated it without specifying the criteria. It should be flagged as a Stage 3 lock (warrant ledger) and not treated as resolved at Start.
+
+**B. The ranking key for prioritization is a hidden secondary decision.**
+T018 says "which ones matter most so we take the strongest first." T021 says "prioritized by importance." The ranking key is not defined. Is it expected revenue lift? Expected revenue level? Probability that the change is correct? Expected revenue per unit of capacity? This is a secondary decision that will determine which products make the top 25. It is hidden because neither the stakeholder nor the analyst has named it. It should be flagged as a Stage 3 lock.
+
+**C. The "hold — not enough evidence" threshold is a hidden secondary decision.**
+T016 says weak evidence must yield "hold — not enough evidence." But what counts as "not enough evidence"? The stakeholder says "if the evidence on a product isn't solid" — but "solid" is not defined. This is a secondary decision about the evidence threshold. It is delegated to the analyst (T010: "that's your side of the table, as long as you tell me what you used and why"), but it is not explicitly framed as a decision. It should be flagged as a Stage 3 lock.
+
+**D. The treatment of products that qualify but do not make the top 25 is a hidden secondary decision.**
+As noted in item 2, the T021 statement does not say what happens to products ranked 26+. Are they "hold"? Are they "deferred"? Are they "not reviewed"? This is a secondary decision that affects the output and the stakeholder's ability to see what was looked at. It should be resolved before the decision statement is finalized.
+
+**E. The definition of "targeted price cut" is a hidden secondary decision.**
+T002 says "take a targeted price cut." What makes a cut "targeted"? Is it targeted to a specific product, a specific store, a specific customer segment, a specific time period? The stakeholder has not defined it. The T021 statement uses "targeted price cut" without definition. This is a secondary decision about the nature of the action. It may be deferred to Stage 3, but it should be flagged.
+
+**F. The treatment of calendar effects is a hidden secondary decision.**
+T014 says the calendar — holidays, events, SNAP benefit days — "really move grocery here." The decision statement says to use calendar factors, but it does not say whether the 28-day outcome window should be adjusted for calendar effects, or whether the recommendation should account for upcoming calendar events. This is a secondary decision about how to use the calendar data. It is likely a Stage 3 method question, but it is hidden in the current framing.
+
+---
+
+## 6. Any capacity, authority, or timing problem
+
+**A. Capacity: the ~25 cap is ambiguous.**
+As noted in items 1 and 3K, the ~25 is described as "what we can get through with the GM" (T018) and "what my team has to work up and walk through with the GM" (T020). This is a throughput constraint on the review process, not necessarily a cap on the number of recommendations the analyst may produce. The T021 statement says "limiting actual price-change recommendations to approximately 25 per four-week review cycle." This may be too strong. The stakeholder might want a longer ranked list so she can see what is below the line, or she might want exactly 25. The analyst asked whether the cap applies only to actual changes (T019) and the stakeholder confirmed (T020), but the analyst did not ask whether the cap is a hard limit on recommendations or a soft limit on what the team can action. This is a capacity problem that should be resolved before the decision statement is finalized.
+
+**B. Authority: Morgan recommends, GM approves.**
+T002 says "I make the recommendation and the store general manager signs off." The decision statement says Morgan "must decide whether to recommend." This is accurate: Morgan's decision is what to recommend, not what price to set. The GM's approval is a separate decision. The decision statement correctly frames Morgan's decision as a recommendation decision. However, the capacity constraint (T018) is about what the team can "get through with the GM." This suggests the GM's approval capacity is also a constraint. The decision statement does not mention the GM's approval capacity, only the team's preparation capacity. This is a minor authority/capacity issue: is the ~25 a limit on what Morgan can recommend, or a limit on what the GM can approve, or both? The stakeholder says "what we can get through with the GM" (T018), which suggests the constraint is joint. The decision statement should clarify that the ~25 is a joint constraint on preparation and approval, not just on recommendation.
+
+**C. Timing: decision at end of history, 28-day horizon, four-week cycle.**
+This is internally consistent. However, there is a potential timing problem: the stakeholder says "treat the review as happening right at the end of the most recent history you have" (T012). This is a simulated decision point. The analysis will use historical data up to that point. The 28-day outcome window is the following 28 days. The stakeholder wants "a sense of what to expect over the next four weeks at the current price versus at the price I'd be recommending" (T014). This is a forward-looking prediction, which is consistent with the timing. No timing problem per se, but the simulation aspect should be noted: the decision is being reconstructed as if it were made at the end of the history, and the analysis will evaluate it using the subsequent 28 days. This is a valid retrospective framing, but it should be clear that the recommendation is not being made in real time.
+
+**D. Capacity: the eligibility rule may reduce the candidate pool below 25.**
+T010 says the stakeholder prefers "a smaller list I can trust than a big one full of guesses." T018 says "if fewer qualify, that's fine; don't pad the list to hit 25." This is consistent. No problem.
+
+**E. Authority: the stakeholder is synthetic.**
+The packet says Morgan Lee is a "fictional Pricing & Revenue Manager (SYNTHETIC, simulated)." This is a role-play. The decision is simulated. This is not a problem for the exercise, but it should be noted that the decision statement is a reconstruction of a simulated stakeholder's decision, not a real pricing decision. This is relevant for the Start gate verdict: the framing is internally coherent, but it is a simulation.
+
+---
+
+## 7. Whether the analysis could actually change the decision
+
+**Yes, but with caveats.**
+
+The decision is a per-product recommendation (raise / targeted cut / hold) at a specific store, for eligible products, with a capacity constraint. The analysis could change the decision in several ways:
+
+- **Evidence-based classification:** The analysis could identify products where the historical price-sales relationship suggests a raise or cut would increase expected revenue without violating the unit-decline guardrail. This would change the recommendation from "hold" to "raise" or "cut."
+- **Evidence-based hold:** The analysis could identify products where the evidence is insufficient, leading to "hold — not enough evidence." This is a legitimate outcome (T016) and would change the recommendation from a forced call to an explicit hold.
+- **Prioritization:** If more than 25 products qualify, the analysis could rank them by expected revenue impact, changing which products are worked up first. This is a portfolio-level change.
+- **Eligibility:** The analysis could apply the eligibility rule (several price changes, steady sales) to determine which products enter the decision set. This is a scope change.
+
+However, the analysis is limited by:
+
+- **No cost/margin data:** Revenue is a proxy for profit. A revenue-maximizing price change may not be profit-maximizing. The stakeholder accepts this (T004), but the analysis cannot change the decision to a margin-based one.
+- **No competitor prices:** The analysis cannot account for competitive response. A price change that looks good in isolation may be undermined by competitor pricing.
+- **No inventory/stockouts:** The analysis cannot account for supply constraints. A price cut that increases units may not be feasible if inventory is limited.
+- **No randomized price tests:** The analysis relies on observational price variation, which may be confounded by unobserved factors (e.g., promotions, seasonality, store-level shocks). This limits causal inference.
+- **No customer-level data:** The analysis cannot assess heterogeneous customer responses. The guardrail is a population-level unit-decline constraint, not a customer-level welfare constraint.
+
+**Conclusion:** The analysis could change the decision within the bounds of the available data and the stated objective. It cannot change the decision to a margin-based or competitive-response-based decision. The analysis is decision-relevant but constrained. This is a "yes, within scope" answer.
+
+---
+
+## 8. Strongest alternative decision statement
+
+**Alternative decision statement (portfolio selection under capacity, with per-product classification as an input):**
+
+> Morgan Lee, Pricing & Revenue Manager, must decide which eligible product-store combinations at the California pilot store's everyday grocery and household aisles to recommend for a shelf-price raise or targeted price cut in the upcoming four-week pricing cycle, and which to leave unchanged or classify as "hold — not enough evidence," in order to maximize expected total product revenue across the recommended set over the following 28 days, subject to avoiding expected unit declines greater than approximately 10% for any recommended product, using only information available at the end of the current history period, and subject to the team's capacity to prepare and review approximately 25 actual price-change recommendations with the store general manager. If more than 25 products qualify for a price change, the recommendations must be ranked by expected revenue impact (or another stakeholder-confirmed ranking key) and the top 25 worked up first; if fewer than 25 qualify, no additional recommendations should be forced. Products classified as "hold" or "hold — not enough evidence" do not consume capacity but must be listed as reviewed.
+
+**Why this is stronger:**
+- It makes explicit that the decision is a *selection* problem when more than 25 products qualify, not just a per-product classification problem.
+- It clarifies that the ~25 is a capacity constraint on preparation and review, not necessarily a hard cap on the number of recommendations produced.
+- It introduces "expected total product revenue across the recommended set" as the portfolio-level objective, which is consistent with the per-product revenue objective but makes the portfolio-level trade-off explicit.
+- It leaves the ranking key open for stakeholder confirmation (expected revenue impact vs. another key), rather than assuming "importance" is self-evident.
+- It preserves the per-product classification (raise / cut / hold / hold — not enough evidence) as an input to the selection decision.
+
+**Alternative decision statement (simpler, if the stakeholder confirms that the ~25 is a hard cap and per-product classification is the primary decision):**
+
+> Morgan Lee, Pricing & Revenue Manager, must decide, for each eligible product-store combination at the California pilot store's everyday grocery and household aisles, whether to recommend raising the shelf price, taking a targeted price cut, or leaving the shelf price unchanged, in order to maximize expected product revenue over the following 28 days, subject to avoiding expected unit declines greater than approximately 10%, using only information available at the end of the current history period, and recommending no more than approximately 25 actual price changes per four-week cycle. When evidence is insufficient, the product should be classified as "hold — not enough evidence" rather than forcing a price change. If more than 25 products qualify for price changes, the recommendations should be ranked by expected revenue impact and the top 25 recommended; if fewer qualify, no additional recommendations should be forced. Products classified as "hold" or "hold — not enough evidence" do not consume capacity but must be listed as reviewed.
+
+**Why this is stronger than T021:**
+- It specifies that the ranking is by expected revenue impact (or another confirmed key), not vague "importance."
+- It clarifies what happens to products ranked 26+: they are not recommended this cycle, but they are presumably still classified (hold or hold — not enough evidence) and listed.
+- It makes the cap explicit as a recommendation limit, which is what T021 implies but does not state as clearly.
+
+---
+
+## 9. Best falsifying stakeholder question (one question only)
+
+**"When you say the team can work up about 25 price-change recommendations per cycle, do you mean you want the analysis to produce at most 25 recommendations, or do you want a longer ranked list where the top 25 are worked up first and the rest are visible but deferred — and if more than 25 products qualify, what does 'matter most' mean: highest expected revenue lift, highest expected revenue, highest confidence, or something else?"**
+
+This question is designed to falsify the T021 framing in two ways:
+1. It tests whether the ~25 is a hard cap on recommendations or a throughput constraint on what gets worked up.
+2. It tests whether the ranking key is expected revenue lift (the most natural reading of "strongest first") or something else.
+
+If the stakeholder says "at most 25 recommendations, ranked by expected revenue lift," then T021 is largely correct and the alternative framing in item 8 is unnecessary. If the stakeholder says "longer ranked list, top 25 worked up, ranking by expected revenue lift," then T021 is misleading and the alternative framing is needed. If the stakeholder says "ranking by something else," then both T021 and the alternative framing need revision.
+
+---
+
+## 10. Start gate verdict: Pass / Revise / Cannot yet frame, with reasons
+
+**Verdict: Revise.**
+
+**Reasons:**
+
+1. **The decision object is not fully resolved.** The T021 statement treats the decision as per-product classification with a capacity cap. The stakeholder's T018 language ("which ones matter most so we take the strongest first") and T020 language ("what my team has to work up and walk through with the GM") suggest the decision may be a portfolio selection problem under a throughput constraint. The analyst has not asked whether the ~25 is a hard cap on recommendations or a soft constraint on what gets worked up. This is a material ambiguity that affects the decision statement.
+
+2. **The ranking key is undefined.** T021 says "prioritized by importance," but "importance" is not defined in terms of the stated outcome (expected product revenue). The ranking key should be confirmed with the stakeholder before the decision statement is finalized. This is a Stage 3 lock, but the decision statement should at least name the candidate key (expected revenue impact) and flag it for confirmation.
+
+3. **The treatment of products ranked 26+ is undefined.** T021 does not say what happens to products that qualify for a price change but do not make the top 25. Are they "hold"? Are they "deferred"? Are they "not reviewed"? This should be resolved before the decision statement is confirmed.
+
+4. **The "hold — not enough evidence" threshold is undefined.** T016 says weak evidence should yield this outcome, but "weak" is not defined. This is a Stage 3 lock, but the decision statement should acknowledge that the threshold is a delegated analytical choice with disclosure.
+
+5. **The eligibility rule is a hidden secondary decision.** T010 delegates the cutoffs to the analyst. This is appropriate, but it should be flagged as a Stage 3 lock and not treated as resolved at Start. The decision statement says "eligible product-store combinations" without defining eligibility. This is acceptable for Start, but the snapshot should record that eligibility is a delegated decision with disclosure.
+
+6. **The action set may be incomplete.** The decision statement includes raise / targeted cut / hold / hold — not enough evidence. It does not include price-change magnitude. If the recommendation includes a specific price, the action set should include magnitude. If it is directional only, that should be stated. This is a scope ambiguity that should be resolved before the decision statement is finalized.
+
+7. **The capacity constraint may be misstated.** T021 says "limiting actual price-change recommendations to approximately 25." The stakeholder said the team can "work up about 25" and "get through with the GM." These are not necessarily the same. The decision statement should clarify whether the ~25 is a limit on recommendations or a limit on what the team can prepare and review.
+
+8. **The authority/capacity interaction is not fully specified.** The ~25 is about what the team can "get through with the GM." This suggests the constraint is joint (preparation + approval), not just preparation. The decision statement should clarify.
+
+**What is resolved and correct:**
+- Recommender: Morgan Lee. Approver: store GM.
+- Actions: raise / targeted cut / hold; "hold — not enough evidence" as a legitimate outcome.
+- Outcome: expected product revenue over 28 days; no cost/margin.
+- Guardrail: reject expected unit declines > ~10%.
+- Scope: one California pilot store, everyday grocery and household aisles; product at a specific store.
+- Timing: four-week cycle, 28-day horizon, decision at end of history, no look-ahead.
+- Information: daily unit sales, weekly shelf prices, calendar (events, SNAP days); no competitor, inventory, cost.
+- Uncertainty: fewer, stronger recommendations; "hold — not enough evidence" legitimate.
+
+**What needs revision:**
+- Clarify whether the ~25 is a hard cap on recommendations or a throughput constraint on what gets worked up.
+- Define the ranking key (expected revenue impact or another confirmed key).
+- Specify what happens to products ranked 26+.
+- Acknowledge that the "hold — not enough evidence" threshold is a delegated analytical choice.
+- Acknowledge that eligibility cutoffs are a delegated analytical choice.
+- Clarify whether the action set includes price-change magnitude.
+- Clarify whether the ~25 is a joint preparation/approval constraint.
+
+**Why not "Cannot yet frame":** The dialogue has established enough to frame a decision. The remaining issues are refinements, not fundamental gaps. The stakeholder has confirmed the core decision (raise / cut / hold per product-store, with capacity and evidence constraints). The analysis can proceed to Framing with the understanding that the ranking key, capacity interpretation, and 26+ treatment will be resolved in Stage 3. However, because these issues affect the decision statement itself, "Revise" is more appropriate than "Pass."
+
+**Why not "Pass":** The T021 decision statement is close but has material ambiguities (capacity interpretation, ranking key, 26+ treatment) that should be resolved before the stakeholder confirms it. Passing it as-is would risk locking in a mischaracterization of the decision.
+
+---
+
+**End of AI 3 Start Review R2.**
+
+===== YOUR TASK =====
+Return:
+SECTION 0 — Reconciliation: for each distinct finding raised by AI 2 or AI 3, reconcile against the verbatim transcript (not by vote): state accept / reject / defer-to-Framing-or-Stage-3, with a one-line reason grounded in the stakeholder's verbatim words. Do not adopt a finding merely because a reviewer raised it; do not dismiss one without a reason. Keep Start scope (no metrics, SQL, R, models, or thresholds).
+SECTION 1 — T023 stakeholder message: if a genuine ambiguity only Morgan can resolve remains, acknowledge and ask ONE question. Otherwise present the revised proposed decision statement and ask her to confirm or correct it.
+SECTION 2 — Internal note: Start Gate elements established vs missing, and plan.

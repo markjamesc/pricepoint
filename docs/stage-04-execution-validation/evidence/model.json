@@ -1,0 +1,57 @@
+{
+  "role": "model",
+  "status": "PASS",
+  "design_version": "08_CONSOLIDATED_CANDIDATE_v5_4 (sha256 3cfc71eb5e10c5f680e1768400d03daf05513a23199740ac9f80f8adff2b80ef)",
+  "fixture_version": "fixture_pack_v1",
+  "checked_at_utc": "2026-10-02T18:25:43Z",
+  "stage3_receipt_sha256": "1ee9f4da9cffe3a906182d209c573b61c7451387cfc338009261c79f8620dd16",
+  "ml_mode": "A",
+  "decision_critical_model_required": true,
+  "model_spec": "linear_reg(mode = 'regression'), engine glmnet, mixture = 0.5, standardize = FALSE (recipe-side center/scale), thresh = 1e-12 on every glmnet fit (all CV folds and final fits, at every origin) [CC-S4-01]",
+  "seed": 20160522,
+  "penalty_grid": "10^seq(-4, 1, length.out = 50)",
+  "acceptance_rule": "§16.3: at origin d_1913, A1 = median APE <= 0.40 AND A2 = mean signed error within [-0.20, +0.20]; §17.R8: backtest_accept = 0 -> all trust-eligible items hold_ne; d_1885 stability reported only",
+  "results": {
+    "r_a": {
+      "d_1913": {
+        "A1": 0.1824,
+        "A2": 0.2697,
+        "backtest_accept": 0,
+        "n_usable": 345,
+        "n_U0_excluded": 5
+      },
+      "d_1885": {
+        "A1": 0.1722,
+        "A2": 0.1794
+      },
+      "penalty_selected": 0.0021,
+      "penalty_grid_index": 14
+    },
+    "r_b": {
+      "d_1913": {
+        "A1": 0.1824,
+        "A2": 0.2697,
+        "backtest_accept": 0,
+        "n_usable": 345,
+        "n_U0_excluded": 5
+      },
+      "d_1885": {
+        "A1": 0.1722,
+        "A2": 0.1794
+      },
+      "penalty_selected": 0.0021,
+      "penalty_grid_index": 14
+    }
+  },
+  "model_acceptance_outcome": "FAIL at d_1913 (A2 = 0.2697 > 0.20; A1 = 0.1824 passes) -> backtest_accept = 0 in both paths -> collapse applied: 2,484/2,484 hold_ne, package 0, below-line 0, legal changes 0, trust-eligible 338",
+  "te6": {
+    "rule": "OC-5 Option A slice-only: te6 = te6_usable_slice",
+    "n_te6_usable_slice": 347,
+    "n_te6": 347
+  },
+  "status_meaning": "PASS = the locked model validation (backtest, collapse rule, TE6) was executed exactly as locked and reconciles across R-A and R-B. It does NOT mean the model passed acceptance; it failed A2 and the locked collapse rule was applied.",
+  "model_validation_files": {
+    "r_a": "ce09ea11afc075912c44a11ea8452edbc42ac770926a39677d80192076b5308b",
+    "r_b": "e812ecce7ae324eb8204875ee7b7c38856a4ab4586e3b4f65345c72d00ab4952"
+  }
+}

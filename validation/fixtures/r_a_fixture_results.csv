@@ -1,0 +1,27 @@
+fixture_id,expected,observed,result,detail
+FX-HOLD-NE-PRICES,PASS,PASS,PASS,One-price item fails trust and maps to hold_ne
+FX-GUARD-10,PASS,PASS,PASS,89/100 unit ratio fails the 0.90 guardrail despite positive revenue delta
+FX-CUT-OK,PASS,PASS,PASS,Legal cut is allowed
+FX-ARGMAX,PASS,PASS,PASS,Unrounded delta_rev argmax selects the 10-unit gain
+FX-NOPAD,PASS,PASS,PASS,Three qualifiers produce a three-item package; no padding
+FX-CAP25,PASS,PASS,PASS,Thirty qualifiers cap at 25 with five below line
+FX-MEMBER,PASS,PASS,PASS,Zero-eligible universe member remains present and non-trusted
+FX-LEAK-11618,PASS,PASS,PASS,Week-11618 price is quarantined from candidates
+FX-CURRENT-11617,PASS,PASS,PASS,Current price uses 11617 and flags the 11616 straddle
+FX-HORIZON-28,PASS,PASS,PASS,Horizon has exactly d_1942–d_1969 and two days in week 11621
+FX-TIE,PASS,PASS,PASS,Equal delta_rev ranks the higher current-units item first
+FX-ELIG-BOUNDARY,PASS,PASS,PASS,Only the exact E_A boundary item passes
+FX-PW52,PASS,PASS,PASS,51 priced weeks fails e_pw52 and trust
+FX-BAND25,PASS,PASS,PASS,Integer-cent ±25% band keeps both boundaries and excludes 5.01
+FX-NOCAND,PASS,PASS,PASS,No in-band candidate leaves e_cand=0; no band expansion
+FX-EVENT-SINGLE,PASS,PASS,PASS,Single-week Sporting price is removed; single-week non-event price is retained
+FX-CAP5-TIE,PASS,PASS,PASS,Five nearest candidates kept; equal rounded distance favors lower price 3.20 over 5.00
+FX-UP0-ZERO,PASS,PASS,PASS,Zero predicted baseline units maps to hold_ne without a unit ratio
+FX-CENT-ROUND,PASS,PASS,PASS,Separate base-R cent rounding makes 100.004 vs 100.000 non-legal
+FX-MINGAIN-DIAG,PASS,PASS,PASS,Below-half-MAE gain remains a ranked legal action and is diagnostic-only
+FX-BACKTEST-COLLAPSE,PASS,PASS,PASS,A1=0.45 collapses the trusted action set to hold_ne
+FX-TRAIL-ANCHOR,PASS,PASS,PASS,Both first and last horizon rows use the same d_1914–d_1941 trailing anchor
+FX-WDAY-SNAP,PASS,PASS,PASS,Stored Saturday wday=1 and CA SNAP=0 are preserved
+FX-WEEK-ORDINAL,PASS,PASS,PASS,Last 52 calendar weeks are 11518–11552 plus 11601–11617
+FX-INTERACT,PASS,PASS,PASS,Recipe emits exactly one scaled-log-price × raw-snap_CA interaction
+FX-TE6-SLICE,PASS,PASS,PASS,Each of the three TE6 failure modes forces te6=0 and trust_eligible=0

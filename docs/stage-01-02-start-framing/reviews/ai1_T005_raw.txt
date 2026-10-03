@@ -1,0 +1,74 @@
+## SECTION 1 — STAKEHOLDER MESSAGE (T005)
+
+Thanks, Morgan. That helps clarify the outcome you need to defend with your GM: the recommendation should aim to maximize expected product revenue, defined as units sold multiplied by shelf price over the weeks after the change, while avoiding a change that creates an unacceptable customer impact.
+
+To define the decision boundary, what level of downside would make you reject a revenue-increasing price recommendation (for example, a minimum acceptable unit-sales decline or another customer-impact concern)?
+
+---
+
+## SECTION 2 — INTERNAL NOTE (not sent)
+
+**Start Gate status:** Progressing, but cannot yet pass.
+
+### Established
+
+**Decision owner:**
+Established. Morgan Lee makes the recommendation; store general manager signs off.
+
+**Action/choice:**
+Established:
+
+* Raise shelf price.
+* Take a targeted price cut.
+* Leave shelf price unchanged.
+
+**Outcome:**
+Established. Morgan defines the desired outcome as product revenue over the weeks after the change:
+
+* Revenue = units sold × shelf price.
+* Margin is not selected because cost data is unavailable.
+* The recommendation should maximize expected revenue while avoiding unreasonable customer impact.
+
+**Analytical relevance:**
+Established. Morgan wants evidence from sales and price history to determine which action is the right call for a product.
+
+### Still missing
+
+**Material constraint:**
+Partially clarified but not complete. Morgan identified a qualitative customer-impact constraint (“without doing something dumb to the customer”), but the operational boundary is not defined.
+
+Need to determine:
+
+* What downside is unacceptable?
+* Whether there is a unit-sales decline threshold or another customer-impact rule.
+
+**Time scope:**
+Still missing:
+
+* Exact pricing review deadline.
+* Expected number of weeks after the change used to judge revenue impact.
+
+**Product/store scope:**
+Still missing:
+
+* Which products are in scope.
+* Whether recommendations are product-only, product-store specific, or another grain.
+
+**Information available at decision time:**
+Still missing:
+
+* What evidence Morgan will actually have available when making recommendations.
+
+**Uncertainty tolerance:**
+Still missing:
+
+* How much uncertainty Morgan and the GM are willing to accept before making a price recommendation.
+
+**Stakeholder confirmation of final decision statement:**
+Still missing.
+
+### Plan for next turns
+
+Continue Start dialogue by resolving the downside/customer-impact guardrail first because it defines the constraint on the revenue objective. Then establish scope, time horizon, and decision information before drafting the final Start decision statement.
+
+Maintain one stakeholder-facing question per turn. Do not introduce analytical thresholds unless Morgan defines the business tolerance.

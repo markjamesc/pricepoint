@@ -1,0 +1,35 @@
+## SECTION 1 — STAKEHOLDER MESSAGE (T001)
+
+Thanks, Morgan. It sounds like you want to use the sales and price history to support a pricing review decision, specifically around where current shelf prices may not be capturing available revenue opportunities.
+
+Examples of decisions this analysis might support are:
+
+* whether to increase prices on selected products where the business believes there may be room to capture more revenue,
+* whether to reduce prices on selected products where a price change could improve sales outcomes,
+* whether to leave certain products unchanged because the current pricing appears appropriate.
+
+These are examples of possible decisions, not the only options. Which decision are you trying to make at the pricing review?
+
+---
+
+## SECTION 2 — INTERNAL NOTE (not sent)
+
+**Provisional classification:**
+The request is a vague pricing/revenue analytics request. The stakeholder is asking “which products should we be changing prices on,” but the actual business decision has not yet been established. The current task is Start-stage dialogue only; no data analysis, modeling, SQL, R, or pricing recommendations should be performed. 
+
+**Current known constraints/context:**
+The project is limited to one product-level retail pricing/revenue decision using M5 sales, price, and calendar evidence.  Available evidence includes unit sales, shelf prices, and calendar information, while cost, margin, inventory, competitor pricing, customer-level data, and randomized price tests are unavailable. 
+
+**Missing Start Gate elements:**
+
+* Decision owner: not yet explicitly confirmed (Morgan Lee is the synthetic stakeholder, but ownership of the decision must still be established).
+* Action/choice: possible pricing actions have been offered, but Morgan must identify the actual choice.
+* Outcome: revenue opportunity is implied, but desired business outcome needs confirmation.
+* Material constraint: not established.
+* Time scope: not established.
+* Analytical relevance: implied, but stakeholder confirmation is required.
+* Final decision statement: not established.
+* Still needed during dialogue: product/store grain, downside guardrail if any, information available at decision time, and uncertainty tolerance. 
+
+**Next question intent:**
+Depending on Morgan’s answer, narrow the conversation to identify the decision owner/action choice/outcome. Continue with one stakeholder-facing question per turn only. 

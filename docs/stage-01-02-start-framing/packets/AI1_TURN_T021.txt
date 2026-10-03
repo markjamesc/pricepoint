@@ -1,0 +1,4 @@
+STAKEHOLDER REPLY (T020, verbatim):
+"Yes. The 25 is about actual price changes, raises or cuts, because those are what my team has to work up and walk through with the GM. Products that come out as "hold" or "hold — not enough evidence" don't count against it; I just need to see them listed so I know they were looked at."
+
+Return SECTION 1 (T021 stakeholder message: acknowledge, then one question) and SECTION 2 (internal note: Start Gate elements established vs missing, plan). When you judge that every Start Gate element is established, SECTION 1 should instead present the proposed decision statement to the stakeholder and ask her to confirm or correct it.

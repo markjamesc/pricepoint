@@ -1,0 +1,130 @@
+## SECTION 0 — CONSOLIDATED ISSUE LIST
+
+### 1. Decision owner
+
+**Transcript support:** Supported. Morgan states: “I make the recommendation and the store general manager signs off.” 
+
+**Accept/reject:** Accept AI 2’s reconstruction. Morgan is the recommendation owner; the general manager is an approver/sign-off role.
+
+**Resolution status:** Record as established working fact for Start. No further stakeholder clarification required unless later scope requires identifying which store GM(s).
+
+---
+
+### 2. Action or choice
+
+**Transcript support:** Supported. Morgan explicitly confirms the three actions: “raise the shelf price, take a targeted price cut, or leave it where it is.” 
+
+**Accept/reject:** Accept AI 2. The three-way action set is confirmed.
+
+**Resolution status:** Record as established. Do not add AI 3’s additional options (defer, escalate, exclude) as stakeholder choices at this point. They may become analytical handling considerations later, but they are not currently authorized decision options.
+
+---
+
+### 3. One product-level decision vs. per-product review concern
+
+**Transcript support:** Partially supported. Morgan describes a repeated review process: “For each product we look at, I have to walk in with a recommendation.”  The owner-locked project class requires one product-level retail pricing/revenue decision. 
+
+**Accept/reject:** Accept AI 3’s concern as a framing issue, but reject the implication that Morgan’s statement necessarily violates the project class. A product-level decision can still be the single decision class if the output is a consistent product-level recommendation rule or decision process.
+
+**Resolution status:** Must be resolved during Start/Framing. Need to clarify whether PricePoint is supporting:
+
+* a general product-level recommendation decision applied across reviewed products, or
+* selecting/prioritizing a bounded product set for review.
+
+Do not infer either.
+
+---
+
+### 4. Intended outcome
+
+**Transcript support:** Not established. Morgan wants to know “which of those three is the right call for a given product,” but does not define what makes it right. 
+
+**Accept/reject:** Accept AI 2 and AI 3. “Leaving money on the table” suggests a goal but does not specify whether the protected outcome is revenue, profit, units, customer response, or another business result.
+
+**Resolution status:** Must be resolved with stakeholder before Start Gate passes.
+
+---
+
+### 5. Material constraint
+
+**Transcript support:** Not established.
+
+**Accept/reject:** Accept AI 2. Data limitations are not business constraints. They are evidence limitations.
+
+**Resolution status:** Must be resolved with stakeholder. Need to identify limits such as acceptable downside, implementation capacity, policy, or risk tolerance.
+
+---
+
+### 6. Time scope
+
+**Transcript support:** Only “next pricing review” is established. 
+
+**Accept/reject:** Accept AI 2. Deadline and post-change horizon are missing.
+
+**Resolution status:** Must be resolved with stakeholder.
+
+---
+
+### 7. Evidence that would change the decision
+
+**Transcript support:** Morgan wants a “good way to tell” which action is correct, but has not defined what evidence would determine the choice. 
+
+**Accept/reject:** Accept AI 2. This is a missing framing element, not something to assume.
+
+**Resolution status:** Resolve during Framing/design. Do not force the stakeholder to define analytical metrics before the business outcome is known.
+
+---
+
+### 8. Leading language in T001
+
+**Transcript support:** AI 3 identifies language from the previous stakeholder message that may have implied assumptions.
+
+**Accept/reject:** Accept the critique. T001 should have been more neutral. Phrases such as “where current shelf prices may not be capturing available revenue opportunities” implied that missed opportunities already existed rather than treating that as Morgan’s hypothesis.
+
+**Resolution status:** Correct going forward. Future stakeholder messages should distinguish Morgan’s claims from confirmed facts and avoid embedding conclusions.
+
+---
+
+### 9. Hidden secondary decisions
+
+**Transcript support:** AI 3 identifies possible hidden decisions: product/store scope, objective, causal interpretation, and handling of evidence limitations.
+
+**Accept/reject:** Accept these as unresolved possibilities, not confirmed decisions.
+
+**Resolution status:** Resolve only where required for Start. Defer analytical methodology questions to later stages.
+
+---
+
+## SECTION 1 — STAKEHOLDER MESSAGE (T003)
+
+Thanks, Morgan. I understand that your pricing review requires a recommendation for each product you evaluate: raise the shelf price, take a targeted price cut, or leave it unchanged, with you making the recommendation and the store general manager signing off.
+
+To make sure we define the decision correctly, what business result should determine whether one of those three actions is the right call for a product?
+
+---
+
+## SECTION 2 — INTERNAL NOTE (not sent)
+
+**Current Start Gate status:** Cannot yet pass.
+
+**Established:**
+
+* Decision owner: Morgan Lee recommends; store general manager signs off.
+* Action choices: raise shelf price, targeted price cut, leave unchanged.
+* General decision context: product-level pricing recommendation for pricing review.
+
+**Still missing:**
+
+* Outcome/business result that defines the “right call.”
+* Material constraint.
+* Time scope: review deadline and expected duration of price change.
+* Product/store scope.
+* Downside guardrail, if any.
+* Information available to Morgan at decision time.
+* Uncertainty tolerance.
+* Stakeholder confirmation of final decision statement.
+
+**Next-turn plan:**
+Continue Start dialogue with one question per turn. The immediate priority is defining the outcome criterion because the three actions cannot be evaluated without knowing what business result Morgan is trying to improve or protect. After outcome clarification, resolve constraints and scope before drafting the final decision statement.
+
+Maintain neutral phrasing and avoid introducing assumptions about missed revenue, optimal pricing, or expected effects.

@@ -1,0 +1,246 @@
+## SECTION 0 — RECONCILIATION
+
+### 1. Morgan’s authority: decides vs recommends
+
+**Finding:** T027/T029 should frame Morgan as recommender, not final approver.
+**Decision:** Accept.
+**Reason:** Morgan stated, “I make the recommendation and the store general manager signs off.” 
+
+**Resolution:** Keep wording as “what recommendation to bring to the GM.”
+
+---
+
+### 2. Leave unchanged vs “hold — not enough evidence”
+
+**Finding:** These should remain separate outcomes.
+**Decision:** Accept.
+**Reason:** Morgan wanted raise, targeted cut, or leave unchanged, and separately required “hold — not enough evidence” when evidence is not solid. 
+
+**Resolution:** Keep both outcomes explicitly.
+
+---
+
+### 3. Pilot vs guarantee
+
+**Finding:** Pilot language and expectation-not-guarantee language must remain in the statement.
+**Decision:** Accept.
+**Reason:** Morgan stated that GM-approved changes are piloted and historical patterns are not proof of what a new price will do. 
+
+---
+
+### 4. Calendar and SNAP detail
+
+**Finding:** Calendar information should preserve Morgan’s emphasis on SNAP days.
+**Decision:** Accept.
+**Reason:** Morgan specifically identified “holidays, events, and the SNAP benefit days” as relevant information. 
+
+---
+
+### 5. Four-week cycle and hold-until-next-review cadence
+
+**Finding:** The confirmation statement should explicitly include the four-week review rhythm.
+**Decision:** Accept.
+**Reason:** Morgan stated that reviews occur every four weeks and “whatever we set holds until the next review.” 
+
+---
+
+### 6. Eligibility wording
+
+**Finding:** “Eligible product” should not imply that exact eligibility rules are already locked.
+**Decision:** Accept with revision.
+**Reason:** Morgan established principles: products should have had real shelf-price changes and sell steadily enough that a change would show, while exact cutoffs were delegated. 
+
+**Resolution:** Use “products meeting the review criteria” rather than locking “eligible” as a defined set.
+
+---
+
+### 7. Ranked list / capacity language
+
+**Finding:** The statement should include:
+
+* top ~25 package,
+* below-line next-in-line items,
+* no padding,
+* holds not consuming capacity.
+
+**Decision:** Accept.
+**Reason:** Morgan stated that the ranked list should go to the GM with the top items, and additional qualifying items should remain below the line as next in line. 
+
+---
+
+### 8. Ranking rule
+
+**Finding:** “Strongest” needs definition.
+**Decision:** Accept as resolved.
+**Reason:** Morgan defined strongest as “the biggest revenue gain that you actually trust” and delegated scoring methodology. 
+
+**Resolution:** Scoring method remains Stage 3, but the ranking objective is Start-established.
+
+---
+
+### 9. Price-change magnitude: proposed new shelf price vs direction only
+
+**Finding:** AI 3 argues magnitude is missing and must be resolved by Morgan. AI 2 treats it as later-stage.
+
+**Decision:** Defer to Framing/Stage 3, not a Start blocker.
+
+**Reason:** Morgan’s Start-level statements define the action choices as “raise the shelf price,” “take a targeted price cut,” or “leave it where it is.”  She also delegated scoring/cutoff details by saying “how you score that is your call, just tell me how you did it.” 
+
+However, the comparison between current price and recommended price means Stage 3 must define whether the analysis estimates a direction only or proposes a specific price change. This is an implementation/design choice, not a missing business decision.
+
+---
+
+### 10. “Compared with current price”
+
+**Finding:** The statement should preserve that recommendations are forward-looking comparisons.
+**Decision:** Accept.
+**Reason:** Morgan said she needs “a sense of what to expect over the next four weeks at the current price versus at the price I'd be recommending.” 
+
+---
+
+### 11. Guardrail failures
+
+**Finding:** Reporting label for products rejected by the unit guardrail is unresolved.
+**Decision:** Defer to Framing/Stage 3.
+**Reason:** Morgan specified the rejection rule (“more than about 10 percent” unit decline) but did not specify the reporting category for rejected candidates. 
+
+---
+
+### 12. Final Start Gate assessment
+
+**Decision:** Pass after wording revision.
+
+**Reason:** Core decision elements are established:
+
+* owner,
+* recommendation actions,
+* outcome,
+* constraints,
+* scope,
+* information boundary,
+* capacity,
+* uncertainty tolerance,
+* pilot context. 
+
+Remaining items belong to Framing/Stage 3:
+
+* exact eligibility cutoffs,
+* scoring formula,
+* evidence threshold,
+* price-change magnitude.
+
+---
+
+# SECTION 1 — STAKEHOLDER MESSAGE (T031)
+
+Thanks, Morgan. I’ve incorporated the remaining clarifications: the GM package comes from a ranked list, the strongest items are the biggest trusted revenue gains, additional qualifying items remain below the line as next in line, and approved changes are treated as pilots rather than guarantees.
+
+Here is the revised decision statement:
+
+**Morgan Lee, Pricing & Revenue Manager, must determine what recommendation to bring to the store general manager for products meeting the review criteria at the California pilot store’s everyday grocery and household aisles: raise the shelf price, take a targeted price cut, leave the shelf price unchanged, or classify the product as “hold — not enough evidence” when the evidence is not solid. The recommendation should identify the actions expected to produce the strongest trusted product revenue result (units sold × shelf price) over the next 28 days compared with the current price, while rejecting changes expected to reduce units by more than about 10%. The review occurs on a four-week cycle, with the price decision holding until the next review. The recommendation uses only information available at the review date: daily unit sales, weekly shelf prices, and calendar information including holidays, events, and SNAP benefit days. The output is a ranked list: the strongest trusted raise/cut opportunities, up to about 25, form the GM package; additional qualifying opportunities remain below the line as next in line and are not included in that cycle’s package. Holds and hold — not enough evidence outcomes remain visible and do not consume the price-change capacity. Approved changes are pilots, and historical patterns should be presented as expectations to test rather than guarantees.**
+
+Does this decision statement accurately describe the decision you need to make, or is there anything you would correct?
+
+---
+
+# SECTION 2 — INTERNAL NOTE (not sent)
+
+## Start Gate status: PASS pending stakeholder confirmation
+
+### Established
+
+**Decision owner**
+
+* Morgan Lee recommends.
+* Store general manager signs off.
+
+**Decision actions**
+
+* Raise shelf price.
+* Targeted price cut.
+* Leave unchanged.
+* Hold — not enough evidence.
+
+**Outcome**
+
+* Strongest trusted product revenue outcome.
+* Revenue = units sold × shelf price.
+* 28-day evaluation horizon.
+* Compare expected recommendation outcome against current price.
+
+**Constraints**
+
+* Reject expected unit declines greater than approximately 10%.
+* Prefer fewer strong recommendations.
+* Weak evidence receives hold — not enough evidence.
+* Historical patterns are expectations for pilots, not guarantees.
+
+**Scope**
+
+* Product at a specific store.
+* California pilot store.
+* Everyday grocery and household aisles.
+
+**Capacity**
+
+* Ranked list.
+* Top approximately 25 raise/cut opportunities enter GM package.
+* Additional qualifying opportunities remain below the line.
+* No padding if fewer qualify.
+* Holds do not consume price-change capacity.
+
+**Information boundary**
+Available:
+
+* Daily unit sales.
+* Weekly shelf prices.
+* Holidays.
+* Events.
+* SNAP benefit days.
+
+Unavailable:
+
+* Cost.
+* Inventory.
+* Competitor prices.
+
+**Timing**
+
+* Four-week review cycle.
+* Price holds until next review.
+* 28-day outcome window.
+* Decision point at end of available history.
+* No look-ahead.
+
+**Eligibility principle**
+Established:
+
+* Real historical shelf-price changes.
+* Sufficient sales activity.
+
+Deferred:
+
+* Exact cutoffs.
+
+### Missing for Start
+
+None.
+
+### Deferred to Framing / Stage 3
+
+* Exact eligibility cutoffs.
+* Ranking/scoring implementation.
+* Evidence sufficiency threshold.
+* Price-change magnitude.
+* Department mapping.
+* Reporting treatment of guardrail-rejected candidates.
+
+### Plan
+
+Await Morgan’s confirmation or correction of the revised decision statement.
+
+If confirmed:
+
+1. Lock Stage 1 Start.
+2. Move to Framing.
+3. Carry deferred items into later-stage design without reopening the business decision.

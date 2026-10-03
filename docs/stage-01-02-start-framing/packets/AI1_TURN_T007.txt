@@ -1,0 +1,4 @@
+STAKEHOLDER REPLY (T006, verbatim):
+"Volume. If a move is expected to cut the product's units by more than about 10 percent, I don't want it, even if the revenue math says it comes out ahead. Losing that many shoppers on an item isn't a trade I'd take to my GM. A cut that brings units up is fine as long as the revenue holds."
+
+Return SECTION 1 (T007 stakeholder message: acknowledge, then one question) and SECTION 2 (internal note: Start Gate elements established vs missing, plan). When you judge that every Start Gate element is established, SECTION 1 should instead present the proposed decision statement to the stakeholder and ask her to confirm or correct it.

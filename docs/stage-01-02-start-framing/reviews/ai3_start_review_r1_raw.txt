@@ -1,0 +1,29 @@
+1. **Strongest reason the reconstructed decision may be wrong**  
+The snapshot turns the request into a broad, multi-product “raise / targeted cut / hold” recommendation set, but the owner-locked project class says PricePoint must support **one product-level retail pricing/revenue decision**. T002 says “it’s all three” and “for each product we look at,” which may describe a pricing-review process or portfolio triage, not a single framed decision. The reconstructed decision may therefore be overbroad and may confuse the review process with the actual decision Morgan needs to make.
+
+2. **Any missing decision option**  
+Missing options include: deferring a product pending more evidence; making no recommendation and escalating to the store GM; deciding which products/stores enter the review at all; deciding store-specific versus chain-level price action; and distinguishing temporary targeted cuts from permanent shelf-price changes. “Leave as is” is not the same as “defer” or “exclude from this review.”
+
+3. **Any leading or loaded language**  
+In T001: “It sounds like you want…” is leading confirmation. “where current shelf prices may not be capturing available revenue opportunities” presupposes that revenue opportunities exist and are currently missed. “where the business believes there may be room” is loaded. “could improve sales outcomes” frames cuts positively. “current pricing appears appropriate” frames hold as the default-correct option. In the snapshot, “targeted price cut” is loaded relative to the more neutral “raise shelf price” and “leave as is.”
+
+4. **Any conflict between stated outcome and proposed action**  
+No outcome is actually stated. The original request implies “leaving money on the table,” which could mean revenue, profit, margin, or units, but the proposed actions are raise / cut / hold shelf prices. Without unit cost, margin, inventory, competitor prices, or randomized price tests, a price cut could improve sales yet reduce money captured, while a raise could improve revenue yet lose sales. “Targeted price cut” may also conflict with “shelf price” if it means a temporary promotion rather than a shelf-price change.
+
+5. **Any hidden secondary decision**  
+Hidden secondary decisions include: which products and stores are in scope; whether recommendations are chain-wide or store-specific; whether the outcome is revenue, profit, units, or some mix; whether observational price changes can be treated as causal; how to handle missing margin, inventory, competitor, and customer data; and whether Morgan’s real task is to recommend price changes or to prioritize which products need further evidence.
+
+6. **Any capacity, authority, or timing problem**  
+Capacity: no product count is given, but per-product recommendations across 10 stores, 3 states, and 3 categories may exceed review capacity. Authority: Morgan recommends, but the store GM signs off; it is unclear which GM, whether multiple stores are covered, and whether Morgan has authority across all products/stores. Timing: “next pricing review” has no deadline, horizon, or decision cadence. Data limits are also material: no unit cost, margin, inventory/stockouts, competitor prices, customer-level data, or randomized price tests.
+
+7. **Whether the analysis could actually change the decision**  
+Not as currently framed. The analysis might inform prioritization or confidence, but without a stated outcome, scope, constraints, decision horizon, and uncertainty tolerance, it cannot reliably change a specific raise/cut/hold decision. It could only change the decision if Morgan first confirms a bounded product-store decision and accepts the evidence limitations.
+
+8. **Strongest alternative decision statement**  
+At the next pricing review, Morgan Lee will recommend to the store GM, for a specified product-store scope, whether to raise the shelf price, take a targeted price cut, leave it unchanged, or defer pending additional evidence, in service of a stated revenue/profit objective and within stated constraints.
+
+9. **Best falsifying stakeholder question**  
+If the analysis could only support one product-level pricing decision at the next review, which product-store decision would you need it to support?
+
+10. **Start gate verdict: Pass / Revise / Cannot yet frame**  
+**Cannot yet frame.** The decision type is loosely identified, but the core framing is missing: confirmed decision statement, product/store scope, outcome, constraints, deadline/horizon, downside guardrail, information available at decision time, and uncertainty tolerance. The snapshot also risks conflicting with the owner-locked “one dataset = one decision” requirement. Pass is inappropriate, and Revise is insufficient until Morgan supplies the missing framing elements.

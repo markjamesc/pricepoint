@@ -1,0 +1,15 @@
+VERDICT: Keep
+
+REASONS:
+1. Prior concern resolved. C2 now asks for specific pilot prices, unchanged vs “hold — not enough evidence,” and the ranked current-cycle package, which is the decision Morgan confirmed (T002, T016, T034, T036; package mechanics T018, T020, T024).
+2. Prior concern resolved. Different prices, different hold/change splits, or a different rank order are now different answers, so they map to different GM-cycle actions (T018, T020, T024).
+3. Unchanged and still valid: owner and action stay visible — Morgan recommends a specific pilot price or an explicit non-change outcome to the GM (T002, T033–T034, T036).
+4. Unchanged and still valid: outcome, guardrail, and trust standard remain Morgan’s — revenue as units × shelf price, ~10% unit-loss reject, trust as an evidence gate rather than a gain cutoff (T004, T006, T016, T038, T040). No new AI metric was introduced.
+5. Prior concern resolved. Aisle scope is restored: California pilot store, everyday grocery and household aisles, product-level review criteria left as delegated design (T008, T010, T036). Horizon remains the next 28 days / four-week hold (T012, T014).
+6. Prior concern resolved and not newly misstated. `hard_attention_budget` is correct; the unit is actual raise/cut work-ups; C2 states both the ~25 package ceiling and below-the-line deferral (T018, T020, T024). Holds still do not consume capacity.
+7. Prior concern resolved. C2 is now narrow enough to govern Stage 3 output shape without locking eligibility cutoffs, the evidence threshold, candidate-price construction, model class, or KPI algebra (T010, T034, T038, T040).
+8. No new exclusion. Leave-unchanged, insufficient-evidence holds, small-but-trusted gains, and analyst-chosen candidate prices remain in scope (T016, T034, T040). The question still requires a forward 28-day expectation at current vs candidate prices given calendar factors, so it is not rules-only and does not name a model (T014, T026).
+
+C2 introduces no unsupported clause, no causal/guarantee wording (expectations remain implicit in “expected” and explicit in working assumptions per T026), no lost stakeholder exception that belongs in the question, and no locked Stage 3 item. “Up to about 25” already encodes do-not-pad (T018). Information freeze at end of history stays a Stage 3 / working-assumption boundary, as it was before, not a new omission.
+
+REQUIRED CHANGES: none.

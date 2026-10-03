@@ -1,0 +1,23 @@
+VERDICT: Pass
+
+FINDINGS:
+1. Earlier ranking/package-mechanics concern — RESOLVED. C2 now includes the ranked current-cycle GM package, up to about 25 actual price changes, and below-line additional qualifiers (T018, T024). NON-BLOCKING.
+2. Earlier aisle-scope concern — RESOLVED. C2 explicitly restores “California pilot store’s everyday grocery and household aisles” (T008). NON-BLOCKING.
+3. Leading toward a predetermined recommendation — No. C2 preserves raise/cut, unchanged, and “hold — not enough evidence” outcomes (T002, T016, T034). NON-BLOCKING.
+4. Causal wording — “Produce” has a mild causal flavor, but C2 says “expected” and the dialogue frames outputs as pilot expectations, not guarantees (T026, T038). NON-BLOCKING.
+5. Multiple decisions — C2 combines per-product price recommendation and package ranking, but Morgan’s decision is to bring a ranked GM-facing recommendation package; this is one linked decision, not unrelated decisions (T002, T024). NON-BLOCKING.
+6. Metric privilege — Revenue as units sold × shelf price is stakeholder-defined before C2 (T004). NON-BLOCKING.
+7. Omitted decision option — No. The four supported outcomes are present: specific increase, specific cut, unchanged, and insufficient-evidence hold (T002, T016, T034). NON-BLOCKING.
+8. Unsupported clause — No material unsupported clause. Specific pilot price is supported by T034; scope by T008; revenue by T004; 28-day window by T012; unit guardrail by T006; unchanged/hold distinction by T016; ranking/package by T018 and T024. NON-BLOCKING.
+9. Accurate but useless for action — C2 now includes package mechanics and below-line treatment, so it is actionable for the GM review (T024). NON-BLOCKING.
+10. Data convenience distorting business need — No. Eligibility criteria remain deferred to Stage 3, consistent with Morgan’s delegation of cutoffs (T010). NON-BLOCKING.
+11. Lost stakeholder exception — C2 does not explicitly restate no-padding-if-fewer or the review-date information boundary, but “up to about 25” and the builder’s Stage 3 time-construction/validation notes preserve them; this is not blocking (T012, T018, T026). NON-BLOCKING.
+12. Locked Stage 3 item — No. Eligibility thresholds, evidence sufficiency, candidate-price construction, model class, KPI implementation, and “about 25” treatment remain open (T010, T034, T040). NON-BLOCKING.
+13. Capacity misrepresentation — No. C2 correctly reflects a hard attention budget for actual raise/cut recommendations, not an unbounded census (T018, T020, T024). NON-BLOCKING.
+
+CAPACITY CHECK:
+(a) Limited-attention purpose was not silently framed as an unbounded census — PASS. C2 uses a ranked list, up to about 25 actual price changes, and below-line additional qualifiers (T018, T024).
+(b) Census purpose was not silently forced into `hard_attention_budget` to manufacture a leaderboard — PASS. Morgan explicitly stated the limited GM review capacity and ranking need (T018, T024).
+Independent capacity_stance determination: `hard_attention_budget`. Capacity unit: actual raise/cut recommendations prepared for GM review in the current four-week cycle. Controlled deferral: additional qualifying opportunities remain below the line; unchanged and “hold — not enough evidence” outcomes remain visible and do not consume price-change capacity.
+
+REQUIRED REVISIONS: None.

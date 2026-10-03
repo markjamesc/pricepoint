@@ -1,0 +1,494 @@
+{
+  "stage": 3,
+  "status": "LOCKED",
+  "design_version": "08_CONSOLIDATED_CANDIDATE_v5_2 (sha256 2065773c3224dd6eb083ef6b8f57deb88786ee1742d7da5f66f7fdf825278957)",
+  "population": "Analytical universe: all CA_1 items in departments FOODS_1, FOODS_2, FOODS_3, HOUSEHOLD_1, HOUSEHOLD_2 (2,484 items under OC-1 (a)); every universe item gets exactly one row and one action (v5.2 §7.1, §17.R1). Trust-eligible subset = E_A (n_price_changes_pre >= 3, units_365 >= 180 over d_1577-d_1941, zero_days_365 <= 182) AND priced_weeks >= 52 AND candidate-exists AND te6 (v5.2 §7.3, §17.R2, §17.R5); 363 under OC-2 recommendation. Non-eligible items -> hold_ne, never dropped.",
+  "grain": "item-store (CA_1): one universe row and one action per item; candidate table item_id x candidate_price (at most 5 per item); model training unit item-store-day (v5.2 §9.1, §17A.1, §22.1-22.2)",
+  "window_start": "2011-01-29",
+  "window_end": "2016-05-22",
+  "decision_rules": {
+    "description": "06 Appendix A steps 1-9 verbatim = v5.2 §17.R1-R9; M4-001..M4-017",
+    "decision_origin": {
+      "d": 1941,
+      "date": "2016-05-22",
+      "current_price_week": 11617,
+      "twin_week": 11616
+    },
+    "horizon": {
+      "start_d": 1942,
+      "end_d": 1969,
+      "start_date": "2016-05-23",
+      "end_date": "2016-06-19",
+      "days": 28
+    },
+    "leakage_boundary": "sales d >= 1942 and prices wm_yr_wk >= 11618 forbidden in features, candidates, current price (§8.3)",
+    "eligibility_E_A": {
+      "n_price_changes_pre_min": 3,
+      "units_365_min": 180,
+      "zero_days_365_max": 182,
+      "sales_window": "d_1577-d_1941",
+      "price_weeks": "<= 11617",
+      "trust_subset": "E_A + priced_weeks >= 52 + candidate-exists",
+      "n_trust_subset": 363,
+      "n_trust_subset_by_dept": "29/99/172/60/3",
+      "owner_choice": "OC-2 E_A (363)"
+    },
+    "priced_weeks_min": 52,
+    "universe_departments": {
+      "store_id": "CA_1",
+      "value": [
+        "FOODS_1",
+        "FOODS_2",
+        "FOODS_3",
+        "HOUSEHOLD_1",
+        "HOUSEHOLD_2"
+      ],
+      "n_universe": 2484,
+      "excluded": [
+        "HOBBIES"
+      ],
+      "owner_choice": "OC-1 (a)"
+    },
+    "te6_rule": {
+      "value": "Option A (slice-only): te6 = te6_usable_slice",
+      "te6_usable_slice": "1 iff (1) E_A holds re-anchored at o = d_1913 (n_price_changes weeks <= 11613 >= 3, units_365 over d_1549-d_1913 >= 180, zero_days_365 over d_1549-d_1913 <= 182); (2) same sell_price in each of weeks 11613-11617; (3) realized units d_1914-d_1941 > 0",
+      "on_fail": "te6 = 0 -> trust fails -> hold_ne",
+      "item_level_ape_threshold": null,
+      "te6_ape_i_and_dept_median": "reported only",
+      "owner_choice": "OC-5 Option A"
+    },
+    "candidate_band": "integer-cent 100*Pc >= 75*P0 and 100*Pc <= 125*P0; Pc > 0; Pc != P0; own prices at weeks <= 11617; no band expansion",
+    "event_filter": "drop a price level seen in exactly one week <= 11617 when that week has >= 1 day with event_type_1 in {National, Religious, Sporting, Cultural}",
+    "candidate_cap": {
+      "max": 5,
+      "order": "round(abs(ln(Pc/P0)), 10) asc, then price asc (tie -> lower price)"
+    },
+    "unit_guardrail_rho_min": {
+      "value": 0.9,
+      "hard": true,
+      "sensitivity_only_twins": [
+        0.85,
+        0.95
+      ],
+      "owner_choice": "OC-3 0.90 hard"
+    },
+    "legal_test": "rho_hat >= 0.90 AND round(R_hat(Pc),2) - round(R_hat(P0),2) > 0",
+    "zero_baseline": "U_hat(P0) = 0 -> hold_ne",
+    "action_map": "not trusted -> hold_ne; none legal -> unchanged at P0; else argmax delta_R_hat (unrounded): raise if Pc > P0, cut if Pc < P0",
+    "backtest_collapse": {
+      "origin_d": 1913,
+      "A1_median_ape_max": 0.4,
+      "A2_mean_signed_error_range": [
+        -0.2,
+        0.2
+      ],
+      "on_fail": "every trust-eligible item -> hold_ne",
+      "stability_origin_d": 1885,
+      "stability_binding": false
+    },
+    "ranking": "delta_R_hat desc, pred_units_current desc, n_price_changes_pre desc, item_id asc",
+    "capacity_N_CAP": {
+      "value": 25,
+      "rule": "package = ranks 1..min(N_CAP, n); below_line = ranks > N_CAP; no padding; holds and unchanged listed separately, do not consume slots",
+      "hard": true,
+      "owner_choice": "OC-4 N_CAP 25 hard"
+    },
+    "minimum_gain": "none (gain_below_half_mae diagnostic only)",
+    "model": {
+      "spec": "linear_reg(mode = 'regression'), engine glmnet, mixture = 0.5, standardize = FALSE (recipe-side center/scale)",
+      "seed": 20160522,
+      "penalty_grid": "10^seq(-4, 1, length.out = 50)",
+      "selection": "min mean held-out daily-unit RMSE over 5 contiguous folds ceiling(5*d/D); ties -> larger penalty; refit full window",
+      "prediction_floor": 0,
+      "features": [
+        "log_sell_price",
+        "wday",
+        "month",
+        "snap_CA",
+        "event_type_1",
+        "event_any",
+        "is_memorial_day_window",
+        "is_nba_finals",
+        "trailing_28d_units",
+        "trailing_84d_units",
+        "trailing_28d_mean_price",
+        "dept_id",
+        "item_mean_log1p_units"
+      ],
+      "interaction": "(scaled log_sell_price) x snap_CA",
+      "references": {
+        "wday": 1,
+        "month": 1,
+        "dept_id": "FOODS_3",
+        "event_type_1": "none"
+      }
+    },
+    "oc_resolution_index": {
+      "OC-1": {
+        "fields": [
+          "universe_departments",
+          "population n_universe",
+          "§22.4 n_universe",
+          "department reporting rows (§13.2)"
+        ],
+        "resolved": true
+      },
+      "OC-2": {
+        "fields": [
+          "eligibility_E_A (or E_A AND nd >= 4)",
+          "trust-eligible count"
+        ],
+        "resolved": true
+      },
+      "OC-3": {
+        "fields": [
+          "unit_guardrail_rho_min",
+          "legal_test"
+        ],
+        "resolved": true
+      },
+      "OC-4": {
+        "fields": [
+          "capacity_N_CAP",
+          "package_flag / below_line_flag"
+        ],
+        "resolved": true
+      },
+      "OC-5": {
+        "fields": [
+          "te6_rule",
+          "trust_eligible"
+        ],
+        "resolved": true
+      }
+    }
+  },
+  "required_outputs": [
+    "universe table (§22.1)",
+    "candidate table (§22.2)",
+    "audit output table (§22.4)",
+    "lineage fields (§24.4)"
+  ],
+  "ml_mode": "A",
+  "ai1_independent_design": "PASS",
+  "ai2_independent_design": "PASS",
+  "ai3_independent_risk_dossier": "PASS",
+  "information_barrier": "PASS",
+  "cross_review": "PASS",
+  "design_gates": "PASS",
+  "human_analyst_approval": "APPROVED",
+  "unresolved_issues": 0,
+  "fixture_version": "fixture_pack_v1",
+  "fixture_pack_sha256": "1390575a2ee1a6488d0ef53e0cf93396ddbb299455a1b47571626a9d6ecf976f",
+  "fixture_ids": [
+    "FX-HOLD-NE-PRICES",
+    "FX-GUARD-10",
+    "FX-CUT-OK",
+    "FX-ARGMAX",
+    "FX-NOPAD",
+    "FX-CAP25",
+    "FX-MEMBER",
+    "FX-LEAK-11618",
+    "FX-CURRENT-11617",
+    "FX-HORIZON-28",
+    "FX-TIE",
+    "FX-ELIG-BOUNDARY",
+    "FX-PW52",
+    "FX-BAND25",
+    "FX-NOCAND",
+    "FX-EVENT-SINGLE",
+    "FX-CAP5-TIE",
+    "FX-UP0-ZERO",
+    "FX-CENT-ROUND",
+    "FX-MINGAIN-DIAG",
+    "FX-BACKTEST-COLLAPSE",
+    "FX-TRAIL-ANCHOR",
+    "FX-WDAY-SNAP",
+    "FX-WEEK-ORDINAL",
+    "FX-INTERACT",
+    "FX-TE6-SLICE"
+  ],
+  "reconciliation_critical_fields": {
+    "exact": [
+      "item_id",
+      "store_id",
+      "row counts",
+      "n_price_changes_pre",
+      "n_distinct_prices_pre",
+      "priced_weeks_pre",
+      "units_365",
+      "zero_days_365",
+      "e_chg3",
+      "e_u180",
+      "e_z182",
+      "e_pw52",
+      "e_cand",
+      "te6",
+      "trust_eligible",
+      "current_price",
+      "candidate_price",
+      "candidate-table keys item_id x candidate_price",
+      "n_candidates",
+      "straddle_flag",
+      "backtest_accept",
+      "all §22.4 audit counts and flags",
+      "te6_usable_slice",
+      "guardrail_pass",
+      "legal_change",
+      "cent_delta_rev",
+      "action",
+      "package_flag",
+      "below_line_flag",
+      "rank_among_qualifiers",
+      "lineage fields"
+    ],
+    "tolerance_0_05_units": [
+      ".pred_units_current",
+      ".pred_units_candidate"
+    ],
+    "tolerance_0_05_dollars": [
+      ".pred_rev_current",
+      ".pred_rev_candidate",
+      "delta_rev"
+    ],
+    "diagnostic_trigger_only": [
+      "penalty_grid_index",
+      "gain_below_half_mae",
+      "backtest_A1_median_ape",
+      "backtest_A2_mean_signed_error",
+      "dept_backtest_MAE_revenue",
+      "te6_ape_i",
+      "te6_dept_median_ape"
+    ],
+    "rule": "any action, package, below-line or rank mismatch = FAIL; cent_delta_rev sign mismatch = FAIL; tolerance never reconciles a discrete field; outcome PASS/FAIL only (§23)"
+  },
+  "horizon_start": "2016-05-23",
+  "horizon_end": "2016-06-19",
+  "capacity_stance": "hard_attention_budget",
+  "authorship_provenance": {
+    "coordinator_mechanical_fallback_blocks_total": 23,
+    "label": "coordinator mechanical fallback from prompt block, AI1 non-delivery/deviation",
+    "v5_1_blocks": [
+      "P5.01",
+      "P5.02",
+      "P5.03",
+      "P5.04",
+      "P5.05",
+      "P5.06",
+      "P5.07",
+      "P5.08",
+      "P5.09",
+      "P5.10",
+      "P5.11",
+      "P5.12"
+    ],
+    "v5_2_blocks": [
+      "P2.02",
+      "P2.04",
+      "P2.05",
+      "P2.06",
+      "P2.07",
+      "P2.10",
+      "P2.11",
+      "P3.02",
+      "P3.03",
+      "P3.04",
+      "P4.01"
+    ],
+    "prompt_file": {
+      "path": "recon/AI1_CANDIDATE_REVISION_PROMPT_v5.txt",
+      "sha256": "988f546e2846ab1178107e8d240e6d12238111361024dae58bc155342bfe052f"
+    },
+    "provenance_table": {
+      "path": "recon/08v5_2_PROVENANCE.md",
+      "sha256": "cfd6e319ea2822aa7d0198f559b6f2ec6d7773f320e317c5a377e398bffb66d6"
+    },
+    "ai1_countersign": {
+      "result": "COUNTERSIGN: CONFIRMED",
+      "path": "reviews/ai1_countersign_raw.txt",
+      "sha256": "13276291fb98a8e18b4fda1740346bdcadf663ee8ea13149f51430be2d68d74d",
+      "pc_copy": "docs/stage-03-measurement-design/08_AI1_COUNTERSIGN.txt"
+    },
+    "owner_disclosure": "DISCLOSED and approved in owner_approval_text (2026-09-25T08:38:00-05:00)"
+  },
+  "evidence": {
+    "ai1_independent_design": [
+      {
+        "path": "reviews/ai1_designA_raw.txt",
+        "sha256": "294ac79f42f41b8bac6cbda2b04db63183b6cc8ec5192bf1f8acfeaf9268c215"
+      },
+      {
+        "path": "packets/AI1_DESIGN_A_PROMPT.txt",
+        "sha256": "712805602436e148b171bab9116e38cff2e17a34238152f25318cdaae02e4f77"
+      }
+    ],
+    "ai2_independent_design": [
+      {
+        "path": "reviews/ai2_designB_file.md",
+        "sha256": "ff3af86bc2f3135bf9afa404324ff1e5b111870a83c1825681779b3760f9b61a"
+      },
+      {
+        "path": "reviews/ai2_designB_raw.txt",
+        "sha256": "ba9362db323fbde2700f86e1a4a7bbf5514a207c18338b0ecb18212759ffa588"
+      },
+      {
+        "path": "packets/AI2_DESIGN_B_PROMPT.txt",
+        "sha256": "60af461d788f2be3110978804265d5bb8622c507b969d2df2d24071b3c122cda"
+      }
+    ],
+    "ai3_independent_risk_dossier": [
+      {
+        "path": "reviews/ai3_dossier_raw.txt",
+        "sha256": "cee5d4c574382d971af82f16ba9c4b3857e809bed9534613b51da0d959dd3e67"
+      },
+      {
+        "path": "packets/AI3_DOSSIER_PROMPT.txt",
+        "sha256": "4ba45b987083eb6fdde9f8358ab7d4caefeaf0b2801e14738ba149565f2a1d61"
+      }
+    ],
+    "information_barrier": [
+      {
+        "path": "01_DESIGN_INPUT_PACKAGE.md",
+        "sha256": "7959c1ae790ee697fc1b3a9d3f74f7640acdfa29226fc1994c1f79decc743fa5"
+      },
+      {
+        "path": "packets/AI1_DESIGN_A_PROMPT.txt",
+        "sha256": "712805602436e148b171bab9116e38cff2e17a34238152f25318cdaae02e4f77"
+      },
+      {
+        "path": "packets/AI2_DESIGN_B_PROMPT.txt",
+        "sha256": "60af461d788f2be3110978804265d5bb8622c507b969d2df2d24071b3c122cda"
+      },
+      {
+        "path": "packets/AI3_DOSSIER_PROMPT.txt",
+        "sha256": "4ba45b987083eb6fdde9f8358ab7d4caefeaf0b2801e14738ba149565f2a1d61"
+      },
+      {
+        "path": "reviews/SHA256SUMS_design_r1.txt",
+        "sha256": "5e5dde3d4b258069630dabdf367548bc42013b74ea6c9f81856883b122e69837"
+      }
+    ],
+    "cross_review": [
+      {
+        "path": "xreview/05_CROSS_REVIEW_PACKET.md",
+        "sha256": "4114c88dbf55e172ee175965c80e3faa87b196b122da8609fd129d8fb2567ed5"
+      },
+      {
+        "path": "reviews/ai1_xreview_raw.txt",
+        "sha256": "16f377638161588e2097f18d96f008574ab07815d21b27367f546225bf082dfb"
+      },
+      {
+        "path": "reviews/ai2_xreview_raw.txt",
+        "sha256": "637182cd9b696d60927359e463a48c729aab7acebadfb6229fe9217fe17c8177"
+      },
+      {
+        "path": "reviews/ai3_xreview_raw.txt",
+        "sha256": "5dd0b88b17fcd9c60030a291a998cb9576ed92d2b2412caf307e0d4d7157de89"
+      },
+      {
+        "path": "recon/06_DESIGN_RECONCILIATION_MATRIX.md",
+        "sha256": "96b2bc0306d780a957e16f4937a34992c2223dbe389900f2da1a624ba1f29418"
+      },
+      {
+        "path": "recon/07_RISK_REGISTER.md",
+        "sha256": "1b9fa45094ca5819e23438cb4f1134d9427ddd2a69c5848a2f25047964e1a99a"
+      },
+      {
+        "path": "audit/09_FINAL_AUDIT_SYNTHESIS.md",
+        "sha256": "92fefed3ece24acd9ed4c337c4020f48136e8929922f2f21a6e04f7a31a909e1"
+      }
+    ],
+    "design_gates": [
+      {
+        "path": "design_gate/DESIGN_GATE_SELF_CHECK.md",
+        "sha256": "f6faa813f54b191e31cd6023efb2312efdc23eff66985f84c0aa903784399198"
+      },
+      {
+        "path": "recon/08v5_2_COORDINATOR_COMPLIANCE_CHECK.md",
+        "sha256": "8e81c018743fdd5b951a2e5674af5773e2bdccf8b8dac905aa887ad9d8acba1a"
+      }
+    ],
+    "design_gates_note": "Design Gate self-check DG-SC-2: Gates 1-11 PASS (Gate 11 human approval = owner approval 2026-09-25T08:38:00-05:00).",
+    "stored_hash_verification": "73/73 recorded hashes in reviews/, audit/, xreview/ and design-input SHA256SUMS files re-verified OK on 2026-09-25 (CT)",
+    "path_base": "Evidence paths are relative to the coordinator Stage 3 workspace (box /workspace/pp001/stage3); PC mirrors live under docs/stage-03-measurement-design/ (see SHA256SUMS_stage3_package.txt).",
+    "draft_record": {
+      "path": "deliverables/stage3_locked_design.DRAFT.json",
+      "sha256": "a75afce0ed374fcacb7cc04580a13839ea963facd9ebdd452b80961ab1c67acd"
+    }
+  },
+  "unresolved_issues_note": "0 Open design items (v5.2 §26.1); OC-1..OC-5 resolved by the owner at lock.",
+  "owner_choices_resolved": [
+    {
+      "id": "OC-1",
+      "item": "Department scope",
+      "chosen": "(a) FOODS_1/2/3 + HOUSEHOLD_1/2, HOBBIES excluded (2,484 items)",
+      "options_considered": [
+        "(a) FOODS_1/2/3 + HOUSEHOLD_1/2, HOBBIES excluded (2,484 items)",
+        "(b) add HOBBIES",
+        "(c) FOODS_3 + HOUSEHOLD_1 only"
+      ],
+      "coordinator_recommendation": "(a)",
+      "matches_recommendation": true,
+      "decided_by": "owner (Mark)",
+      "decided_at": "2026-09-25T08:38:00-05:00"
+    },
+    {
+      "id": "OC-2",
+      "item": "Eligibility tightness",
+      "chosen": "E_A + priced_weeks >= 52 + candidate-exists = 363 (29/99/172/60/3)",
+      "options_considered": [
+        "E_A + priced_weeks >= 52 + candidate-exists = 363 (29/99/172/60/3)",
+        "E_A AND nd >= 4 = 274 before candidate-exists (273 or 274 after)",
+        "E_C = 177",
+        "E_B = 784"
+      ],
+      "coordinator_recommendation": "E_A (363)",
+      "matches_recommendation": true,
+      "decided_by": "owner (Mark)",
+      "decided_at": "2026-09-25T08:38:00-05:00"
+    },
+    {
+      "id": "OC-3",
+      "item": "'about 10%' unit protection",
+      "chosen": "rho_hat >= 0.90 hard (0.85/0.95 reported as sensitivity only)",
+      "options_considered": [
+        "rho_hat >= 0.90 hard (0.85/0.95 diagnostic twins)"
+      ],
+      "coordinator_recommendation": "0.90 hard",
+      "matches_recommendation": true,
+      "decided_by": "owner (Mark)",
+      "decided_at": "2026-09-25T08:38:00-05:00"
+    },
+    {
+      "id": "OC-4",
+      "item": "'about 25' capacity",
+      "chosen": "N_CAP = 25 hard",
+      "options_considered": [
+        "N_CAP = 25 hard",
+        "25 +/- tolerance"
+      ],
+      "coordinator_recommendation": "25 hard",
+      "matches_recommendation": true,
+      "decided_by": "owner (Mark)",
+      "decided_at": "2026-09-25T08:38:00-05:00"
+    },
+    {
+      "id": "OC-5",
+      "item": "TE6 item-level rule",
+      "chosen": "Option A: te6 = te6_usable_slice (slice-only; APE reported only)",
+      "options_considered": [
+        "Option A: te6 = te6_usable_slice (slice-only; APE reported only)",
+        "Option B1: te6_usable_slice AND (APE_i <= 0.50 OR APE_i <= dept median APE), 06#8 verbatim",
+        "Option B2: as B1 but dept-median limb only when dept has >= 5 usable-slice items; emits te6_rule_fired"
+      ],
+      "coordinator_recommendation": "Option A",
+      "matches_recommendation": true,
+      "decided_by": "owner (Mark)",
+      "decided_at": "2026-09-25T08:38:00-05:00"
+    }
+  ],
+  "owner_approval_text": "I approve the Stage 3 measurement design v5.2 (sha256 2065773c3224dd6eb083ef6b8f57deb88786ee1742d7da5f66f7fdf825278957) with ml_mode A, including the disclosed coordinator transcription of 23 sections, and owner choices OC-1 (a), OC-2 E_A 363, OC-3 0.90 hard, OC-4 N_CAP 25 hard, OC-5 Option A.",
+  "owner_approval_timestamp": "2026-09-25T08:38:00-05:00",
+  "owner_approver": "Mark (owner / human analyst)",
+  "_lock_note": "Final lock record built mechanically from the DRAFT (sha256 in evidence.draft_record) plus the owner approval; the design text is v5.2 by hash; no design content changed."
+}

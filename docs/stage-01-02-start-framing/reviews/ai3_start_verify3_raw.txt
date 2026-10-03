@@ -1,0 +1,26 @@
+A. Issues raised on T031 — resolved / not resolved
+
+1. **Price-change magnitude** — **Resolved.** T034 requires a specific proposed shelf price, and T035 now says “a specific pilot shelf price increase” / “a specific pilot shelf price cut.”
+2. **No-padding rule** — **Resolved.** T035 explicitly states: “If fewer qualify, the list is not padded.”
+3. **Department mapping within grocery/household** — **Resolved for Start.** T035 keeps the stakeholder’s “everyday grocery and household aisles”; exact department mapping remains an acceptable Stage 3/Framing detail.
+4. **Capacity and below-line treatment** — **Resolved.** T035 states top ~25 actual price changes form the GM package, additional qualifying opportunities remain below the line, and are not in that cycle’s package.
+5. **Holds not consuming capacity** — **Resolved.** T035 says holds and “hold — not enough evidence” remain visible and do not consume price-change capacity.
+6. **Guardrail-failure reporting treatment** — **Still deferred, but acceptable.** T035 states the guardrail rejection rule; the reporting label for rejected candidates is not Start-level.
+7. **Ranking definition** — **Resolved.** T035 uses the stakeholder’s “biggest revenue gain that is trusted.”
+8. **Pilot vs guarantee** — **Resolved.** T035 preserves pilot language and expectations-to-test language.
+
+B. Clauses in T035 unsupported by, or diverging from, stakeholder’s words
+
+- **No material unsupported clause found.**
+- “Products meeting the review criteria” is a placeholder for the delegated eligibility cutoffs, but the stakeholder delegated those cutoffs, so this is consistent.
+- “Everyday grocery and household aisles” is supported by T008, though exact department mapping remains open to analyst suggestion. T035 does not contradict that.
+- “Specific pilot shelf price” is directly supported by T034.
+- “Up to about 25 actual price changes” is supported by T018/T020/T024.
+- “Not padded” is supported by T018.
+- “Below the line as next in line” and “not included in that cycle’s package” are supported by T024.
+- “Holds … do not consume the price-change capacity” is supported by T020.
+- “Pilots” and “expectations to test rather than guarantees” are supported by T026.
+
+C. Final Start Gate verdict on T035
+
+**Pass, pending Morgan’s confirmation.** T035 resolves the remaining Start-level ambiguity about whether recommendations include a specific price, and it incorporates the no-padding, ranked-list, below-line, holds-not-counting, and pilot/guarantee rules. Remaining items — exact eligibility cutoffs, candidate-price construction, scoring formula, evidence threshold, department mapping, and guardrail-failure reporting — are properly deferred to Framing/Stage 3 and do not change the business decision Morgan is asking to make.

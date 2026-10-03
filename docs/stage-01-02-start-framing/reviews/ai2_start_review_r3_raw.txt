@@ -1,0 +1,133 @@
+**PRICEPOINT-001 — AI 2 Start review, Round 3**  
+Role: Decision Architect and Independent Reconstructor. Worked only from the packet (T000–T027). No metrics, SQL, R, models, or thresholds.
+
+---
+
+### 1. Best reconstruction of the decision
+
+Morgan Lee must walk into each four-week pricing review with a **per product-at-store recommendation** for the California pilot store’s everyday grocery and household aisles: **raise the shelf price**, **take a targeted price cut**, or **leave the shelf price unchanged**. When the historical evidence is not solid, the legitimate call is **“hold — not enough evidence”**, not a forced raise/cut/hold.
+
+The right call is the action expected to bring in the **most product revenue** (units × shelf price) over the **next 28 days**, compared with leaving the current price in place. A revenue-improving move is still rejected if it is expected to cut that product’s units by **more than about 10%**. Price cuts that raise units are acceptable if revenue holds.
+
+Only information that would actually be known at the review date may be used: own daily unit sales, weekly shelf prices, and calendar (holidays/events and SNAP days). No cost/margin, inventory, competitor prices, or look-ahead. Historical price/sales patterns support an **honest expectation to be piloted**, not a guarantee; whatever the store GM signs off is piloted, not rolled out blind.
+
+The team can work up **about 25 actual price-change recommendations** (raises or cuts) per cycle. Output is a **ranked list**. The top trusted items, up to about 25, form this cycle’s GM package. Further qualifying raise/cut items stay **below the line as next in line** and do not enter this cycle’s package. Do not pad if fewer than 25 qualify. Hold and hold-not-enough-evidence items do not consume the 25 but must remain listed so they were visibly reviewed. “Strongest” means the **biggest revenue gain the analysis actually trusts**.
+
+First-round eligibility principle (cutoffs not locked): several real past shelf-price changes and sales steady enough that a change would show; prefer a smaller list that can be trusted over a large speculative one. Do not guess on products whose price has never moved or that barely sell.
+
+Recommender: Morgan. Approver: store general manager.
+
+---
+
+### 2. Decision owner
+
+**Morgan Lee, Pricing & Revenue Manager** (makes the recommendation).  
+**Store general manager** signs off.  
+Supported by T002; unchanged through T026.
+
+---
+
+### 3. Available actions or choices
+
+For each in-scope product at the specific store:
+
+- Recommend **raising** the shelf price  
+- Recommend a **targeted price cut**  
+- Recommend **leaving the shelf price unchanged** (current price is the right call)  
+- Classify as **“hold — not enough evidence” / can’t-tell** (explicit legitimate outcome; not a forced call)
+
+Capacity applies only to the first two (actual changes). Holds of both kinds are listed, not counted against ~25.  
+Supported by T002, T016, T020.
+
+---
+
+### 4. Intended outcome
+
+**Maximize expected product revenue** — units sold × shelf price — **over the 28 days after the review**, at the recommended price versus the current price. Margin is the preferred commercial number but is unavailable; revenue is what Morgan can defend with the GM.  
+Forward-looking expectation is required, not only a recap of last year.  
+Supported by T004, T012, T014.
+
+---
+
+### 5. Material constraint
+
+Several stakeholder-owned constraints, in the order they were stated:
+
+1. **Volume guardrail:** reject a move expected to cut the product’s units by **more than about 10%**, even if revenue rises (T006).  
+2. **Evidence / uncertainty:** fewer recommendations with stronger evidence; weak evidence → hold-not-enough-evidence rather than a forced change; prefer a missed opportunity to a bad change walked into the GM’s office (T016).  
+3. **Information boundary:** only internal history known as of the review day — daily units, weekly shelf prices, calendar (holidays/events, SNAP). No cost, inventory, competitor prices, or look-ahead (T012, T014).  
+4. **Capacity:** about **25 actual price changes** (raise or cut) per four-week cycle; ranked list; top ~25 = this cycle’s package; remainder below the line as next in line; no padding; holds listed but excluded from the cap (T018, T020, T024).  
+5. **Eligibility principle:** several real historical shelf-price changes **and** steady enough sales; smaller trustworthy list; no guessing on never-moved or barely-sold items. Exact cutoffs delegated with disclosure (T008, T010).  
+6. **Implementation / epistemic:** approved changes are **piloted, not rolled out blind**; past patterns are not proof; present honest expectation, not a guarantee (T026).  
+7. **Grain / first-round scope:** product at a specific store; one California pilot store; everyday grocery and household aisles (exact departments open to suggestion) (T008).
+
+---
+
+### 6. Time scope or deadline
+
+- Recurring **four-week pricing review**; the set price holds until the next review.  
+- Outcome window Morgan cares about: the **next four weeks / 28 days**.  
+- For this exercise: treat the review as occurring **at the end of the most recent available history**; use only what would have been known that day.  
+Supported by T012 (and T000 “next pricing review”).
+
+---
+
+### 7. Evidence that would change the action
+
+From stakeholder wording, the action flips when:
+
+- Expected **unit decline > about 10%** → do not take the raise/cut to the GM, even if revenue is ahead (T006).  
+- Evidence on the product is **not solid** → “hold — not enough evidence,” not a forced raise/cut/hold (T016).  
+- Expected **28-day revenue at the candidate price does not beat current price** (and a cut does not at least hold revenue) → leave unchanged (T004, T006).  
+- Product has **no real price-movement history or barely sells** → out of first-round scope / do not guess (T008, T010).  
+- **More than ~25** trusted raise/cut opportunities exist → only the top trusted revenue gains enter this cycle’s package; the rest wait below the line (T018, T024).  
+- A recommendation is dressed as a **guarantee** of what the new price will do → Morgan would not treat it as usable; it must be an expectation for a pilot (T026).  
+- Information that would **not have been known** on the review day (look-ahead, cost, inventory, competitors) cannot support the call (T012, T014).
+
+---
+
+### 8. Strongest remaining ambiguity
+
+**The action is specified only as direction, not magnitude.** “Raise the shelf price” and “take a targeted price cut” are never given a size, step, or candidate new shelf price. “Targeted” is Morgan’s word (T002) but is undefined. Scoring of “biggest revenue gain you actually trust,” exact eligibility cutoffs, exact aisle/department list, and the “about 10%” / “about 25” approximations are explicitly delegated — those belong in Framing / Stage 3. The magnitude gap is the only **action-set** hole still inside Start: the three-way (plus can’t-tell) choice can be assigned without saying *how far* the shelf price should move.
+
+Secondary, procedural only: T027 itself has not been confirmed (T027 is held for this review).
+
+---
+
+### 9. Best next stakeholder question (one question only)
+
+When you recommend a raise or a targeted price cut, do you need a specific proposed new shelf price (or change amount) in the package you take to the GM, or is naming the direction enough and the size is worked out later with the store?
+
+---
+
+### 10. Preliminary decision statement
+
+**Morgan Lee, Pricing & Revenue Manager, must decide which product-at-store items at the California pilot store’s everyday grocery and household aisles should be recommended as a shelf-price raise, a targeted price cut, or leave-unchanged — with “hold — not enough evidence” used when evidence is not solid — in order to maximize expected product revenue (units × shelf price) over the following 28 days, subject to rejecting moves expected to cut units by more than about 10%, using only history known at the end of the most recent period, limiting this cycle’s GM package to about 25 trusted raise/cut recommendations on a ranked list (further qualifiers below the line; no padding; holds listed but not counted), and presenting expectations for a pilot rather than guarantees, by/for the four-week review whose outcome window is the next 28 days.**
+
+No clause in that sentence is marked MISSING. Eligibility *cutoffs*, department shortlist, and the numeric scoring of “trusted revenue gain” remain analyst-delegated (T010, T008, T024) and are therefore not written in as if the stakeholder locked them.
+
+**Comparison with AI 1’s T027 statement**
+
+T027 is substantively aligned with Morgan’s words on owner, three-way-plus-can’t-tell actions, revenue outcome, 28-day window, ~10% unit guardrail, information boundary, ranked ~25 capacity rule, “strongest” = largest trusted revenue gain, and expectation-not-guarantee.
+
+Clauses in T027 that **compress, add analyst diction, or diverge slightly** from the stakeholder’s own words:
+
+- **“eligible product-store combinations”** — Morgan said “each product at a specific store” plus the two eligibility *principles* (several real price changes; steady enough sales). T027 uses “eligible” without restating those principles. Meaning is fair; the phrase is analyst language and leaves “eligible” looking locked when cutoffs are still delegated.  
+- **Output-design sentence treated as the decision** — “The analysis should produce a ranked list…” is how Morgan wants the package assembled (T024), not an extra choice she must make. Embedding it is supported as a constraint, but it shifts the statement from *her decision* toward *the deliverable spec*.  
+- **Pilot implementation is under-stated** — T026 is two claims: (1) GM-signed changes are **piloted, not rolled out blind**, and (2) do not dress history up as a guarantee. T027 keeps only the epistemic half. The pilot/rollout half is omitted.  
+- **Calendar compressed** — Morgan named “holidays, events, and the SNAP benefit days, which really move grocery here” (T014). T027 says “calendar information.” Supported, but SNAP is a stakeholder-emphasized driver, not a generic calendar footnote.  
+- **Four-week cadence** — Morgan tied the 28-day window to “we review prices every four weeks, and whatever we set holds until the next review” (T012). T027 states the 28-day outcome window and the 25-per-cycle cap but does not say the decision rhythm is that four-week hold-until-next-review cycle.  
+- **Recommender / approver split** — T002 (“I make the recommendation and the store general manager signs off”) is not in the T027 sentence. Owner name is correct; the GM sign-off is context, not a missing action.  
+- **No fabricated outcome or fake constraint** — T027 does not invent margin, competitor data, multi-store rollout, or a hard 25-item quota that must be filled.
+
+Nothing in T027 is a clear misstatement of a locked stakeholder sentence. The gaps are omission/compression (pilot, SNAP, eligibility principles, cadence) and mild analyst diction (“product-store combinations,” “eligible”).
+
+---
+
+### Start Gate: **Pass**
+
+**Reasons.** All five template clauses now have stakeholder wording behind them: owner (T002), action set including can’t-tell (T002, T016), outcome (T004, T012), material constraints including volume, evidence, information, capacity/ranking, grain/scope, and pilot/expectation (T006–T026), and time scope (T012). Round-2 holes (how the 25 works; what “strongest” means; any further rejection rule) were closed in T024 and T026.
+
+Remaining items are **not Start blockers**: exact 10% / 25 values, eligibility cutoffs, ranking formula, department list, and price-change *magnitude* were delegated or left open for Framing / Stage 3. T027 is slightly deliverable-flavored and omits the pilot-not-rollout clause, but it does not invent an unsupported decision. Stakeholder confirmation of T027 is still outstanding as a procedural close, not as a missing frame.
+
+Do not treat this Pass as a lock of Stage 3 warrants (10%, 25, eligibility thresholds, scoring). Those stay on the warrant ledger.

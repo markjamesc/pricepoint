@@ -1,0 +1,182 @@
+VERBATIM DIALOGUE EXTRACT, PRICEPOINT-001, T000–T040 (Start T000–T036, Framing T037–T040).
+The stakeholder, Morgan Lee, is SYNTHETIC (portfolio exercise). Turn numbers T022, T028, T030, and T032 do not exist.
+Analyst messages were drafted by AI 1 and relayed unedited.
+
+## Turn T000 — Stakeholder opening (Start)
+> I keep hearing we're leaving money on the table with our shelf prices. Can you dig into our sales and price history and tell me which products we should be changing prices on? I'd like something I can actually use at our next pricing review.
+
+## Turn T001 — Analyst message (Start)
+> Thanks, Morgan. It sounds like you want to use the sales and price history to support a pricing review decision, specifically around where current shelf prices may not be capturing available revenue opportunities.
+> 
+> Examples of decisions this analysis might support are:
+> 
+> * whether to increase prices on selected products where the business believes there may be room to capture more revenue,
+> * whether to reduce prices on selected products where a price change could improve sales outcomes,
+> * whether to leave certain products unchanged because the current pricing appears appropriate.
+> 
+> These are examples of possible decisions, not the only options. Which decision are you trying to make at the pricing review?
+
+## Turn T002 — Stakeholder reply (Start)
+> Honestly, it's all three — that's what a pricing review is. For each product we look at, I have to walk in with a recommendation: raise the shelf price, take a targeted price cut, or leave it where it is. I make the recommendation and the store general manager signs off. What I don't have is a good way to tell which of those three is the right call for a given product.
+
+## Turn T003 — Analyst message (Start)
+> Thanks, Morgan. I understand that your pricing review requires a recommendation for each product you evaluate: raise the shelf price, take a targeted price cut, or leave it unchanged, with you making the recommendation and the store general manager signing off.
+>
+> To make sure we define the decision correctly, what business result should determine whether one of those three actions is the right call for a product?
+
+## Turn T004 — Stakeholder reply (Start)
+> Revenue for the product — units sold times the shelf price — over the weeks after the change. I'd love to judge it on margin, but we don't have cost in this data, so revenue is the number I can actually defend with my GM. The right call is the one that's expected to bring in the most revenue for that product without doing something dumb to the customer.
+
+## Turn T005 — Analyst message (Start)
+> Thanks, Morgan. That helps clarify the outcome you need to defend with your GM: the recommendation should aim to maximize expected product revenue, defined as units sold multiplied by shelf price over the weeks after the change, while avoiding a change that creates an unacceptable customer impact.
+>
+> To define the decision boundary, what level of downside would make you reject a revenue-increasing price recommendation (for example, a minimum acceptable unit-sales decline or another customer-impact concern)?
+
+## Turn T006 — Stakeholder reply (Start)
+> Volume. If a move is expected to cut the product's units by more than about 10 percent, I don't want it, even if the revenue math says it comes out ahead. Losing that many shoppers on an item isn't a trade I'd take to my GM. A cut that brings units up is fine as long as the revenue holds.
+
+## Turn T007 — Analyst message (Start)
+> Thanks, Morgan. That clarifies the constraint: you are not looking only for the highest expected revenue outcome; a recommendation also has to avoid an expected unit decline greater than about 10%, because that level of volume loss is not a trade-off you would take to your GM.
+>
+> Before I write the decision statement back for confirmation, is the pricing recommendation intended to apply to each product at a specific store, or should it be a product-level recommendation that applies across stores?
+
+## Turn T008 — Stakeholder reply (Start)
+> Each product at a specific store. Prices and shoppers differ store to store, so I'd rather not pretend one answer fits everywhere. For this first round I'd start with one store — our California pilot store — and the everyday grocery and household aisles. I'm not sure exactly which departments, so I'm open to your suggestion, but I don't want you guessing on products whose price has never moved or that barely sell.
+
+## Turn T009 — Analyst message (Start)
+> Thanks, Morgan. That helps define the decision scope: you want recommendations at the product-by-store level rather than assuming one price decision applies everywhere. For this first round, you want to focus on one California pilot store and the everyday grocery and household aisles, while avoiding recommendations based on products with little sales activity or no meaningful price history.
+>
+> To define the remaining scope, what should determine whether a product is eligible for this first pricing review — for example, should we focus on products with a minimum sales volume, prior shelf-price changes, or another business rule?
+
+## Turn T010 — Stakeholder reply (Start)
+> Both, really. A product should have actually had its shelf price change at least a few times in the history, so there's something real to learn from, and it should sell steadily enough that a change would show up. I don't know what the right cutoffs are — that's your side of the table, as long as you tell me what you used and why. I'd rather have a smaller list I can trust than a big one full of guesses.
+
+## Turn T011 — Analyst message (Start)
+> Thanks, Morgan. That clarifies the review boundary: you want a smaller set of products where there is enough historical price movement and sales activity to make a recommendation defensible, rather than forcing decisions on products where the evidence is too thin. I’ll treat the specific eligibility cutoffs as an analytical design choice and document the rationale for them.
+>
+> For the timing of this decision, when is the next pricing review, and how long after a price change would you want to judge whether the recommendation worked?
+
+## Turn T012 — Stakeholder reply (Start)
+> We review prices every four weeks, and whatever we set holds until the next review, so the next four weeks — 28 days — is the window I care about. For this exercise, treat the review as happening right at the end of the most recent history you have, and only use what we'd actually know as of that day.
+
+## Turn T013 — Analyst message (Start)
+> Thanks, Morgan. That establishes the timing: recommendations are made at a four-week pricing review cadence, and the outcome window for judging a change is the following 28 days. I’ll also treat the review point as the end of the available history and avoid using information that would not have been available at that decision date.
+>
+> At the pricing review, what information would you expect to have available when making the raise, targeted cut, or hold recommendation?
+
+## Turn T014 — Stakeholder reply (Start)
+> Just what's in our own history up to that day: daily unit sales for each product, the weekly shelf prices, and the calendar — holidays, events, and the SNAP benefit days, which really move grocery here. No competitor prices, no inventory, no cost. And to be clear, what I need walking in isn't just a recap of what happened last year — I need a sense of what to expect over the next four weeks at the current price versus at the price I'd be recommending.
+
+## Turn T015 — Analyst message (Start)
+> Thanks, Morgan. That establishes the decision-time information boundary: the recommendation should use only the internal history available at the review date — daily unit sales, weekly shelf prices, and calendar factors such as holidays, events, and SNAP benefit days. It should not rely on competitor prices, inventory, cost data, or other information that would not be available.
+>
+> To complete the decision framing, how much uncertainty are you willing to accept before making a raise, targeted cut, or hold recommendation — for example, would you prefer fewer recommendations with stronger evidence, or more recommendations with lower confidence?
+
+## Turn T016 — Stakeholder reply (Start)
+> Fewer, with stronger evidence. If the evidence on a product isn't solid, I want it to say "hold — not enough evidence" rather than push a change. I'd rather miss an opportunity than walk a bad price change into my GM's office, so I need a clear "can't tell" answer as a legitimate outcome, not a forced call.
+
+## Turn T017 — Analyst message (Start)
+> Thanks, Morgan. That completes the uncertainty preference: you want a smaller set of recommendations supported by stronger evidence, with “hold — not enough evidence” treated as a legitimate outcome rather than forcing a raise, cut, or hold decision when the evidence is insufficient.
+>
+> Here is my proposed decision statement based on what you’ve told me:
+>
+> **Morgan Lee, Pricing & Revenue Manager, must decide whether to recommend raising the shelf price, taking a targeted price cut, or leaving the shelf price unchanged for eligible products at the California pilot store’s everyday grocery and household aisles in order to maximize expected product revenue over the following 28 days, subject to avoiding expected unit declines greater than approximately 10% and only recommending changes when the available historical evidence is strong enough to support the decision. Products without sufficient evidence will receive a “hold — not enough evidence” outcome.**
+>
+> Does this decision statement accurately describe the decision you need to make, or is there anything you would correct?
+
+## Turn T018 — Stakeholder reply (Start)
+> Close, but you're missing something that matters in practice. My team can realistically work up about 25 price-change recommendations per four-week cycle — that's what we can get through with the GM. If more products than that qualify, I need to know which ones matter most so we take the strongest first. If fewer qualify, that's fine; don't pad the list to hit 25. Everything else reads right.
+
+## Turn T019 — Analyst message (Start)
+> Thanks, Morgan. That adds an important operational constraint: the team can realistically work through about 25 price-change recommendations per four-week cycle with the GM. If more products qualify, the recommendations need to be prioritized by importance rather than expanding the list, and if fewer qualify, the process should not force additional recommendations.
+>
+> With that addition, should the 25-recommendation limit apply only to products where you are recommending an actual price change (raise or targeted cut), with “hold — not enough evidence” products excluded from that capacity limit?
+
+## Turn T020 — Stakeholder reply (Start)
+> Yes. The 25 is about actual price changes, raises or cuts, because those are what my team has to work up and walk through with the GM. Products that come out as "hold" or "hold — not enough evidence" don't count against it; I just need to see them listed so I know they were looked at.
+
+## Turn T021 — Analyst message (Start) [HELD DRAFT — never shown to Morgan; superseded]
+> Thanks, Morgan. That completes the capacity rule: the 25-item limit applies only to actual price-change recommendations — raises or targeted cuts — that your team needs to prepare and review with the GM. Products assigned “hold” or “hold — not enough evidence” do not consume that capacity, but they should still be visible in the review output.
+>
+> Here is the proposed decision statement incorporating everything you have provided:
+>
+> **Morgan Lee, Pricing & Revenue Manager, must decide which eligible product-store combinations at the California pilot store’s everyday grocery and household aisles should receive a recommendation to raise the shelf price, take a targeted price cut, or remain unchanged, in order to maximize expected product revenue over the following 28 days, subject to avoiding expected unit declines greater than approximately 10%, using only information available at the end of the current history period, and limiting actual price-change recommendations to approximately 25 per four-week review cycle. When evidence is insufficient, the product should be classified as “hold — not enough evidence” rather than forcing a price change decision. If more than 25 products qualify for price changes, recommendations should be prioritized by importance; if fewer qualify, the list should not be padded.**
+>
+> Does this decision statement accurately describe the decision you need to make, or is there anything you would correct?
+
+## Turn T023 — Analyst message (Start)
+> Thanks, Morgan. Before I finalize the decision statement, I want to clarify one practical point about the 25 recommendation capacity: when more than 25 products appear to qualify for a raise or targeted cut, should the analysis produce only the top recommendations your team can work through with the GM, or should it provide a longer ranked list where your team works through the strongest ones first?
+
+## Turn T024 — Stakeholder reply (Start)
+> Give me the ranked list. The top ones, up to about 25, are what my team works up and takes to the GM. If more than that qualify, show the rest below the line as next in line so I know they're there, but they don't go into this cycle's package. By "strongest" I mean the biggest revenue gain that you actually trust; how you score that is your call, just tell me how you did it.
+
+## Turn T025 — Analyst message (Start)
+> Thanks, Morgan. That clarifies how the capacity constraint works: the analysis should provide a ranked list, with the top recommendations — up to about 25 actual price changes — forming the package your team takes to the GM. Additional qualifying products should remain visible below the line as next in line, without entering the current cycle’s package. You also clarified that “strongest” means the largest expected revenue gain among recommendations you trust, with the scoring approach documented.
+>
+> With that clarification, is there anything else about the decision itself that would make you change or reject a recommendation before it reaches the GM?
+
+## Turn T026 — Stakeholder reply (Start)
+> Nothing new that would make me throw one out beyond what I've told you. One thing to keep in mind, though: whatever the GM signs off gets piloted, not rolled out blind. I know past price and sales patterns aren't proof of what a new price will actually do, so don't dress them up as a guarantee. Give me your honest expectation and I'll treat it as something to test.
+
+## Turn T027 — Analyst message (Start) [HELD DRAFT — never shown to Morgan; superseded]
+> Thanks, Morgan. That completes the remaining decision context: the recommendations are intended to support a pilot, not a guaranteed rollout, and the evidence should be presented as an expectation based on past patterns rather than a promise of what the new price will do. I’ll treat the output as a testable recommendation with uncertainty made explicit.
+>
+> Here is the proposed decision statement incorporating everything you have provided:
+>
+> **Morgan Lee, Pricing & Revenue Manager, must decide which eligible product-store combinations at the California pilot store’s everyday grocery and household aisles should receive a recommendation to raise the shelf price, take a targeted price cut, or remain unchanged, with “hold — not enough evidence” used when the evidence is insufficient, in order to maximize expected product revenue (units sold × shelf price) over the following 28 days. The recommendation must avoid expected unit declines greater than approximately 10%, use only information available at the end of the most recent history period (daily unit sales, weekly shelf prices, and calendar information), and acknowledge that historical patterns provide expectations rather than guarantees of future price effects. The analysis should produce a ranked list: the strongest qualifying raise/cut recommendations, defined as the largest trusted expected revenue gains, form the approximately 25-item package the team works through with the GM; additional qualifying products remain visible below the line as next in line and do not enter the current cycle’s package. Products with insufficient evidence remain listed as hold — not enough evidence rather than receiving a forced recommendation.**
+>
+> Does this decision statement accurately describe the decision you need to make, or is there anything you would correct?
+
+## Turn T029 — Analyst message (Start) [HELD DRAFT — never shown to Morgan; superseded]
+> Thanks, Morgan. I’ve incorporated your clarification that the GM package is built from a ranked list: the strongest trusted opportunities go into the current cycle up to your team’s capacity, while additional qualifying opportunities remain visible below the line as next in line. I’ve also kept the distinction between leaving a price unchanged and “hold — not enough evidence,” and treated the recommendations as pilot expectations rather than guarantees.
+>
+> Here is the revised decision statement:
+>
+> **Morgan Lee, Pricing & Revenue Manager, must determine what recommendation to bring to the store general manager for each eligible product at the California pilot store’s everyday grocery and household aisles: raise the shelf price, take a targeted price cut, leave the shelf price unchanged, or classify the product as “hold — not enough evidence” when the available evidence is not solid. The recommendation should identify the actions expected to produce the strongest trusted product revenue outcome (units sold × shelf price) over the next 28 days compared with the current price, while rejecting any change expected to reduce units by more than about 10%. The recommendation package should use only information available at the end of the most recent history period — daily unit sales, weekly shelf prices, and calendar information including holidays, events, and SNAP benefit days. Actual raise/cut recommendations should be ranked by the biggest trusted expected revenue gain, with the top approximately 25 prepared for GM review and additional qualifying items shown below the line as next in line. Approved changes will be piloted, and historical patterns should be presented as expectations to test rather than guarantees.**
+>
+> Does this decision statement accurately describe the decision you need to make, or is there anything you would correct?
+
+## Turn T031 — Analyst message (Start) [HELD DRAFT — never shown to Morgan; superseded]
+> Thanks, Morgan. I’ve incorporated the remaining clarifications: the GM package comes from a ranked list, the strongest items are the biggest trusted revenue gains, additional qualifying items remain below the line as next in line, and approved changes are treated as pilots rather than guarantees.
+>
+> Here is the revised decision statement:
+>
+> **Morgan Lee, Pricing & Revenue Manager, must determine what recommendation to bring to the store general manager for products meeting the review criteria at the California pilot store’s everyday grocery and household aisles: raise the shelf price, take a targeted price cut, leave the shelf price unchanged, or classify the product as “hold — not enough evidence” when the evidence is not solid. The recommendation should identify the actions expected to produce the strongest trusted product revenue result (units sold × shelf price) over the next 28 days compared with the current price, while rejecting changes expected to reduce units by more than about 10%. The review occurs on a four-week cycle, with the price decision holding until the next review. The recommendation uses only information available at the review date: daily unit sales, weekly shelf prices, and calendar information including holidays, events, and SNAP benefit days. The output is a ranked list: the strongest trusted raise/cut opportunities, up to about 25, form the GM package; additional qualifying opportunities remain below the line as next in line and are not included in that cycle’s package. Holds and hold — not enough evidence outcomes remain visible and do not consume the price-change capacity. Approved changes are pilots, and historical patterns should be presented as expectations to test rather than guarantees.**
+>
+> Does this decision statement accurately describe the decision you need to make, or is there anything you would correct?
+
+## Turn T033 — Analyst message (Start)
+> Thanks, Morgan. I’ve incorporated the remaining clarification points around the recommendation package, including the ranked list, the GM review capacity, the distinction between unchanged price and not-enough-evidence outcomes, and the pilot approach.
+>
+> For a raise or targeted price cut recommendation, does the recommendation you bring to the GM need to include a specific proposed new shelf price or change amount, or is identifying the direction of the change enough?
+
+## Turn T034 — Stakeholder reply (Start)
+> A specific price. My GM isn't going to sign off on "raise it a bit"; he needs the actual shelf price we'd pilot, and the expectation you give me for units and revenue should be at that price. How you come up with the candidate price is your call, just show me how you got there.
+
+## Turn T035 — Analyst message (Start)
+> Thanks, Morgan. That clarifies the recommendation format: the GM-facing recommendation needs to include the specific shelf price you would pilot, not only the direction of the change. The expected unit and revenue impact should be tied to that proposed pilot price, while the method for generating candidate prices can be documented separately.
+>
+> Here is the proposed decision statement incorporating that clarification:
+>
+> **Morgan Lee, Pricing & Revenue Manager, must determine what recommendation to bring to the store general manager for products meeting the review criteria at the California pilot store’s everyday grocery and household aisles: a specific pilot shelf price increase, a specific pilot shelf price cut, leaving the shelf price unchanged, or classifying the product as “hold — not enough evidence” when the available evidence is not solid. The recommendation should identify the specific pilot price expected to produce the strongest trusted product revenue result (units sold × shelf price) over the next 28 days compared with the current price, while rejecting changes expected to reduce units by more than about 10%. The review occurs on a four-week cycle, with the price decision holding until the next review. The recommendation uses only information available at the end of the most recent history period: daily unit sales, weekly shelf prices, and calendar information including holidays, events, and SNAP benefit days. The output is a ranked list: the strongest trusted price-change opportunities, based on the biggest revenue gain that is trusted, form the GM package up to about 25 actual price changes. If fewer qualify, the list is not padded. If more qualify, additional qualifying opportunities remain below the line as next in line and are not included in that cycle’s package. Holds and hold — not enough evidence outcomes remain visible and do not consume the price-change capacity. Approved changes are pilots, and historical patterns should be presented as expectations to test rather than guarantees.**
+>
+> Does this decision statement accurately describe the decision you need to make, or is there anything you would correct?
+
+## Turn T036 — Stakeholder reply (Start)
+> Yes, that's it. That's the decision I need to walk into the GM with. I confirm it as written.
+
+## Turn T037 — Analyst message (Framing)
+> Thanks, Morgan. We have the decision statement locked: the goal is to identify product-level price recommendations for the California pilot store that maximize trusted expected revenue over the next 28 days while respecting the unit guardrail, evidence standard, review capacity, and pilot approach.
+>
+> For the analysis design, what should matter most when deciding which qualifying recommendations deserve attention first: **the largest expected revenue opportunity**, **the highest confidence in the expected outcome**, or **a balance of revenue opportunity and confidence**?
+
+## Turn T038 — Stakeholder reply (Framing)
+> A balance, I suppose, but not an even split. I'd rather miss an opportunity than make a bad move, so if you don't really trust what you expect to happen, it shouldn't be on the list at all. That's what the "not enough evidence" hold is for. Among the ones you do trust, put the biggest revenue gain first. How you decide what counts as trusted is your call; just tell me how you did it.
+
+## Turn T039 — Analyst message (Framing)
+> Thanks, Morgan. That clarifies the prioritization principle: this is not an even tradeoff between opportunity and confidence. Recommendations should first pass a trust standard; opportunities that are not sufficiently trusted should become “hold — not enough evidence” rather than entering the ranked list. Among the recommendations that do pass that standard, the largest trusted revenue gains should come first.
+>
+> For the analysis design, when you say you need to “trust” an expected outcome, should that trust primarily mean **the evidence supporting the expectation is strong**, **the expected revenue improvement is large enough to matter**, or **some combination of both**?
+
+## Turn T040 — Stakeholder reply (Framing)
+> Mostly that the evidence is solid. The product's price has actually moved before, it sells enough to see what happened, and the expectation for the next four weeks isn't a guess. A small gain doesn't make something untrustworthy; it just ends up lower on the list. I don't have a number for "big enough to matter." If you think one is needed, that's your call; just tell me what you used.

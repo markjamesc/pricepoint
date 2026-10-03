@@ -25,3 +25,14 @@ data/source/
 # OS/editor files
 .DS_Store
 Thumbs.db
+
+# PRICEPOINT-001 frozen source extract (raw M5-derived; sales_long.tsv > 100 MB). Identity fixed by sha256 in README.md
+extract/
+sales_long.tsv
+prices.tsv
+calendar.tsv
+raw_price_rowkeys.tsv
+raw_item_json.tsv
+
+# MySQL client credential store
+.mylogin.cnf

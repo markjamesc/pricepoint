@@ -1,0 +1,91 @@
+## SECTION 1 — STAKEHOLDER MESSAGE (T041)
+
+Thanks, Morgan. That clarifies what “trusted” means at the business level: trust comes from having enough real price movement and sales activity to support the expectation, and from the forward-looking estimate being evidence-based rather than a guess. The size of the expected revenue gain affects where a trusted recommendation ranks, not whether it is trusted in the first place. 
+
+Here is the analytical question I propose:
+
+**For products meeting the review criteria at the California pilot store, which specific shelf prices should Morgan recommend for the next 28-day pilot to produce the highest trusted expected product revenue relative to the current price, without recommending a change expected to reduce units by more than about 10%, and which products should instead remain unchanged or be classified as “hold — not enough evidence”?**
+
+This question directly supports the GM package by separating sufficiently supported price recommendations from holds and then allowing the trusted price-change opportunities to be ranked by expected revenue gain within the team’s review capacity.
+
+**Does this analytical question accurately capture what you need the analysis to answer, or would you correct anything?**
+
+---
+
+## SECTION 2 — INTERNAL NOTE (not sent)
+
+### Framing status
+
+**Framing elements are established pending Morgan’s confirmation of the proposed analytical question.**
+
+Morgan has now resolved the remaining business-level meaning of “trusted”: evidence quality determines whether a recommendation is trusted, while gain size determines ranking among recommendations that already clear that trust requirement. She explicitly stated that a small gain does not make an expectation untrustworthy and delegated any “big enough to matter” cutoff to the analyst if one is needed. 
+
+### Candidate analytical question — C1
+
+**For products meeting the review criteria at the California pilot store, which specific shelf prices should Morgan recommend for the next 28-day pilot to produce the highest trusted expected product revenue relative to the current price, without recommending a change expected to reduce units by more than about 10%, and which products should instead remain unchanged or be classified as “hold — not enough evidence”?**
+
+### Decision linkage
+
+The question determines the recommendation Morgan brings to the GM:
+
+* identify specific candidate shelf prices for trusted raise/cut opportunities;
+* compare their expected 28-day revenue with the current price;
+* reject price changes that violate the unit-loss guardrail;
+* distinguish evidence-supported unchanged-price decisions from “hold — not enough evidence”;
+* rank trusted price-change opportunities by expected revenue gain for the GM package.
+
+### `capacity_stance`
+
+**`hard_attention_budget`**
+
+**Capacity unit:** actual raise/cut recommendations that Morgan’s team must work up and take through GM review.
+
+**Supporting dialogue:**
+
+* approximately 25 actual price changes can be worked through per cycle;
+* the output is a ranked list;
+* the strongest trusted opportunities, up to about 25, form the current-cycle package;
+* if fewer qualify, do not pad;
+* additional qualifying opportunities stay below the line as next in line;
+* unchanged and insufficient-evidence holds remain visible but do not consume the capacity.
+
+The capacity constraint therefore affects which trusted price-change opportunities reach the current-cycle GM package, not whether other reviewed products remain visible.
+
+### Open Stage 3 design work
+
+Do **not** lock during Framing:
+
+* exact product eligibility cutoffs;
+* exact evidence-sufficiency / “solid” threshold;
+* candidate-price construction;
+* prediction methodology and model class;
+* KPI implementation details;
+* exact treatment of “about 10%”;
+* exact operational treatment of “about 25”;
+* ranking/scoring implementation for trusted expected revenue gain;
+* any minimum material-gain rule, if one is ultimately useful;
+* department mapping within grocery/household;
+* reporting label for candidates rejected by the unit guardrail;
+* analytical grain and transformations;
+* statistical tests or validation procedures.
+
+Morgan has delegated these implementation choices with disclosure rather than specifying them herself. The owner constraint remains that the analysis will be executed in R, with tidyverse for data work and a parsnip predictive component, without locking a model class at Framing.
+
+### Working assumptions
+
+* The analytical decision unit remains product at the California pilot store.
+* The prediction horizon is the next 28 days.
+* The recommendation must include a specific proposed shelf price, not only raise/cut direction.
+* Expected units and expected revenue are evaluated at that proposed price.
+* “Trusted” is an evidence gate, not a revenue-gain threshold.
+* Small but trusted expected gains may remain valid recommendations but rank lower.
+* Products lacking sufficiently solid evidence receive “hold — not enough evidence.”
+* Trusted change candidates are ranked by expected revenue gain.
+* Historical relationships support pilot expectations, not guaranteed causal effects.
+* Only information available at the frozen review date may inform the recommendation.
+
+### Remaining weakness
+
+No unresolved stakeholder-owned framing ambiguity remains at present.
+
+The principal remaining uncertainty is analytical rather than business-level: Stage 3 must operationalize what constitutes sufficiently solid evidence without turning Morgan’s qualitative trust requirement into an arbitrary or undisclosed threshold.

@@ -1,0 +1,29 @@
+gate,used,clause_cite,fixture_ids,implemented_at
+E_A conjuncts,Yes,"§7.3; §17.R2, §17.R5","FX-ELIG-BOUNDARY, FX-HOLD-NE-PRICES",lib/rb_judged.R:compute_e_a; 10_pipeline.R step 3
+priced_weeks,Yes,"§7.3; §17.R2, §17.R5","FX-PW52, FX-WEEK-ORDINAL",lib/rb_judged.R:compute_e_pw52; 10_pipeline.R step 3
+candidate-exists,Yes,"§17.R4, §17.R5",FX-NOCAND,lib/rb_judged.R:compute_e_cand; 10_pipeline.R step 4
+TE6,Yes,§7.7; §17.R5,FX-TE6-SLICE,lib/rb_judged.R:te6_usable_slice; 10_pipeline.R step 5
+current price,Yes,§17.R3,FX-CURRENT-11617,lib/rb_judged.R:compute_current_price; 10_pipeline.R step 3
+band,Yes,§17.R4,FX-BAND25,lib/rb_judged.R:band_ok; 10_pipeline.R step 4
+event filter,Yes,§17.R4,FX-EVENT-SINGLE,lib/rb_judged.R:event_filter; 10_pipeline.R step 4
+cap/tie,Yes,§17.R4,FX-CAP5-TIE,lib/rb_judged.R:cap_candidates; 10_pipeline.R step 4
+legal test,Yes,§17.R7,"FX-GUARD-10, FX-CUT-OK, FX-UP0-ZERO, FX-CENT-ROUND",lib/rb_judged.R:legal_change; 10_pipeline.R step 10
+guardrail,Yes,§17.R7,FX-GUARD-10,lib/rb_judged.R:guardrail_pass; 10_pipeline.R step 10
+delta_r_hat_cent_rounding,Yes,§17.R7; §23,FX-CENT-ROUND,lib/rb_judged.R:cent_delta_rev; 10_pipeline.R step 10
+action map,Yes,"§17.R5, §17.R7","FX-HOLD-NE-PRICES, FX-CUT-OK, FX-ARGMAX, FX-UP0-ZERO, FX-MINGAIN-DIAG",lib/rb_judged.R:assign_item_action; 10_pipeline.R step 10
+backtest collapse,Yes,§16.4; §17.R8,FX-BACKTEST-COLLAPSE,lib/rb_judged.R:apply_backtest_collapse; 10_pipeline.R step 10
+ranking/tie-break,Yes,§17.R9,"FX-TIE, FX-ARGMAX",lib/rb_judged.R:rank_qualifiers; 10_pipeline.R step 10
+Membership-first + capacity + no-pad,Yes,§17.R9,"FX-NOPAD, FX-CAP25, FX-MEMBER",lib/rb_judged.R:rank_qualifiers; 10_pipeline.R step 10
+leakage,Yes,§8.3; §17.R4; §17A.5-17A.6; §20.4,FX-LEAK-11618,10_pipeline.R step 2 (prices_pre filter)
+horizon-28,Yes,§8.2; §17.R6,FX-HORIZON-28,lib/rb_judged.R:horizon_days
+week-ordinal rule,Yes,§8.5; §17.R2,FX-WEEK-ORDINAL,10_pipeline.R step 3 (sorted distinct wm_yr_wk)
+trailing anchoring,Yes,§17.R6; §17A.6,FX-TRAIL-ANCHOR,lib/rb_judged.R:anchor_trailing_units / anchor_trailing_price
+recipe,Yes,§8.6; §17.R6; §17A.3,"FX-WDAY-SNAP, FX-INTERACT",lib/rb_judged.R:build_recipe / prep_factors / RB_ALLOWED_FEATURES
+Half-window / persistence,N/A - attested unused,§16,N/A,not implemented
+Dual-clock / twin action-override,N/A - attested unused,§11.2,N/A,not implemented (action_twin_11616 is diagnostic only)
+Full analytical-unit universe,Yes,§7.1; §17.R1,FX-MEMBER,10_pipeline.R step 3 (universe build)
+Non-enrolling actions,Yes,"§17.R5, §17.R7, §17.R9","FX-NOPAD, FX-HOLD-NE-PRICES, FX-NOCAND, FX-UP0-ZERO","lib/rb_judged.R:assign_item_action, rank_qualifiers"
+Lineage field mapping,Yes,§24.4; §20.5,N/A,10_pipeline.R:lineage; lineage_cols()
+Capacity / simulation labels,Capacity yes; simulation N/A,§17.R9; §22.1; §22.4; §24.4,"FX-NOPAD, FX-CAP25",lib/rb_judged.R:rank_qualifiers; 10_pipeline.R:audit
+Mode A scoring,Yes,§17A; §17.R6; §22.3,"FX-INTERACT, FX-TRAIL-ANCHOR","10_pipeline.R:fit_live_model, score_horizon"
+Minimum-gain diagnostic (non-judged),Yes,§11.3,FX-MINGAIN-DIAG,10_pipeline.R step 10 (dept_backtest_MAE_revenue on universe; gain_below_half_mae)

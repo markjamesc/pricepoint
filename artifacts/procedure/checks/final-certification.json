@@ -1,0 +1,48 @@
+{
+  "step": "final",
+  "phase": "certification",
+  "result": "PASS",
+  "checked_at_utc": "2026-10-03T03:01:47Z",
+  "checks": [
+    {
+      "check": "No step is active",
+      "result": "PASS",
+      "detail": "current_step must be null"
+    },
+    {
+      "check": "All five stages complete",
+      "result": "PASS",
+      "detail": "start, framing, design, execution, finish"
+    },
+    {
+      "check": "Workflow Gate certified Execution",
+      "result": "PASS",
+      "detail": "workflow_gate status must equal PASS"
+    },
+    {
+      "check": "Completed receipts unchanged",
+      "result": "PASS",
+      "detail": "completed artifact hashes must still match"
+    },
+    {
+      "check": "Workflow Gate report unchanged",
+      "result": "PASS",
+      "detail": "recorded workflow report hash must still match"
+    },
+    {
+      "check": "Supporting evidence unchanged",
+      "result": "PASS",
+      "detail": "evidence files must match the released Workflow Gate report"
+    },
+    {
+      "check": "Stage 5 deliverables unchanged",
+      "result": "PASS",
+      "detail": "deliverables must match their Finish completion hashes"
+    },
+    {
+      "check": "Controlling documents unchanged",
+      "result": "PASS",
+      "detail": "framework hashes must match run start"
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+## SECTION 1 — STAKEHOLDER MESSAGE (T019)
+
+Thanks, Morgan. That adds an important operational constraint: the team can realistically work through about 25 price-change recommendations per four-week cycle with the GM. If more products qualify, the recommendations need to be prioritized by importance rather than expanding the list, and if fewer qualify, the process should not force additional recommendations.
+
+With that addition, should the 25-recommendation limit apply only to products where you are recommending an actual price change (raise or targeted cut), with “hold — not enough evidence” products excluded from that capacity limit?
+
+---
+
+## SECTION 2 — INTERNAL NOTE (not sent)
+
+**Start Gate status:** Nearly complete, but one element requires clarification before final decision statement confirmation.
+
+### Established
+
+**Decision owner:** Established.
+
+- Morgan Lee, Pricing & Revenue Manager, makes the recommendation.
+- Store general manager signs off.
+
+**Action or choice:** Established.
+
+- Raise shelf price.
+- Take a targeted price cut.
+- Leave shelf price unchanged.
+- “Hold — not enough evidence” is a valid non-forced outcome.
+
+**Outcome:** Established.
+
+- Maximize expected product revenue over the 28-day period after a pricing change.
+- Revenue = units sold × shelf price.
+
+**Material constraint:** Established.
+
+- Expected unit decline greater than approximately 10% is unacceptable.
+- Evidence strength is a constraint.
+- Operational review capacity is approximately 25 price-change recommendations per four-week cycle.
+
+**Product/store grain:** Established.
+
+- Product at a specific store.
+- Initial scope: California pilot store.
+- Everyday grocery and household aisles.
+
+**Eligibility principle:** Established.
+
+- Product should have meaningful historical shelf-price changes.
+- Product should sell steadily enough for evaluation.
+- Smaller defensible list preferred over unsupported recommendations.
+
+**Time scope:** Established.
+
+- Four-week pricing review cycle.
+- 28-day evaluation window after change.
+- Decision point frozen at end of available history.
+
+**Information available at decision time:** Established.
+
+- Daily unit sales.
+- Weekly shelf prices.
+- Calendar information including holidays, events, and SNAP benefit days.
+- No competitor prices, inventory, or cost data.
+
+**Analytical relevance:** Established.
+
+- Evidence should influence the recommendation between actions.
+
+**Uncertainty tolerance:** Established.
+
+- Prefer fewer stronger recommendations.
+- “Hold — not enough evidence” is legitimate.
+
+### Still missing
+
+**Capacity implementation detail:** Partially missing.
+
+Established:
+
+- About 25 price-change recommendations can be handled per cycle.
+- No padding if fewer qualify.
+- Prioritization needed if more qualify.
+
+Still needs clarification:
+
+- Whether the 25-cap applies only to actual price changes (raise/cut) or includes all reviewed products with hold/not-enough-evidence outcomes.
+
+This affects the wording of the decision statement and whether “capacity” is a constraint on the decision output or only on implementation.
+
+### Plan
+
+Ask one clarifying question to resolve the capacity boundary.
+
+After Morgan confirms whether the 25 limit applies to recommendations only or all reviewed products, all Start Gate elements should be established. Then present the final proposed decision statement for stakeholder confirmation or correction.

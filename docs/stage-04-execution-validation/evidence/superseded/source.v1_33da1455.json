@@ -1,0 +1,49 @@
+{
+  "role": "source",
+  "status": "PASS",
+  "design_version": "08_CONSOLIDATED_CANDIDATE_v5_2 (sha256 2065773c3224dd6eb083ef6b8f57deb88786ee1742d7da5f66f7fdf825278957)",
+  "fixture_version": "fixture_pack_v1",
+  "checked_at_utc": "2026-10-02T07:04:05Z",
+  "stage3_receipt_sha256": "a68575d5aa0ac0c431a1d308fe477eac53c90eefaebcbb880c68ffca783ab9e3",
+  "gate": "SQL Source Gate (design v5.2 §21), built by AI 2 (Grok), run by coordinator",
+  "items_scored": 24,
+  "items_pass": 24,
+  "items_fail": 0,
+  "report": {
+    "path": "validation/source-gate/source_gate_report.csv",
+    "sha256": "72291842199e1c543e18474db52aa8dd0030d1fcf159678072da58ed6bc9eac3"
+  },
+  "summary": {
+    "path": "validation/source-gate/source_gate_summary.md",
+    "sha256": "e859f8e596fd1bcc0a929669c4460500f69b3dc5f4bf06c08a185f5963bbb4bc"
+  },
+  "checker": {
+    "path": "validation/source-gate/run_source_gate.R",
+    "sha256": "8d95ea1dda022b4b03746fcbbbd77da4a6e2ab64f18e35192093c481be087f74"
+  },
+  "sql_extract_sha256": "13d037efc758e5e2913d9ffed0dd5e2b003e1656092b8547d8a97283e03f1b68",
+  "snapshot_id": "121341c12616c808643ca7a6bff48d7346963050dbee81fd4762cd7500666a38",
+  "source_version": "M5 raw tables in MySQL schema pricepoint (server 8.0.46), snapshot record sha256 121341c12616c808643ca7a6bff48d7346963050dbee81fd4762cd7500666a38",
+  "fixture_pack_sha256": "da25c258cc434d169f6f960e6d4d8d8ed08cdabaf7a9004df1dff687c94b95d2",
+  "extract_files": [
+    {
+      "path": "calendar.tsv",
+      "bytes": 131669,
+      "sha256": "a2807afd5a1dbd35523c9161128bef31a54332f21cf77889fc168a9fa0086858"
+    },
+    {
+      "path": "prices.tsv",
+      "bytes": 17472933,
+      "sha256": "0cbd6c8b0ee4b6ea0b52b58094c94e27a2d9b5c31c0d08d3d0e7661a6eb3ce73"
+    },
+    {
+      "path": "sales_long.tsv",
+      "bytes": 449366357,
+      "sha256": "536eb633a3a27a734e9883001213491ae3ae63b8872d824161e13b16aa5ee8ae"
+    }
+  ],
+  "notes": [
+    "Item 8 is implemented as envelope count + SUM(sell_price) equality (AI 2 open question Q5), not a row-wise dump; carried to structural cross-review.",
+    "No staging objects were created; all SQL was SELECT/CHECKSUM TABLE with SET SESSION timeouts."
+  ]
+}

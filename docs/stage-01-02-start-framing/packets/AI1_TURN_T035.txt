@@ -1,0 +1,5 @@
+STAKEHOLDER REPLY (T034, verbatim):
+"A specific price. My GM isn't going to sign off on "raise it a bit"; he needs the actual shelf price we'd pilot, and the expectation you give me for units and revenue should be at that price. How you come up with the candidate price is your call, just show me how you got there."
+
+Return SECTION 1 (T035 stakeholder message: acknowledge, then one question) and SECTION 2 (internal note: Start Gate elements established vs missing, plan). When you judge that every Start Gate element is established, SECTION 1 should instead present the proposed decision statement to the stakeholder and ask her to confirm or correct it.
+Reminder from the coordinator decision: the final statement must also state the no-padding rule explicitly.

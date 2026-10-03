@@ -1,0 +1,188 @@
+PHASE D — ROUND-3 RECONCILIATION. Your T027 proposed statement has NOT yet been shown to Morgan; it is held pending this reconciliation. Your next stakeholder message will be numbered T029 and replaces T027 as the message Morgan receives (T027 stays in the record as a superseded draft; no T028 exists).
+
+INDEPENDENT REVIEWER FINDINGS (Phase C, round 3). AI 2 and AI 3 each reviewed the same packet (request, full verbatim dialogue T000–T027 including your T027 statement, coordinator snapshot, context) in new chats without seeing each other. Full reviews follow, verbatim and hash-frozen.
+
+===== AI 2 — Decision reconstruction (round 3) =====
+**PRICEPOINT-001 — AI 2 Start review, Round 3**  
+Role: Decision Architect and Independent Reconstructor. Worked only from the packet (T000–T027). No metrics, SQL, R, models, or thresholds.
+
+---
+
+### 1. Best reconstruction of the decision
+
+Morgan Lee must walk into each four-week pricing review with a **per product-at-store recommendation** for the California pilot store’s everyday grocery and household aisles: **raise the shelf price**, **take a targeted price cut**, or **leave the shelf price unchanged**. When the historical evidence is not solid, the legitimate call is **“hold — not enough evidence”**, not a forced raise/cut/hold.
+
+The right call is the action expected to bring in the **most product revenue** (units × shelf price) over the **next 28 days**, compared with leaving the current price in place. A revenue-improving move is still rejected if it is expected to cut that product’s units by **more than about 10%**. Price cuts that raise units are acceptable if revenue holds.
+
+Only information that would actually be known at the review date may be used: own daily unit sales, weekly shelf prices, and calendar (holidays/events and SNAP days). No cost/margin, inventory, competitor prices, or look-ahead. Historical price/sales patterns support an **honest expectation to be piloted**, not a guarantee; whatever the store GM signs off is piloted, not rolled out blind.
+
+The team can work up **about 25 actual price-change recommendations** (raises or cuts) per cycle. Output is a **ranked list**. The top trusted items, up to about 25, form this cycle’s GM package. Further qualifying raise/cut items stay **below the line as next in line** and do not enter this cycle’s package. Do not pad if fewer than 25 qualify. Hold and hold-not-enough-evidence items do not consume the 25 but must remain listed so they were visibly reviewed. “Strongest” means the **biggest revenue gain the analysis actually trusts**.
+
+First-round eligibility principle (cutoffs not locked): several real past shelf-price changes and sales steady enough that a change would show; prefer a smaller list that can be trusted over a large speculative one. Do not guess on products whose price has never moved or that barely sell.
+
+Recommender: Morgan. Approver: store general manager.
+
+---
+
+### 2. Decision owner
+
+**Morgan Lee, Pricing & Revenue Manager** (makes the recommendation).  
+**Store general manager** signs off.  
+Supported by T002; unchanged through T026.
+
+---
+
+### 3. Available actions or choices
+
+For each in-scope product at the specific store:
+
+- Recommend **raising** the shelf price  
+- Recommend a **targeted price cut**  
+- Recommend **leaving the shelf price unchanged** (current price is the right call)  
+- Classify as **“hold — not enough evidence” / can’t-tell** (explicit legitimate outcome; not a forced call)
+
+Capacity applies only to the first two (actual changes). Holds of both kinds are listed, not counted against ~25.  
+Supported by T002, T016, T020.
+
+---
+
+### 4. Intended outcome
+
+**Maximize expected product revenue** — units sold × shelf price — **over the 28 days after the review**, at the recommended price versus the current price. Margin is the preferred commercial number but is unavailable; revenue is what Morgan can defend with the GM.  
+Forward-looking expectation is required, not only a recap of last year.  
+Supported by T004, T012, T014.
+
+---
+
+### 5. Material constraint
+
+Several stakeholder-owned constraints, in the order they were stated:
+
+1. **Volume guardrail:** reject a move expected to cut the product’s units by **more than about 10%**, even if revenue rises (T006).  
+2. **Evidence / uncertainty:** fewer recommendations with stronger evidence; weak evidence → hold-not-enough-evidence rather than a forced change; prefer a missed opportunity to a bad change walked into the GM’s office (T016).  
+3. **Information boundary:** only internal history known as of the review day — daily units, weekly shelf prices, calendar (holidays/events, SNAP). No cost, inventory, competitor prices, or look-ahead (T012, T014).  
+4. **Capacity:** about **25 actual price changes** (raise or cut) per four-week cycle; ranked list; top ~25 = this cycle’s package; remainder below the line as next in line; no padding; holds listed but excluded from the cap (T018, T020, T024).  
+5. **Eligibility principle:** several real historical shelf-price changes **and** steady enough sales; smaller trustworthy list; no guessing on never-moved or barely-sold items. Exact cutoffs delegated with disclosure (T008, T010).  
+6. **Implementation / epistemic:** approved changes are **piloted, not rolled out blind**; past patterns are not proof; present honest expectation, not a guarantee (T026).  
+7. **Grain / first-round scope:** product at a specific store; one California pilot store; everyday grocery and household aisles (exact departments open to suggestion) (T008).
+
+---
+
+### 6. Time scope or deadline
+
+- Recurring **four-week pricing review**; the set price holds until the next review.  
+- Outcome window Morgan cares about: the **next four weeks / 28 days**.  
+- For this exercise: treat the review as occurring **at the end of the most recent available history**; use only what would have been known that day.  
+Supported by T012 (and T000 “next pricing review”).
+
+---
+
+### 7. Evidence that would change the action
+
+From stakeholder wording, the action flips when:
+
+- Expected **unit decline > about 10%** → do not take the raise/cut to the GM, even if revenue is ahead (T006).  
+- Evidence on the product is **not solid** → “hold — not enough evidence,” not a forced raise/cut/hold (T016).  
+- Expected **28-day revenue at the candidate price does not beat current price** (and a cut does not at least hold revenue) → leave unchanged (T004, T006).  
+- Product has **no real price-movement history or barely sells** → out of first-round scope / do not guess (T008, T010).  
+- **More than ~25** trusted raise/cut opportunities exist → only the top trusted revenue gains enter this cycle’s package; the rest wait below the line (T018, T024).  
+- A recommendation is dressed as a **guarantee** of what the new price will do → Morgan would not treat it as usable; it must be an expectation for a pilot (T026).  
+- Information that would **not have been known** on the review day (look-ahead, cost, inventory, competitors) cannot support the call (T012, T014).
+
+---
+
+### 8. Strongest remaining ambiguity
+
+**The action is specified only as direction, not magnitude.** “Raise the shelf price” and “take a targeted price cut” are never given a size, step, or candidate new shelf price. “Targeted” is Morgan’s word (T002) but is undefined. Scoring of “biggest revenue gain you actually trust,” exact eligibility cutoffs, exact aisle/department list, and the “about 10%” / “about 25” approximations are explicitly delegated — those belong in Framing / Stage 3. The magnitude gap is the only **action-set** hole still inside Start: the three-way (plus can’t-tell) choice can be assigned without saying *how far* the shelf price should move.
+
+Secondary, procedural only: T027 itself has not been confirmed (T027 is held for this review).
+
+---
+
+### 9. Best next stakeholder question (one question only)
+
+When you recommend a raise or a targeted price cut, do you need a specific proposed new shelf price (or change amount) in the package you take to the GM, or is naming the direction enough and the size is worked out later with the store?
+
+---
+
+### 10. Preliminary decision statement
+
+**Morgan Lee, Pricing & Revenue Manager, must decide which product-at-store items at the California pilot store’s everyday grocery and household aisles should be recommended as a shelf-price raise, a targeted price cut, or leave-unchanged — with “hold — not enough evidence” used when evidence is not solid — in order to maximize expected product revenue (units × shelf price) over the following 28 days, subject to rejecting moves expected to cut units by more than about 10%, using only history known at the end of the most recent period, limiting this cycle’s GM package to about 25 trusted raise/cut recommendations on a ranked list (further qualifiers below the line; no padding; holds listed but not counted), and presenting expectations for a pilot rather than guarantees, by/for the four-week review whose outcome window is the next 28 days.**
+
+No clause in that sentence is marked MISSING. Eligibility *cutoffs*, department shortlist, and the numeric scoring of “trusted revenue gain” remain analyst-delegated (T010, T008, T024) and are therefore not written in as if the stakeholder locked them.
+
+**Comparison with AI 1’s T027 statement**
+
+T027 is substantively aligned with Morgan’s words on owner, three-way-plus-can’t-tell actions, revenue outcome, 28-day window, ~10% unit guardrail, information boundary, ranked ~25 capacity rule, “strongest” = largest trusted revenue gain, and expectation-not-guarantee.
+
+Clauses in T027 that **compress, add analyst diction, or diverge slightly** from the stakeholder’s own words:
+
+- **“eligible product-store combinations”** — Morgan said “each product at a specific store” plus the two eligibility *principles* (several real price changes; steady enough sales). T027 uses “eligible” without restating those principles. Meaning is fair; the phrase is analyst language and leaves “eligible” looking locked when cutoffs are still delegated.  
+- **Output-design sentence treated as the decision** — “The analysis should produce a ranked list…” is how Morgan wants the package assembled (T024), not an extra choice she must make. Embedding it is supported as a constraint, but it shifts the statement from *her decision* toward *the deliverable spec*.  
+- **Pilot implementation is under-stated** — T026 is two claims: (1) GM-signed changes are **piloted, not rolled out blind**, and (2) do not dress history up as a guarantee. T027 keeps only the epistemic half. The pilot/rollout half is omitted.  
+- **Calendar compressed** — Morgan named “holidays, events, and the SNAP benefit days, which really move grocery here” (T014). T027 says “calendar information.” Supported, but SNAP is a stakeholder-emphasized driver, not a generic calendar footnote.  
+- **Four-week cadence** — Morgan tied the 28-day window to “we review prices every four weeks, and whatever we set holds until the next review” (T012). T027 states the 28-day outcome window and the 25-per-cycle cap but does not say the decision rhythm is that four-week hold-until-next-review cycle.  
+- **Recommender / approver split** — T002 (“I make the recommendation and the store general manager signs off”) is not in the T027 sentence. Owner name is correct; the GM sign-off is context, not a missing action.  
+- **No fabricated outcome or fake constraint** — T027 does not invent margin, competitor data, multi-store rollout, or a hard 25-item quota that must be filled.
+
+Nothing in T027 is a clear misstatement of a locked stakeholder sentence. The gaps are omission/compression (pilot, SNAP, eligibility principles, cadence) and mild analyst diction (“product-store combinations,” “eligible”).
+
+---
+
+### Start Gate: **Pass**
+
+**Reasons.** All five template clauses now have stakeholder wording behind them: owner (T002), action set including can’t-tell (T002, T016), outcome (T004, T012), material constraints including volume, evidence, information, capacity/ranking, grain/scope, and pilot/expectation (T006–T026), and time scope (T012). Round-2 holes (how the 25 works; what “strongest” means; any further rejection rule) were closed in T024 and T026.
+
+Remaining items are **not Start blockers**: exact 10% / 25 values, eligibility cutoffs, ranking formula, department list, and price-change *magnitude* were delegated or left open for Framing / Stage 3. T027 is slightly deliverable-flavored and omits the pilot-not-rollout clause, but it does not invent an unsupported decision. Stakeholder confirmation of T027 is still outstanding as a procedural close, not as a missing frame.
+
+Do not treat this Pass as a lock of Stage 3 warrants (10%, 25, eligibility thresholds, scoring). Those stay on the warrant ledger.
+
+===== AI 3 — Red team (round 3) =====
+1. **Strongest reason the reconstructed decision may be wrong**  
+The T027 statement says Morgan “must decide which eligible product-store combinations … should receive a recommendation to raise… cut… or remain unchanged.” But the dialogue establishes that Morgan is the **recommender**, not the final approver: she makes the recommendation and the store GM signs off (T002, T004, T018, T024). The decision object is better framed as “what recommendation should Morgan put forward for each eligible product-store combination,” not “which products should receive a recommendation.” T027’s wording can also imply that only some products get a recommendation, whereas the dialogue suggests every eligible product gets a recommendation/outcome, including hold outcomes. This authority/object ambiguity is the strongest reason the reconstruction may be wrong.
+
+2. **Any missing decision option**  
+There is a likely missing or conflated outcome: **“hold — current price appears appropriate”** versus **“hold — not enough evidence.”** The stakeholder distinguishes “hold” and “hold — not enough evidence” in T020, but T027 says “remain unchanged” and “hold — not enough evidence.” It does not clearly label a positive hold based on adequate evidence. A second possible missing option is **“hold/do not change because the guardrail rejects an otherwise revenue-increasing move”**; T027 says guardrail violations must be avoided, but it does not say how those products appear in the output. They should not silently disappear.
+
+3. **Any leading or loaded language**  
+- Analyst T001: “where current shelf prices may not be capturing available revenue opportunities” presupposes that revenue opportunities exist. This was already flagged in round 1 and remains a mild framing carryover.  
+- T027: “Morgan Lee … must decide” overstates her authority relative to the GM sign-off.  
+- Snapshot: “one product-level retail pricing/revenue decision” is potentially misleading because the agreed grain is **product at a specific store**, not product-level across stores.  
+- Analyst T005 narrowed the stakeholder’s “without doing something dumb to the customer” into “unacceptable customer impact” and then asked specifically about volume decline; the stakeholder accepted volume, but the narrowing may have hidden other customer-impact concerns.  
+- “Strongest” and “trusted” are stakeholder words, but in T027 they are still dependent on an undefined scoring/evidence judgment delegated to the analyst.
+
+4. **Any conflict between stated outcome and proposed action**  
+The stated outcome is to **maximize expected product revenue over the following 28 days**. The proposed action is a ranked list where only the top approximately 25 actual price changes form the cycle package, with further qualifying changes shown below the line and excluded from the current cycle. If more than 25 positive-expected-revenue changes qualify, the current-cycle package cannot literally maximize total expected product revenue across all qualifying products. The capacity rule is legitimate, but the statement should say the ranking/package is subject to the capacity constraint, not simply “maximize” without qualification. The 10% unit-decline guardrail is a constraint on maximization, not a direct conflict.
+
+5. **Any hidden secondary decision**  
+Several secondary decisions remain hidden or delegated:
+- Eligibility cutoffs for “several real past price changes” and “steady sales” are delegated to the analyst with disclosure.
+- Mapping “everyday grocery and household aisles” to the actual data categories/departments is unresolved; the stakeholder was open to analyst suggestion.
+- The evidence threshold for “hold — not enough evidence” is not specified.
+- The scoring/ranking method for “strongest” is delegated to the analyst.
+- Treatment of products that pass revenue but fail the guardrail is not specified.
+- The exact California pilot store mapping is still a candidate to confirm.
+- Whether “about 25” is a hard or soft cap is not fully resolved, though T024 helps.
+
+6. **Any capacity, authority, or timing problem**  
+- **Authority:** Morgan recommends; the GM approves. T027 does not explicitly state that the analysis supports Morgan’s recommendation to the GM rather than the final price change.  
+- **Capacity:** The ~25 limit applies only to actual raise/cut recommendations; holds do not count but must be listed. T027 mostly captures this. The unresolved point is how guardrail-rejected or below-line “next in line” products are classified.  
+- **Timing:** The 28-day horizon, four-week cycle, end-of-history decision point, and no-look-ahead rule are stated. No major timing conflict appears at Start, though weekly price data and the exact decision date will need Stage 3 alignment.
+
+7. **Whether the analysis could actually change the decision**  
+Yes, in principle. The analysis could change which product-store recommendations Morgan takes to the GM by ranking trusted expected revenue gains, identifying holds, and flagging insufficient evidence. But the impact is bounded: no cost/margin, no competitor prices, no inventory, no randomized tests, and historical patterns are explicitly expectations for a pilot, not guarantees. It can inform prioritization and pilot selection; it cannot prove causal price effects.
+
+8. **Strongest alternative decision statement**  
+At the next four-week pricing review, Morgan Lee, Pricing & Revenue Manager, must decide what recommendation to put forward to the store general manager for each eligible product-store combination at the California pilot store in the everyday grocery and household aisles: recommend raising the shelf price, recommend a targeted price cut, recommend holding the current price because it appears appropriate, or report “hold — not enough evidence” because the available history cannot support a change. Recommendations should aim at the highest trusted expected product revenue over the following 28 days, using only pre-decision unit sales, shelf prices, and calendar history, and must not recommend a change expected to reduce units by more than about 10%. The output should rank trusted raise/cut recommendations by expected revenue gain; up to about 25 actual changes form the cycle package for the GM, with any further qualifying changes shown below the line as next in line and excluded from this cycle’s package. Products with insufficient evidence are listed separately as “hold — not enough evidence” and do not consume capacity. Historical patterns are expectations for a pilot, not guarantees.
+
+9. **Best falsifying stakeholder question (one question only)**  
+If a change has positive expected revenue but would breach your 10% unit-decline guardrail, should it be left out of the ranked list entirely, or still shown below the line as next in line with a guardrail warning?
+
+10. **Start gate verdict: Pass / Revise / Cannot yet frame**  
+**Revise.** The core decision is mostly framed: recommender/approver, product-store grain, action set, outcome, guardrail, timing, information boundary, capacity, uncertainty preference, and pilot context are all present. But T027 still has correctable issues: it blurs Morgan’s recommend-vs-GM-approve authority, does not clearly separate positive hold from insufficient-evidence hold, leaves the guardrail/capacity/next-in-line interaction ambiguous, and does not resolve the scope/eligibility mapping. It is not “Cannot yet frame” because the missing pieces are clarifications/corrections, not a fundamentally absent decision. It should not pass until those framing ambiguities are resolved with the stakeholder.
+
+===== YOUR TASK =====
+Return:
+SECTION 0 — Reconciliation: for each distinct finding, reconcile against the verbatim transcript (not by vote): accept / reject / defer-to-Framing-or-Stage-3, with a one-line reason grounded in the stakeholder's verbatim words. Where the transcript already answers a reviewer's question (for example, anything Morgan already said in T006, T016, T020, T024, T026), resolve it from her words rather than asking her again. Keep Start scope (no metrics, SQL, R, models, or thresholds).
+SECTION 1 — T029 stakeholder message: if a genuine ambiguity only Morgan can resolve remains, acknowledge and ask ONE question. Otherwise present the revised proposed decision statement (staying close to her own words) and ask her to confirm or correct it.
+SECTION 2 — Internal note: Start Gate elements established vs missing, and plan.

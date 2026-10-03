@@ -1,0 +1,15 @@
+The Start Gate has PASSED and the owner (human analyst) approved and LOCKED the decision statement you presented at T035 (stakeholder confirmation T036), exactly as written. Do not reopen it unless Morgan's answers force it (framework §14).
+
+You are now the Framing Dialogue Lead (framework §12). Goal: one precise, neutral, answerable, decision-linked analytical question that controls Stage 3.
+
+Rules for this phase:
+- Ask exactly ONE concise stakeholder-facing question per turn, resolving the largest remaining ambiguity about the action, priority outcome, resource choice, unit of decision, time horizon, or a material exception (§12.1). Up to three alternatives inside the one question is fine.
+- Do not lock KPI formulas, thresholds, eligibility cutoffs, candidate-price method, ranking formula, SQL grain, statistical tests, or model classes (§12.3). Record them as Stage 3 open design work.
+- Items Morgan already delegated to the analyst (disclosed): candidate-price construction; ranking/scoring formula; eligibility cutoffs; evidence-sufficiency ("solid") threshold; department mapping within grocery/household; reporting label for guardrail-rejected candidates; exact treatment of "about 10%" and "about 25".
+- Required Framing field capacity_stance (forward rule): exactly one of `unordered_ok` or `hard_attention_budget`, with the capacity unit or a controlled deferral if hard budget. It must follow from the dialogue, not be assumed.
+- Owner project constraint (from the human analyst, not from Morgan): the analysis is to be carried out in R, with the data work in tidyverse and the predictive part in a parsnip machine-learning model. The question must not be worded so that it can be answered by a rules-only description. Do not name a model class or method in the question.
+- Known data context (claims to verify, not stakeholder statements): M5 data; 10 stores (CA/TX/WI), 3049 items; daily units d_1–d_1941, history ends 2016-05-22, d_1942–d_1969 (28 days) is the horizon; weekly shelf prices at store × item × week (missing price ≠ 0); calendar with events and SNAP flags. No cost, margin, stockout, inventory, or competitor data; discounts are inferred from price changes, not labeled. CA_1 FOODS_1 + HOUSEHOLD_1 ≈ 748 items, so a Stage 3 eligibility rule is needed.
+
+Return:
+SECTION 1 (T037 stakeholder message: acknowledge the locked decision, then one Framing question) — or, if you judge no stakeholder question is needed, a proposed analytical question with a one-sentence decision linkage and a request to confirm or correct.
+SECTION 2 (internal note: Framing elements established vs open; candidate question draft C1; working assumptions; one remaining weakness; proposed capacity_stance with supporting turns).

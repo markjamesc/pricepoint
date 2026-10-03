@@ -1,0 +1,98 @@
+{
+  "step": "finish",
+  "phase": "complete",
+  "result": "PASS",
+  "checked_at_utc": "2026-10-03T03:01:40Z",
+  "checks": [
+    {
+      "check": "Step was authorized",
+      "result": "PASS",
+      "detail": "current_step must match completion request"
+    },
+    {
+      "check": "Controlling documents unchanged",
+      "result": "PASS",
+      "detail": "framework hashes must match run start"
+    },
+    {
+      "check": "Previously completed receipts unchanged",
+      "result": "PASS",
+      "detail": "completed artifact hashes must still match"
+    },
+    {
+      "check": "Workflow Gate report unchanged",
+      "result": "PASS",
+      "detail": "recorded workflow report hash must still match"
+    },
+    {
+      "check": "Required receipt exists and parses",
+      "result": "PASS",
+      "detail": "artifacts/stage5_interpretation_status.json"
+    },
+    {
+      "check": "Stage 5 required fields",
+      "result": "PASS",
+      "detail": "stage, status, workflow_gate_report_sha256, ai1_first_pass, ai2_first_pass, ai3_first_pass, information_barrier, cross_review, finish_gates, human_analyst_approval, unresolved_issues, deliverables"
+    },
+    {
+      "check": "Stage 5 number",
+      "result": "PASS",
+      "detail": "stage must equal 5"
+    },
+    {
+      "check": "Stage 5 status",
+      "result": "PASS",
+      "detail": "status must equal PASS"
+    },
+    {
+      "check": "Stage 5 ai1_first_pass",
+      "result": "PASS",
+      "detail": "ai1_first_pass must equal PASS"
+    },
+    {
+      "check": "Stage 5 ai2_first_pass",
+      "result": "PASS",
+      "detail": "ai2_first_pass must equal PASS"
+    },
+    {
+      "check": "Stage 5 ai3_first_pass",
+      "result": "PASS",
+      "detail": "ai3_first_pass must equal PASS"
+    },
+    {
+      "check": "Stage 5 information_barrier",
+      "result": "PASS",
+      "detail": "information_barrier must equal PASS"
+    },
+    {
+      "check": "Stage 5 cross_review",
+      "result": "PASS",
+      "detail": "cross_review must equal PASS"
+    },
+    {
+      "check": "Stage 5 finish_gates",
+      "result": "PASS",
+      "detail": "finish_gates must equal PASS"
+    },
+    {
+      "check": "Human analyst approval",
+      "result": "PASS",
+      "detail": "human_analyst_approval must equal APPROVED"
+    },
+    {
+      "check": "Stage 5 unresolved issues",
+      "result": "PASS",
+      "detail": "unresolved_issues must equal 0"
+    },
+    {
+      "check": "Stage 5 deliverables recorded",
+      "result": "PASS",
+      "detail": "deliverables must name existing nonempty files inside the project"
+    },
+    {
+      "check": "Stage 5 used certified Workflow Gate report",
+      "result": "PASS",
+      "detail": "workflow gate report hash must match"
+    }
+  ]
+}

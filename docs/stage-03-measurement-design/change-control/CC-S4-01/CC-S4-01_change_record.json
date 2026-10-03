@@ -1,0 +1,18 @@
+{
+  "change_id": "CC-S4-01",
+  "step": "design",
+  "reason": "Stage 4 reconciliation (R-A r1 vs R-B r9, 64/75 fields) failed only on model-prediction fields. A probe showed both paths build an identical design matrix up to column order; at glmnet's default convergence threshold (1e-7) the fit stops before convergence and its predictions depend on column order by up to 0.0715 units (above the 0.05 tolerance); at 1e-12 the difference is 0.0002. Locked §17A.2 sets no convergence threshold. Design text v5.2 (2065773c3224dd6eb083ef6b8f57deb88786ee1742d7da5f66f7fdf825278957) -> v5.3 (d3af4b594a80c8e458d8c41c4829cf1a8e250e0bbdbaf491811c8c26cbdc9a46) adds: \"Every glmnet fit (all CV folds and final fits, at every origin) uses convergence threshold thresh = 1e-12. No other model setting changes.\" Receipt v2 -> v3 updates design_version and decision_rules.model.spec accordingly. No tolerance is changed or waived. Both R paths are to be rebuilt and rerun from fixtures onward.",
+  "approval_text": "I approve CC-S4-01: add glmnet convergence threshold 1e-12 to §17A.2 and rebuild/rerun both paths.",
+  "approval_timestamp": "2026-10-02T11:43:00-05:00",
+  "superseded_sha256": "a68575d5aa0ac0c431a1d308fe477eac53c90eefaebcbb880c68ffca783ab9e3",
+  "new_sha256": "4fb33333bfe1e0310ed433dbe50bc433ba5a05bb7c7eb1fcd64457a1e7eae948",
+  "archive_path": "artifacts/procedure/amendments/CC-S4-01/stage3_locked_design.v2.json",
+  "run_id": "PRICEPOINT-001",
+  "new_receipt_path": "docs/stage-03-measurement-design/change-control/CC-S4-01/stage3_locked_design.v3.json",
+  "bound_document": "Validation Gate brief draft v6 (decision R8 = CC-S4-01, option (a))",
+  "bound_document_sha256": "96f4a67482770e49d49c56e7207332fe4f85fbedb937f4bb5b39a1e065a2a3d7",
+  "design_text_superseded_sha256": "2065773c3224dd6eb083ef6b8f57deb88786ee1742d7da5f66f7fdf825278957",
+  "design_text_new_path": "docs/stage-03-measurement-design/change-control/CC-S4-01/08_CONSOLIDATED_CANDIDATE_v5_3.md",
+  "design_text_new_sha256": "d3af4b594a80c8e458d8c41c4829cf1a8e250e0bbdbaf491811c8c26cbdc9a46",
+  "not_validation_gate_approval": true
+}

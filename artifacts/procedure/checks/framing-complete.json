@@ -1,0 +1,93 @@
+{
+  "step": "framing",
+  "phase": "complete",
+  "result": "PASS",
+  "checked_at_utc": "2026-09-25T08:54:17Z",
+  "checks": [
+    {
+      "check": "Step was authorized",
+      "result": "PASS",
+      "detail": "current_step must match completion request"
+    },
+    {
+      "check": "Controlling documents unchanged",
+      "result": "PASS",
+      "detail": "framework hashes must match run start"
+    },
+    {
+      "check": "Previously completed receipts unchanged",
+      "result": "PASS",
+      "detail": "completed artifact hashes must still match"
+    },
+    {
+      "check": "Workflow Gate report unchanged",
+      "result": "PASS",
+      "detail": "recorded workflow report hash must still match"
+    },
+    {
+      "check": "Required receipt exists and parses",
+      "result": "PASS",
+      "detail": "artifacts/stage2_framing.json"
+    },
+    {
+      "check": "Stage 2 required fields",
+      "result": "PASS",
+      "detail": "stage, status, analytical_question, capacity_stance, ai1_builder, ai2_decision_fit_review, ai3_framing_red_team, cross_review, framing_gate, stakeholder_approval, human_analyst_approval, unresolved_issues"
+    },
+    {
+      "check": "Stage 2 number",
+      "result": "PASS",
+      "detail": "stage must equal 2"
+    },
+    {
+      "check": "Stage 2 locked",
+      "result": "PASS",
+      "detail": "status must equal LOCKED"
+    },
+    {
+      "check": "Capacity stance explicit",
+      "result": "PASS",
+      "detail": "capacity_stance must be unordered_ok or hard_attention_budget"
+    },
+    {
+      "check": "Stage 2 ai1_builder",
+      "result": "PASS",
+      "detail": "ai1_builder must equal PASS"
+    },
+    {
+      "check": "Stage 2 ai2_decision_fit_review",
+      "result": "PASS",
+      "detail": "ai2_decision_fit_review must equal PASS"
+    },
+    {
+      "check": "Stage 2 ai3_framing_red_team",
+      "result": "PASS",
+      "detail": "ai3_framing_red_team must equal PASS"
+    },
+    {
+      "check": "Stage 2 cross_review",
+      "result": "PASS",
+      "detail": "cross_review must equal PASS"
+    },
+    {
+      "check": "Stage 2 framing_gate",
+      "result": "PASS",
+      "detail": "framing_gate must equal PASS"
+    },
+    {
+      "check": "Stage 2 stakeholder approval",
+      "result": "PASS",
+      "detail": "stakeholder_approval must equal APPROVED"
+    },
+    {
+      "check": "Stage 2 human approval",
+      "result": "PASS",
+      "detail": "human_analyst_approval must equal APPROVED"
+    },
+    {
+      "check": "Stage 2 unresolved issues",
+      "result": "PASS",
+      "detail": "unresolved_issues must equal 0"
+    }
+  ]
+}

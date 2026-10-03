@@ -1,0 +1,4 @@
+STAKEHOLDER REPLY (T018, verbatim):
+"Close, but you're missing something that matters in practice. My team can realistically work up about 25 price-change recommendations per four-week cycle — that's what we can get through with the GM. If more products than that qualify, I need to know which ones matter most so we take the strongest first. If fewer qualify, that's fine; don't pad the list to hit 25. Everything else reads right."
+
+Return SECTION 1 (T019 stakeholder message: acknowledge, then one question) and SECTION 2 (internal note: Start Gate elements established vs missing, plan). When you judge that every Start Gate element is established, SECTION 1 should instead present the proposed decision statement to the stakeholder and ask her to confirm or correct it.

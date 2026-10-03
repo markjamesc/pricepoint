@@ -1,0 +1,94 @@
+## SECTION 1 — STAKEHOLDER MESSAGE (T013)
+
+Thanks, Morgan. That establishes the timing: recommendations are made at a four-week pricing review cadence, and the outcome window for judging a change is the following 28 days. I’ll also treat the review point as the end of the available history and avoid using information that would not have been available at that decision date.
+
+At the pricing review, what information would you expect to have available when making the raise, targeted cut, or hold recommendation?
+
+---
+
+## SECTION 2 — INTERNAL NOTE (not sent)
+
+**Start Gate status:** Not yet complete.
+
+### Established
+
+**Decision owner:**
+Established.
+
+* Morgan Lee makes the recommendation.
+* Store general manager signs off.
+
+**Action or choice:**
+Established.
+
+* Raise shelf price.
+* Take a targeted price cut.
+* Leave shelf price unchanged.
+
+**Outcome:**
+Established.
+
+* Maximize expected product revenue.
+* Revenue = units sold × shelf price over the 28 days after the change.
+
+**Material constraint:**
+Established.
+
+* Do not recommend a move expected to reduce units by more than approximately 10%.
+* A price cut is acceptable if units increase and revenue holds.
+
+**Product/store grain:**
+Established.
+
+* Decision unit: product at a specific store.
+* Initial scope: one California pilot store.
+
+**Category scope:**
+Established.
+
+* Everyday grocery and household aisles.
+* Exact department selection remains an analytical scope choice.
+
+**Eligibility principle:**
+Established.
+
+* Product should have meaningful historical shelf-price changes.
+* Product should sell steadily enough that a change could be evaluated.
+* Cutoffs are delegated to analysis with rationale required.
+* Preference is a smaller defensible list over a larger speculative list.
+
+**Time scope:**
+Established.
+
+* Pricing review occurs every four weeks.
+* Evaluation horizon is 28 days after the price change.
+* Decision point is frozen at the end of available history.
+* Only information available at that point may be used.
+
+**Analytical relevance:**
+Established.
+
+* Evidence may change the raise/cut/hold recommendation.
+
+### Still missing
+
+**Information available at decision time:**
+Missing.
+
+* Need Morgan to define what information she expects to have in the pricing review context.
+
+**Uncertainty tolerance:**
+Missing.
+
+* Need to determine how much uncertainty is acceptable before making a recommendation.
+
+**Stakeholder confirmation of final decision statement:**
+Not ready.
+
+* Two Start Gate elements remain unresolved.
+
+### Plan
+
+Continue Start dialogue with one question per turn.
+
+The next priority is establishing the information available at decision time. After that, resolve uncertainty tolerance. Once those elements are established, present the proposed decision statement to Morgan for confirmation or correction.

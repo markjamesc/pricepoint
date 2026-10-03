@@ -1,0 +1,2 @@
+n_envelope_items	dept_list	min_json_len_envelope	max_json_len_envelope	n_calendar_rows	n_calendar_weeks	n_days_week_11621	wday_2016_05_21	date_d_1941	d_on_2016_05_22	min_wday	max_wday	n_wday_out_of_domain	n_snap_ca_out_of_domain	n_prices	n_prices_le_11617	n_prices_11618_11621	n_prices_le_zero	n_prices_null	sum_sell_price	prices_crc32_sum	n_dup_price_keys
+2484	FOODS_1,FOODS_2,FOODS_3,HOUSEHOLD_1,HOUSEHOLD_2	1941	1941	1969	282	2	1	2016-05-22	1941	1	7	0	0	568783	558847	9936	0	0	2392609.02	1221744037696802	0

@@ -1,0 +1,75 @@
+ROLE: AI 2 — Decision Architect and Independent Reconstructor (Stage 1 Start review), run PRICEPOINT-001.
+You are one of three separate AI instances. Work only from this packet. Do not design metrics, SQL, R, models, or thresholds.
+
+Return ALL of the following numbered items:
+1. Best reconstruction of the decision
+2. Decision owner
+3. Available actions or choices
+4. Intended outcome
+5. Material constraint
+6. Time scope or deadline
+7. Evidence that would change the action
+8. Strongest remaining ambiguity
+9. Best next stakeholder question (one question only)
+10. Preliminary decision statement, in the form "[Decision owner] must decide whether/which [action or choice] in order to [outcome], subject to [material constraint], by/for [time scope]." Mark any clause not yet supported by the stakeholder as MISSING rather than filling it in.
+
+Then state whether the Start Gate looks ready from your reconstruction (Pass / Revise / Cannot yet frame) with brief reasons.
+
+---
+START REVIEW PACKET (identical for AI 2 and AI 3; each reviewer works independently and never sees the other's review)
+
+ORGANIZATIONAL CONTEXT
+- Portfolio methodology evaluation project "PricePoint" (Dataset 3 of 3). Owner-locked project class: "PricePoint must support one product-level retail pricing/revenue decision using M5 sales, price, and calendar evidence." One dataset = one decision.
+- Stakeholder: Morgan Lee, fictional Pricing & Revenue Manager (SYNTHETIC, simulated). Not a real retailer representative.
+- Data availability (claims to verify later, not now): daily unit sales per product per store (~5.4 years, 3 states, 10 stores, categories FOODS / HOUSEHOLD / HOBBIES), weekly shelf prices per product per store, daily calendar with events and SNAP benefit-day flags. NOT available: unit cost, margin, inventory/stockouts, competitor prices, customer-level data, randomized price tests. Past price reductions are observed shelf-price changes, not labelled promotions.
+- Stage 1 (Start) scope only: no SQL, R, KPI formulas, models, or thresholds.
+
+ORIGINAL REQUEST (T000, verbatim)
+"I keep hearing we're leaving money on the table with our shelf prices. Can you dig into our sales and price history and tell me which products we should be changing prices on? I'd like something I can actually use at our next pricing review."
+
+VERBATIM DIALOGUE SO FAR
+## Turn T000 — Stakeholder opening (Start)
+- Speaker: Morgan Lee (stakeholder, synthetic)
+- Phase: Start
+- Exact wording:
+> I keep hearing we're leaving money on the table with our shelf prices. Can you dig into our sales and price history and tell me which products we should be changing prices on? I'd like something I can actually use at our next pricing review.
+
+- Analytical effect: Incomplete pricing/revenue request recorded. Decision owner, action set, outcome, constraint, and time scope not yet established.
+
+---
+
+## Turn T001 — Analyst message (Start)
+- Speaker: Human analyst channel; drafted by AI 1 (ChatGPT, GPT-5.6 Sol, reasoning High 3 of 4 — highest level available on the Plus plan; 4 of 4 requires an upgrade), relayed unedited by the Framework Coordinator
+- Source: reviews/ai1_T001_raw.txt (chat https://chatgpt.com/c/6ab614b5-44a4-83e9-bf78-075f0421b5d8)
+- Phase: Start
+- Exact wording:
+> Thanks, Morgan. It sounds like you want to use the sales and price history to support a pricing review decision, specifically around where current shelf prices may not be capturing available revenue opportunities.
+> 
+> Examples of decisions this analysis might support are:
+> 
+> * whether to increase prices on selected products where the business believes there may be room to capture more revenue,
+> * whether to reduce prices on selected products where a price change could improve sales outcomes,
+> * whether to leave certain products unchanged because the current pricing appears appropriate.
+> 
+> These are examples of possible decisions, not the only options. Which decision are you trying to make at the pricing review?
+- Analytical effect: Acknowledged request; offered three action-type examples (increase, reduce, hold) labelled non-exhaustive; asked which decision she is trying to make.
+
+---
+
+## Turn T002 — Stakeholder reply (Start)
+- Speaker: Morgan Lee (stakeholder, synthetic; Morgan Lee Simulator)
+- Phase: Start
+- Exact wording:
+> Honestly, it's all three — that's what a pricing review is. For each product we look at, I have to walk in with a recommendation: raise the shelf price, take a targeted price cut, or leave it where it is. I make the recommendation and the store general manager signs off. What I don't have is a good way to tell which of those three is the right call for a given product.
+
+- Analytical effect: Decision is a per-product three-way recommendation (raise / targeted cut / hold) at the pricing review. Recommender is Morgan; approver is the store GM. Outcome, scope (which products/stores), constraint, horizon, guardrail, and uncertainty tolerance not yet established.
+
+
+CURRENT DECISION SNAPSHOT (coordinator record of what has been said; not a conclusion)
+- Recommender: Morgan Lee. Approver: store general manager.
+- Stated actions per product at the pricing review: raise shelf price / targeted price cut / leave as is.
+- Not yet stated: which products and stores are in scope, the business outcome to improve or protect, any material constraint (capacity, risk, policy), decision deadline and horizon, downside guardrail, information available at decision time, uncertainty tolerance.
+
+UNRESOLVED ITEMS
+- Everything listed as "not yet stated" above.
+- Stakeholder confirmation of a decision statement (none proposed yet).

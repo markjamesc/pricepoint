@@ -1,0 +1,1 @@
+I approve CC-S4-02: in §23, cent_delta_rev reconciles on exact sign and within the $0.05 dollar tolerance; legal_change, guardrail_pass, action, package, below-line and rank stay exact; re-reconcile the existing R-A r2 / R-B r10 outputs.
